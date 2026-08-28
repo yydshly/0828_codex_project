@@ -340,7 +340,18 @@ Project 008 已把“保留导演内核、替换火柴人风格”进一步落�
 - 3×3 A/B 协议已经可执行，但在后端、预算、参考资产和审核人未定前保持 `ready_for_decision_not_executed`；
 - MIT 允许使用、修改和分发，但应保留许可证与版权声明。
 
-## 环境与复现
+## 远端发布
+
+- [GitHub Pages 专题页](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/)
+- [我们的 20 秒实测](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/#user-sample)
+- [机器可读实测审计](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/user-generated-sample.json)
+- [GitHub 项目目录](https://github.com/yydshly/0828_codex_project/tree/main/projects/stickman-video-director-study)
+- 内容提交：[`96442f2`](https://github.com/yydshly/0828_codex_project/commit/96442f2e22f144dbdd69f223c5100b0e1be4a523)
+- 首次部署：[GitHub Actions run 33196723476](https://github.com/yydshly/0828_codex_project/actions/runs/33196723476)，已成功完成。
+
+公开页面、20 秒 MP4 和审计 JSON 均已验证 HTTP 200；远端 Chromium 完整主路径检查为 54/54。
+
+## 本地复现
 
 初始化上游 submodule：
 

@@ -46,32 +46,36 @@ Observable completion criteria: source/ 指向上游固定提交；项目 README
 | 使用场景 | 高匹配、条件匹配、不适合 | 场景矩阵 | DOM、README | 3 | pass | HIGH FIT、CONDITIONAL、NOT A FIT 三层已交付 |
 | 扩展与价值 | 扩展路线、参考价值、后期价值 | 路线与采用建议 | DOM、README | 3 | pass | P0–P5、自有风格迁移、当前/近期/长期价值与采用路线已交付 |
 | 总库集成 | Project 008 卡片、README、构建与工作流 | 首页、项目页、CI | 导航、文件、构建 | 1、9 | pass | 总库卡片与项目入口、测试命令、三份 manifest 构建复制和 submodule checkout 已交付 |
-| 跨表面验收 | 桌面、平板、390px、键盘、媒体、reduced-motion | 主路径与关键状态 | 浏览器、截图 | 7–8 | pass | 47/47 浏览器检查通过，三视口无溢出，键盘、复制、媒体降级和 reduced-motion 通过 |
-| 自动检查 | Project 008、邻接项目与 Pages | Node、构建、HTTP | 命令输出 | 9 | pass | Project 008 静态 40/40、上游 README 合同、Project 006/009/010 回归和 Pages 构建通过；全库命令的 Project 007 并行契约失败单独记录 |
+| 跨表面验收 | 桌面、平板、390px、键盘、媒体、reduced-motion | 主路径与关键状态 | 浏览器、截图 | 7–8 | pass | 54/54 浏览器检查通过，三视口无溢出，键盘、复制、三类媒体降级和 reduced-motion 通过 |
+| 自动检查 | Project 008、邻接项目与 Pages | Node、构建、HTTP | 命令输出 | 9 | pass | Project 008 静态 48/48；独立发布 worktree 从零初始化 submodule、构建 Pages 并完成 54/54 浏览器回归 |
 | 风格解耦原型 | 三套自有风格适配器与不变量/覆盖项 | Style Adapter Lab、蓝图 JSON | 数据、DOM、交互 | 3–8 | pass | 三套研究适配合同、独立视觉批准、版本谱系和复制路径均已实现 |
 | 真实 A/B 入口 | 3 内容 × 3 风格测试矩阵、指标与待决项 | A/B 清单、页面摘要 | 数据、DOM | 3、9 | pass | 已固定九单元、六项主指标和四项执行前决策；未在条件不完整时调用付费生成 |
 | Phase 2 跨表面验收 | 三风格键盘切换、视觉批准、复制、三视口 | 适配器主路径 | 浏览器、截图 | 7–9 | pass | 真实 Chromium 验证两级批准、风格键盘切换、合同复制、全局失效与手机主路径，截图已保存 |
-| 用户实测证据 | 20 秒 CLIP 01–02 样例、审计与证据边界 | 实测视频区、实验 JSON | 文件、ffprobe、DOM、浏览器 | 1、3、8 | continue | 复制 MP4、固定哈希和媒体元数据，接入页面并验证加载与降级 |
-| 必要理解归纳 | 导演/风格/模型/剪辑职责与使用步骤 | 页面摘要、项目 README、根 README | DOM、文档 | 3、9 | continue | 增补五条必要理解和外部 README 关联，消除“一次六幕生成”的误解 |
-| Git 交付卫生 | 只提交 Project 008 及必要共享集成 | Git index、提交 | staged diff、commit | 9 | continue | 隔离并行项目改动，审计暂存区后创建单一 Project 008 提交 |
-| 远端部署 | origin/main 与 GitHub Pages 可访问新样例 | GitHub、公开页面 | push、workflow、HTTP、浏览器 | 9 | continue | 推送提交，等待 Pages 完成并验证远端视频、说明和 README 关联 |
+| 用户实测证据 | 20 秒 CLIP 01–02 样例、审计与证据边界 | 实测视频区、实验 JSON | 文件、ffprobe、DOM、浏览器 | 1、3、8 | pass | MP4、poster、接触表和审计 JSON 已固定；本地与远端均加载 20.01 秒、1280×720 视频并验证降级 |
+| 必要理解归纳 | 导演/风格/模型/剪辑职责与使用步骤 | 页面摘要、项目 README、根 README | DOM、文档 | 3、9 | pass | 页面与项目 README 均归纳五条必要理解；根 README 关联实测锚点、必要理解和机器审计 |
+| Git 交付卫生 | 只提交 Project 008 及必要共享集成 | Git index、提交 | staged diff、commit | 9 | pass | 提交 `96442f2` 仅包含 Project 008、必要总库入口、构建、测试和 Pages submodule 配置；并行项目改动保留在工作区 |
+| 远端部署 | origin/main 与 GitHub Pages 可访问新样例 | GitHub、公开页面 | push、workflow、HTTP、浏览器 | 9 | pass | origin/main 推送成功；Actions `33196723476` 成功；公开页面、MP4 与审计 JSON 均 HTTP 200，远端浏览器 54/54 |
 
 ## Runtime record
 
-- 当前阶段：Revision 3 / Stage 0；Revision 2 既有能力、适配器与浏览器证据保持 `pass`，用户实测、必要理解、Git 交付和远端部署重新打开为 `continue`。
+- 当前阶段：Revision 3 / Stage 9；所有 Project 008 覆盖项均为 `pass`，无 `continue`、`defer` 或 `blocked` 项。
 - 审计对象：`kaomei/stickman-video-director`。
 - 固定提交：`6d7f8c83a16c594c23bb73da832c8864ccd2aeb5`，提交时间 2026-08-20T09:51:21+08:00。
-- 入口授权：用户明确要求获取、研究、演示和总结；无需第二次页面实现确认。
+- 入口授权：用户明确要求接入我们的样例、整理必要理解、关联外部 README、提交远端 GitHub 并部署；无需第二次实现或推送确认。
 - 现有工作区：根 README、docs 首页、projects.json、package.json 等已有用户改动；本项目只做增量编辑。
 - 上游验证：`tests/verify-readmes.sh` 通过六份 README 合同；该测试只检查文档与资产，不是视频回归。
-- 静态验证：`npm run test:project-008`，40/40 通过。
+- 用户实测：`user-motivation-clips-01-02.mp4`，SHA-256 `5dd2efd0bbfc59b97c3697fb7bc42cf45632a3c2943f1fd0227e199a3ab25249`，20.01 秒、1280×720、24 FPS、480 帧；约 8.58 秒强视觉变化，覆盖 motivation CLIP 01–02。
+- 静态验证：`npm run test:project-008`，48/48 通过。
 - 全库回归：`npm run test:all` 已执行；Project 001–005 通过，在并行开发中的 Project 007 因其设计契约缺少可观察标准而停止。Project 008 独立通过；Project 006（22/22）、Project 009（30/30）和 Project 010（29/29）另行通过。未修改 Project 007。
-- Pages 构建：`npm run build:pages` 通过；规范输出为 `.pages-dist`。
-- 规范地址：`http://127.0.0.1:4173/projects/stickman-video-director-study/`，HTTP 200。
+- Pages 构建：当前工作区与独立提交 worktree 均通过 `npm run build:pages`；规范输出为 `.pages-dist`。
+- 本地地址：`http://127.0.0.1:4173/projects/stickman-video-director-study/`，HTTP 200。
+- 公开地址：`https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/`，HTTP 200。
 - 浏览器工具：`agent-browser` CLI 在当前环境不可用；使用 Codex workspace bundled Playwright 完成等价真实 Chromium 验证。
-- 浏览器验证：47/47 通过；两条本地 MP4 元数据均为 1280×720、10.005 秒；无外部运行请求、控制台或页面错误。
+- 浏览器验证：本地发布 worktree 与 GitHub Pages 远端均 54/54 通过；两条上游 MP4 为 1280×720、10.005 秒，用户实测为 1280×720、20.01 秒；无外部运行请求、控制台或页面错误。
 - 交互验证：三案例、六镜头、画幅、明暗主题、导演批准、三风格、独立视觉批准、风格切换只重置视觉版本、全局修改重置两级批准、两类合同复制、键盘方向键和视频错误降级均通过。
 - 视口验证：1440×1000、820×1180、390×844 的 `scrollWidth` 均等于 `clientWidth`。
 - reduced-motion：浏览器计算 `html` 的 `scroll-behavior` 为 `auto`。
-- 证据截图：`assets/project-008-desktop.png`、`assets/project-008-official-videos.png`、`assets/project-008-lab.png`、`assets/project-008-style-adapters.png`、`assets/project-008-mobile.png`。
-- 终端审计：所有 Project 008 覆盖项为 `pass`；未安装全局 Skill，未调用视频模型，未提交、推送或部署。
+- 证据截图：`assets/project-008-desktop.png`、`assets/project-008-official-videos.png`、`assets/project-008-user-sample.png`、`assets/project-008-lab.png`、`assets/project-008-style-adapters.png`、`assets/project-008-mobile.png`。
+- Git 交付：内容提交 `96442f2e22f144dbdd69f223c5100b0e1be4a523` 已推送 `origin/main`；GitHub Pages workflow run `33196723476` 成功。
+- 远端媒体：页面 HTML、用户实测 MP4 与 `user-generated-sample.json` 均返回 HTTP 200；MP4 的远端 `Content-Type` 为 `video/mp4`、`Content-Length` 为 6,734,634。
+- 终端审计：所有 Project 008 覆盖项为 `pass`；未安装全局 Skill，未调用新的视频模型；并行项目改动未进入提交。
