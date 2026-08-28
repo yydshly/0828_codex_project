@@ -47,7 +47,7 @@ Observable completion criteria: 直达专题页完整覆盖所需信息；仓库
 | 远端部署 | main 提交和 GitHub Pages | Git / Actions / 线上 URL | 提交、推送、HTTP 与页面 DOM | 9 | pass | 无 |
 | 外层 README | 总项目表格、目录、地址和状态登记 | 仓库根 README | Markdown 链接与 GitHub 页面 | 3、9 | pass | 无 |
 | 网站总入口 | Project 006 卡片、封面与总数 | 首页 / 项目索引 | DOM、链接、桌面与手机截图 | 3、7 | pass | 无 |
-| 修订部署 | 入口增量提交与 Pages 更新 | Git / Actions / 线上 URL | 提交、工作流、线上导航 | 9 | continue | 验证后提交并推送 |
+| 修订部署 | 入口增量提交与 Pages 更新 | Git / Actions / 线上 URL | 提交、工作流、线上导航 | 9 | pass | 无 |
 
 ## Runtime record
 
@@ -64,3 +64,6 @@ Observable completion criteria: 直达专题页完整覆盖所需信息；仓库
 - 线上地址：`https://yydshly.github.io/0828_codex_project/projects/nativepdf-structurer-analysis/`；页面状态 `complete`，标题、最终判断与 3 个路线标签存在，390×844 无页面级横向溢出，线上控制台与页面错误为零。
 - 总入口修订验证：2026-08-29 在 `http://127.0.0.1:48216/` 检查；首页渲染 6 张项目卡，Project 006 卡片、封面、状态和两个入口完整；1440px 与 390px 均无页面级或卡片级横向溢出，从总入口进入专题页后标题与锚点正确。
 - 修订静态检查：22/22 通过；Pages 构建通过；总入口和专题页控制台与页面错误为零。
+- 总入口提交：`6826bf7999a20e08214b4f81d53c59295e6e72b9`；只包含 Project 006 的根 README、总入口、封面和验收增量，不含工作区中 Project 005 及其他项目内容。
+- 总入口部署：[Deploy GitHub Pages #33191839878](https://github.com/yydshly/0828_codex_project/actions/runs/33191839878)，结论 `success`。
+- 线上闭环：GitHub 根 README 同时提供在线总结、仓库档案和页面源码入口；Pages 总库渲染 Project 006 卡片，390×844 无页面级或卡片级溢出，点击“阅读最终判断”可进入专题页并看到最终结论。
