@@ -8,6 +8,7 @@
     "preview:pages": "node scripts/serve-pages.mjs",
     "test:project-001": "node --check projects/outrun-the-level/game/game.js && node projects/outrun-the-level/game/tests/static-check.mjs",
     "test:project-002": "node --check docs/projects/gear-zero-platform-study/app.js && node projects/gear-zero-platform-study/tests/static-check.mjs",
-    "test:all": "npm run test:project-001 && npm run test:project-002"
+    "test:project-004": "node --check docs/projects/daizhige-capability-atlas/app.js && node projects/daizhige-capability-atlas/tests/static-check.mjs",
+    "test:all": "npm run test:project-001 && npm run test:project-002 && npm run test:project-004"
   }
 }

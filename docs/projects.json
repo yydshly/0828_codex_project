@@ -19,5 +19,17 @@
     "summary": "以 Gear Zero 为公开参照，研究如何把 Skills、项目状态、动态调度、自动验证与版本系统组织成用户驱动的数字产品平台。",
     "url": "./projects/gear-zero-platform-study/",
     "image": "./assets/gear-zero-platform-study-cover.svg"
+  },
+  {
+    "id": "daizhige-capability-atlas",
+    "number": "004",
+    "name": "DAIZHIGE CAPABILITY ATLAS",
+    "status": "已归档 · 按需启用",
+    "category": "古籍资料备份与能力档案",
+    "summary": "不保存 4.8 GiB 正文镜像，通过固定 Git tree 登记殆知阁的能力、十大门类、代表书目和风险；仅在相关古籍产品出现时作为候选资料源重新评估。",
+    "url": "./projects/daizhige-capability-atlas/",
+    "demoUrl": "./projects/daizhige-capability-atlas/#catalog",
+    "demoLabel": "查看归档总结 →",
+    "image": "./assets/daizhige-capability-atlas-cover.svg"
   }
 ]

@@ -36,7 +36,7 @@ function projectCard(project) {
     const demoLink = document.createElement('a');
     demoLink.className = 'project-demo';
     demoLink.href = project.demoUrl;
-    demoLink.textContent = '开始游戏 →';
+    demoLink.textContent = project.demoLabel || '开始演示 →';
     actions.append(demoLink);
   }
 
