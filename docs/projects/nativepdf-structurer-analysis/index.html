@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="nativePDF-structurer 的能力、本质、使用场景、扩展方向与同类产品研究总结。">
+    <meta name="theme-color" content="#071014">
+    <title>NATIVE PDF, STRUCTURED · Project 006</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到正文</a>
+
+    <header class="site-header">
+      <a class="brand" href="../../" aria-label="返回 0828 Codex Project 研究总库">
+        <span>0828 / RESEARCH</span>
+        <strong>PROJECT 006</strong>
+      </a>
+      <nav class="section-nav" aria-label="本页章节">
+        <a href="#judgment" data-nav="judgment">判断</a>
+        <a href="#essence" data-nav="essence">本质</a>
+        <a href="#capabilities" data-nav="capabilities">能力</a>
+        <a href="#scenarios" data-nav="scenarios">场景</a>
+        <a href="#alternatives" data-nav="alternatives">同类</a>
+        <a href="#extensions" data-nav="extensions">扩展</a>
+      </nav>
+      <a class="source-link" href="https://github.com/crunz-ai/nativePDF-structurer">SOURCE ↗</a>
+      <div class="reading-progress" aria-hidden="true"><i id="readingProgress"></i></div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="judgment" data-section="judgment" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">PDF STRUCTURING / RAG PREPROCESSING / 2026-08-29</p>
+          <h1 id="page-title">NATIVE PDF,<br><span>STRUCTURED.</span></h1>
+          <p class="hero-lede">它不是新的 PDF 理论，也不是完整 RAG。它是一套面向数字原生技术手册的确定性结构恢复代码：把 PDF 对象整理成更可检索、可分块、可回溯的材料。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#essence">看懂它的位置</a>
+            <button class="button secondary" type="button" id="copyJudgment">复制最终判断</button>
+          </div>
+          <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
+        </div>
+
+        <aside class="verdict-card" aria-label="研究优先级判断">
+          <div class="verdict-head">
+            <span>RESEARCH VERDICT</span>
+            <b>WATCHLIST</b>
+          </div>
+          <p class="verdict-kicker">最终判断</p>
+          <strong>暂不列为通用 PDF 方向的核心研究。</strong>
+          <p>保留为“数字原生工业手册 → RAG”专用能力、工程参考与对照基线。只有当自有语料高度匹配时，再投入适配。</p>
+          <dl>
+            <div><dt>研究新颖性</dt><dd><span style="--score: 32%">有限</span></dd></div>
+            <div><dt>工程完整度</dt><dd><span style="--score: 68%">可观</span></dd></div>
+            <div><dt>通用适配度</dt><dd><span style="--score: 40%">受限</span></dd></div>
+            <div><dt>目标场景价值</dt><dd><span style="--score: 82%">条件性高</span></dd></div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="signal-strip" aria-label="一句话结论">
+        <div><span>不是</span><strong>OCR / VLM</strong></div>
+        <div><span>不是</span><strong>完整 RAG</strong></div>
+        <div><span>是</span><strong>结构恢复层</strong></div>
+        <div><span>目标</span><strong>RAG-ready 输入</strong></div>
+      </section>
+
+      <section class="section" id="essence" data-section="essence" aria-labelledby="essence-title">
+        <div class="section-label"><span>01</span><p>ESSENCE</p></div>
+        <div class="section-body">
+          <h2 id="essence-title">它占据的是“读取 PDF”与“进入 RAG”之间的那一层。</h2>
+          <p class="section-intro">PDF 底层更像绘图指令：在某个坐标写文字、画线、放图片。直接解析能拿到对象，却未必知道对象之间的文档关系。这个库的价值，是把对象重新组合成章节、表格、图、图题和阅读顺序。</p>
+
+          <div class="layer-stack" aria-label="PDF 到 RAG 的三层技术位置">
+            <article>
+              <span>LAYER 01 · READ</span>
+              <h3>PyMuPDF 读取对象</h3>
+              <p>文字、字体、坐标、图片、矢量路径、PDF 目录。</p>
+              <small>底层能力</small>
+            </article>
+            <i aria-hidden="true">↓</i>
+            <article class="is-focus">
+              <span>LAYER 02 · STRUCTURE</span>
+              <h3>nativePDF 恢复结构</h3>
+              <p>表格、视觉区域、内容归属、标题、公式、阅读顺序与来源。</p>
+              <small>本库所在层</small>
+            </article>
+            <i aria-hidden="true">↓</i>
+            <article>
+              <span>LAYER 03 · RETRIEVE</span>
+              <h3>RAG 系统完成检索</h3>
+              <p>Chunk、Embedding、向量库、Rerank、问答与引用。</p>
+              <small>下游能力</small>
+            </article>
+          </div>
+
+          <blockquote>
+            <p>本质公式</p>
+            <strong>PDF 原生对象 ＋ 几何规则 ＋ 冲突仲裁 ＋ 阅读顺序 ＝ 可进入 RAG 的结构化材料</strong>
+          </blockquote>
+
+          <div class="route-lab" id="route-lab">
+            <div class="route-lab-head">
+              <div>
+                <span>ROUTE COMPARISON</span>
+                <h3>三种处理路线，解决的问题不同</h3>
+              </div>
+              <div class="route-tabs" role="tablist" aria-label="PDF 处理路线">
+                <button type="button" role="tab" id="route-direct" aria-controls="panel-direct" aria-selected="false" tabindex="-1" data-route="direct">直接提取</button>
+                <button type="button" role="tab" id="route-structure" aria-controls="panel-structure" aria-selected="true" data-route="structure">规则结构化</button>
+                <button type="button" role="tab" id="route-model" aria-controls="panel-model" aria-selected="false" tabindex="-1" data-route="model">OCR / 模型</button>
+              </div>
+            </div>
+
+            <div class="route-panel" id="panel-direct" role="tabpanel" aria-labelledby="route-direct" data-route-panel="direct">
+              <div><span>速度</span><strong>最快</strong></div>
+              <div><span>输出</span><strong>文字与基础坐标</strong></div>
+              <div><span>适合</span><strong>简单单栏 PDF</strong></div>
+              <p>成本最低，但表格可能被摊平成文字，多栏顺序、图片关联和来源结构需要自己继续开发。</p>
+            </div>
+            <div class="route-panel" id="panel-structure" role="tabpanel" aria-labelledby="route-structure" data-route-panel="structure">
+              <div><span>速度</span><strong>比模型路线快</strong></div>
+              <div><span>输出</span><strong>MD + CSV + PNG + IR</strong></div>
+              <div><span>适合</span><strong>长篇原生技术手册</strong></div>
+              <p>利用原生文字和图元做确定性结构恢复；比直接提取多做大量几何判断，但避免整页 OCR、模型推理和网络调用。</p>
+            </div>
+            <div class="route-panel" id="panel-model" role="tabpanel" aria-labelledby="route-model" data-route-panel="model">
+              <div><span>速度</span><strong>通常更慢</strong></div>
+              <div><span>输出</span><strong>结构 + OCR + 语义</strong></div>
+              <div><span>适合</span><strong>扫描件与复杂视觉</strong></div>
+              <p>可以识别扫描文字、公式和图片含义，覆盖面更大；代价是模型、算力、部署复杂度和可能的非确定性。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="capabilities" data-section="capabilities" aria-labelledby="capabilities-title">
+        <div class="section-label"><span>02</span><p>CAPABILITY</p></div>
+        <div class="section-body">
+          <h2 id="capabilities-title">核心不是“识别所有细节”，而是尽可能恢复结构关系。</h2>
+          <p class="section-intro">它覆盖对象提取与结构推断，不覆盖业务语义理解。规则支持过的版式会稳定复现，未覆盖的特殊版式仍然可能误判。</p>
+
+          <div class="boundary-grid">
+            <article class="can-do">
+              <header><span>CAN DO</span><strong>已实现的结构能力</strong></header>
+              <ul>
+                <li><b>原生文字</b><span>保留字体、字号、方向和坐标</span></li>
+                <li><b>阅读顺序</b><span>多栏、旋转文字、编号窄列</span></li>
+                <li><b>表格</b><span>原生检测、几何补检、PNG/CSV 兜底</span></li>
+                <li><b>复合视觉区</b><span>位图、矢量、引线、标签合并</span></li>
+                <li><b>内容归属</b><span>表格、图片、正文之间的 Claim 仲裁</span></li>
+                <li><b>来源追踪</b><span>页码、bbox、图元 ID 和输出路径</span></li>
+              </ul>
+            </article>
+            <article class="cannot-do">
+              <header><span>CANNOT DO</span><strong>明确不解决的问题</strong></header>
+              <ul>
+                <li><b>扫描识字</b><span>没有 OCR，纯图片页无法恢复文字</span></li>
+                <li><b>图片理解</b><span>能保留设备图，但不知道设备图含义</span></li>
+                <li><b>复杂公式语义</b><span>默认截图，LaTeX 只做保守尝试</span></li>
+                <li><b>全格式通吃</b><span>艺术排版、表单、罕见结构仍可能失败</span></li>
+                <li><b>完整 RAG</b><span>不提供 Embedding、向量库和问答</span></li>
+                <li><b>公开精度保证</b><span>没有统一公开数据集对标结论</span></li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="guardrail-grid">
+            <article><span>01</span><h3>表格多路径兜底</h3><p>原生检测失败时使用规则线几何补检；复杂表格宁愿保留 PNG，也不强行输出错误的 Markdown。</p></article>
+            <article><span>02</span><h3>Claim 冲突仲裁</h3><p>多个检测器争用同一文字或线条时，根据优先级、置信度和关键特征决定归属，减少重复。</p></article>
+            <article><span>03</span><h3>双 bbox 设计</h3><p><code>render_bbox</code> 决定完整截图，<code>sort_bbox</code> 只承担排序锚点，避免大图破坏阅读顺序。</p></article>
+            <article><span>04</span><h3>可审计输出</h3><p>调试模式保留 IR、Claim、页面阶段、冲突和来源数据，便于定位规则为什么失效。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="scenarios" data-section="scenarios" aria-labelledby="scenarios-title">
+        <div class="section-label"><span>03</span><p>SCENARIOS</p></div>
+        <div class="section-body">
+          <h2 id="scenarios-title">它的价值高度依赖语料类型。</h2>
+          <p class="section-intro">不是“处理 PDF 就应该用它”，而是先判断文档是否数字原生、是否结构复杂、是否需要 RAG 和来源追踪。</p>
+
+          <div class="decision-flow" aria-label="使用决策流程">
+            <article>
+              <span>Q1</span><h3>文字可以直接选中吗？</h3>
+              <p>否 → 先用 OCR、MinerU、Docling 或 Marker。</p>
+            </article>
+            <i aria-hidden="true">→</i>
+            <article>
+              <span>Q2</span><h3>只是简单正文吗？</h3>
+              <p>是 → 直接 PyMuPDF 通常更简单、更快。</p>
+            </article>
+            <i aria-hidden="true">→</i>
+            <article class="is-match">
+              <span>Q3</span><h3>是长篇技术手册吗？</h3>
+              <p>是 → nativePDF 值得作为候选解析器测试。</p>
+            </article>
+          </div>
+
+          <div class="scenario-grid">
+            <article><span>HIGH FIT</span><h3>设备与维修手册</h3><p>数十到数百页，图、编号、引线、参数表和重复模板大量混排。</p></article>
+            <article><span>HIGH FIT</span><h3>工业产品目录</h3><p>需要同时保留参数 CSV、尺寸图 PNG、章节路径与具体页码。</p></article>
+            <article><span>HIGH FIT</span><h3>离线 RAG 预处理</h3><p>不希望上传私密文档，也不希望对每页运行 OCR/VLM。</p></article>
+            <article><span>MEDIUM FIT</span><h3>混合解析前置层</h3><p>原生页走规则结构化，只把扫描页和复杂图路由给模型。</p></article>
+            <article class="is-low"><span>LOW FIT</span><h3>扫描档案</h3><p>没有健康文字层，核心能力无法启动。</p></article>
+            <article class="is-low"><span>LOW FIT</span><h3>公式论文与视觉问答</h3><p>需要公式识别、图表语义或跨模态理解，应使用模型路线。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="alternatives" data-section="alternatives" aria-labelledby="alternatives-title">
+        <div class="section-label"><span>04</span><p>ALTERNATIVES</p></div>
+        <div class="section-body">
+          <h2 id="alternatives-title">它不是空白市场；最接近的对照是 PyMuPDF4LLM。</h2>
+          <p class="section-intro">选型不应比较宣传功能数量，而应使用自己的坏样本对照：文字覆盖、阅读顺序、表格完整性、视觉区整体性、重复率、来源追踪和每页成本。</p>
+
+          <div class="comparison-wrap" tabindex="0" aria-label="同类 PDF 结构化工具比较，可横向滚动">
+            <table class="comparison-table">
+              <thead>
+                <tr><th>产品</th><th>技术路线</th><th>优势</th><th>更适合</th><th>相对 nativePDF</th></tr>
+              </thead>
+              <tbody>
+                <tr class="is-current"><td><strong>nativePDF</strong><small>本次研究</small></td><td>规则 + 几何<br>无 OCR / 模型</td><td>确定性、复合矢量区、Claim 与 provenance</td><td>数字原生工业手册</td><td>目标更窄，工程边界更专用</td></tr>
+                <tr><td><a href="https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/index.html">PyMuPDF4LLM ↗</a><small>最接近基线</small></td><td>原生提取 + 布局分析 + 按需 OCR</td><td>成熟、轻量、Markdown/JSON、RAG 集成</td><td>通用数字原生 PDF</td><td>优先做 A/B，通常应先作为默认基线</td></tr>
+                <tr><td><a href="https://docling.org/">Docling ↗</a><small>完整框架</small></td><td>布局模型 + 表格模型 + OCR</td><td>丰富文档树、RAG Chunker、多格式</td><td>企业通用文档流水线</td><td>更重、更通用，结构模型更完整</td></tr>
+                <tr><td><a href="https://github.com/opendatalab/MinerU">MinerU ↗</a><small>复杂文档</small></td><td>OCR + 布局 + 公式 + VLM</td><td>扫描件、公式、表格、多语言</td><td>论文与复杂混合文档</td><td>覆盖更广，但模型和部署成本更高</td></tr>
+                <tr><td><a href="https://github.com/datalab-to/marker">Marker ↗</a><small>模型流水线</small></td><td>深度模型 + OCR + 可选 LLM</td><td>公式、复杂排版、多输出格式</td><td>教材、论文、扫描件</td><td>更强调模型精度，可使用 GPU</td></tr>
+                <tr><td><a href="https://docs.unstructured.io/open-source/concepts/partitioning-strategies">Unstructured ↗</a><small>企业接入</small></td><td>规则 / hi-res / OCR 多策略</td><td>连接器、分块、多数据源摄取</td><td>企业级 RAG ingestion</td><td>平台能力更强，单类手册未必更精细</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <aside class="benchmark-callout">
+            <span>RECOMMENDED BENCHMARK</span>
+            <strong>先比较 PyMuPDF4LLM，再比较一条模型路线。</strong>
+            <p>若自有文档是 OEM 手册：选 10–20 份代表 PDF，每份挑 5–10 个最难页面，对照 nativePDF、PyMuPDF4LLM 和 MinerU/Docling。没有自己的坏样本，就无法判断这个专用库是否真的有额外价值。</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="extensions" data-section="extensions" aria-labelledby="extensions-title">
+        <div class="section-label"><span>05</span><p>EXTENSIONS</p></div>
+        <div class="section-body">
+          <h2 id="extensions-title">最有价值的扩展，不是继续堆规则，而是建立混合路由和质量闭环。</h2>
+          <div class="extension-list">
+            <article><b>P0</b><div><span>HYBRID ROUTER</span><h3>按页选择原生、OCR 或 VLM</h3><p>检测文字层健康度；干净页面保留原生文字，扫描或乱码区域才调用模型，统一回写同一 IR。</p></div></article>
+            <article><b>P0</b><div><span>RAG CHUNKER</span><h3>按章节和结构节点分块</h3><p>让表格、图题、说明段保持原子性，并让块继承章节路径、页码、型号与来源坐标。</p></div></article>
+            <article><b>P1</b><div><span>DOMAIN PROFILES</span><h3>厂商和模板 Profile</h3><p>把页眉区域、字体层级、表格阈值和视觉合并规则变成可配置的 OEM 文档 Profile。</p></div></article>
+            <article><b>P1</b><div><span>SEMANTIC LINKS</span><h3>图—编号—说明表关系图</h3><p>在不改动原始 provenance 的前提下，用规则或 VLM 建立设备图与说明表的显式链接。</p></div></article>
+            <article><b>P2</b><div><span>EVALUATION</span><h3>公开坏样本与下游 RAG 指标</h3><p>补充真实 PDF 回归、元素级结构指标，以及最终问答准确率，而不只比较输出文件 hash。</p></div></article>
+            <article><b>P2</b><div><span>PRODUCTION</span><h3>批处理、并行、缓存与服务化</h3><p>增加失败队列、增量处理、对象存储和跨平台 CI，并处理 PyMuPDF 的商业许可边界。</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-section" id="decision" data-section="decision" aria-labelledby="decision-title">
+        <div class="section-label"><span>06</span><p>OUR DECISION</p></div>
+        <div class="section-body">
+          <h2 id="decision-title">暂不深挖通用理论；保留为专用能力与工程样本。</h2>
+          <div class="decision-grid">
+            <article><span>为什么不作为核心研究</span><p>规则、坐标、表格检测和阅读顺序都是成熟方向；项目的创新更多是针对特定手册的工程组合，而非新的文档理解范式。</p></article>
+            <article><span>为什么仍值得保留</span><p>Claim 所有权、双 bbox、复合矢量区域和 provenance 是不错的工程参考；在目标语料上也可能比通用模型更便宜、更稳定。</p></article>
+            <article><span>什么条件下重新启动</span><p>当我们拥有大量数字原生 OEM 手册，并发现 PyMuPDF4LLM 或现有解析器在设备图、表格关联和回溯方面持续失败时。</p></article>
+          </div>
+          <div class="final-formula">
+            <span>ADOPTION RULE</span>
+            <strong>没有匹配语料，不投入；出现重复失败，再以真实坏样本启动 A/B。</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="sources" id="sources" aria-labelledby="sources-title">
+        <div>
+          <p class="eyebrow">SOURCES & BOUNDARIES</p>
+          <h2 id="sources-title">证据来源与研究边界</h2>
+          <p>研究对象固定在提交 <a href="https://github.com/crunz-ai/nativePDF-structurer/commit/39efc40f3ce5334539968a7818c03e68cb437c5f"><code>39efc40</code></a>。项目版本为 0.1.0；作者明确表示尚未完成统一数据集精度对标。本页关于采用优先级和研究价值的内容属于我们的判断。</p>
+        </div>
+        <ol>
+          <li><a href="https://github.com/crunz-ai/nativePDF-structurer">上游 README 与源码 ↗</a><span>能力、输入输出和限制</span></li>
+          <li><a href="https://github.com/crunz-ai/nativePDF-structurer/blob/main/docs/architecture.md">工程架构 ↗</a><span>页面阶段、Claim、双 bbox 和 provenance</span></li>
+          <li><a href="https://pymupdf.readthedocs.io/en/latest/page.html">PyMuPDF Page API ↗</a><span>原生文字、图片、矢量与表格基础</span></li>
+          <li><a href="https://artifex.com/licensing">Artifex Licensing ↗</a><span>PyMuPDF 的 AGPL / 商业双授权边界</span></li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      <p>Project 006 · nativePDF-structurer analysis</p>
+      <p>结论不是“不值得使用”，而是“只有目标语料匹配时才值得投入”。</p>
+      <a href="#judgment">返回顶部 ↑</a>
+    </footer>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
