@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">FROM SKILL TO STUDIO 系统图</title>
+  <desc id="desc">用户意图经过规格、调度、技能、构建和验证，形成可持续迭代的产品。</desc>
+  <rect width="1200" height="750" fill="#0a0b0d"/>
+  <circle cx="1010" cy="-40" r="330" fill="#ffbd59" opacity=".055"/>
+  <path d="M0 590L1200 250" stroke="#ffbd59" stroke-opacity=".055" stroke-width="1"/>
+  <g fill="none" stroke="#3a3935">
+    <rect x="70" y="90" width="1060" height="570"/>
+    <path d="M70 178H1130M70 572H1130"/>
+  </g>
+  <text x="94" y="135" fill="#ffbd59" font-family="monospace" font-size="18" letter-spacing="4">PROJECT 002 · PRODUCT PATTERN STUDY</text>
+  <text x="94" y="265" fill="#f1ede5" font-family="Arial, sans-serif" font-size="74" font-weight="700" letter-spacing="-4">FROM SKILL</text>
+  <text x="94" y="340" fill="#f1ede5" font-family="Arial, sans-serif" font-size="74" font-weight="700" letter-spacing="-4">TO STUDIO</text>
+  <g font-family="monospace" font-size="17" font-weight="700">
+    <g transform="translate(94 425)"><rect width="150" height="72" fill="#151619" stroke="#4b4437"/><text x="22" y="43" fill="#ffbd59">INTENT</text></g>
+    <text x="262" y="468" fill="#746a59">→</text>
+    <g transform="translate(292 425)"><rect width="150" height="72" fill="#151619" stroke="#4b4437"/><text x="37" y="43" fill="#ffbd59">SPEC</text></g>
+    <text x="460" y="468" fill="#746a59">→</text>
+    <g transform="translate(490 425)"><rect width="150" height="72" fill="#151619" stroke="#4b4437"/><text x="25" y="43" fill="#ffbd59">ROUTER</text></g>
+    <text x="658" y="468" fill="#746a59">→</text>
+    <g transform="translate(688 425)"><rect width="150" height="72" fill="#151619" stroke="#4b4437"/><text x="28" y="43" fill="#ffbd59">SKILLS</text></g>
+    <text x="856" y="468" fill="#746a59">→</text>
+    <g transform="translate(886 425)"><rect width="188" height="72" fill="#2c2110" stroke="#ffbd59"/><text x="25" y="43" fill="#ffbd59">PLAYABLE V1</text></g>
+  </g>
+  <text x="94" y="620" fill="#a7a197" font-family="Arial, sans-serif" font-size="22">把外部产品观察，转译成我们的能力地图与下一步。</text>
+</svg>

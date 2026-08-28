@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - "docs/**"
-      - "projects/outrun-the-level/**"
+      - "projects/**"
       - "scripts/build-pages.mjs"
       - "package.json"
       - ".github/workflows/pages.yml"

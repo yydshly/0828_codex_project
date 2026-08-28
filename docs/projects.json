@@ -9,5 +9,15 @@
     "url": "./projects/outrun-the-level/",
     "demoUrl": "./demos/outrun-the-level/",
     "image": "./assets/outrun-the-level-cover.png"
+  },
+  {
+    "id": "gear-zero-platform-study",
+    "number": "002",
+    "name": "FROM SKILL TO STUDIO",
+    "status": "产品研究已形成结论",
+    "category": "AI 原生产品",
+    "summary": "以 Gear Zero 为公开参照，研究如何把 Skills、项目状态、动态调度、自动验证与版本系统组织成用户驱动的数字产品平台。",
+    "url": "./projects/gear-zero-platform-study/",
+    "image": "./assets/gear-zero-platform-study-cover.svg"
   }
 ]

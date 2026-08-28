@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project 002：从 Gear Zero 的公开能力出发，研究如何把 AI Skills、工作流、调度、验证和版本系统组织成用户驱动的数字产品平台。">
+    <title>FROM SKILL TO STUDIO · PROJECT 002</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../project-detail.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="../../project-detail.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body id="page-top" class="project-page platform-study-page">
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <header class="site-header">
+      <a class="brand" href="../../" aria-label="返回研究总库">0828 / PROJECT 002</a>
+      <nav class="detail-nav" aria-label="项目导航">
+        <a href="../../">总库首页</a>
+        <a href="https://github.com/yydshly/0828_codex_project/tree/main/projects/gear-zero-platform-study">GitHub 记录 ↗</a>
+      </nav>
+    </header>
+
+    <nav class="section-nav" aria-label="研究章节">
+      <div class="section-nav__inner">
+        <span class="section-nav__label">RESEARCH MAP</span>
+        <div class="section-nav__links">
+          <a href="#judgment" data-section-link="judgment">判断</a>
+          <a href="#conversation" data-section-link="conversation">交互推导</a>
+          <a href="#architecture" data-section-link="architecture">系统模型</a>
+          <a href="#research-value" data-section-link="research-value">研究意义</a>
+          <a href="#library-value" data-section-link="library-value">库价值</a>
+          <a href="#extensions" data-section-link="extensions">扩展</a>
+          <a href="#recommendations" data-section-link="recommendations">建议</a>
+          <a href="#boundaries" data-section-link="boundaries">边界</a>
+        </div>
+        <a class="section-nav__play" href="#next-project">NEXT <span aria-hidden="true">↓</span></a>
+      </div>
+      <i id="readingProgress" class="reading-progress" aria-hidden="true"></i>
+    </nav>
+
+    <main id="main-content" class="detail-main">
+      <section class="detail-hero study-hero" aria-labelledby="project-title">
+        <div class="detail-hero-copy">
+          <p class="eyebrow">PROJECT 002 · PRODUCT PATTERN STUDY</p>
+          <h1 id="project-title">FROM SKILL<br>TO STUDIO</h1>
+          <p class="detail-lede">Gear Zero 不只是一个游戏生成网站。它更值得参考的地方，是把专业能力包装成了由用户意图驱动、可以持续迭代和发布的产品系统。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#judgment">查看核心判断</a>
+            <a class="button secondary" href="https://zero.alayalab.ai/">访问研究对象 ↗</a>
+          </div>
+          <ul class="hero-evidence" aria-label="研究结论摘要">
+            <li><strong>能力地图</strong><span>不是源码教材</span></li>
+            <li><strong>系统闭环</strong><span>不只是 Skill</span></li>
+            <li><strong>产品范式</strong><span>用户驱动开发</span></li>
+          </ul>
+        </div>
+
+        <aside class="study-formula" aria-label="从能力到产品的研究公式">
+          <span class="formula-kicker">THE PRODUCT EQUATION</span>
+          <div class="formula-line"><strong>SKILLS</strong><i>专业执行</i></div>
+          <div class="formula-sign" aria-hidden="true">＋</div>
+          <div class="formula-line"><strong>STATE</strong><i>项目事实</i></div>
+          <div class="formula-sign" aria-hidden="true">＋</div>
+          <div class="formula-line"><strong>ORCHESTRATION</strong><i>动态调度</i></div>
+          <div class="formula-sign" aria-hidden="true">＋</div>
+          <div class="formula-line"><strong>VERIFICATION</strong><i>可执行证据</i></div>
+          <div class="formula-result"><span>＝</span><strong>USER-DRIVEN STUDIO</strong></div>
+          <p>模型提供概率能力；确定性的状态、约束、验证与版本系统把能力变成产品。</p>
+        </aside>
+      </section>
+
+      <section class="fact-strip" aria-label="项目基本信息">
+        <div><span>研究性质</span><strong>产品模式抽象</strong></div>
+        <div><span>参照对象</span><strong>Gear Zero</strong></div>
+        <div><span>核心机制</span><strong>Skill × Workflow</strong></div>
+        <div><span>下一落点</span><strong>AI Game Studio</strong></div>
+      </section>
+
+      <section class="detail-section thesis" id="judgment" data-section="judgment" aria-labelledby="judgment-title">
+        <p class="section-index">01 / CORE JUDGMENT</p>
+        <div class="section-copy">
+          <h2 id="judgment-title">不把它当技术教材，<br>把它当产品能力地图。</h2>
+          <p class="statement">Gear Zero 网页没有公开足够的内部实现，无法直接回答它使用了哪些模型、游戏引擎、Skill 协议或调度策略；但它清楚展示了一套值得复用的产品承诺。</p>
+          <p class="core-equation-copy"><strong>一个能力成为产品</strong><span>＝ Skills ＋ 结构化状态 ＋ 工作流调度 ＋ 自动验证 ＋ 可体验成果 ＋ 持续迭代 ＋ 发布分发。</span></p>
+          <div class="judgment-grid">
+            <article>
+              <span>公开可确认</span>
+              <h3>它向用户交付什么</h3>
+              <p>通过对话规划和构建游戏，在构建期间继续收集想法，将每轮需求变成可玩的版本，并支持共同创作。</p>
+            </article>
+            <article>
+              <span>可以合理推断</span>
+              <h3>它需要哪些系统</h3>
+              <p>结构化项目状态、异步构建队列、专业能力调度、隔离执行、版本快照和可访问的预览发布。</p>
+            </article>
+            <article>
+              <span>我们的决策</span>
+              <h3>应该参考什么</h3>
+              <p>参考能力合同、用户旅程和产品闭环；不复制页面外壳，也不把未公开的内部技术当成事实。</p>
+            </article>
+          </div>
+          <details class="evidence-boundary">
+            <summary><strong>为什么仍然具有研究价值？</strong><span>展开证据边界</span></summary>
+            <div>
+              <p>它的底层技术研究价值目前有限，因为系统是黑盒；但它可以作为黑盒基准，帮助我们设计同一批需求，比较首个可玩版本时间、连续修改回归率、移动端表现、源码可维护性、成本和平台锁定。</p>
+              <p>Alaya Lab 公开的世界模型、生成式渲染和长程游戏智能体研究，说明其长期技术方向，但不能据此断言这些研究已经用于 Gear Zero 当前产品。</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="detail-section" id="conversation" data-section="conversation" aria-labelledby="conversation-title">
+        <p class="section-index">02 / CONVERSATION TRACE</p>
+        <div class="section-copy">
+          <h2 id="conversation-title">我们的判断是怎样一步步形成的？</h2>
+          <p class="section-intro">这次交流不是简单的竞品总结，而是四次连续抽象：从“它有什么”，走到“我们应该怎样构建下一类产品”。</p>
+          <ol class="conversation-trace">
+            <li>
+              <div class="trace-question"><span>USER / 01</span><p>这个网站的能力、原理、场景和意义是什么？</p></div>
+              <div class="trace-answer"><strong>从工具定位产品</strong><p>它的价值不只在生成代码，而在把模糊创意快速变成可玩的版本，并允许用户在试玩中继续塑造产品。</p></div>
+            </li>
+            <li>
+              <div class="trace-question"><span>USER / 02</span><p>底层实际是 Skill，还是工作流调度？</p></div>
+              <div class="trace-answer"><strong>从单项能力定位系统</strong><p>答案不是二选一：Skill 是专业能力，Workflow 是生命周期，Orchestrator 负责动态决策，Project Brain 保持事实，Sandbox 与 Verifier 负责交付证据。</p></div>
+            </li>
+            <li>
+              <div class="trace-question"><span>USER / 03</span><p>它对我们的研究意义是什么？</p></div>
+              <div class="trace-answer"><strong>从竞品定位研究问题</strong><p>研究重点由“如何做好一个 Skill”升级为“如何让多个 Skills 在长期项目中可靠协作，并通过可玩反馈持续演化”。</p></div>
+            </li>
+            <li>
+              <div class="trace-question"><span>USER / 04</span><p>网页、游戏能力还能扩展到什么？</p></div>
+              <div class="trace-answer"><strong>从游戏定位通用平台</strong><p>凡是能被拆解、执行、验证、版本化和预览的数字能力，都可以形成一个由用户意图驱动的垂直 Studio。</p></div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="detail-section architecture-section" id="architecture" data-section="architecture" aria-labelledby="architecture-title">
+        <p class="section-index">03 / SYSTEM MODEL</p>
+        <div class="section-copy">
+          <h2 id="architecture-title">它不是一个 Skill，<br>而是一条受约束的生产系统。</h2>
+          <div class="system-stack" aria-label="用户驱动 Studio 的系统层级">
+            <article><b>01</b><span>USER INTENT</span><strong>用户表达目标、约束与判断</strong><p>用户承担产品负责人角色，不需要先学会专业工具。</p></article>
+            <i aria-hidden="true">↓</i>
+            <article><b>02</b><span>SPEC COMPILER</span><strong>把对话编译成结构化规格</strong><p>主动追问、解决歧义，并形成可比较的需求差异。</p></article>
+            <i aria-hidden="true">↓</i>
+            <article><b>03</b><span>ORCHESTRATOR</span><strong>规划任务、依赖、并行与恢复</strong><p>根据项目状态选择 Skill，而不是执行固定提示词序列。</p></article>
+            <i aria-hidden="true">↓</i>
+            <article><b>04</b><span>SKILL GRAPH</span><strong>调用领域内专业执行单元</strong><p>每个 Skill 都有输入、输出、作用域、验收与回退合同。</p></article>
+            <i aria-hidden="true">↓</i>
+            <article><b>05</b><span>BUILD + VERIFY</span><strong>生成真实成果并运行检查</strong><p>隔离执行、自动试玩、错误诊断和回归验证提供事实。</p></article>
+            <i aria-hidden="true">↓</i>
+            <article><b>06</b><span>VERSION + DISTRIBUTION</span><strong>形成版本、Fork 与传播</strong><p>可体验成果成为下一轮沟通、协作与创作的共同对象。</p></article>
+          </div>
+
+          <div class="capability-table-wrap" tabindex="0" aria-label="Gear Zero 外部能力与我们的系统映射，可横向滚动">
+            <table class="capability-table">
+              <thead><tr><th>外部表现</th><th>能力抽象</th><th>我们的实现</th><th>验证问题</th></tr></thead>
+              <tbody>
+                <tr><td>描述游戏</td><td>意图入口</td><td>创意对话</td><td>能否收集关键约束？</td></tr>
+                <tr><td>AI 主动追问</td><td>需求消歧</td><td>GameSpec 编译器</td><td>追问是否减少首版偏差？</td></tr>
+                <tr><td>给出制作方案</td><td>规划与确认</td><td>Planner + Gate</td><td>何时应由用户确认？</td></tr>
+                <tr><td>自动开发</td><td>专业执行</td><td>Skill Graph</td><td>Skill 如何声明依赖与作用域？</td></tr>
+                <tr><td>构建时继续聊天</td><td>异步状态</td><td>Build Queue</td><td>新需求如何进入下一版本？</td></tr>
+                <tr><td>连续迭代</td><td>增量开发</td><td>Spec Diff + Tests</td><td>如何防止修改破坏旧功能？</td></tr>
+                <tr><td>浏览器试玩</td><td>可执行交付</td><td>Sandbox + Preview</td><td>完成是否有运行证据？</td></tr>
+                <tr><td>分享与 Fork</td><td>分支与分发</td><td>Version Graph</td><td>创意能否持续二次演化？</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section" id="research-value" data-section="research-value" aria-labelledby="research-title">
+        <p class="section-index">04 / RESEARCH VALUE</p>
+        <div class="section-copy">
+          <h2 id="research-title">它帮助我们把研究问题放到了正确层级。</h2>
+          <div class="research-grid">
+            <article><span>H1</span><h3>创意编译</h3><p>结构化 GameSpec 是否比直接生成代码更能降低首版偏差？</p></article>
+            <article><span>H2</span><h3>能力合同</h3><p>统一 Skill Contract 是否能减少跨模块冲突和不可控修改？</p></article>
+            <article><span>H3</span><h3>长期状态</h3><p>项目记忆是否比不断增长的完整聊天上下文更稳定、更便宜？</p></article>
+            <article><span>H4</span><h3>自动验证</h3><p>编译、浏览器检查和自动试玩能否显著降低连续迭代回归率？</p></article>
+          </div>
+          <div class="experiment-ladder">
+            <p class="experiment-label">建议的消融实验</p>
+            <ol>
+              <li><span>BASE</span><strong>通用代码 Agent</strong></li>
+              <li><span>＋S</span><strong>加入游戏 Skills</strong></li>
+              <li><span>＋O</span><strong>加入 Orchestrator</strong></li>
+              <li><span>＋M</span><strong>加入项目记忆</strong></li>
+              <li><span>＋V</span><strong>加入自动试玩与验证</strong></li>
+            </ol>
+            <p>比较首个可玩版本时间、需求实现率、第五轮回归率、移动端表现、代码可维护性和每个有效版本成本。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section library-section" id="library-value" data-section="library-value" aria-labelledby="library-title">
+        <p class="section-index">05 / LIBRARY VALUE</p>
+        <div class="section-copy">
+          <h2 id="library-title">这个研究库不只是展示柜，<br>而是产品能力的演化记录。</h2>
+          <div class="library-model">
+            <article><span>PROJECT 001</span><strong>做出一个可玩的成果</strong><p>验证想法可以落地，并保留源码、测试、截图与发布入口。</p></article>
+            <i aria-hidden="true">→</i>
+            <article><span>PROJECT 002</span><strong>从成果抽象产品方法</strong><p>把对外部产品的观察整理成能力地图、系统模型和研究假设。</p></article>
+            <i aria-hidden="true">→</i>
+            <article class="future"><span>NEXT</span><strong>用方法构建 Studio</strong><p>将现有 Skills 接入统一协议，验证从用户创意到稳定 V2 的闭环。</p></article>
+          </div>
+          <div class="value-list study-value-list">
+            <article><span>知识资产</span><h3>记录我们为什么做出某个判断</h3><p>保留来源、事实、推断、决策和边界，避免未来只剩结论而失去推导过程。</p></article>
+            <article><span>能力索引</span><h3>看见现有 Skills 在系统中的位置</h3><p>相机、战斗、敌人、资产、测试与发布不再是孤立能力，而是可组合的执行层。</p></article>
+            <article><span>实验平台</span><h3>为后续对照和消融保留统一基线</h3><p>未来类似项目可以复用评价指标、项目模板、验证记录与 GitHub Pages 发布链路。</p></article>
+            <article><span>对外叙事</span><h3>让合作方理解我们的研究方向</h3><p>从可玩作品到平台方法，持续展示我们如何把 AI 能力沉淀成产品基础设施。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section" id="extensions" data-section="extensions" aria-labelledby="extensions-title">
+        <p class="section-index">06 / DOMAIN EXPANSION</p>
+        <div class="section-copy">
+          <h2 id="extensions-title">同一个公共底座，<br>可以承载多个垂直 Studio。</h2>
+          <p class="section-intro">不是用一个万能 Agent 生成所有东西，而是复用项目状态、调度、版本、权限和发布，再为每个领域建设独立的 Spec、Skills、运行时与验证器。</p>
+          <div class="core-and-packs">
+            <div class="shared-core">
+              <span>SHARED CORE</span>
+              <strong>Project Brain · Orchestrator · Sandbox · Verification · Versioning · Publishing</strong>
+            </div>
+            <div class="domain-packs">
+              <article><span>WEB PACK</span><h3>AI Web Studio</h3><p>网站、后台、数据库、部署与转化验证。</p></article>
+              <article class="featured"><span>GAME PACK</span><h3>AI Game Studio</h3><p>玩法、关卡、战斗、资产、试玩与性能。</p></article>
+              <article><span>APP PACK</span><h3>AI App Studio</h3><p>移动界面、数据、通知、支付与发布。</p></article>
+              <article><span>CONTENT PACK</span><h3>AI Content Studio</h3><p>脚本、分镜、素材、剪辑与渠道版本。</p></article>
+              <article><span>OPS PACK</span><h3>AI Operations Studio</h3><p>业务流程、系统连接、异常处理与监控。</p></article>
+              <article><span>AGENT PACK</span><h3>AI Agent Studio</h3><p>职责、工具、记忆、定时执行与质量门。</p></article>
+            </div>
+          </div>
+          <aside class="guardrail">
+            <strong>扩展原则</strong>
+            <p>新增领域不是增加几条 Prompt，而是增加一个完整 Domain Pack。只有当一种成果能够被结构化、执行、验证、版本化和预览时，才适合进入平台。</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="detail-section roadmap-section" id="recommendations" data-section="recommendations" aria-labelledby="recommendations-title">
+        <p class="section-index">07 / RECOMMENDATIONS</p>
+        <div class="section-copy">
+          <h2 id="recommendations-title">类似项目应该怎样开始？</h2>
+          <div class="roadmap study-roadmap">
+            <article>
+              <span>现在 · 收敛协议</span>
+              <h3>先定义系统共同语言</h3>
+              <ul>
+                <li>建立只覆盖一种游戏的 GameSpec v0.1</li>
+                <li>统一五个核心 Skill Contract</li>
+                <li>明确每个 Skill 的作用域、证据与回退</li>
+              </ul>
+            </article>
+            <article>
+              <span>下一步 · 跑通闭环</span>
+              <h3>从创意稳定走到 V2</h3>
+              <ul>
+                <li>实现 Discover → Build → Verify 状态机</li>
+                <li>固定一个 Three.js 动作游戏模板</li>
+                <li>验证修改后旧功能仍然成立</li>
+              </ul>
+            </article>
+            <article>
+              <span>以后 · 再做平台</span>
+              <h3>等可靠性成立再扩展网络</h3>
+              <ul>
+                <li>增加多人房间、Fork 和作品分发</li>
+                <li>抽取 Web Pack 与 Game Pack 公共底座</li>
+                <li>用真实项目数据决定商业化和生态</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="do-dont">
+            <article><span>DO</span><strong>先做垂直、可验证、可导出的 Studio</strong><p>范围越可控，越容易建立连续迭代的可靠性和真正的差异化。</p></article>
+            <article><span>DON'T</span><strong>一开始承诺“生成任何数字产品”</strong><p>横向平台会掩盖每个领域缺失的规格、专业能力、运行时和验收方法。</p></article>
+          </div>
+
+          <aside class="next-project" id="next-project">
+            <span>NEXT RESEARCH OBJECT</span>
+            <h3>AI GAME STUDIO · MINIMUM LOOP</h3>
+            <p>推荐下一项目只验证一件事：用户描述一个 Three.js 动作游戏后，系统能否通过 GameSpec、五个 Skills、自动构建与浏览器验证，稳定交付第一版，并在第二轮修改后保持旧功能成立。</p>
+            <button id="copyThesis" class="copy-thesis" type="button" aria-describedby="copyThesisStatus">复制下一项目命题</button>
+            <small id="copyThesisStatus" aria-live="polite">可直接作为 Project 003 的研究起点</small>
+          </aside>
+        </div>
+      </section>
+
+      <section class="detail-section limits-section" id="boundaries" data-section="boundaries" aria-labelledby="boundaries-title">
+        <p class="section-index">08 / SOURCES & BOUNDARIES</p>
+        <div class="section-copy">
+          <h2 id="boundaries-title">我们知道什么，<br>还不知道什么？</h2>
+          <div class="boundary-list">
+            <article><span>KNOWN</span><p>官方确认 Gear Zero 面向对话式游戏规划、构建、持续想法收集和共同创作。</p></article>
+            <article><span>INFERRED</span><p>项目状态、异步队列、版本和隔离构建是根据外部行为推断出的必要机制，不代表其官方实现。</p></article>
+            <article><span>UNKNOWN</span><p>内部模型组合、具体游戏引擎、源码导出、商业权利、数据保留和私有部署方案仍缺少完整公开材料。</p></article>
+          </div>
+          <div class="source-links" aria-label="主要资料来源">
+            <a href="https://zero.alayalab.ai/"><span>产品</span><strong>Gear Zero ↗</strong></a>
+            <a href="https://alayalab.ai/"><span>官方方向</span><strong>Alaya Lab ↗</strong></a>
+            <a href="https://github.com/AlayaLab/AlayaWorld"><span>世界模型</span><strong>AlayaWorld ↗</strong></a>
+            <a href="https://github.com/AlayaLab/AlayaRenderer"><span>生成式渲染</span><strong>AlayaRenderer ↗</strong></a>
+            <a href="https://github.com/AlayaLab/AgenticSTS"><span>游戏智能体</span><strong>AgenticSTS ↗</strong></a>
+            <a href="https://github.com/AlayaLab/WildWorld"><span>游戏数据</span><strong>WildWorld ↗</strong></a>
+          </div>
+          <p class="source-note">资料访问日期：2026-08-28。本页明确区分公开事实、合理推断与我们的内部决策；后续若官方披露新资料，应更新相应边界，而不是保留过时判断。</p>
+        </div>
+      </section>
+
+      <section class="closing-cta">
+        <p class="eyebrow">TURN REFERENCE INTO CAPABILITY</p>
+        <h2>不复制一个产品。<br>把它启发的能力，变成我们的系统。</h2>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/yydshly/0828_codex_project/tree/main/projects/gear-zero-platform-study">查看研究档案</a>
+          <a class="button secondary" href="../../">返回研究总库</a>
+        </div>
+      </section>
+      <a class="back-to-top" href="#page-top" aria-label="回到页面顶部"><span aria-hidden="true">↑</span> TOP</a>
+    </main>
+
+    <footer>
+      <p>PROJECT 002 · FROM SKILL TO STUDIO</p>
+      <p>产品模式研究 · 2026-08-28</p>
+    </footer>
+  </body>
+</html>
