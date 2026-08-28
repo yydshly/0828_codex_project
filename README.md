@@ -1,25 +1,17 @@
 # 0828 Codex Project
 
-一个用于持续开发、验证和公开展示独立研究子项目的仓库。当前包含一个完整可玩的程序化跑酷游戏，以及一项从 Gear Zero 抽象“用户驱动数字产品平台”的产品模式研究。
+一个用于持续开发、验证和公开展示独立研究子项目的仓库。当前收录两个项目：一个完整可玩的程序化跑酷游戏，以及一项从 Gear Zero 抽象“用户驱动数字产品平台”的产品模式研究。
 
-[在线研究总库](https://yydshly.github.io/0828_codex_project/) · [Project 002 产品模式研究](https://yydshly.github.io/0828_codex_project/projects/gear-zero-platform-study/) · [Project 001 研究总结](https://yydshly.github.io/0828_codex_project/projects/outrun-the-level/) · [立即试玩](https://yydshly.github.io/0828_codex_project/demos/outrun-the-level/) · [参与方式](CONTRIBUTING.md)
-
-## 快速入口
-
-| 内容 | 用途 |
-| --- | --- |
-| [在线研究总库](https://yydshly.github.io/0828_codex_project/) | 浏览仓库的研究项目索引 |
-| [FROM SKILL TO STUDIO](https://yydshly.github.io/0828_codex_project/projects/gear-zero-platform-study/) | 阅读 Gear Zero 参照、能力抽象、库价值与 AI Game Studio 建议 |
-| [OUTRUN THE LEVEL 研究总结](https://yydshly.github.io/0828_codex_project/projects/outrun-the-level/) | 阅读提示词、意义、证据、价值和扩展方向 |
-| [OUTRUN THE LEVEL 在线游戏](https://yydshly.github.io/0828_codex_project/demos/outrun-the-level/) | 直接验证 120 秒主流程、重力翻转和即时重开 |
-| [Project 001 研究档案](projects/outrun-the-level/README.md) | 查看实现、复现方法、实验记录与边界 |
+[在线研究总库](https://yydshly.github.io/0828_codex_project/) · [项目在线演示](#当前研究项目) · [参与方式](CONTRIBUTING.md)
 
 ## 当前研究项目
 
-| 编号 | 项目 | 研究方向 | 状态 |
-| --- | --- | --- | --- |
-| 001 | [OUTRUN THE LEVEL](projects/outrun-the-level/) | 程序化跑酷、关卡公平性、删除浪与重力翻转 | 已验证 · 真人试玩待开展 |
-| 002 | [FROM SKILL TO STUDIO](projects/gear-zero-platform-study/) | Gear Zero 产品参照、Skill 编排与用户驱动数字产品平台 | 已形成研究结论 |
+所有项目都在同一张表中提供线上入口。优先点击“在线演示”体验成果，再通过“研究与源码”查看形成过程、证据和边界。
+
+| 项目 | 方向与成果 | 在线演示 | 研究与源码 | 状态 |
+| --- | --- | --- | --- | --- |
+| **001 · OUTRUN THE LEVEL** | 程序化跑酷、关卡公平性、删除浪与重力翻转 | [▶ 在线试玩](https://yydshly.github.io/0828_codex_project/demos/outrun-the-level/) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/outrun-the-level/) · [仓库档案](projects/outrun-the-level/README.md) · [游戏源码](projects/outrun-the-level/game/) | 已验证 · 后续开展真人试玩 |
+| **002 · FROM SKILL TO STUDIO** | Gear Zero 产品参照、Skill 编排与用户驱动数字产品平台 | [▶ 在线查看](https://yydshly.github.io/0828_codex_project/projects/gear-zero-platform-study/) | [仓库档案](projects/gear-zero-platform-study/README.md) · [页面源码](docs/projects/gear-zero-platform-study/) | 已验证 · 研究结论已发布 |
 
 状态统一使用：`规划中`、`研究中`、`已验证`、`已归档`。
 
@@ -68,7 +60,7 @@ npm run preview:pages
 
 每个子项目应保留：原始想法与提示词、环境与复现步骤、核心机制与禁止项、实验方法与证据、结论与价值、限制与下一步，以及源码、截图、研究总结和在线演示。
 
-新增项目时，复制 [`projects/_template`](projects/_template/) 到 `projects/<project-slug>/`，并同步更新本 README、[`docs/projects.json`](docs/projects.json) 和 Pages 构建脚本。完整约定见 [`projects/README.md`](projects/README.md)。
+新增项目时，复制 [`projects/_template`](projects/_template/) 到 `projects/<project-slug>/`，并同步更新本 README、[`docs/projects.json`](docs/projects.json) 和 Pages 构建脚本。根 README 的“当前研究项目”表格必须同时登记在线演示、研究档案与源码入口，避免成果上线后仍只能从目录中寻找。完整约定见 [`projects/README.md`](projects/README.md)。
 
 ## 目录结构
 
