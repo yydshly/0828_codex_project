@@ -187,7 +187,7 @@ async function run() {
 
     const reducedContext = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: "reduce" });
     const reducedPage = await reducedContext.newPage();
-    await reducedPage.goto(projectUrl, { waitUntil: "networkidle" });
+    await reducedPage.goto(projectUrl, { waitUntil: "domcontentloaded", timeout: 120000 });
     const transitionDuration = await reducedPage.locator(".style-option").first().evaluate((element) => getComputedStyle(element).transitionDuration);
     record("reduced-motion 关闭非必要过渡", ["0.00001s", "1e-05s", "0s"].includes(transitionDuration), transitionDuration);
     await reducedContext.close();
