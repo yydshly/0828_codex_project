@@ -43,5 +43,17 @@
     "demoUrl": "./projects/daizhige-capability-atlas/#catalog",
     "demoLabel": "查看归档总结 →",
     "image": "./assets/daizhige-capability-atlas-cover.svg"
+  },
+  {
+    "id": "nativepdf-structurer-analysis",
+    "number": "006",
+    "name": "NATIVE PDF, STRUCTURED",
+    "status": "研究完成 · 进入观察清单",
+    "category": "PDF 结构恢复与 RAG 预处理",
+    "summary": "研究 nativePDF-structurer 如何用原生对象、几何规则、Claim 所有权和 provenance 恢复数字 PDF 结构，并明确它不是 OCR、完整 RAG 或通用 PDF 新范式。",
+    "url": "./projects/nativepdf-structurer-analysis/",
+    "demoUrl": "./projects/nativepdf-structurer-analysis/#judgment",
+    "demoLabel": "阅读最终判断 →",
+    "image": "./assets/nativepdf-structurer-analysis-cover.svg"
   }
 ]

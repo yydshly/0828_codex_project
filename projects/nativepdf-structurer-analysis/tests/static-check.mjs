@@ -6,13 +6,20 @@ const projectRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const repositoryRoot = dirname(dirname(projectRoot));
 const pageRoot = join(repositoryRoot, "docs", "projects", "nativepdf-structurer-analysis");
 
-const [html, css, js, readme, contract] = await Promise.all([
+const [html, css, js, readme, contract, rootReadme, projectIndexHtml, projectsJson, cover] = await Promise.all([
   readFile(join(pageRoot, "index.html"), "utf8"),
   readFile(join(pageRoot, "styles.css"), "utf8"),
   readFile(join(pageRoot, "app.js"), "utf8"),
   readFile(join(projectRoot, "README.md"), "utf8"),
-  readFile(join(projectRoot, "DESIGN-CONTRACT.md"), "utf8")
+  readFile(join(projectRoot, "DESIGN-CONTRACT.md"), "utf8"),
+  readFile(join(repositoryRoot, "README.md"), "utf8"),
+  readFile(join(repositoryRoot, "docs", "index.html"), "utf8"),
+  readFile(join(repositoryRoot, "docs", "projects.json"), "utf8"),
+  readFile(join(repositoryRoot, "docs", "assets", "nativepdf-structurer-analysis-cover.svg"), "utf8")
 ]);
+
+const projectRegistry = JSON.parse(projectsJson);
+const registryEntry = projectRegistry.find((project) => project.id === "nativepdf-structurer-analysis");
 
 const checks = [
   ["Project 006 标识完整", html.includes("PROJECT 006") && readme.includes("项目编号 | 006")],
@@ -33,6 +40,9 @@ const checks = [
   ["支持无 JavaScript 阅读", css.includes("html:not(.js) .route-panel")],
   ["不依赖外部运行素材", !/(src|href)=["']https?:\/\/[^"']+\.(js|css|png|jpg|jpeg|webp|svg)/i.test(html)],
   ["设计契约存在并定义边界", contract.includes("Design contract") && contract.includes("不提交当前工作区中属于其他项目的未提交改动")],
+  ["根 README 登记 Project 006", rootReadme.includes("006 · NATIVE PDF, STRUCTURED") && rootReadme.includes("projects/nativepdf-structurer-analysis/README.md")],
+  ["网站总入口登记 Project 006", projectIndexHtml.includes("PROJECT INDEX") && registryEntry?.number === "006" && registryEntry?.url === "./projects/nativepdf-structurer-analysis/"],
+  ["总入口封面完整", registryEntry?.image === "./assets/nativepdf-structurer-analysis-cover.svg" && cover.includes("NATIVE PDF, STRUCTURED") && cover.includes('viewBox="0 0 1200 750"')],
   ["不存在模板占位符", !/TODO|Lorem ipsum|待填写|待执行。/i.test(`${html}\n${readme}`)]
 ];
 

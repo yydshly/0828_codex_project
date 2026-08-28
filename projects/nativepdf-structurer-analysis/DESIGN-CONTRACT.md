@@ -4,7 +4,8 @@
 
 ```text
 Entry mode: Brief-led implementation
-Request revision: 1
+Request revision: 2
+Scope revision: Project 006 必须作为总项目的正式子项目，同时登记在仓库根 README 和 GitHub Pages 总入口；保留当前工作区中 Project 005 等未提交内容，不把它们混入本次提交。
 Target user and context: 需要判断 nativePDF-structurer 是否值得研究、采用或扩展的研发人员与知识库建设者；从直达链接进入并快速形成技术判断。
 Desired first impression: 这不是项目宣传页，而是一份结论先行、边界清楚、可以直接指导选型的研究档案。
 Visual ambition: Editorial
@@ -16,10 +17,10 @@ State constraints: 三种解析路线切换、当前章节和采用判断必须�
 Environment constraints: 零外部依赖静态页面；进入现有 GitHub Pages 构建；支持桌面、平板和 390px 手机；单一深色主题；尊重 reduced-motion。
 Primary journey: 先读最终判断，再理解“读取对象—恢复结构—进入 RAG”的位置，核对能力与边界，按场景选型，最后查看扩展方向和同类产品。
 User-defined phases: 整理我们的理解；归纳库的能力与本质；说明使用场景和扩展方向；比较同类型产品；制作网页；提交并部署到 GitHub。
-Required artifacts: Project 006 专题页、研究 README、设计与验收记录、静态检查、浏览器证据、Git 提交、远端推送与 GitHub Pages 直达地址。
+Required artifacts: Project 006 专题页、研究 README、根 README 项目登记、总入口项目卡和封面、设计与验收记录、静态检查、浏览器证据、Git 提交、远端推送与 GitHub Pages 直达地址。
 Autonomy authorization: 用户明确要求制作网页、归纳总结、提交并部署到 GitHub；允许范围内实现、验证、提交与推送。
 User-decision boundary: 不创建新仓库、后端、账号或付费服务；不提交当前工作区中属于其他项目的未提交改动；不声称真实语料上的精度已得到公开基准验证。
-Observable completion criteria: 直达专题页完整覆盖所需信息；结论和技术边界在首屏可见；解析路线切换可点击和键盘操作；桌面、平板、390px 无页面级横向溢出；无外部运行资源；控制台与页面错误为零；静态检查和 Pages 构建通过；仅提交本项目文件并推送到 main。
+Observable completion criteria: 直达专题页完整覆盖所需信息；仓库根 README 可直接发现 Project 006；网站总入口渲染 Project 006 卡片并可进入专题页；结论和技术边界在首屏可见；解析路线切换可点击和键盘操作；桌面、平板、390px 无页面级横向溢出；无外部运行资源；控制台与页面错误为零；静态检查和 Pages 构建通过；仅提交 Project 006 相关增量并推送到 main。
 ```
 
 ## Design direction
@@ -44,6 +45,9 @@ Observable completion criteria: 直达专题页完整覆盖所需信息；结论
 | 研究档案 | README 与来源边界 | 仓库文件 | 文件、静态检查 | 9 | pass | 无 |
 | 自动检查 | Project 006 静态和浏览器检查 | Node / agent-browser | 命令输出、截图 | 7、9 | pass | 无 |
 | 远端部署 | main 提交和 GitHub Pages | Git / Actions / 线上 URL | 提交、推送、HTTP 与页面 DOM | 9 | pass | 无 |
+| 外层 README | 总项目表格、目录、地址和状态登记 | 仓库根 README | Markdown 链接与 GitHub 页面 | 3、9 | pass | 无 |
+| 网站总入口 | Project 006 卡片、封面与总数 | 首页 / 项目索引 | DOM、链接、桌面与手机截图 | 3、7 | pass | 无 |
+| 修订部署 | 入口增量提交与 Pages 更新 | Git / Actions / 线上 URL | 提交、工作流、线上导航 | 9 | continue | 验证后提交并推送 |
 
 ## Runtime record
 
@@ -58,3 +62,5 @@ Observable completion criteria: 直达专题页完整覆盖所需信息；结论
 - 内容提交：`155ab0737147db853375c8dc768280b0583d4ff2`，已推送至 `origin/main`。
 - Pages 工作流：[Deploy GitHub Pages #33190504287](https://github.com/yydshly/0828_codex_project/actions/runs/33190504287)，结论 `success`。
 - 线上地址：`https://yydshly.github.io/0828_codex_project/projects/nativepdf-structurer-analysis/`；页面状态 `complete`，标题、最终判断与 3 个路线标签存在，390×844 无页面级横向溢出，线上控制台与页面错误为零。
+- 总入口修订验证：2026-08-29 在 `http://127.0.0.1:48216/` 检查；首页渲染 6 张项目卡，Project 006 卡片、封面、状态和两个入口完整；1440px 与 390px 均无页面级或卡片级横向溢出，从总入口进入专题页后标题与锚点正确。
+- 修订静态检查：22/22 通过；Pages 构建通过；总入口和专题页控制台与页面错误为零。

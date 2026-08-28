@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">NATIVE PDF, STRUCTURED 研究封面</title>
+  <desc id="desc">PDF 原生对象经过几何规则和所有权仲裁，转换成可回溯的结构化材料。</desc>
+  <rect width="1200" height="750" fill="#071014"/>
+  <g fill="none" stroke="#17323a" stroke-width="1">
+    <path d="M0 92H1200M0 658H1200M74 0V750M1126 0V750"/>
+    <path d="M74 188H1126M74 520H1126" stroke-dasharray="7 9"/>
+  </g>
+  <circle cx="1040" cy="-20" r="340" fill="#6fa9ff" opacity=".055"/>
+  <text x="96" y="140" fill="#65e6d0" font-family="monospace" font-size="18" font-weight="700" letter-spacing="4">PROJECT 006 · DETERMINISTIC STRUCTURE RECOVERY</text>
+  <text x="94" y="270" fill="#f2f6f4" font-family="Arial, sans-serif" font-size="78" font-weight="800" letter-spacing="-4">NATIVE PDF,</text>
+  <text x="94" y="350" fill="#6fa9ff" font-family="Arial, sans-serif" font-size="78" font-weight="800" letter-spacing="-4">STRUCTURED.</text>
+  <g font-family="monospace" font-size="17" font-weight="700">
+    <g transform="translate(94 424)">
+      <rect width="236" height="78" fill="#0b1a1f" stroke="#23434c"/>
+      <text x="28" y="34" fill="#93aaa9">PDF OBJECTS</text>
+      <text x="28" y="58" fill="#627f82">TEXT · BBOX · PATH</text>
+    </g>
+    <path d="M354 463H426" stroke="#65e6d0" stroke-width="2"/>
+    <path d="M416 453L426 463L416 473" fill="none" stroke="#65e6d0" stroke-width="2"/>
+    <g transform="translate(450 424)">
+      <rect width="248" height="78" fill="#0e2429" stroke="#65e6d0"/>
+      <text x="28" y="34" fill="#65e6d0">RULES + CLAIMS</text>
+      <text x="28" y="58" fill="#77a19f">ORDER · OWNERSHIP</text>
+    </g>
+    <path d="M722 463H794" stroke="#6fa9ff" stroke-width="2"/>
+    <path d="M784 453L794 463L784 473" fill="none" stroke="#6fa9ff" stroke-width="2"/>
+    <g transform="translate(818 424)">
+      <rect width="288" height="78" fill="#101d2c" stroke="#6fa9ff"/>
+      <text x="28" y="34" fill="#6fa9ff">RAG-READY MATERIAL</text>
+      <text x="28" y="58" fill="#7893b5">MD · CSV · IR · SOURCE</text>
+    </g>
+  </g>
+  <text x="96" y="605" fill="#a7bab8" font-family="Arial, sans-serif" font-size="22">不是 OCR，也不是完整 RAG：它负责恢复对象之间的结构关系。</text>
+  <text x="1104" y="605" fill="#ffca67" font-family="monospace" font-size="17" text-anchor="end">WATCHLIST</text>
+</svg>
