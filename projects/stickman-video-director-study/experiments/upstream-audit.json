@@ -1,0 +1,71 @@
+{
+  "project": "kaomei/stickman-video-director",
+  "repository": "https://github.com/kaomei/stickman-video-director",
+  "commit": "6d7f8c83a16c594c23bb73da832c8864ccd2aeb5",
+  "commit_date": "2026-08-20T09:51:21+08:00",
+  "audit_date": "2026-08-29",
+  "license": "MIT",
+  "repository_shape": {
+    "commit_count": 11,
+    "runtime_dependencies": 0,
+    "video_api_integration": false,
+    "automatic_rendering": false,
+    "automatic_stitching": false,
+    "skill_lines": 60,
+    "storyboard_contract_lines": 113,
+    "production_contract_lines": 104,
+    "complete_example_lines": 213,
+    "evaluation_rubric_lines": 32
+  },
+  "core_assets": [
+    "skills/directing-stickman-videos/SKILL.md",
+    "skills/directing-stickman-videos/references/storyboard-template.md",
+    "skills/directing-stickman-videos/references/omni-flash-prompt-contract.md",
+    "skills/directing-stickman-videos/references/examples.md",
+    "tests/evaluation-rubric.md",
+    "tests/scenarios/application-cases.md"
+  ],
+  "official_demo_assets": [
+    {
+      "theme": "light",
+      "source": "assets/readme/light-theme-demo.mp4",
+      "bytes": 2922372,
+      "sha256": "1685de37cd695c3c2c53840fefa95b09f20b0e406fbae864d747e6dc018cb8d4"
+    },
+    {
+      "theme": "dark",
+      "source": "assets/readme/dark-theme-demo.mp4",
+      "bytes": 2248883,
+      "sha256": "8572376ae4a7887b48869c38505058c00940009681663c89399cf549b4b8b2d3"
+    }
+  ],
+  "workflow": [
+    "collect source, aspect ratio, and theme",
+    "compile a six-scene Phase A director proposal",
+    "stop for explicit approval",
+    "compile six standalone Phase B generation prompts",
+    "render externally and stitch outside the repository"
+  ],
+  "narrative_patterns": [
+    "motivational",
+    "educational",
+    "commercial"
+  ],
+  "supported_ratios": [
+    "16:9",
+    "9:16",
+    "1:1"
+  ],
+  "supported_themes": [
+    "light",
+    "dark"
+  ],
+  "test_boundary": "The upstream shell check validates README structure and assets. Scenario files and the evaluation rubric describe expected Agent behavior; they are not automated LLM, renderer, continuity, or visual-quality regression tests.",
+  "research_judgment": "A declarative Codex director and prompt compiler, not a video model or end-to-end renderer. Its highest reusable value is the gated workflow, intermediate storyboard contract, standalone prompt locks, continuity handoffs, and evaluation vocabulary.",
+  "evidence_boundary": {
+    "upstream_official_videos": true,
+    "project_008_case_simulations": true,
+    "project_008_generated_videos": false,
+    "cross_model_quality_claim": false
+  }
+}

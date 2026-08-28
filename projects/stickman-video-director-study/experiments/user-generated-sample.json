@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "Project 008 user-generated sample audit",
+  "id": "user-motivation-clips-01-02",
+  "evidence_class": "user_generated_external_model_output",
+  "ingested_at": "2026-08-29",
+  "source_filename": "Create_an_approximately_sec.mp4",
+  "generation_backend": "not_recorded",
+  "prompt_invocation": "not_recorded",
+  "site_asset": "docs/assets/project-008-media/user-motivation-clips-01-02.mp4",
+  "poster_asset": "docs/assets/project-008-media/user-motivation-clips-01-02-poster.jpg",
+  "contact_sheet": "projects/stickman-video-director-study/assets/user-experiment-contact-sheet.jpg",
+  "media": {
+    "sha256": "5dd2efd0bbfc59b97c3697fb7bc42cf45632a3c2943f1fd0227e199a3ab25249",
+    "bytes": 6734634,
+    "container_duration_seconds": 20.01,
+    "video": {
+      "codec": "h264",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 480,
+      "stream_duration_seconds": 20
+    },
+    "audio": {
+      "codec": "aac",
+      "present": true,
+      "stream_duration_seconds": 20.01
+    }
+  },
+  "content_mapping": {
+    "case_id": "motivation",
+    "case_title_zh": "别让“想太多”毁了你",
+    "covered_scenes": [
+      {
+        "clip": 1,
+        "purpose": "Hook",
+        "observed_visuals": [
+          "a lone stick figure notices violet thought dots",
+          "battery and clock icons appear as the thought load grows",
+          "violet lines expand into a full-frame tangle"
+        ]
+      },
+      {
+        "clip": 2,
+        "purpose": "Escalation",
+        "observed_visuals": [
+          "the camera enters the inherited violet tangle",
+          "failure, judgment, and rejection appear as fear scenes",
+          "the sequence resolves into red prison bars"
+        ]
+      }
+    ],
+    "strong_visual_change_seconds": 8.58333,
+    "scene_detection_threshold": 0.22,
+    "final_visible_handoff": "red prison bars contain the figure"
+  },
+  "verified_conclusions": [
+    "The single 20.01-second file visibly covers the narrative responsibilities of motivation CLIP 01 and CLIP 02.",
+    "The inherited violet tangle creates a recognizable bridge between the two narrative responsibilities.",
+    "The final red prison provides a usable semantic handoff for CLIP 03.",
+    "The file contains one H.264 video stream and one AAC audio stream."
+  ],
+  "evidence_limitations": [
+    "The file alone cannot establish whether the generation platform internally joined two clips or generated one 20-second sequence.",
+    "The exact backend, model version, source prompt, seed, cost, and retry history were not recorded.",
+    "Audio presence is verified, but exact voiceover wording, timing, identity consistency, and mix quality have not been transcribed or scored.",
+    "One accepted-looking sample does not establish repeatability, cross-model stability, or batch success rate."
+  ],
+  "provisional_use": "Treat as the first 20 seconds of the motivation case, subject to voiceover review. Continue from the red-prison handoff when testing CLIP 03."
+}

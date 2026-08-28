@@ -1,6 +1,6 @@
 # 0828 Codex Project
 
-一个用于持续开发、验证和公开展示独立研究子项目的仓库。当前收录五个项目：一个完整可玩的程序化跑酷游戏、一项从 Gear Zero 抽象“用户驱动数字产品平台”的产品模式研究、一项把一次性生图升级为长期个人 IP 资产系统的机制研究、一项已经归档、在相关产品出现时按需启用的古籍候选资料源研究，以及一项面向数字原生技术手册的 PDF 结构恢复与 RAG 预处理研究。
+一个用于持续开发、验证和公开展示独立研究子项目的仓库。当前收录六个项目：一个完整可玩的程序化跑酷游戏，以及面向产品模式、个人 IP 资产、古籍资料源、PDF 结构恢复和 idea-to-video 导演协议的五项研究。
 
 [在线研究总库](https://yydshly.github.io/0828_codex_project/) · [项目在线演示](#当前研究项目) · [参与方式](CONTRIBUTING.md)
 
@@ -15,6 +15,7 @@
 | [**003 · PERSONAL IP ASSET SYSTEM**](projects/personal-ip-image-pack-study/) | [人物锚点、能力路由、版本语义与生成式资产治理](projects/personal-ip-image-pack-study/README.md) | [▶ 操作六风格矩阵](https://yydshly.github.io/0828_codex_project/projects/personal-ip-image-pack-study/#style-matrix) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/personal-ip-image-pack-study/) · [仓库档案](projects/personal-ip-image-pack-study/README.md) · [页面源码](docs/projects/personal-ip-image-pack-study/) | 已验证 · 六风格真实回归完成 |
 | [**004 · DAIZHIGE CAPABILITY ATLAS**](projects/daizhige-capability-atlas/) | [古籍候选资料源、十大门类、代表书目与按需启用边界](projects/daizhige-capability-atlas/README.md) | [▶ 阅读归档总结](https://yydshly.github.io/0828_codex_project/projects/daizhige-capability-atlas/) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/daizhige-capability-atlas/) · [仓库档案](projects/daizhige-capability-atlas/README.md) · [页面源码](docs/projects/daizhige-capability-atlas/) | 已归档 · 相关产品触发时启用 |
 | [**006 · NATIVE PDF, STRUCTURED**](projects/nativepdf-structurer-analysis/) | [nativePDF-structurer 的能力、本质、适用边界、扩展方向与同类产品](projects/nativepdf-structurer-analysis/README.md) | [▶ 阅读最终判断](https://yydshly.github.io/0828_codex_project/projects/nativepdf-structurer-analysis/) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/nativepdf-structurer-analysis/) · [仓库档案](projects/nativepdf-structurer-analysis/README.md) · [页面源码](docs/projects/nativepdf-structurer-analysis/) | 已验证 · 进入观察清单 |
+| [**008 · DIRECTOR AS COMPILER**](projects/stickman-video-director-study/) | [Idea-to-video 导演协议、六幕分镜、批准门、首条 20 秒外部实测与自有风格迁移](projects/stickman-video-director-study/README.md) | [▶ 观看我们的 CLIP 01–02 实测](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/#user-sample) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/) · [必要理解](projects/stickman-video-director-study/README.md#必要理解) · [实测审计](projects/stickman-video-director-study/experiments/user-generated-sample.json) · [上游子模块](projects/stickman-video-director-study/source/) | 已验证 · 官方/实测/模拟三层证据 |
 
 状态统一使用：`规划中`、`研究中`、`已验证`、`已归档`。
 
@@ -27,6 +28,7 @@
 - `projects/personal-ip-image-pack-study/` 是 Project 003 的个人 IP 资产系统研究、权利边界和验收记录。
 - `projects/daizhige-capability-atlas/` 是 Project 004 的古籍候选资料源、代表书目、来源边界与按需启用条件档案。
 - `projects/nativepdf-structurer-analysis/` 是 Project 006 的 PDF 结构恢复、RAG 预处理边界、同类产品与采用判断档案。
+- `projects/stickman-video-director-study/` 是 Project 008 的视频导演 Skill、用户 20 秒外部生成实测、代表性案例、自有风格迁移与后期生产路线档案。
 - `docs/` 是 GitHub Pages 展示层，包含总库首页和项目研究总结。
 - `scripts/build-pages.mjs` 将展示层与游戏组装到 `.pages-dist/`。
 - `.github/workflows/pages.yml` 负责自动构建和部署。
@@ -41,6 +43,7 @@ npm run test:project-002
 npm run test:project-003
 npm run test:project-004
 node projects/nativepdf-structurer-analysis/tests/static-check.mjs
+npm run test:project-008
 npm run build:pages
 npm run preview:pages
 ```
@@ -53,6 +56,7 @@ npm run preview:pages
 - 个人 IP 资产实验台：`http://127.0.0.1:4173/projects/personal-ip-image-pack-study/`
 - 古籍语料能力图谱：`http://127.0.0.1:4173/projects/daizhige-capability-atlas/`
 - nativePDF 结构恢复研究：`http://127.0.0.1:4173/projects/nativepdf-structurer-analysis/`
+- 视频导演工作流研究：`http://127.0.0.1:4173/projects/stickman-video-director-study/`
 - 游戏：`http://127.0.0.1:4173/demos/outrun-the-level/`
 
 `preview:pages` 读取 `.pages-dist/`，修改后需先重新构建。
@@ -86,6 +90,7 @@ npm run preview:pages
 │  ├─ personal-ip-image-pack-study/  # Project 003 个人 IP 资产系统研究
 │  ├─ daizhige-capability-atlas/      # Project 004 古籍语料能力图谱
 │  ├─ nativepdf-structurer-analysis/ # Project 006 PDF 结构恢复研究
+│  ├─ stickman-video-director-study/ # Project 008 视频导演工作流研究
 │  └─ outrun-the-level/
 │     ├─ README.md                    # Project 001 研究档案
 │     ├─ assets/                      # 截图与证据
@@ -105,6 +110,7 @@ npm run preview:pages
 - Project 004 验证：静态检查 23/23、浏览器检查 25/25、控制台与页面错误 0
 - Project 006：nativePDF-structurer 的能力、本质、适用场景、同类方案与扩展方向已完成研究，当前作为专用能力和 A/B 基线进入观察清单
 - Project 006 验证：静态检查 22/22、桌面/平板/390px 浏览器检查通过、控制台与页面错误 0
+- Project 008：已固定上游仓库，完成两条官方视频、用户 CLIP 01–02 二十秒实测、三类六幕导演案例、两级批准门、画幅/主题重构和采用路线研究
 - 120 秒主流程，每 20 秒提升阶段
 - 20/20 重力门种子、10/10 出口与解锁流程
 - 静态检查 11/11；浏览器与控制台错误 0

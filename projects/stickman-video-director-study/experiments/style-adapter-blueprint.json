@@ -1,0 +1,140 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "Project 008 style adapter research blueprint",
+  "evidence_class": "deterministic_contract_simulation",
+  "disclaimer": "These profiles are research abstractions for testing director/style separation. They are not generated images, rendered videos, or verbatim private style recipes.",
+  "input_contract": {
+    "director_manifest": "approved Phase A manifest",
+    "selected_scene": "one of six 10-second scenes",
+    "aspect_ratio": "16:9 | 9:16 | 1:1",
+    "style_profile": "one profile from style_profiles",
+    "target_backend": "unresolved until a real A/B run is authorized"
+  },
+  "locked_invariants": [
+    {
+      "id": "source_meaning",
+      "label": "原意与事实边界",
+      "rule": "Preserve the source claim, narrative route, and non-fabrication boundary."
+    },
+    {
+      "id": "voiceover",
+      "label": "旁白与节拍",
+      "rule": "Preserve the approved voiceover text and its 0–3s, 3–7s, and 7–10s beat assignment."
+    },
+    {
+      "id": "scene_purpose",
+      "label": "六幕职责",
+      "rule": "Preserve each scene purpose and its place in the six-scene narrative arc."
+    },
+    {
+      "id": "continuity",
+      "label": "首尾连续性",
+      "rule": "Preserve the semantic first-frame inheritance and final-frame handoff, while translating their appearance into the selected style."
+    },
+    {
+      "id": "lineage",
+      "label": "版本与批准谱系",
+      "rule": "Reference the approved director revision and create a separate visual revision; never overwrite the director approval."
+    }
+  ],
+  "approval_policy": {
+    "director_approval": "Valid until source, voiceover, scene structure, aspect ratio, or global narrative intent changes.",
+    "visual_approval": "Valid only for one style profile plus director revision. Changing style invalidates visual approval but keeps director approval.",
+    "production_gate": "A backend-ready production contract requires both approvals and a resolved backend adapter."
+  },
+  "style_profiles": [
+    {
+      "id": "editorial-ice-blue",
+      "name_zh": "极简冰蓝",
+      "name_en": "EDITORIAL ICE BLUE",
+      "fit": "知识解释、产品逻辑、数据感较强但不依赖画内文字的内容",
+      "preview": {
+        "background": "#eef8fb",
+        "foreground": "#16272c",
+        "accent": "#6dd7ef",
+        "secondary": "#8aa2aa"
+      },
+      "style_overrides": {
+        "subject_language": "Editorial silhouettes and precise geometric figures with generous negative space; no stick-figure anatomy lock.",
+        "surface_and_background": "Clean pale ice-blue field, crisp flat layers, restrained translucent panels, no paper grain.",
+        "palette_semantics": "Ice blue indicates explanation and flow; charcoal anchors subjects; cool gray supports secondary structure.",
+        "camera_and_motion": "Measured lateral slides, diagram-like reveals, clean match cuts, restrained parallax, no restless handheld motion.",
+        "vfx": "Thin vectors, masks, grids, and controlled translucent wipes used only when they explain the idea.",
+        "negative_constraints": "No warm color contamination, decorative clutter, photorealism, random text, glossy 3D, or expressive cartoon deformation."
+      },
+      "model_adapter": {
+        "reference_strategy": "One approved keyframe per scene plus a global palette/shape reference board.",
+        "required_capabilities": ["image reference", "first-frame conditioning", "aspect-ratio control"],
+        "fallback": "If reference conditioning is unavailable, render static keyframes first and use image-to-video."
+      },
+      "qa_gates": [
+        "negative space remains readable at delivery crop",
+        "ice-blue palette stays consistent across six clips",
+        "diagram motion still expresses the approved scene purpose",
+        "no unintended words, numbers, logos, or interface labels"
+      ]
+    },
+    {
+      "id": "dark-black-red",
+      "name_zh": "暗调黑红",
+      "name_en": "DARK BLACK-RED",
+      "fit": "情绪递进、心理冲突、警示、力量感与高反差品牌叙事",
+      "preview": {
+        "background": "#09090b",
+        "foreground": "#e9e5e3",
+        "accent": "#ef3e46",
+        "secondary": "#631d25"
+      },
+      "style_overrides": {
+        "subject_language": "Graphic fashion silhouettes and cropped human gestures; preserve identity through outline, proportion, and a recurring red signature shape.",
+        "surface_and_background": "Near-black field with matte charcoal planes and controlled red light; texture remains subtle and non-photographic.",
+        "palette_semantics": "Red marks pressure, rupture, and decisive action; bone white marks release or clarity; black owns the frame.",
+        "camera_and_motion": "Tight crops, slow pressure pushes, abrupt red wipes, directional match cuts, and deliberate freeze-before-impact beats.",
+        "vfx": "Red slashes, bars, shadow blocks, and particulate traces that inherit the approved continuity object.",
+        "negative_constraints": "No cheerful pastel color, generic neon cyberpunk, horror gore, illegible crushed detail, random typography, or uncontrolled flicker."
+      },
+      "model_adapter": {
+        "reference_strategy": "Global character silhouette sheet, red signature-shape board, and explicit first/final frame references.",
+        "required_capabilities": ["character reference", "first and final frame conditioning", "motion intensity control"],
+        "fallback": "Reduce character close-ups and express continuity through red shapes if identity conditioning is weak."
+      },
+      "qa_gates": [
+        "red remains semantic rather than decorative",
+        "shadow detail survives phone playback",
+        "character outline and recurring red shape remain stable",
+        "no unintended horror, gore, typography, or strobing"
+      ]
+    },
+    {
+      "id": "oriental-blue-green",
+      "name_zh": "东方青绿",
+      "name_en": "ORIENTAL BLUE-GREEN",
+      "fit": "文化、旅行、诗意知识、人文叙事与缓慢建立的情绪内容",
+      "preview": {
+        "background": "#e8eadf",
+        "foreground": "#243b36",
+        "accent": "#2f786e",
+        "secondary": "#a9a26f"
+      },
+      "style_overrides": {
+        "subject_language": "Simplified hand-painted figures and landscape-shaped objects; identity is carried by silhouette, costume block, and one recurring object.",
+        "surface_and_background": "Layered mineral blue-green planes on a warm pale ground with restrained brush-edge variation.",
+        "palette_semantics": "Blue-green establishes space and continuity; muted mineral gold marks insight or transition; dark ink anchors hierarchy.",
+        "camera_and_motion": "Slow planar drift, scroll-like reveal, foreground veil, depth compression, and object-led dissolves without ornamental wandering.",
+        "vfx": "Mist bands, ink-edge masks, mineral-color blooms, and paper-cut parallax tied to the narrative beat.",
+        "negative_constraints": "No added symbols, architecture, calligraphy, costumes, or historical claims not present in the approved source; no generic fantasy spectacle."
+      },
+      "model_adapter": {
+        "reference_strategy": "Approved scene keyframes plus a restrained material and palette board; continuity prioritizes object and spatial layer order.",
+        "required_capabilities": ["style reference", "image-to-video", "low-motion control"],
+        "fallback": "Use layered 2.5D keyframes and controlled camera motion when native video generation changes material or identity."
+      },
+      "qa_gates": [
+        "no unapproved cultural symbol or historical assertion is introduced",
+        "blue-green material and spatial layer order remain stable",
+        "motion preserves the approved beat instead of becoming decorative",
+        "recurring object survives every transition handoff"
+      ]
+    }
+  ]
+}

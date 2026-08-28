@@ -1,0 +1,3 @@
+[submodule "projects/stickman-video-director-study/source"]
+	path = projects/stickman-video-director-study/source
+	url = https://github.com/kaomei/stickman-video-director.git

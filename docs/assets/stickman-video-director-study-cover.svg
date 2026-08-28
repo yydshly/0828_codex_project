@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Director as Compiler</title>
+  <desc id="desc">从想法经过导演预案和审批门，编译为六个视频提示词并交给外部生成器的流程图。</desc>
+  <rect width="1200" height="760" fill="#090a0a"/>
+  <g stroke="#202323" stroke-width="1">
+    <path d="M0 80h1200M0 160h1200M0 240h1200M0 320h1200M0 400h1200M0 480h1200M0 560h1200M0 640h1200"/>
+    <path d="M80 0v760M160 0v760M240 0v760M320 0v760M400 0v760M480 0v760M560 0v760M640 0v760M720 0v760M800 0v760M880 0v760M960 0v760M1040 0v760M1120 0v760"/>
+  </g>
+  <text x="64" y="75" fill="#ffc857" font-family="ui-monospace, monospace" font-size="20" font-weight="700" letter-spacing="3">PROJECT 008 / VIDEO SKILL RESEARCH</text>
+  <text x="64" y="154" fill="#f4f5f3" font-family="Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="-3">DIRECTOR AS</text>
+  <text x="64" y="222" fill="none" stroke="#f4f5f3" stroke-width="1.5" font-family="Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="-3">COMPILER</text>
+
+  <g transform="translate(74 318)">
+    <rect width="190" height="150" fill="#111313" stroke="#64d8ff" stroke-width="2"/>
+    <text x="18" y="32" fill="#64d8ff" font-family="ui-monospace, monospace" font-size="14">01 / SOURCE</text>
+    <circle cx="95" cy="73" r="17" fill="none" stroke="#f4f5f3" stroke-width="5"/>
+    <path d="M95 90v33M95 101l-25 18M95 101l25 18M95 123l-17 23M95 123l17 23" fill="none" stroke="#f4f5f3" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <path d="M280 393h58" stroke="#64d8ff" stroke-width="3"/>
+  <path d="m326 384 14 9-14 9" fill="none" stroke="#64d8ff" stroke-width="3"/>
+
+  <g transform="translate(354 298)">
+    <rect width="252" height="190" fill="#111313" stroke="#64d8ff" stroke-width="2"/>
+    <text x="18" y="32" fill="#64d8ff" font-family="ui-monospace, monospace" font-size="14">02 / PHASE A</text>
+    <text x="18" y="62" fill="#f4f5f3" font-family="Arial, sans-serif" font-size="20" font-weight="700">SIX-SCENE PLAN</text>
+    <g fill="#171a1a" stroke="#59605d">
+      <rect x="18" y="82" width="62" height="38"/><rect x="94" y="82" width="62" height="38"/><rect x="170" y="82" width="62" height="38"/>
+      <rect x="18" y="134" width="62" height="38"/><rect x="94" y="134" width="62" height="38"/><rect x="170" y="134" width="62" height="38"/>
+    </g>
+    <path d="M31 103h36M107 103h36M183 103h36M31 155h36M107 155h36M183 155h36" stroke="#ffc857" stroke-width="3"/>
+  </g>
+  <path d="M622 393h58" stroke="#ffc857" stroke-width="3"/>
+  <path d="m668 384 14 9-14 9" fill="none" stroke="#ffc857" stroke-width="3"/>
+
+  <g transform="translate(696 318)">
+    <rect width="150" height="150" fill="#2c2109" stroke="#ffc857" stroke-width="3"/>
+    <text x="18" y="32" fill="#ffc857" font-family="ui-monospace, monospace" font-size="14">03 / GATE</text>
+    <circle cx="75" cy="88" r="28" fill="none" stroke="#ffc857" stroke-width="5"/>
+    <path d="m61 88 10 11 21-25" fill="none" stroke="#ffc857" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="M862 393h58" stroke="#ffc857" stroke-width="3"/>
+  <path d="m908 384 14 9-14 9" fill="none" stroke="#ffc857" stroke-width="3"/>
+
+  <g transform="translate(936 298)">
+    <rect width="190" height="190" fill="#111313" stroke="#ff6e68" stroke-width="2" stroke-dasharray="8 7"/>
+    <text x="18" y="32" fill="#ff6e68" font-family="ui-monospace, monospace" font-size="14">04 / EXTERNAL</text>
+    <text x="18" y="62" fill="#f4f5f3" font-family="Arial, sans-serif" font-size="20" font-weight="700">RENDER</text>
+    <path d="M34 91h122v70H34z" fill="#080909" stroke="#f4f5f3" stroke-width="2"/>
+    <path d="m84 110 38 16-38 16z" fill="#ffc857"/>
+    <path d="M34 174h122" stroke="#ff6e68" stroke-width="2" stroke-dasharray="5 5"/>
+  </g>
+
+  <g transform="translate(64 572)">
+    <rect width="1062" height="104" fill="#0e1010" stroke="#3c403e"/>
+    <text x="22" y="34" fill="#a7abaa" font-family="ui-monospace, monospace" font-size="14">CORE JUDGMENT</text>
+    <text x="22" y="72" fill="#f4f5f3" font-family="Arial, sans-serif" font-size="28" font-weight="700">复用导演协议，替换火柴人风格与外部执行层。</text>
+    <text x="846" y="34" fill="#ff6e68" font-family="ui-monospace, monospace" font-size="14">0 RENDERER</text>
+    <text x="846" y="72" fill="#ffc857" font-family="ui-monospace, monospace" font-size="22" font-weight="700">6 × 10s</text>
+  </g>
+</svg>

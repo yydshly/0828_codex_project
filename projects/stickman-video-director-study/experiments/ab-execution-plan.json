@@ -1,0 +1,91 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "Project 008 director-to-style A/B execution plan",
+  "status": "ready_for_decision_not_executed",
+  "purpose": "Test whether a shared director manifest improves adoption, usable output, continuity, rework, cost, and lead time when the visual style changes.",
+  "matrix": {
+    "content_cases": ["motivation", "science", "product"],
+    "style_profiles": ["editorial-ice-blue", "dark-black-red", "oriental-blue-green"],
+    "cells": 9,
+    "minimum_clips_per_cell": 2,
+    "recommended_clips_per_cell": 6,
+    "comparison": "For each cell, compare an approved manifest-driven production contract with a direct single-prompt baseline using the same backend, duration, ratio, reference allowance, and generation budget."
+  },
+  "primary_metrics": [
+    {
+      "id": "proposal_adoption_rate",
+      "label": "导演预案采用率",
+      "definition": "approved scenes retained without narrative restructuring / proposed scenes",
+      "direction": "higher_is_better"
+    },
+    {
+      "id": "usable_clip_rate",
+      "label": "可用片段率",
+      "definition": "clips accepted for edit after at most one targeted correction / generated clips",
+      "direction": "higher_is_better"
+    },
+    {
+      "id": "reshoots_per_final_minute",
+      "label": "每成片分钟重做数",
+      "definition": "all replacement generations / delivered video minutes",
+      "direction": "lower_is_better"
+    },
+    {
+      "id": "continuity_failure_rate",
+      "label": "连续性失败率",
+      "definition": "failed adjacent handoffs / evaluated handoffs",
+      "direction": "lower_is_better"
+    },
+    {
+      "id": "cost_per_accepted_clip",
+      "label": "单条采用成本",
+      "definition": "generation plus retry cost / accepted clips",
+      "direction": "lower_is_better"
+    },
+    {
+      "id": "lead_time_per_final_minute",
+      "label": "每成片分钟耗时",
+      "definition": "elapsed human plus machine production time / delivered video minutes",
+      "direction": "lower_is_better"
+    }
+  ],
+  "secondary_checks": [
+    "unexpected visible text or logo",
+    "voiceover omission, repetition, or timing mismatch",
+    "character or recurring-object drift",
+    "palette or material drift",
+    "first/final-frame mismatch",
+    "unsafe crop at the target aspect ratio"
+  ],
+  "decision_required_before_execution": [
+    {
+      "id": "backend",
+      "question": "Which video backend and version will be the first controlled target?",
+      "why": "Prompt syntax, reference support, duration, cost, and reproducibility depend on it."
+    },
+    {
+      "id": "budget_cap",
+      "question": "What is the maximum generation and retry budget?",
+      "why": "The 9-cell matrix needs a hard stop and comparable attempts per condition."
+    },
+    {
+      "id": "approved_style_references",
+      "question": "Which owned reference boards or keyframes may be used for each style?",
+      "why": "A named style without approved visual references is not a reproducible production condition."
+    },
+    {
+      "id": "reviewers",
+      "question": "Who approves narrative fidelity, style fidelity, and edit usability?",
+      "why": "Separate reviewer roles reduce hindsight bias and make rejection reasons comparable."
+    }
+  ],
+  "execution_stages": [
+    "Freeze source, director manifest, ratio, duration, backend version, reference allowance, seed policy, and budget.",
+    "Create one baseline and one manifest-driven contract for every matrix cell.",
+    "Blind-review narrative fidelity, style fidelity, continuity, technical defects, and edit usability.",
+    "Allow at most one targeted correction before classifying a clip as accepted or rejected.",
+    "Report medians, failure reasons, and confidence limits; do not generalize from a showcase sample.",
+    "Only expand automation if the manifest-driven condition improves usable rate or rework without unacceptable cost."
+  ],
+  "current_boundary": "No backend, budget, owned reference set, or reviewer panel has been selected. Project 008 therefore stops at a reproducible protocol and does not spend generation credits or claim visual outcomes."
+}

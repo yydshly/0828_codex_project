@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project 008：研究 stickman-video-director 如何把内容编译成六幕导演预案和视频生成提示词，以及这套方法如何迁移到我们的自有风格与生产链。">
+    <title>DIRECTOR AS COMPILER · Project 008</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../project-detail.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="../../project-detail.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body id="page-top" class="project-page director-study-page">
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+    <header class="site-header">
+      <a class="brand" href="../../" aria-label="返回研究总库">0828 / PROJECT 008</a>
+      <nav class="detail-nav" aria-label="项目导航">
+        <a href="../../">总库首页</a>
+        <a href="https://github.com/kaomei/stickman-video-director">原始仓库 ↗</a>
+      </nav>
+    </header>
+
+    <nav class="section-nav" aria-label="研究章节">
+      <div class="section-nav__inner">
+        <span class="section-nav__label">DIRECTOR / COMPILER</span>
+        <div class="section-nav__links">
+          <a href="#judgment" data-section-link="judgment">判断</a>
+          <a href="#official-demos" data-section-link="official-demos">视频</a>
+          <a href="#user-sample" data-section-link="user-sample">实测</a>
+          <a href="#lab" data-section-link="lab">演示</a>
+          <a href="#adapters" data-section-link="adapters">适配</a>
+          <a href="#capabilities" data-section-link="capabilities">能力</a>
+          <a href="#mechanism" data-section-link="mechanism">原理</a>
+          <a href="#scenarios" data-section-link="scenarios">场景</a>
+          <a href="#extensions" data-section-link="extensions">扩展</a>
+          <a href="#meaning" data-section-link="meaning">价值</a>
+          <a href="#boundaries" data-section-link="boundaries">边界</a>
+        </div>
+        <a class="section-nav__play" href="#lab">OPEN LAB <span aria-hidden="true">↓</span></a>
+      </div>
+      <i id="readingProgress" class="reading-progress" aria-hidden="true"></i>
+    </nav>
+
+    <main id="main-content" class="detail-main">
+      <section class="detail-hero director-hero" aria-labelledby="project-title">
+        <div class="detail-hero-copy">
+          <p class="eyebrow">PROJECT 008 · VIDEO SKILL · RESEARCH BUILD</p>
+          <h1 id="project-title">DIRECTOR<br><span>AS COMPILER</span></h1>
+          <p class="detail-lede">它没有生成视频的新模型。它把一个想法先编译成六幕导演预案，再编译成六条独立生产提示词；火柴人只是当前视觉外壳。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#lab">操作三类案例</a>
+            <a class="button secondary" href="#official-demos">观看上游演示</a>
+            <a class="button secondary" href="#meaning">查看采用建议</a>
+          </div>
+          <ul class="hero-evidence" aria-label="研究摘要">
+            <li><strong>6 × 10s</strong><span>一分钟拆成六个片段</span></li>
+            <li><strong>2 PHASES</strong><span>预案确认后再出 Prompt</span></li>
+            <li><strong>0 RENDERER</strong><span>仓库不含视频生成器</span></li>
+          </ul>
+        </div>
+
+        <aside class="compiler-board" aria-label="从想法到外部视频生成的编译流程">
+          <div class="compiler-board__header">
+            <span>PIPELINE / 6d7f8c8</span>
+            <b>DIRECTOR SKILL ≠ VIDEO MODEL</b>
+          </div>
+          <ol class="compiler-flow">
+            <li><span>01 / SOURCE</span><strong>文案或主题</strong><small>内容、画幅、明暗主题</small></li>
+            <li><span>02 / PHASE A</span><strong>六幕导演预案</strong><small>旁白、分镜、镜头、声音</small></li>
+            <li class="is-gate"><span>03 / GATE</span><strong>用户明确确认</strong><small>全局变化会使确认失效</small></li>
+            <li><span>04 / PHASE B</span><strong>六条独立 Prompt</strong><small>重复锁定 + 首尾衔接</small></li>
+            <li class="is-external"><span>05 / EXTERNAL</span><strong>生成与拼接</strong><small>不在这个仓库内完成</small></li>
+          </ol>
+        </aside>
+      </section>
+
+      <section class="fact-strip" aria-label="仓库审计事实">
+        <div><span>AUDIT COMMIT</span><strong>6d7f8c8</strong></div>
+        <div><span>NARRATIVE ROUTES</span><strong>3 类</strong></div>
+        <div><span>ASPECT RATIOS</span><strong>3 种</strong></div>
+        <div><span>RUNTIME DEPS</span><strong>0</strong></div>
+      </section>
+
+      <section id="judgment" class="detail-section" data-section aria-labelledby="judgment-title">
+        <p class="section-index">01 / JUDGMENT</p>
+        <div class="section-copy">
+          <p class="kicker">一句话判断</p>
+          <h2 id="judgment-title">核心是导演方法，<br>火柴人只是风格实现。</h2>
+          <p class="statement">最值得我们拿走的是“内容中间层”：先把想法变成可以确认的叙事与分镜，再把同一份导演意图编译成目标视频模型能执行的生产包。</p>
+          <div class="judgment-grid">
+            <article>
+              <span>它真正增加</span>
+              <h3>导演控制层</h3>
+              <p>输入门禁、叙事路由、六幕结构、画幅重构、连续性桥接、提示词锁定与修改确认。</p>
+            </article>
+            <article class="is-boundary">
+              <span>它没有增加</span>
+              <h3>底层生成能力</h3>
+              <p>没有视频模型、API 调用、任务队列、自动重试、自动剪辑、视觉评分或跨模型一致性保证。</p>
+            </article>
+          </div>
+          <div class="formula" aria-label="本质流程">
+            <span>原始内容</span><i>→</i><strong>导演中间层</strong><i>→</i><span>模型适配 Prompt</span><i>→</i><em>外部生成</em>
+          </div>
+        </div>
+      </section>
+
+      <section id="official-demos" class="demo-section" data-section aria-labelledby="official-demos-title">
+        <div class="section-heading-wide">
+          <div>
+            <p class="section-index">02 / UPSTREAM EVIDENCE</p>
+            <p class="kicker">先看上游真实演示</p>
+            <h2 id="official-demos-title">同一套火柴人语言，<br>明暗两种视觉极性。</h2>
+          </div>
+          <p class="evidence-note"><strong>UPSTREAM OFFICIAL ASSET</strong> 下方两段 MP4 来自上游仓库 `assets/readme/`，作为能力外观证据原样保留；不是 Project 008 生成结果，也不代表稳定成功率。</p>
+        </div>
+
+        <div class="video-grid">
+          <article class="video-card is-light">
+            <div class="video-card__meta"><span>LIGHT THEME</span><b>白底 · 黑色线稿</b></div>
+            <video controls muted loop playsinline preload="metadata" aria-label="上游白底黑火柴人官方演示">
+              <source src="../../assets/project-008-media/light-theme-demo.mp4" type="video/mp4">
+              浏览器无法播放该 MP4，可访问上游仓库查看原始素材。
+            </video>
+            <p class="media-fallback" hidden>视频加载失败，但研究内容仍可继续阅读。请通过上方“原始仓库”查看演示素材。</p>
+            <p>纯白平面画布、黑色人物与有限强调色；约束重点是禁止灰底、纹理、阴影和不必要的三维深度。</p>
+          </article>
+          <article class="video-card is-dark">
+            <div class="video-card__meta"><span>DARK THEME</span><b>黑底 · 白色线稿</b></div>
+            <video controls muted loop playsinline preload="metadata" aria-label="上游黑底白火柴人官方演示">
+              <source src="../../assets/project-008-media/dark-theme-demo.mp4" type="video/mp4">
+              浏览器无法播放该 MP4，可访问上游仓库查看原始素材。
+            </video>
+            <p class="media-fallback" hidden>视频加载失败，但研究内容仍可继续阅读。请通过上方“原始仓库”查看演示素材。</p>
+            <p>纯黑背景、白色人物与高饱和强调色；适合用线团、道路、冲击波等图形隐喻制造强反差。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="user-sample" class="user-sample-section" data-section aria-labelledby="user-sample-title">
+        <div class="section-heading-wide">
+          <div>
+            <p class="section-index">03 / OUR FIRST REAL RUN</p>
+            <p class="kicker">我们的真实生成样例</p>
+            <h2 id="user-sample-title">前两幕，已经在一条<br>20 秒视频里发生。</h2>
+          </div>
+          <p class="evidence-note is-user-evidence"><strong>USER-GENERATED EXTERNAL MODEL OUTPUT</strong> 这条 MP4 是用户在外部视频模型中生成后提供的实测结果，不是上游官方资产，也不是网页模拟。生成后端、模型版本和原始调用记录尚未保存，因此只陈述文件与画面能够证明的事实。</p>
+        </div>
+
+        <div class="user-sample-grid">
+          <article class="user-sample-video">
+            <div class="user-sample-video__meta">
+              <span>PROJECT 008 / MOTIVATION</span>
+              <b>CLIP 01 + CLIP 02 · PROVISIONAL</b>
+            </div>
+            <video controls playsinline preload="metadata" poster="../../assets/project-008-media/user-motivation-clips-01-02-poster.jpg" aria-label="Project 008 用户实测：励志案例前两幕二十秒视频">
+              <source src="../../assets/project-008-media/user-motivation-clips-01-02.mp4" type="video/mp4">
+              浏览器无法播放该用户实测 MP4，但下方审计结论仍可阅读。
+            </video>
+            <p class="media-fallback" hidden>用户实测视频加载失败；文件审计、镜头映射和必要理解仍可继续阅读。</p>
+          </article>
+
+          <aside class="sample-audit" aria-label="用户实测视频审计">
+            <div class="sample-audit__head"><span>FILE AUDIT</span><b>SHA-256 · 5DD2EFD0</b></div>
+            <dl class="sample-facts">
+              <div><dt>DURATION</dt><dd>20.01s</dd></div>
+              <div><dt>VIDEO</dt><dd>1280×720 · 24 FPS</dd></div>
+              <div><dt>STREAMS</dt><dd>H.264 + AAC</dd></div>
+              <div><dt>CUT SIGNAL</dt><dd>≈ 8.58s</dd></div>
+            </dl>
+            <ol class="sample-timeline">
+              <li><span>00:00–08:58</span><div><strong>CLIP 01 / HOOK</strong><p>思绪点复制成时钟、电池与紫色线团，最终填满画面。</p></div></li>
+              <li><span>08:58–20:01</span><div><strong>CLIP 02 / ESCALATION</strong><p>继承紫色线团，进入失败、评判、拒绝，最后形成红色牢笼。</p></div></li>
+              <li class="is-next"><span>NEXT</span><div><strong>CLIP 03 HANDOFF</strong><p>下一幕应从“红色牢笼困住人物”的可见状态继续。</p></div></li>
+            </ol>
+            <p class="sample-limit"><strong>能证明：</strong>一条 20 秒文件完成了前两幕的叙事职责和可识别衔接。<br><strong>不能证明：</strong>平台是内部拼接还是一次生成，也不能证明模型、成本、重试与批量稳定性。<a class="audit-link" href="./user-generated-sample.json">打开机器可读审计 JSON ↗</a></p>
+          </aside>
+        </div>
+
+        <div class="necessary-understanding" aria-labelledby="necessary-title">
+          <div class="necessary-understanding__lead">
+            <span>NECESSARY UNDERSTANDING</span>
+            <h3 id="necessary-title">理解这个库，只需要记住五件事。</h3>
+          </div>
+          <ol>
+            <li><span>01</span><strong>它是导演规则</strong><p>负责把内容变成旁白、六幕分镜、节拍和连续性，不提供新的视频模型。</p></li>
+            <li><span>02</span><strong>火柴人是默认语言</strong><p>用简单人物、颜色、图形和运动隐喻表达抽象内容，可以被我们的风格包替换。</p></li>
+            <li><span>03</span><strong>Phase A 用来审故事</strong><p>六幕预案先确认“讲什么、怎么衔接”，不是直接复制到模型的一条总 Prompt。</p></li>
+            <li><span>04</span><strong>Phase B 才是生产合同</strong><p>通常逐镜头复制给外部模型；模型也可能像本次实测一样输出覆盖两幕的较长结果。</p></li>
+            <li><span>05</span><strong>成片仍需外部执行</strong><p>生成、重做、旁白核验、BGM 统一、剪切和拼接都不在这个仓库里自动完成。</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="lab" class="lab-section" data-section aria-labelledby="lab-title">
+        <div class="section-heading-wide">
+          <div>
+            <p class="section-index">04 / REPRESENTATIVE CASES</p>
+            <p class="kicker">操作导演编译台</p>
+            <h2 id="lab-title">三种内容，<br>走同一条生产管线。</h2>
+          </div>
+          <p class="evidence-note"><strong>DETERMINISTIC RESEARCH SIMULATION</strong> 励志案例压缩自上游完整示例；科普与商业案例使用上游测试公布的输入，由 Project 008 按公开合同构造。这里不调用 LLM 或视频模型。</p>
+        </div>
+
+        <div class="case-tabs" id="caseTabs" role="tablist" aria-label="选择代表性内容案例">
+          <button type="button" role="tab" aria-selected="true" data-case="motivation"><span>01</span><strong>励志叙事</strong><small>UPSTREAM EXAMPLE</small></button>
+          <button type="button" role="tab" aria-selected="false" data-case="science"><span>02</span><strong>科普解释</strong><small>PROJECT 008 SIM</small></button>
+          <button type="button" role="tab" aria-selected="false" data-case="product"><span>03</span><strong>产品概念</strong><small>PROJECT 008 SIM</small></button>
+        </div>
+
+        <div class="director-lab">
+          <aside class="lab-controls" aria-label="导演预案全局设置">
+            <div class="lab-status-line">
+              <span id="patternBadge">MOTIVATIONAL</span>
+              <b id="phaseBadge">PHASE A / REVIEW</b>
+            </div>
+            <h3 id="caseTitle">Stop Letting Overthinking Ruin Your Life</h3>
+            <p id="caseTitleZh">《别让“想太多”毁了你》</p>
+
+            <div class="source-block">
+              <span>SOURCE</span>
+              <blockquote id="caseSource"></blockquote>
+              <small id="caseEvidence"></small>
+            </div>
+
+            <label class="field-label" for="ratioSelect">画幅 / ASPECT RATIO</label>
+            <select id="ratioSelect">
+              <option value="16:9">16:9 · 横向调度</option>
+              <option value="9:16">9:16 · 纵向纵深</option>
+              <option value="1:1">1:1 · 中心构图</option>
+            </select>
+
+            <fieldset class="theme-field">
+              <legend>主题 / THEME</legend>
+              <label><input type="radio" name="theme" value="light"> <span>白底黑线</span></label>
+              <label><input type="radio" name="theme" value="dark" checked> <span>黑底白线</span></label>
+            </fieldset>
+
+            <div class="contract-meter" aria-label="当前合同指标">
+              <div><span>VO WORDS</span><strong id="wordCount">143</strong></div>
+              <div><span>SCENES</span><strong>6</strong></div>
+              <div><span>BEATS</span><strong>18</strong></div>
+            </div>
+
+            <button id="approveButton" class="approve-button" type="button">批准当前预案，解锁 Phase B</button>
+            <button id="resetButton" class="reset-button" type="button">恢复案例默认设置</button>
+            <p id="approvalStatus" class="approval-status" role="status">生产 Prompt 已锁定；请先检查六幕预案。</p>
+          </aside>
+
+          <div class="lab-workspace">
+            <div class="workspace-head">
+              <div>
+                <span>PHASE A / SIX-SCENE STORYBOARD</span>
+                <h3>导演预案</h3>
+              </div>
+              <p id="compositionRule"></p>
+            </div>
+
+            <div id="sceneGrid" class="scene-grid" aria-label="六幕导演预案"></div>
+
+            <div class="prompt-workbench">
+              <div class="selected-scene-panel">
+                <div class="panel-head">
+                  <div><span id="selectedSceneNumber">CLIP 01</span><h3 id="selectedScenePurpose">Hook</h3></div>
+                  <b id="continuityBadge">CONTINUITY LOCK</b>
+                </div>
+                <ol id="beatList" class="beat-list"></ol>
+                <div class="handoff-row">
+                  <p><span>FIRST FRAME</span><strong id="firstFrame"></strong></p>
+                  <i aria-hidden="true">→</i>
+                  <p><span>FINAL FRAME</span><strong id="finalFrame"></strong></p>
+                </div>
+                <blockquote id="selectedVo"></blockquote>
+              </div>
+
+              <div class="production-panel">
+                <div class="panel-head">
+                  <div><span>PHASE B / MODEL PROMPT</span><h3>单镜头生产合同</h3></div>
+                  <button id="copyPrompt" type="button" disabled>复制 Prompt</button>
+                </div>
+                <pre id="promptOutput" tabindex="0">LOCKED
+
+Phase B 只在当前 Phase A 获得明确批准后生成。
+切换案例、画幅或主题都会使批准失效。</pre>
+                <p id="copyFeedback" role="status">NO MODEL CALL · NO VIDEO RENDER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <noscript><p class="noscript-note">交互演示需要 JavaScript；上游视频、研究判断、能力、场景、扩展与价值总结仍可完整阅读。</p></noscript>
+      </section>
+
+      <section id="adapters" class="adapter-section" data-section aria-labelledby="adapters-title">
+        <div class="section-heading-wide">
+          <div>
+            <p class="section-index">05 / STYLE ADAPTER LAB</p>
+            <p class="kicker">把导演内核接到我们的风格</p>
+            <h2 id="adapters-title">同一份导演意图，<br>三套视觉执行合同。</h2>
+          </div>
+          <p class="evidence-note"><strong>PROJECT 008 ADAPTER PROTOTYPE</strong> 这是结构与状态机的确定性研究原型，不是三套风格的真实生成结果，也不公开或替代任何私有固定配方。它验证的是“什么保持、什么替换、何时重新批准”。</p>
+        </div>
+
+        <div id="styleTabs" class="style-tabs" role="tablist" aria-label="选择研究风格适配器">
+          <button type="button" role="tab" aria-selected="true" data-style="editorial-ice-blue"><span>01</span><strong>极简冰蓝</strong><small>CLARITY</small></button>
+          <button type="button" role="tab" aria-selected="false" data-style="dark-black-red"><span>02</span><strong>暗调黑红</strong><small>TENSION</small></button>
+          <button type="button" role="tab" aria-selected="false" data-style="oriental-blue-green"><span>03</span><strong>东方青绿</strong><small>POETRY</small></button>
+        </div>
+
+        <div class="adapter-lab">
+          <aside id="stylePreview" class="style-preview" aria-label="当前风格的抽象色彩与构成预览">
+            <div class="style-preview__meta"><span>ABSTRACT CONTRACT PREVIEW</span><b id="adapterProfileId">EDITORIAL-ICE-BLUE</b></div>
+            <div class="style-preview__stage" aria-hidden="true">
+              <i class="shape shape-a"></i>
+              <i class="shape shape-b"></i>
+              <i class="shape shape-c"></i>
+              <i class="shape shape-line"></i>
+            </div>
+            <div id="adapterSwatches" class="adapter-swatches" aria-label="当前风格色板"></div>
+            <p>抽象预览只表达配色与层级，不冒充模型输出。</p>
+          </aside>
+
+          <div class="adapter-console">
+            <div class="adapter-console__head">
+              <div>
+                <span id="adapterCaseBadge">MOTIVATION · CLIP 01</span>
+                <h3 id="adapterName">极简冰蓝 / EDITORIAL ICE BLUE</h3>
+              </div>
+              <b id="styleRevisionBadge">VISUAL R01 · REVIEW</b>
+            </div>
+            <p id="adapterFit" class="adapter-fit"></p>
+
+            <div class="adapter-contract-columns">
+              <article>
+                <span>STAYS LOCKED / 导演不变量</span>
+                <h4>不能被风格改写</h4>
+                <ul id="lockedList"></ul>
+              </article>
+              <article class="is-override">
+                <span>STYLE PACK OVERRIDES / 风格覆盖</span>
+                <h4>由我们的风格包负责</h4>
+                <ul id="overrideList"></ul>
+              </article>
+            </div>
+
+            <div class="adapter-qa">
+              <div>
+                <span>MODEL HANDOFF</span>
+                <p id="adapterModelHandoff"></p>
+              </div>
+              <div>
+                <span>VISUAL QA GATES</span>
+                <ul id="adapterQaList"></ul>
+              </div>
+            </div>
+
+            <div class="adapter-actions">
+              <button id="approveStyleButton" class="approve-button" type="button" disabled>先批准上方导演预案</button>
+              <button id="copyAdapter" class="reset-button" type="button" disabled>复制适配合同</button>
+            </div>
+            <p id="styleApprovalStatus" class="approval-status" role="status">风格合同依赖已经批准的 Phase A；导演结构不会被这里的选择覆盖。</p>
+            <pre id="adapterOutput" tabindex="0">WAITING FOR DIRECTOR APPROVAL · 先在上方批准导演预案，风格适配器才会绑定到对应导演版本。</pre>
+            <p id="adapterCopyFeedback" class="adapter-copy-feedback" role="status">NO STYLE GENERATION · NO MODEL CALL</p>
+          </div>
+        </div>
+
+        <div class="ab-protocol" aria-labelledby="ab-title">
+          <div class="ab-protocol__head">
+            <div><span>REAL A/B ENTRY</span><h3 id="ab-title">3 个内容案例 × 3 套风格 = 9 个受控单元</h3></div>
+            <p>每个单元比较“直接单 Prompt”与“获批导演 Manifest + 风格适配器”；模型、时长、画幅、参考资产额度与生成预算必须一致。</p>
+          </div>
+          <div class="ab-matrix" aria-label="A/B 测试九单元矩阵">
+            <b>CASE / STYLE</b><b>极简冰蓝</b><b>暗调黑红</b><b>东方青绿</b>
+            <strong>励志</strong><span>READY 01</span><span>READY 02</span><span>READY 03</span>
+            <strong>科普</strong><span>READY 04</span><span>READY 05</span><span>READY 06</span>
+            <strong>产品</strong><span>READY 07</span><span>READY 08</span><span>READY 09</span>
+          </div>
+          <ul class="metric-strip" aria-label="A/B 核心指标">
+            <li><span>01</span><strong>预案采用率</strong></li>
+            <li><span>02</span><strong>可用片段率</strong></li>
+            <li><span>03</span><strong>每分钟重做数</strong></li>
+            <li><span>04</span><strong>连续性失败率</strong></li>
+            <li><span>05</span><strong>单条采用成本</strong></li>
+            <li><span>06</span><strong>每分钟耗时</strong></li>
+          </ul>
+          <p class="ab-boundary"><strong>执行前待定：</strong>目标视频后端与版本、预算上限、三套获准参考资产、叙事/风格/剪辑审核人。未确定这些条件前，本项目不消耗生成额度，也不宣称三套风格的真实视频效果。</p>
+        </div>
+      </section>
+
+      <section id="capabilities" class="detail-section" data-section aria-labelledby="capabilities-title">
+        <p class="section-index">06 / CAPABILITIES</p>
+        <div class="section-copy">
+          <p class="kicker">它把什么变得可控</p>
+          <h2 id="capabilities-title">不是多写 Prompt，<br>而是建立导演约束。</h2>
+          <div class="capability-grid">
+            <article><span>01</span><h3>内容重构</h3><p>把素材压缩或扩展为 130–150 词英文旁白，按励志、教育或商业模式建立钩子、递进和结尾回扣。</p></article>
+            <article><span>02</span><h3>六幕分镜</h3><p>固定六个约十秒场景，每幕包含三个时间节拍、至少四种相关视觉设备，并要求每两到三秒发生变化。</p></article>
+            <article><span>03</span><h3>画幅重构</h3><p>横屏使用左右调度，竖屏使用前后纵深与层叠揭示，方形使用紧凑中心构图；改变画幅必须重新设计。</p></article>
+            <article><span>04</span><h3>连续性桥接</h3><p>把上一幕的姿势、物体、运动方向、满屏形状或镜头运动作为下一幕第一帧的继承状态。</p></article>
+            <article><span>05</span><h3>独立生产包</h3><p>每条 Prompt 重复画幅、主题、人物、配色、声音、台词、转场和负面约束，降低独立生成时的上下文丢失。</p></article>
+            <article><span>06</span><h3>修改门禁</h3><p>用户先批准导演预案。主题、画幅、旁白、场景结构或全局风格变化都会退回 Phase A 再次确认。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="mechanism" class="mechanism-section" data-section aria-labelledby="mechanism-title">
+        <div class="mechanism-copy">
+          <p class="section-index">07 / HOW IT WORKS</p>
+          <p class="kicker">工作原理</p>
+          <h2 id="mechanism-title">一套 Markdown 写成的<br>上下文编译器。</h2>
+          <p>仓库核心不是程序运行时，而是 Agent 在上下文中执行的声明式合同。`SKILL.md` 管流程，两个 references 分别定义导演预案和生产 Prompt，测试目录描述门禁与期望行为。</p>
+        </div>
+        <div class="layer-stack" aria-label="四层工作原理">
+          <article><span>ROUTER</span><strong>SKILL.md</strong><p>收集必要输入，决定何时停下、何时重构、何时加载下一阶段规则。</p></article>
+          <article><span>INTERMEDIATE REPRESENTATION</span><strong>Storyboard Contract</strong><p>把自然语言内容转换成可以人工审阅的旁白、六幕分镜、视觉节拍和连续性状态。</p></article>
+          <article><span>TARGET COMPILER</span><strong>Omni Flash Contract</strong><p>把获批的每幕编译成独立提示词，并重复关键锁定条件与负面约束。</p></article>
+          <article><span>BEHAVIOR SPEC</span><strong>Scenarios + Rubric</strong><p>检查 Agent 是否遵守输入门、批准门和重构规则；不检查真实视频画质或模型稳定性。</p></article>
+        </div>
+      </section>
+
+      <section id="scenarios" class="detail-section" data-section aria-labelledby="scenarios-title">
+        <p class="section-index">08 / USE CASES</p>
+        <div class="section-copy">
+          <p class="kicker">使用场景</p>
+          <h2 id="scenarios-title">适合快速视觉解释，<br>不适合高保真角色表演。</h2>
+          <div class="fit-grid">
+            <article class="is-high"><span>HIGH FIT</span><h3>直接适合</h3><ul><li>知识解释、教育短片与视觉随笔</li><li>励志、心理和行动型短内容</li><li>抽象概念的线性隐喻表达</li><li>低成本客户分镜确认</li><li>统一火柴人账号的批量选题</li></ul></article>
+            <article class="is-conditional"><span>CONDITIONAL</span><h3>需要扩展</h3><ul><li>中文或多语言成片</li><li>品牌自有插画与固定 IP</li><li>多视频模型与自动回退</li><li>三分钟以上长内容</li><li>批量生成、成本和资产管理</li></ul></article>
+            <article class="is-low"><span>NOT A FIT</span><h3>不应直接承担</h3><ul><li>写实人物、精确口型和复杂表演</li><li>产品 UI 的像素级演示</li><li>大量可读文字与精确数据图表</li><li>跨镜头绝对身份一致性</li><li>无人审核的一键商业成片</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="extensions" class="roadmap-section" data-section aria-labelledby="extensions-title">
+        <div class="section-heading-wide">
+          <div>
+            <p class="section-index">09 / EXTENSION ROADMAP</p>
+            <p class="kicker">从样例 Skill 到生产系统</p>
+            <h2 id="extensions-title">保留导演内核，<br>替换风格和执行层。</h2>
+          </div>
+          <p class="roadmap-thesis">最高价值的扩展不是继续堆叠描述词，而是把导演预案变成结构化中间层，让风格、模型、音频、生成、重试和质检都成为可替换模块。</p>
+        </div>
+        <ol class="roadmap-list">
+          <li><span>P0</span><div><h3>结构化导演 Manifest</h3><p>用 JSON Schema 固定旁白、镜头、首尾状态、视觉锁、音频、版本和证据来源，代替只面向人阅读的 Markdown。</p></div><b>FOUNDATION</b></li>
+          <li><span>P1</span><div><h3>我们的风格路由器</h3><p>把火柴人替换成独立 style pack：人物规则、线条/材质、色彩语义、镜头语言、允许项和禁止项由我们的风格库提供。</p></div><b>OWNED STYLE</b></li>
+          <li><span>P2</span><div><h3>多模型 Prompt 编译器</h3><p>同一导演 Manifest 分别编译到不同视频模型，按各自时长、参考图、首尾帧、音频和负面词能力生成适配包。</p></div><b>ADAPTERS</b></li>
+          <li><span>P3</span><div><h3>真实生成与合成流水线</h3><p>接入任务队列、额度预算、失败重试、素材下载、TTS、连续 BGM、音效、字幕后期和 FFmpeg 合成。</p></div><b>EXECUTION</b></li>
+          <li><span>P4</span><div><h3>连续性资产与视觉 QA</h3><p>保存角色设定、关键帧、声音参考和镜头状态；检测人物漂移、意外文字、旁白缺失、时长和首尾匹配。</p></div><b>QUALITY LOOP</b></li>
+          <li><span>P5</span><div><h3>版本、反馈与分发</h3><p>记录模型版本、Prompt、成本、失败原因和最终采用状态，并自动导出 Shorts、Reels、横屏与方形平台包。</p></div><b>OPERATIONS</b></li>
+        </ol>
+      </section>
+
+      <section id="meaning" class="meaning-section" data-section aria-labelledby="meaning-title">
+        <p class="section-index">10 / VALUE TO US</p>
+        <div class="meaning-layout">
+          <div>
+            <p class="kicker">对我们的参考与后期价值</p>
+            <h2 id="meaning-title">我们要复用的是协议，<br>不是复制火柴人。</h2>
+            <p class="statement">它证明了一套视觉经验可以从“写提示词”升级为可确认、可重构、可测试的生产合同。这与我们的固定风格 Skill、个人 IP、视频与交互内容方向高度兼容。</p>
+          </div>
+          <div class="value-cards">
+            <article><span>现在 / REFERENCE</span><h3>Skill 产品化样板</h3><p>借鉴薄入口、按阶段加载 references、显式批准门、独立生产包、失败约束和行为评测。</p></article>
+            <article><span>近期 / ADAPT</span><h3>自有风格导演</h3><p>保留内容与镜头编排，替换火柴人角色、视觉配方、配色、镜头审美与目标模型。</p></article>
+            <article><span>后期 / OPERATE</span><h3>视频生产控制层</h3><p>当接入真实模型与合成管线后，它可以成为选题到成片之间的可版本化中间层和人工审核界面。</p></article>
+          </div>
+        </div>
+        <div class="adoption-callout">
+          <span>ADOPTION JUDGMENT</span>
+          <strong>架构参考价值高 · 直接成片价值中等 · 底层模型能力新增为零</strong>
+          <p>建议先以它作为导演工作流 benchmark，选择两到三套我们的固定风格完成同题 A/B；只有真实回归证明采用率、连续性或重做成本改善，再建设多模型执行层。</p>
+        </div>
+      </section>
+
+      <section id="boundaries" class="boundary-section" data-section aria-labelledby="boundaries-title">
+        <div>
+          <p class="section-index">11 / EVIDENCE & BOUNDARIES</p>
+          <p class="kicker">成熟度与证据边界</p>
+          <h2 id="boundaries-title">能验证工作流，<br>还不能验证规模化成片。</h2>
+        </div>
+        <ul class="boundary-list">
+          <li><strong>仓库是声明式 Skill。</strong><span>没有 package、视频 SDK 或运行服务；核心资产是 Markdown 合同、示例和行为场景。</span></li>
+          <li><strong>上游测试不是视频回归。</strong><span>README shell 合同可以通过，但 scenario 与 rubric 主要定义 Agent 应如何响应，不测渲染结果。</span></li>
+          <li><strong>两条视频只是官方展示样片。</strong><span>它们证明视觉方向可实现，不证明跨主题、跨模型或批量生成成功率。</span></li>
+          <li><strong>独立生成仍会漂移。</strong><span>仓库自己承认声音和音乐可能变化，最高一致性需要外部连续旁白与 BGM。</span></li>
+          <li><strong>Project 008 没有生成新视频。</strong><span>交互案例用于观察规则与状态机，不是对 Gemini Omni Flash 或任何模型的效果承诺。</span></li>
+          <li><strong>MIT 允许改造。</strong><span>上游作为 submodule 保留完整许可证与版本历史；复制演示资产时保留来源说明。</span></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="detail-footer">
+      <div><span>PROJECT 008</span><strong>DIRECTOR AS COMPILER</strong></div>
+      <p>Idea → storyboard → approval → model prompt → external render.</p>
+      <a class="back-to-top" href="#page-top">返回顶部 ↑</a>
+    </footer>
+  </body>
+</html>

@@ -9,6 +9,8 @@ const projectRoot = join(repositoryRoot, "projects", "outrun-the-level");
 const gameRoot = join(projectRoot, "game");
 const demoRoot = join(outputRoot, "demos", "outrun-the-level");
 const assetsRoot = join(outputRoot, "assets");
+const directorStudyRoot = join(repositoryRoot, "projects", "stickman-video-director-study");
+const directorStudyOutputRoot = join(outputRoot, "projects", "stickman-video-director-study");
 
 if (!outputRoot.startsWith(repositoryRoot)) {
   throw new Error("Refusing to build outside the repository.");
@@ -26,6 +28,26 @@ for (const file of ["index.html", "style.css", "game.js"]) {
 await copyFile(
   join(projectRoot, "assets", "menu-check.png"),
   join(assetsRoot, "outrun-the-level-cover.png")
+);
+
+await copyFile(
+  join(directorStudyRoot, "experiments", "representative-cases.json"),
+  join(directorStudyOutputRoot, "representative-cases.json")
+);
+
+await copyFile(
+  join(directorStudyRoot, "experiments", "style-adapter-blueprint.json"),
+  join(directorStudyOutputRoot, "style-adapter-blueprint.json")
+);
+
+await copyFile(
+  join(directorStudyRoot, "experiments", "ab-execution-plan.json"),
+  join(directorStudyOutputRoot, "ab-execution-plan.json")
+);
+
+await copyFile(
+  join(directorStudyRoot, "experiments", "user-generated-sample.json"),
+  join(directorStudyOutputRoot, "user-generated-sample.json")
 );
 
 console.log("Pages bundle ready:", outputRoot);

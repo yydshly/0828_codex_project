@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "generated_by": "Project 008 deterministic research reconstruction",
+  "evidence_note": "The motivational case is condensed from the upstream complete example. The educational and commercial cases use sources published in upstream tests/scenarios/application-cases.md and are Project 008 simulations of the public contracts, not official upstream runs or rendered videos.",
+  "cases": [
+    {
+      "id": "motivation",
+      "pattern": "motivational",
+      "title": "Stop Letting Overthinking Ruin Your Life",
+      "title_zh": "别让“想太多”毁了你",
+      "source": "你是不是也经常这样？明明什么都还没做，但感觉自己已经累坏了。还没迈出第一步，你的脑子里就已经提前演练了一百种失败的结局。别让想太多毁掉你的生活。",
+      "default_ratio": "16:9",
+      "default_theme": "dark",
+      "evidence": "upstream complete example, condensed for the research UI",
+      "palette": ["saturated anxiety violet", "vivid danger red", "warm action gold"],
+      "scenes": [
+        {
+          "purpose": "Hook",
+          "vo": "Do you ever feel exhausted before you have even begun? Nothing has happened yet, but your mind is already carrying a hundred imaginary disasters.",
+          "beats": ["A lonely figure notices one violet thought dot", "The dot multiplies into a clock, draining battery, and rotating tangle", "The tangle expands until it fills the frame"],
+          "first_frame": "A stands alone with lowered shoulders",
+          "final_frame": "violet thought lines fill the frame",
+          "audio": "restrained piano, clock tick, electrical pulse, low rumble"
+        },
+        {
+          "purpose": "Escalation",
+          "vo": "Before the first step, you picture failure, judgment, rejection, and every possible way things could go wrong. Your thoughts turn possibilities into prisons.",
+          "beats": ["The camera flies through the inherited violet tangle", "Failure, judgment, and rejection appear as icon-only fear scenes", "The scenes flatten into a red prison"],
+          "first_frame": "inside the same rotating violet tangle",
+          "final_frame": "red prison bars twist downward",
+          "audio": "wind, fall impact, nonverbal whispers, stamp hits, metal slam"
+        },
+        {
+          "purpose": "Confinement",
+          "vo": "Then come the questions: What if I fail? What will people think? The more you search for certainty, the tighter fear wraps around your feet.",
+          "beats": ["Inherited prison bars become vines around the ankles", "A treadmill moves backward while doubt spirals multiply", "A gold beam cuts through the spiral tunnel"],
+          "first_frame": "red bars descend from the previous scene",
+          "final_frame": "a gold beam spans the full frame",
+          "audio": "heartbeat, vine creaks, treadmill friction, clean cutting sound"
+        },
+        {
+          "purpose": "Reframe",
+          "vo": "But reality is rarely what hurts you most. It is the future your mind keeps inventing. Action does not require confidence; confidence follows action.",
+          "beats": ["The inherited beam bends into a road", "A second figure trips, reconstructs, and keeps running", "Imaginary disaster frames shatter behind the first figure"],
+          "first_frame": "the gold beam crosses the entire frame",
+          "final_frame": "one glass fragment fills the lens",
+          "audio": "warming piano, footsteps, reconstruction clicks, glass break"
+        },
+        {
+          "purpose": "Action",
+          "vo": "So interrupt the loop. Choose one tiny move and do it now. Send the message, open the document, take the first imperfect step.",
+          "beats": ["The inherited fragment exits to reveal hands gripping vines", "Gold energy breaks the restraint", "Icon-only send, document, and path actions end on a raised foot"],
+          "first_frame": "the same glass fragment covers the frame",
+          "final_frame": "the right foot pauses before landing",
+          "audio": "uplifting beat, energy charge, vine snap, send tone, keyboard taps"
+        },
+        {
+          "purpose": "Payoff",
+          "vo": "The moment you move, fear loses power. Stop waiting to feel ready. Try, make mistakes, grow—and prove your thoughts do not control your life.",
+          "beats": ["The inherited foot lands and releases a gold shockwave", "The floor folds into a rising mountain path", "The figure climbs toward a gold horizon and clean CTA space"],
+          "first_frame": "the raised right foot matches the previous position",
+          "final_frame": "gold path and clean negative space hold for the edit",
+          "audio": "strong drums, energy wave, folding motion, climbing steps, resolved hit"
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "pattern": "educational",
+      "title": "Gravity Is Geometry",
+      "title_zh": "引力是几何",
+      "source": "Gravity is the curvature of spacetime caused by mass and energy. Objects follow the straightest available paths through that curved geometry, which we experience as falling or orbiting.",
+      "default_ratio": "9:16",
+      "default_theme": "light",
+      "evidence": "Project 008 simulation from an upstream application-case source",
+      "palette": ["electric geometry blue", "vivid mass red", "warm motion gold"],
+      "scenes": [
+        {
+          "purpose": "Surprising hook",
+          "vo": "Gravity is not an invisible rope pulling objects across empty space. It is the shape of space and time around them. This changes everything nearby.",
+          "beats": ["A figure looks for an invisible pulling rope", "A flat blue grid rises vertically behind the figure", "The grid bends and sweeps upward into the lens"],
+          "first_frame": "a small object floats above an unmarked flat grid",
+          "final_frame": "curved blue grid lines fill the frame",
+          "audio": "curious pulse, soft pluck, elastic grid bend"
+        },
+        {
+          "purpose": "Setup",
+          "vo": "Mass and energy reshape that geometry, bending the routes available to objects and light moving nearby, without any visible contact.",
+          "beats": ["Inherited grid lines unwrap into a tall spacetime sheet", "A red mass lowers into the sheet and changes its shape", "Gold motion traces curve around the depression"],
+          "first_frame": "the same blue curves inherited from Scene 1",
+          "final_frame": "one curved gold route exits downward",
+          "audio": "low mass impact, fabric tension, passing particle tones"
+        },
+        {
+          "purpose": "Mechanism",
+          "vo": "An object in free fall is not fighting the curve. It follows the straightest path that curved spacetime allows, moment by moment.",
+          "beats": ["A white object inherits the descending gold route", "The camera rotates around the sheet while the local route remains straight", "The route curls into a circular viewing frame"],
+          "first_frame": "a gold route descends from the previous scene",
+          "final_frame": "the route becomes a circular frame around Earth",
+          "audio": "steady glide, camera orbit whoosh, soft lock tone"
+        },
+        {
+          "purpose": "Consequence",
+          "vo": "Close to Earth, those straightest paths turn toward the ground, so a released object appears to accelerate downward along the curved route.",
+          "beats": ["Earth rises inside the inherited circular frame", "A released white object follows stacked blue curves downward", "The accelerating object crosses the lens as a wipe"],
+          "first_frame": "Earth sits inside the same circular route",
+          "final_frame": "the falling object fills the lower foreground",
+          "audio": "airy descent, accelerating ticks, close foreground pass"
+        },
+        {
+          "purpose": "Practical meaning",
+          "vo": "Add enough sideways motion and the object keeps falling while continually missing Earth. That continuous fall is what we experience as orbit around the planet.",
+          "beats": ["The inherited object gains a sideways gold impulse", "Its falling path repeatedly curves past Earth", "The trail closes into one gold orbital ring"],
+          "first_frame": "the same object exits the foreground sideways",
+          "final_frame": "a gold ring surrounds the blue Earth",
+          "audio": "side impulse, looping orbit tone, harmonic lift"
+        },
+        {
+          "purpose": "Takeaway",
+          "vo": "The scale changes, but the mechanism remains the same: nearby mass curves geometry, and moving objects follow the paths that geometry makes available, from falling to orbiting.",
+          "beats": ["The inherited ring scales from object to planet system", "Multiple curves share the same visual rule without labels", "The camera pulls back to one clean curved grid and figure"],
+          "first_frame": "the orbital ring continues from Scene 5",
+          "final_frame": "one blue grid curve returns to the opening composition",
+          "audio": "expanding harmonics, linked orbit tones, calm resolved pulse"
+        }
+      ]
+    },
+    {
+      "id": "product",
+      "pattern": "commercial",
+      "title": "From Voice Memo to Next Action",
+      "title_zh": "从语音备忘到下一步行动",
+      "source": "A notes app that turns messy voice memos into clear tasks.",
+      "default_ratio": "1:1",
+      "default_theme": "light",
+      "evidence": "Project 008 simulation from an upstream application-case source",
+      "palette": ["electric voice blue", "warm task gold", "vivid completion green"],
+      "scenes": [
+        {
+          "purpose": "Pain point",
+          "vo": "Ideas rarely arrive as tidy checklists. They show up while you are walking, commuting, or switching between a dozen unfinished thoughts.",
+          "beats": ["A centered figure juggles icon-only thought fragments", "The fragments orbit faster in a compact square", "One blue microphone icon catches the fragments"],
+          "first_frame": "a centered figure holds one loose thought dot",
+          "final_frame": "a blue microphone circle fills the frame",
+          "audio": "walking rhythm, thought pops, soft recording chime"
+        },
+        {
+          "purpose": "Consequence",
+          "vo": "You record a voice memo to capture the moment, but later it becomes another long audio file you still need to review.",
+          "beats": ["The inherited microphone becomes a long blue waveform", "Waveform capsules stack around the centered figure", "The stack closes into a dense square tile"],
+          "first_frame": "the same blue microphone circle continues",
+          "final_frame": "a dense waveform tile fills the center",
+          "audio": "recording hiss, layered waveform pulses, muted stack impact"
+        },
+        {
+          "purpose": "Product reveal",
+          "vo": "The product idea is simple: give the memo to the app, then let it turn spoken fragments into clear task candidates.",
+          "beats": ["The waveform tile enters an icon-only app frame", "Blue fragments separate into short gold cards", "Cards settle into a compact central stack"],
+          "first_frame": "the waveform tile matches the previous square",
+          "final_frame": "three gold task cards align vertically",
+          "audio": "clean transform, card snaps, restrained reveal chord"
+        },
+        {
+          "purpose": "Review mechanism",
+          "vo": "Instead of treating every fragment as certain, the experience can place each suggested task in front of you for review.",
+          "beats": ["The inherited cards expand one at a time", "A figure compares, keeps, or returns icon-only candidates", "Approved cards gain green check circles"],
+          "first_frame": "the same three gold cards remain centered",
+          "final_frame": "one green check circle grows toward the lens",
+          "audio": "card shuffle, selection ticks, one confident confirmation tone"
+        },
+        {
+          "purpose": "Benefit",
+          "vo": "The value is not more notes. It is a shorter distance between saying what matters and seeing the next action you meant to take.",
+          "beats": ["The inherited check circle becomes a short gold path", "A microphone and task card connect across the center", "The figure steps onto the compact path"],
+          "first_frame": "the green check circle continues from Scene 4",
+          "final_frame": "one raised foot pauses above the gold path",
+          "audio": "path draw, connection pulse, held step tone"
+        },
+        {
+          "purpose": "Benefit and CTA",
+          "vo": "Capture the thought in your own voice, review the tasks it produces, and move forward without leaving the idea buried in an audio file.",
+          "beats": ["The inherited foot lands on the gold path", "Blue voice waves transform into checked task cards", "The centered composition opens into clean square negative space"],
+          "first_frame": "the raised foot matches the same central path",
+          "final_frame": "a microphone-to-task loop holds around the figure",
+          "audio": "step impact, voice-to-card transformation, light resolved chord"
+        }
+      ]
+    }
+  ]
+}

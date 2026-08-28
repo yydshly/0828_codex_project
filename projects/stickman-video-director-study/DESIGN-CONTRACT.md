@@ -1,0 +1,77 @@
+# Project 008 · Delivery record
+
+## Design contract
+
+```text
+Entry mode: Brief-led research subproject inside the existing 0828 research library
+Request revision: 3
+Target user and context: 我们的视觉 Skill、视频内容与生成式生产团队；需要快速判断 stickman-video-director 能做什么、不能做什么，以及哪些结构值得迁移到自有风格和生产链。
+Desired first impression: 先看到“它是导演编译器，不是视频模型”，随后能对照观看上游官方演示与我们的首条 20 秒真实生成样例，理解六幕预案、独立 Prompt、风格适配和外部生成之间的关系。
+Visual ambition: Editorial
+Experience architecture: Editorial Flow
+Visual constraints: 延续研究总库的深色证据风格；本项目用黑白主题对照、行动金与电蓝表示火柴人语言和流程状态；不引入外部字体、框架或运行时服务；上游视频、上游完整样例和 Project 008 研究模拟必须明确分层。
+Information constraints: 必须覆盖能力、原理、代表性样例、使用场景、可扩展方向、对我们的参考价值和后期使用价值；必须明确上游不直接调用视频 API、不自动渲染或拼接；记录固定提交、许可证、测试类型与证据边界；用户实测 MP4 必须记录来源、SHA-256、时长、画幅、帧率、对应 CLIP、可观察转场和不能证明的事项，并与上游官方资产、研究模拟严格分层。
+Operation constraints: 无 JavaScript 时仍可阅读完整研究结论；导演实验台支持三种叙事案例、三种画幅、两种主题、六个镜头选择和研究审批门；风格适配实验台支持三套研究风格包、锁定项/覆盖项对照、独立视觉批准与可复制适配合同；审批后只展示确定性合同模拟，不调用模型；所有按钮可键盘操作。
+State constraints: 三案例、三画幅、两主题、六镜头、三风格、导演未审批/已审批、视觉未审批/已审批、复制成功/降级、视频可播放/原生控件降级；切换全局画幅或主题必须重置导演与视觉批准；切换风格只使视觉批准失效，不推翻已确认的叙事结构。
+Environment constraints: 零外部依赖静态页面；纳入现有 GitHub Pages 构建；上游作为 Git submodule 固定；支持 1440、820、390px；单一站点深色主题但演示区同时展示 light/dark 生成主题；尊重 reduced-motion；不要求真实 Gemini 凭据。
+Primary journey: 从总库进入 Project 008 → 阅读一句话判断 → 对照观看两条上游官方预览与我们的 20 秒真实实验 → 理解该样例实际覆盖 CLIP 01–02 及约 8.58 秒转场 → 在三个案例之间查看六幕导演预案与生产 Prompt → 切换三套风格适配合同 → 阅读必要理解、A/B 指标、场景、扩展路线和采用建议。
+User-defined phases: 获取上游库作为研究子项目；演示库能力；提供代表性样例；描述使用场景；描述扩展方向；总结对我们的参考价值与后期使用价值。
+Required artifacts: Git submodule 与精确版本记录、研究 README、设计契约、上游审计清单、三案例研究清单、三套风格适配蓝图、A/B 执行清单、用户实测审计 JSON、交互专题页、两条上游演示视频与一条用户实测 MP4 的站点副本、必要理解摘要、总库 Project 008 卡片与外部 README 关联、封面 SVG、静态检查、真实浏览器检查、样例证据截图、全库测试、Pages 构建、Git 提交、远端推送与 GitHub Pages 部署验证。
+Autonomy authorization: 用户明确要求把我们的样例接入网页、整理必要理解、关联外部 README、提交远端 GitHub 并部署；允许复制用户指定 MP4、增量更新 Project 008 页面/研究文档/测试/总库关联文件、为 Project 008 创建提交、推送 origin/main 并验证 GitHub Pages。
+User-decision boundary: 不安装到用户全局 Codex Skills；不修改上游 submodule；不调用收费视频模型或生成新视频；不提交 Project 007/009/010 等无关并行改动；不覆盖或回退工作区既有未提交改动；若远端认证、分支保护或 Pages 权限拒绝，则保留本地提交并报告精确阻塞。
+Observable completion criteria: source/ 指向上游固定提交；项目 README 与根 README 均关联 Project 008 的结论、专题页与用户实测证据；页面首屏明确 Director Skill ≠ Video Model；两条上游 MP4 与一条 20.01 秒用户实测 MP4 可通过本地及远端站点加载；实测区明确其对应 motivation CLIP 01–02、约 8.58 秒视觉切点、单一 20 秒文件流和证据限制；必要理解摘要能区分导演能力、火柴人风格、外部模型与后期拼接；既有导演和风格实验台无回归；1440、820、390px 无页面级横向溢出；键盘、媒体降级与 reduced-motion 可理解；Project 008 静态检查、浏览器检查和 Pages 构建通过；仅 Project 008 相关文件进入提交；origin/main 推送成功且 GitHub Pages 公开 URL 返回新样例与对应说明。
+```
+
+## Design direction
+
+| 决策 | 方向 | 可观察约束 | 验收标准 |
+| --- | --- | --- | --- |
+| 首屏判断 | “导演编译器”先于功能列表 | 首屏同时出现输入、导演层、外部生成层与边界标签 | 不会被理解成视频模型或一键成片服务 |
+| 演示证据 | 上游真实 MP4 与研究模拟分区 | 视频标注 upstream official；实验台标注 deterministic research simulation | 不把我们的模拟结果冒充上游输出或成片 |
+| 样例覆盖 | 励志、科普、商业三种叙事模式 | 三案例均有六幕，默认覆盖横、竖、方形与明暗主题 | 能观察叙事路由和画幅重构差异 |
+| 交互核心 | 审批门 + 单镜头 Prompt 解剖 | 全局变化使 Phase B 重新锁定；选择镜头改变输出 | 交互体现真实合同，而不是装饰性标签切换 |
+| 视觉语言 | 黑白极性、线性运动与剪辑标记 | 金色表示批准/行动，电蓝表示结构，红色表示边界 | 状态不只靠颜色传达，正文始终可读 |
+| 响应式 | 宽屏双栏实验台，窄屏顺序流 | 390px 不横向溢出，横向控件可换行或安全滚动 | 主流程在桌面、平板和手机均可完成 |
+| 动效与媒体 | 视频是渐进增强，动效解释状态 | 原生视频控件；reduced-motion 关闭非必要动画和平滑滚动 | 不播放视频也能获得完整研究结论 |
+
+## Coverage manifest
+
+| 用户阶段 | 要求或产物 | 表面 / 状态 | 证据 | 阶段 | 状态 | 下一动作 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 获取仓库 | 上游作为固定版本子项目 | `source/`、`.gitmodules` | Git 状态、提交哈希、文件 | 0、9 | pass | 已固定 `6d7f8c8`，下一步形成审计记录 |
+| 研究库能力 | 能力、原理、边界与测试性质 | README、专题页 | 文件、DOM | 3、9 | pass | README、审计 JSON 与完整专题正文已交付 |
+| 演示真实能力 | 两条上游明暗主题预览 | 视频区、加载与控件状态 | 本地媒体、浏览器 | 1、7、8 | pass | 两条 1280×720、约 10.005 秒 MP4 已按 SHA-256 固定并通过浏览器加载 |
+| 代表性样例 | 励志、科普、商业案例，各六幕 | 实验台案例/镜头状态 | 研究清单、DOM、交互 | 3–6 | pass | 三案例分别为 143、141、132 词，六幕与十八节拍均可操作 |
+| 工作流门禁 | 画幅/主题/审批门/重构 | 未批准、已批准、全局修改 | 浏览器交互 | 4–6 | pass | 批准解锁、六镜头切换和全局修改重新锁定均通过 |
+| 使用场景 | 高匹配、条件匹配、不适合 | 场景矩阵 | DOM、README | 3 | pass | HIGH FIT、CONDITIONAL、NOT A FIT 三层已交付 |
+| 扩展与价值 | 扩展路线、参考价值、后期价值 | 路线与采用建议 | DOM、README | 3 | pass | P0–P5、自有风格迁移、当前/近期/长期价值与采用路线已交付 |
+| 总库集成 | Project 008 卡片、README、构建与工作流 | 首页、项目页、CI | 导航、文件、构建 | 1、9 | pass | 总库卡片与项目入口、测试命令、三份 manifest 构建复制和 submodule checkout 已交付 |
+| 跨表面验收 | 桌面、平板、390px、键盘、媒体、reduced-motion | 主路径与关键状态 | 浏览器、截图 | 7–8 | pass | 47/47 浏览器检查通过，三视口无溢出，键盘、复制、媒体降级和 reduced-motion 通过 |
+| 自动检查 | Project 008、邻接项目与 Pages | Node、构建、HTTP | 命令输出 | 9 | pass | Project 008 静态 40/40、上游 README 合同、Project 006/009/010 回归和 Pages 构建通过；全库命令的 Project 007 并行契约失败单独记录 |
+| 风格解耦原型 | 三套自有风格适配器与不变量/覆盖项 | Style Adapter Lab、蓝图 JSON | 数据、DOM、交互 | 3–8 | pass | 三套研究适配合同、独立视觉批准、版本谱系和复制路径均已实现 |
+| 真实 A/B 入口 | 3 内容 × 3 风格测试矩阵、指标与待决项 | A/B 清单、页面摘要 | 数据、DOM | 3、9 | pass | 已固定九单元、六项主指标和四项执行前决策；未在条件不完整时调用付费生成 |
+| Phase 2 跨表面验收 | 三风格键盘切换、视觉批准、复制、三视口 | 适配器主路径 | 浏览器、截图 | 7–9 | pass | 真实 Chromium 验证两级批准、风格键盘切换、合同复制、全局失效与手机主路径，截图已保存 |
+| 用户实测证据 | 20 秒 CLIP 01–02 样例、审计与证据边界 | 实测视频区、实验 JSON | 文件、ffprobe、DOM、浏览器 | 1、3、8 | continue | 复制 MP4、固定哈希和媒体元数据，接入页面并验证加载与降级 |
+| 必要理解归纳 | 导演/风格/模型/剪辑职责与使用步骤 | 页面摘要、项目 README、根 README | DOM、文档 | 3、9 | continue | 增补五条必要理解和外部 README 关联，消除“一次六幕生成”的误解 |
+| Git 交付卫生 | 只提交 Project 008 及必要共享集成 | Git index、提交 | staged diff、commit | 9 | continue | 隔离并行项目改动，审计暂存区后创建单一 Project 008 提交 |
+| 远端部署 | origin/main 与 GitHub Pages 可访问新样例 | GitHub、公开页面 | push、workflow、HTTP、浏览器 | 9 | continue | 推送提交，等待 Pages 完成并验证远端视频、说明和 README 关联 |
+
+## Runtime record
+
+- 当前阶段：Revision 3 / Stage 0；Revision 2 既有能力、适配器与浏览器证据保持 `pass`，用户实测、必要理解、Git 交付和远端部署重新打开为 `continue`。
+- 审计对象：`kaomei/stickman-video-director`。
+- 固定提交：`6d7f8c83a16c594c23bb73da832c8864ccd2aeb5`，提交时间 2026-08-20T09:51:21+08:00。
+- 入口授权：用户明确要求获取、研究、演示和总结；无需第二次页面实现确认。
+- 现有工作区：根 README、docs 首页、projects.json、package.json 等已有用户改动；本项目只做增量编辑。
+- 上游验证：`tests/verify-readmes.sh` 通过六份 README 合同；该测试只检查文档与资产，不是视频回归。
+- 静态验证：`npm run test:project-008`，40/40 通过。
+- 全库回归：`npm run test:all` 已执行；Project 001–005 通过，在并行开发中的 Project 007 因其设计契约缺少可观察标准而停止。Project 008 独立通过；Project 006（22/22）、Project 009（30/30）和 Project 010（29/29）另行通过。未修改 Project 007。
+- Pages 构建：`npm run build:pages` 通过；规范输出为 `.pages-dist`。
+- 规范地址：`http://127.0.0.1:4173/projects/stickman-video-director-study/`，HTTP 200。
+- 浏览器工具：`agent-browser` CLI 在当前环境不可用；使用 Codex workspace bundled Playwright 完成等价真实 Chromium 验证。
+- 浏览器验证：47/47 通过；两条本地 MP4 元数据均为 1280×720、10.005 秒；无外部运行请求、控制台或页面错误。
+- 交互验证：三案例、六镜头、画幅、明暗主题、导演批准、三风格、独立视觉批准、风格切换只重置视觉版本、全局修改重置两级批准、两类合同复制、键盘方向键和视频错误降级均通过。
+- 视口验证：1440×1000、820×1180、390×844 的 `scrollWidth` 均等于 `clientWidth`。
+- reduced-motion：浏览器计算 `html` 的 `scroll-behavior` 为 `auto`。
+- 证据截图：`assets/project-008-desktop.png`、`assets/project-008-official-videos.png`、`assets/project-008-lab.png`、`assets/project-008-style-adapters.png`、`assets/project-008-mobile.png`。
+- 终端审计：所有 Project 008 覆盖项为 `pass`；未安装全局 Skill，未调用视频模型，未提交、推送或部署。

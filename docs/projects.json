@@ -55,5 +55,17 @@
     "demoUrl": "./projects/nativepdf-structurer-analysis/#judgment",
     "demoLabel": "阅读最终判断 →",
     "image": "./assets/nativepdf-structurer-analysis-cover.svg"
+  },
+  {
+    "id": "stickman-video-director-study",
+    "number": "008",
+    "name": "DIRECTOR AS COMPILER",
+    "status": "前两幕真实外部生成已接入",
+    "category": "AI 视频导演工作流",
+    "summary": "研究 stickman-video-director 如何把想法编译成六幕导演预案和独立视频 Prompt，并以一条 20 秒 CLIP 01–02 外部实测验证火柴人叙事与连续性，再迁移到我们的风格适配方案。",
+    "url": "./projects/stickman-video-director-study/",
+    "demoUrl": "./projects/stickman-video-director-study/#user-sample",
+    "demoLabel": "观看 20 秒实测 →",
+    "image": "./assets/stickman-video-director-study-cover.svg"
   }
 ]
