@@ -45,7 +45,7 @@ Observable completion criteria: 总库可进入 Project 004；首屏明确显示
 | 研究库接入 | 总库卡片、首页状态、README、项目数据均显示归档定位 | 首页与仓库文件 | 浏览器导航、构建输出 | 1、9 | pass | 总库卡片、首页和 README 已同步归档定位 |
 | 跨表面验收 | 桌面、平板、390px、键盘、reduced-motion | 关键路径与筛选状态 | 浏览器检查、截图 | 7–8 | pass | 三视口无溢出，键盘与 reduced-motion 通过 |
 | 自动检查 | Project 004 静态检查、全库测试与 Pages 构建 | Node 与构建脚本 | 命令输出 | 9 | pass | 工作区与精确暂存快照均通过测试和 Pages 构建 |
-| 远端发布 | 仅提交 Project 004 范围文件并推送，GitHub Pages 可访问 | Git、Actions、线上 URL | commit、push、workflow、HTTP 与 DOM | 9 | continue | 验证后精确暂存、提交、推送并检查部署 |
+| 远端发布 | 仅提交 Project 004 范围文件并推送，GitHub Pages 可访问 | Git、Actions、线上 URL | commit、push、workflow、HTTP 与 DOM | 9 | pass | `d9d23d2` 已推送；Actions 成功；公开页面 25/25 通过 |
 
 ## Runtime record
 
@@ -60,3 +60,7 @@ Observable completion criteria: 总库可进入 Project 004；首屏明确显示
 - 视口检查：1440 × 1000、820 × 1180、390 × 844 的 `scrollWidth` 均等于 `clientWidth`，无页面级横向溢出。
 - reduced-motion：浏览器计算 `html` 的 `scroll-behavior` 为 `auto`。
 - 证据截图：`assets/project-004-desktop.png`、`assets/project-004-catalog.png`、`assets/project-004-mobile.png`；桌面与手机首屏均显示归档、按需启用和无正文镜像边界。
+- 发布提交：`d9d23d25998f996870729797485c87bf422dabf0`，只包含 Project 004、必要总库索引与测试入口；Project 003 的本地改动未纳入提交。
+- GitHub Actions：`Deploy GitHub Pages` run `33185057425` 成功完成；构建、artifact 上传和 Pages 部署全部通过。
+- 公开地址：`https://yydshly.github.io/0828_codex_project/projects/daizhige-capability-atlas/`，返回 200；线上完整浏览器检查 25/25，通过交互、三视口、键盘、reduced-motion 与零控制台错误检查。
+- 终端审计：所有覆盖项均为 `pass`，没有 `continue`、`defer` 或 `blocked`；Project 004 已总结、归档并完成公开发布。
