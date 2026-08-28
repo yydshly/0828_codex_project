@@ -10,8 +10,8 @@
 
 | 项目 | 方向与成果 | 在线演示 | 研究与源码 | 状态 |
 | --- | --- | --- | --- | --- |
-| **001 · OUTRUN THE LEVEL** | 程序化跑酷、关卡公平性、删除浪与重力翻转 | [▶ 在线试玩](https://yydshly.github.io/0828_codex_project/demos/outrun-the-level/) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/outrun-the-level/) · [仓库档案](projects/outrun-the-level/README.md) · [游戏源码](projects/outrun-the-level/game/) | 已验证 · 后续开展真人试玩 |
-| **002 · FROM SKILL TO STUDIO** | Gear Zero 产品参照、Skill 编排与用户驱动数字产品平台 | [▶ 在线查看](https://yydshly.github.io/0828_codex_project/projects/gear-zero-platform-study/) | [仓库档案](projects/gear-zero-platform-study/README.md) · [页面源码](docs/projects/gear-zero-platform-study/) | 已验证 · 研究结论已发布 |
+| [**001 · OUTRUN THE LEVEL**](projects/outrun-the-level/) | [程序化跑酷、关卡公平性、删除浪与重力翻转](projects/outrun-the-level/README.md) | [▶ 在线试玩](https://yydshly.github.io/0828_codex_project/demos/outrun-the-level/) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/outrun-the-level/) · [仓库档案](projects/outrun-the-level/README.md) · [游戏源码](projects/outrun-the-level/game/) | 已验证 · 后续开展真人试玩 |
+| [**002 · FROM SKILL TO STUDIO**](projects/gear-zero-platform-study/) | [Gear Zero 产品参照、Skill 编排与用户驱动数字产品平台](projects/gear-zero-platform-study/README.md) | [▶ 在线查看](https://yydshly.github.io/0828_codex_project/projects/gear-zero-platform-study/) | [仓库档案](projects/gear-zero-platform-study/README.md) · [页面源码](docs/projects/gear-zero-platform-study/) | 已验证 · 研究结论已发布 |
 
 状态统一使用：`规划中`、`研究中`、`已验证`、`已归档`。
 
