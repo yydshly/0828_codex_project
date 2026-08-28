@@ -43,7 +43,7 @@ Observable completion criteria: 直达专题页完整覆盖所需信息；结论
 | 同类产品 | 五类替代方案与选型建议 | 比较表、来源链接 | DOM、链接检查 | 3、7 | pass | 无 |
 | 研究档案 | README 与来源边界 | 仓库文件 | 文件、静态检查 | 9 | pass | 无 |
 | 自动检查 | Project 006 静态和浏览器检查 | Node / agent-browser | 命令输出、截图 | 7、9 | pass | 无 |
-| 远端部署 | main 提交和 GitHub Pages | Git / Actions / 线上 URL | 提交、推送、HTTP 与页面 DOM | 9 | continue | 验证通过后提交推送 |
+| 远端部署 | main 提交和 GitHub Pages | Git / Actions / 线上 URL | 提交、推送、HTTP 与页面 DOM | 9 | pass | 无 |
 
 ## Runtime record
 
@@ -55,4 +55,6 @@ Observable completion criteria: 直达专题页完整覆盖所需信息；结论
 - 交互：路线标签鼠标点击和方向键切换通过；复制判断的键盘触发与反馈通过；reduced-motion 下滚动行为为 `auto`。
 - 运行边界：控制台与页面错误为零；无第三方字体、脚本或样式运行依赖。
 - 视觉证据：桌面、平板、移动端全页截图以及 390px 首屏、比较表局部截图已在浏览器校准环节人工检查；临时证据不写入发布产物。
-- 远端部署证据：待提交、推送及 GitHub Pages 完成后补充。
+- 内容提交：`155ab0737147db853375c8dc768280b0583d4ff2`，已推送至 `origin/main`。
+- Pages 工作流：[Deploy GitHub Pages #33190504287](https://github.com/yydshly/0828_codex_project/actions/runs/33190504287)，结论 `success`。
+- 线上地址：`https://yydshly.github.io/0828_codex_project/projects/nativepdf-structurer-analysis/`；页面状态 `complete`，标题、最终判断与 3 个路线标签存在，390×844 无页面级横向溢出，线上控制台与页面错误为零。
