@@ -3,43 +3,56 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="0828 Codex Project：多子项目能力研究、验证与展示。">
+    <meta name="description" content="0828 Codex Project 的第一项研究：完整可玩的程序化跑酷游戏 OUTRUN THE LEVEL。">
     <title>0828 Codex Project</title>
     <link rel="stylesheet" href="./styles.css">
     <script src="./app.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
     <header class="site-header">
       <a class="brand" href="./" aria-label="返回首页">0828 / CODEX PROJECT</a>
       <a class="repo-link" href="https://github.com/yydshly/0828_codex_project">GitHub 仓库 <span aria-hidden="true">↗</span></a>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero" aria-labelledby="hero-title">
-        <p class="eyebrow">RESEARCH · VERIFY · SHARE</p>
-        <h1 id="hero-title">把探索过程，<br>变成可复现的研究。</h1>
-        <p class="lede">围绕多个子项目持续记录研究目标、实验过程、证据、能力边界与可访问的演示。</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#projects">浏览项目</a>
-          <a class="button secondary" href="https://github.com/yydshly/0828_codex_project/blob/main/README.md">阅读总索引</a>
+        <div class="hero-copy">
+          <p class="eyebrow">PROJECT 001 · PLAYABLE RESEARCH</p>
+          <h1 id="hero-title">第一项研究，<br>先把想法做成游戏。</h1>
+          <p class="lede">OUTRUN THE LEVEL 是本库的第一个子项目：一款围绕实时关卡生成、删除浪与重力翻转展开的完整 2.5D 自动跑酷游戏。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="./demos/outrun-the-level/">开始游戏</a>
+            <a class="button secondary" href="./projects/outrun-the-level/">阅读研究总结</a>
+          </div>
+          <dl class="hero-proof" aria-label="项目验证摘要">
+            <div><dt>主流程</dt><dd>120 秒</dd></div>
+            <div><dt>公平种子</dt><dd>20 / 20</dd></div>
+            <div><dt>浏览器错误</dt><dd>0</dd></div>
+          </dl>
         </div>
+        <a class="hero-preview" href="./demos/outrun-the-level/" aria-label="打开 OUTRUN THE LEVEL 可玩版本">
+          <img src="./assets/outrun-the-level-cover.png" alt="OUTRUN THE LEVEL 游戏主界面与赛博城市跑道">
+          <span class="hero-preview__status">LIVE BUILD · v0.1.0</span>
+          <span class="hero-preview__action">亲自验证这项研究 <b aria-hidden="true">↗</b></span>
+        </a>
       </section>
 
       <section class="principles" aria-label="研究原则">
         <article>
           <span>01</span>
-          <h2>可追溯</h2>
-          <p>记录来源、版本与访问日期，让每条结论都有上下文。</p>
+          <h2>完整可玩</h2>
+          <p>以 120 秒主流程、结算、重开和无限模式验证想法，而不是只做视觉片段。</p>
         </article>
         <article>
           <span>02</span>
-          <h2>可复现</h2>
-          <p>保留环境、步骤和证据，让关键实验可以再次运行。</p>
+          <h2>公平生成</h2>
+          <p>用受约束的模板控制缺口、障碍间距和重力门缓冲，拒绝无解组合。</p>
         </article>
         <article>
           <span>03</span>
-          <h2>可验证</h2>
-          <p>同时呈现能力与限制，用实际结果支撑判断。</p>
+          <h2>实机验证</h2>
+          <p>覆盖桌面与移动输入、重力翻转、失败重开、通关解锁和进度保存。</p>
         </article>
       </section>
 
@@ -58,8 +71,8 @@
     </main>
 
     <footer>
-      <p>持续研究，保留证据，公开过程。</p>
-      <p>Last initialized · 2026</p>
+      <p>从第一个可玩项目开始，持续研究、保留证据。</p>
+      <p>PROJECT 001 · 2026</p>
     </footer>
   </body>
 </html>

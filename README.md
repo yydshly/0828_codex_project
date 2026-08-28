@@ -1,61 +1,96 @@
 # 0828 Codex Project
 
-用于持续研究、验证和展示多个子项目能力的总仓库。
+一个用于持续开发、验证和公开展示独立研究子项目的仓库。当前只有第一个正式子项目：完整可玩的程序化跑酷游戏 **OUTRUN THE LEVEL**。
 
-[研究项目](#研究项目) · [研究方法](#研究方法) · [在线展示](https://yydshly.github.io/0828_codex_project/) · [参与方式](CONTRIBUTING.md)
+[在线研究总库](https://yydshly.github.io/0828_codex_project/) · [Project 001 研究总结](https://yydshly.github.io/0828_codex_project/projects/outrun-the-level/) · [立即试玩](https://yydshly.github.io/0828_codex_project/demos/outrun-the-level/) · [参与方式](CONTRIBUTING.md)
 
-## 仓库定位
+## 快速入口
 
-- 根目录 `README.md` 是整个研究库的统一入口和项目索引。
-- `projects/` 保存每个研究对象的资料、实验记录与结论；独立代码库可按需通过 Git submodule 引入。
-- `docs/` 提供面向浏览者的 GitHub Pages 展示页。
-- `.github/workflows/` 负责持续部署展示页。
+| 内容 | 用途 |
+| --- | --- |
+| [在线研究总库](https://yydshly.github.io/0828_codex_project/) | 浏览仓库的研究项目索引 |
+| [OUTRUN THE LEVEL 研究总结](https://yydshly.github.io/0828_codex_project/projects/outrun-the-level/) | 阅读提示词、意义、证据、价值和扩展方向 |
+| [OUTRUN THE LEVEL 在线游戏](https://yydshly.github.io/0828_codex_project/demos/outrun-the-level/) | 直接验证 120 秒主流程、重力翻转和即时重开 |
+| [Project 001 研究档案](projects/outrun-the-level/README.md) | 查看实现、复现方法、实验记录与边界 |
 
-## 研究项目
+## 当前研究项目
 
-当前仓库刚完成初始化，尚未登记正式研究项目。
-
-| 项目 | 研究方向 | 状态 | 研究记录 | 演示 |
-| --- | --- | --- | --- | --- |
-| _待添加_ | — | 规划中 | — | — |
+| 编号 | 项目 | 研究方向 | 状态 |
+| --- | --- | --- | --- |
+| 001 | [OUTRUN THE LEVEL](projects/outrun-the-level/) | 程序化跑酷、关卡公平性、删除浪与重力翻转 | 已验证 · 真人试玩待开展 |
 
 状态统一使用：`规划中`、`研究中`、`已验证`、`已归档`。
 
+## 仓库定位
+
+- 根目录 `README.md` 是整个研究库的对外入口。
+- `projects/` 保存各子项目的实现、研究资料、证据与结论。
+- `projects/outrun-the-level/game/` 是 Project 001 的零依赖 Canvas 游戏源码。
+- `docs/` 是 GitHub Pages 展示层，包含总库首页和项目研究总结。
+- `scripts/build-pages.mjs` 将展示层与游戏组装到 `.pages-dist/`。
+- `.github/workflows/pages.yml` 负责自动构建和部署。
+
+## 本地运行与验证
+
+需要 Node.js 18 或更高版本。在仓库根目录执行：
+
+```powershell
+npm run test:project-001
+npm run build:pages
+npm run preview:pages
+```
+
+访问：
+
+- 总库：`http://127.0.0.1:4173/`
+- 研究总结：`http://127.0.0.1:4173/projects/outrun-the-level/`
+- 游戏：`http://127.0.0.1:4173/demos/outrun-the-level/`
+
+`preview:pages` 读取 `.pages-dist/`，修改后需先重新构建。
+
+## GitHub Pages 部署
+
+工作流见 [`.github/workflows/pages.yml`](.github/workflows/pages.yml)。向 `main` 推送 `docs/**`、Project 001、构建脚本、根 `package.json` 或工作流变更时，会自动：
+
+1. 检出对应提交；
+2. 运行 `node scripts/build-pages.mjs`；
+3. 上传 `.pages-dist/`；
+4. 发布到 <https://yydshly.github.io/0828_codex_project/>。
+
+仓库首次启用时，需要在 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。如需回滚，执行 `git revert <release-commit>` 并推送到 `main`，同一工作流会重新发布回滚版本。
+
 ## 研究方法
 
-每个子项目都尽量保留以下可复现信息：
+每个子项目应保留：原始想法与提示词、环境与复现步骤、核心机制与禁止项、实验方法与证据、结论与价值、限制与下一步，以及源码、截图、研究总结和在线演示。
 
-1. 研究目标与待验证问题；
-2. 上游项目、版本与资料来源；
-3. 环境、依赖和运行步骤；
-4. 实验过程、证据与限制；
-5. 结论、适用场景和后续计划；
-6. 可访问的代码、截图或在线演示。
-
-新增项目时，复制 [`projects/_template`](projects/_template/) 为 `projects/<project-slug>/`，完成项目页后同步更新上方索引及 [`docs/projects.json`](docs/projects.json)。完整约定见 [`projects/README.md`](projects/README.md)。
+新增项目时，复制 [`projects/_template`](projects/_template/) 到 `projects/<project-slug>/`，并同步更新本 README、[`docs/projects.json`](docs/projects.json) 和 Pages 构建脚本。完整约定见 [`projects/README.md`](projects/README.md)。
 
 ## 目录结构
 
 ```text
 .
-├─ .github/workflows/   # 自动化流程
-├─ docs/                # GitHub Pages 静态展示页
-├─ projects/            # 各子项目研究档案
-│  └─ _template/        # 新研究项目模板
-├─ CONTRIBUTING.md      # 协作与记录规范
-└─ README.md            # 总入口与项目索引
+├─ .github/workflows/                 # GitHub Pages 自动部署
+├─ docs/                              # 对外展示页
+├─ projects/
+│  ├─ _template/                     # 新项目模板
+│  └─ outrun-the-level/
+│     ├─ README.md                    # Project 001 研究档案
+│     ├─ assets/                      # 截图与证据
+│     └─ game/                        # 完整可玩游戏
+├─ scripts/                           # 构建与预览
+├─ package.json                       # 根级命令
+└─ README.md                          # 总入口
 ```
 
-## 在线展示
+## 当前发布基线
 
-`main` 分支中 `docs/` 的变更会由 GitHub Actions 自动发布。首次发布前，需要在仓库的 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。
+- Project 001：`v0.1.0`
+- 120 秒主流程，每 20 秒提升阶段
+- 20/20 重力门种子、10/10 出口与解锁流程
+- 静态检查 11/11；浏览器与控制台错误 0
+- 桌面、平板、390px 手机均已验证
+- 下一步：真人试玩与失败热点统计
 
-预计访问地址：<https://yydshly.github.io/0828_codex_project/>
+## 许可证
 
-## 当前状态
-
-- [x] 初始化 `main` 分支与基础目录
-- [x] 建立统一研究模板
-- [x] 建立 GitHub Pages 展示页及自动发布工作流
-- [ ] 添加第一个研究项目
-- [ ] 根据项目性质确定仓库许可证
+仓库许可证尚未确定。在许可证明确前，请勿假设代码或素材可以被重新分发、商用或再授权。

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="OUTRUN THE LEVEL 项目研究总结：原始提示词、研究意义、验证结果、项目价值与扩展方向。">
+    <title>OUTRUN THE LEVEL · PROJECT 001 研究总结</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../project-detail.css">
+    <script src="../../project-detail.js" defer></script>
+  </head>
+  <body id="page-top" class="project-page">
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <header class="site-header">
+      <a class="brand" href="../../" aria-label="返回研究总库">0828 / PROJECT 001</a>
+      <nav class="detail-nav" aria-label="项目导航">
+        <a href="../../">总库首页</a>
+        <a href="https://github.com/yydshly/0828_codex_project/tree/main/projects/outrun-the-level">GitHub 记录 ↗</a>
+      </nav>
+    </header>
+
+    <nav class="section-nav" aria-label="研究章节">
+      <div class="section-nav__inner">
+        <span class="section-nav__label">RESEARCH MAP</span>
+        <div class="section-nav__links">
+          <a href="#research" data-section-link="research">研究问题</a>
+          <a href="#prompt" data-section-link="prompt">提示词</a>
+          <a href="#loop" data-section-link="loop">玩法闭环</a>
+          <a href="#meaning" data-section-link="meaning">意义</a>
+          <a href="#evidence" data-section-link="evidence">证据</a>
+          <a href="#value" data-section-link="value">价值</a>
+          <a href="#extensions" data-section-link="extensions">扩展</a>
+          <a href="#boundaries" data-section-link="boundaries">边界</a>
+        </div>
+        <a class="section-nav__play" href="../../demos/outrun-the-level/">PLAY <span aria-hidden="true">↗</span></a>
+      </div>
+      <i id="readingProgress" class="reading-progress" aria-hidden="true"></i>
+    </nav>
+
+    <main id="main-content" class="detail-main">
+      <section class="detail-hero" aria-labelledby="project-title">
+        <div class="detail-hero-copy">
+          <p class="eyebrow">PROJECT 001 · GAME DESIGN RESEARCH</p>
+          <h1 id="project-title">OUTRUN<br>THE LEVEL</h1>
+          <p class="detail-lede">把“世界一边生成、一边被删除”这个想法，验证成一款完整可玩的 2.5D 自动跑酷游戏。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="../../demos/outrun-the-level/">开始游戏</a>
+            <a class="button secondary" href="#prompt">阅读提示词</a>
+          </div>
+          <ul class="hero-evidence" aria-label="已完成的关键验证">
+            <li><strong>20 / 20</strong><span>重力门种子通过</span></li>
+            <li><strong>10 / 10</strong><span>出口与解锁通过</span></li>
+            <li><strong>0</strong><span>页面与控制台错误</span></li>
+          </ul>
+        </div>
+        <figure class="detail-cover">
+          <img src="../../assets/outrun-the-level-cover.png" alt="OUTRUN THE LEVEL 游戏主界面">
+          <figcaption>首个完整可玩版本 · v0.1.0</figcaption>
+        </figure>
+      </section>
+
+      <section class="fact-strip" aria-label="项目基本信息">
+        <div><span>状态</span><strong>可玩原型已验证</strong></div>
+        <div><span>核心输入</span><strong>单键跳跃</strong></div>
+        <div><span>主流程</span><strong>120 秒</strong></div>
+        <div><span>研究重点</span><strong>生成公平性</strong></div>
+      </section>
+
+      <section class="detail-section thesis" id="research" data-section="research" aria-labelledby="thesis-title">
+        <p class="section-index">01 / RESEARCH QUESTION</p>
+        <div class="section-copy">
+          <h2 id="thesis-title">这个项目在研究什么？</h2>
+          <p class="statement">当玩家只有一个“跳跃”动作时，能否依靠实时生成、持续追赶和重力翻转，形成持续两分钟、可学习、可预判且愿意重玩的完整游戏体验？</p>
+          <p>研究重点不是增加按钮数量，而是让关卡节奏、视觉提示、物理响应和风险反馈共同制造深度。游戏必须先完成“开始—生存—失败/通关—立即重开—解锁”的闭环，才有资格讨论美术扩展或内容量。</p>
+        </div>
+      </section>
+
+      <section class="detail-section" id="prompt" data-section="prompt" aria-labelledby="prompt-title">
+        <p class="section-index">02 / ORIGINAL PROMPT</p>
+        <div class="section-copy">
+          <h2 id="prompt-title">提示词是什么？</h2>
+          <p class="section-intro">这是一份产品与开发提示词，不是单纯的画面描述。它同时规定玩法目标、输入、失败条件、节奏、界面、视觉优先级和禁止项。</p>
+          <div class="prompt-anatomy" aria-label="提示词结构摘要">
+            <article><span>01</span><h3>产品目标</h3><p>完整可玩，而非视觉演示。</p></article>
+            <article><span>02</span><h3>交互约束</h3><p>桌面与移动端统一为单键跳跃。</p></article>
+            <article><span>03</span><h3>核心系统</h3><p>实时生成、删除浪、失败与重开。</p></article>
+            <article><span>04</span><h3>节奏规则</h3><p>120 秒流程，每 20 秒提升难度。</p></article>
+            <article><span>05</span><h3>视觉层级</h3><p>背景克制，角色和危险必须醒目。</p></article>
+            <article><span>06</span><h3>负面约束</h3><p>禁止无解组合、过量 Bloom 与现有素材模仿。</p></article>
+          </div>
+
+          <details class="prompt-disclosure">
+            <summary>
+              <span>ORIGINAL PROMPT / 001</span>
+              <strong>展开完整原始提示词</strong>
+              <b aria-hidden="true">＋</b>
+            </summary>
+            <div class="prompt-toolbar">
+              <span id="copyStatus" aria-live="polite">共 6 个约束段落</span>
+              <button id="copyPrompt" class="copy-button" type="button">复制提示词</button>
+            </div>
+            <blockquote id="originalPrompt" class="prompt-card">
+              <p>制作一款完整可玩的 2.5D 横版自动跑酷游戏，名称为“OUTRUN THE LEVEL”。玩家控制一个发光小角色自动向右奔跑。桌面端使用空格或鼠标点击跳跃，移动端点击屏幕跳跃。</p>
+              <p>核心机制：关卡在玩家前方实时生成，身后的世界被“删除浪”持续吞噬。撞到障碍、掉出跑道或被删除浪追上即失败，并可立即重新开始。</p>
+              <p>主模式时长为 120 秒。每 20 秒逐渐提高速度和障碍密度，但必须保持公平，不能生成无法通过的组合。加入清晰可预判的重力门，穿过后世界上下翻转，玩家倒挂跑酷，再穿过重力门恢复正常。</p>
+              <p>完成 120 秒后出现出口，通关并解锁无限模式。记录本局分数、距离、收集物和历史最高分。主界面包含玩法说明和开始按钮，结算页包含再次挑战和无限模式入口。</p>
+              <p>视觉采用深蓝近黑色的赛博城市。背景保持低亮度、低对比，跑道使用深色实体和细青色边缘。玩家、障碍和危险物必须清晰醒目，减少霓虹雾和 Bloom。不要加入 Ghost、幽灵对手或相关提示。</p>
+              <p>请制作完整游戏，不是视觉演示。优先保证跳跃响应、碰撞准确、关卡可读性、即时重开和完整的 120 秒流程。不要使用或模仿现有游戏的角色、名称、音乐、Logo 或关卡素材。</p>
+            </blockquote>
+          </details>
+        </div>
+      </section>
+
+      <section class="detail-section" id="loop" data-section="loop" aria-labelledby="loop-title">
+        <p class="section-index">03 / CORE LOOP</p>
+        <div class="section-copy">
+          <h2 id="loop-title">玩法闭环如何成立？</h2>
+          <div class="loop-flow" aria-label="游戏核心循环">
+            <div><b>01</b><strong>自动前进</strong><span>消除移动操作负担</span></div>
+            <i aria-hidden="true">→</i>
+            <div><b>02</b><strong>读取风险</strong><span>提前观察障碍与门</span></div>
+            <i aria-hidden="true">→</i>
+            <div><b>03</b><strong>选择起跳</strong><span>用时机承担风险</span></div>
+            <i aria-hidden="true">→</i>
+            <div><b>04</b><strong>获得反馈</strong><span>收集、失败或逃脱</span></div>
+            <i aria-hidden="true">↺</i>
+          </div>
+          <p>删除浪提供持续压力，程序化障碍提供局部决策，重力门改变已掌握的空间规则，出口则为 120 秒生存赋予明确终点。失败后的即时重开让学习成本保持极低。</p>
+        </div>
+      </section>
+
+      <section class="detail-section" id="meaning" data-section="meaning" aria-labelledby="meaning-title">
+        <p class="section-index">04 / MEANING</p>
+        <div class="section-copy">
+          <h2 id="meaning-title">这个研究的意义是什么？</h2>
+          <div class="insight-grid">
+            <article>
+              <span class="insight-number">A</span>
+              <h3>验证“少输入也能有深度”</h3>
+              <p>玩法复杂度不一定来自更多按键，也可以来自速度、时机、关卡语法和空间规则的变化。</p>
+            </article>
+            <article>
+              <span class="insight-number">B</span>
+              <h3>研究程序化生成的公平边界</h3>
+              <p>随机不是目标；真正的问题是如何在变化足够多的同时，让每次失败都能被玩家理解。</p>
+            </article>
+            <article>
+              <span class="insight-number">C</span>
+              <h3>验证重力变化的可读性</h3>
+              <p>重力门必须在玩家做出承诺前被识别，翻转后还要保留落地缓冲与连续阅读能力。</p>
+            </article>
+            <article>
+              <span class="insight-number">D</span>
+              <h3>建立“完整优先”的原型方法</h3>
+              <p>先完成通关、失败、记录和重开，再扩展视觉与内容，可以更早暴露真正的体验问题。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-section" id="evidence" data-section="evidence" aria-labelledby="evidence-title">
+        <div>
+          <p class="section-index">05 / EVIDENCE</p>
+          <h2 id="evidence-title">当前验证结果</h2>
+        </div>
+        <div class="evidence-grid">
+          <article><strong>120</strong><span>秒完整主流程</span></article>
+          <article><strong>20</strong><span>秒一次阶段提升</span></article>
+          <article><strong>20/20</strong><span>随机种子双重力门通过</span></article>
+          <article><strong>10/10</strong><span>出口与解锁流程通过</span></article>
+          <article><strong>11/11</strong><span>静态完整性检查通过</span></article>
+          <article><strong>0</strong><span>浏览器页面与控制台错误</span></article>
+        </div>
+        <div class="evidence-meta">
+          <p><strong>验证口径</strong> v0.1.0 · 2026-08-28 · 固定种子与浏览器流程检查</p>
+          <div>
+            <a href="https://github.com/yydshly/0828_codex_project/blob/main/projects/outrun-the-level/README.md">测试说明 ↗</a>
+            <a href="https://github.com/yydshly/0828_codex_project/blob/main/projects/outrun-the-level/game/tests/static-check.mjs">检查脚本 ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section" id="value" data-section="value" aria-labelledby="value-title">
+        <p class="section-index">06 / VALUE</p>
+        <div class="section-copy">
+          <h2 id="value-title">它的价值是什么？</h2>
+          <div class="value-list">
+            <article><span>游戏设计价值</span><h3>一个可反复调参的单键跑酷基线</h3><p>可用于研究节奏、失败归因、视觉提示与难度曲线，而不被复杂操作干扰。</p></article>
+            <article><span>工程价值</span><h3>可复现的程序化生成与验证框架</h3><p>固定时间步、种子化生成和浏览器测试接口，使玩法问题更容易重现和回归。</p></article>
+            <article><span>展示价值</span><h3>从想法到完整产品闭环的直接证据</h3><p>访问者可以立即试玩，而不需要仅凭文档或概念图理解研究结果。</p></article>
+            <article><span>复用价值</span><h3>可迁移到更多小型动作游戏</h3><p>输入缓冲、公平模板、风险预告、即时重开和持久化记录都能独立复用。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section roadmap-section" id="extensions" data-section="extensions" aria-labelledby="roadmap-title">
+        <p class="section-index">07 / EXTENSIONS</p>
+        <div class="section-copy">
+          <h2 id="roadmap-title">可扩展方向是什么？</h2>
+          <div class="roadmap">
+            <article>
+              <span>近期 · 先验证</span>
+              <h3>真人试玩与平衡数据</h3>
+              <ul>
+                <li>记录失败位置、失败原因与重开率</li>
+                <li>调整后 60 秒速度和障碍密度</li>
+                <li>增加色弱、高对比和震动反馈选项</li>
+              </ul>
+            </article>
+            <article>
+              <span>中期 · 扩内容</span>
+              <h3>在不破坏可读性的前提下增加变化</h3>
+              <ul>
+                <li>每日固定种子与短时挑战模式</li>
+                <li>新的公平障碍模板和城市主题层</li>
+                <li>手柄支持、PWA 安装与离线游玩</li>
+              </ul>
+            </article>
+            <article>
+              <span>长期 · 做平台</span>
+              <h3>把关卡公平性变成可研究工具</h3>
+              <ul>
+                <li>关卡语法编辑器与自动可通过性检查</li>
+                <li>在线排行榜和经过验证的挑战种子</li>
+                <li>节奏、生成密度和失败热区可视化</li>
+              </ul>
+            </article>
+          </div>
+          <aside class="guardrail">
+            <strong>扩展原则</strong>
+            <p>任何新机制都不能牺牲跳跃响应、碰撞准确、危险可读性和即时重开。先证明它让核心循环更好，再决定是否保留。</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="detail-section limits-section" id="boundaries" data-section="boundaries" aria-labelledby="limits-title">
+        <p class="section-index">08 / BOUNDARIES</p>
+        <div class="section-copy">
+          <h2 id="limits-title">当前边界与下一步</h2>
+          <p>v0.1.0 已证明完整流程可成立，但尚未证明长期留存、多人群体下的平衡性或商业化可行性。当前也没有服务端排行榜、账号系统、正式音乐资产和大规模设备覆盖。</p>
+          <p class="next-step">最有价值的下一步：邀请真实玩家完成 5–10 局，记录失败热区与重开行为，再据此调整难度，而不是马上增加更多机制。</p>
+        </div>
+      </section>
+
+      <section class="closing-cta">
+        <p class="eyebrow">PLAY THE RESEARCH</p>
+        <h2>结论不只写在页面里。<br>它应该可以被亲手验证。</h2>
+        <div class="hero-actions">
+          <a class="button primary" href="../../demos/outrun-the-level/">开始游戏</a>
+          <a class="button secondary" href="https://github.com/yydshly/0828_codex_project/tree/main/projects/outrun-the-level">查看完整研究档案</a>
+        </div>
+      </section>
+      <a class="back-to-top" href="#page-top" aria-label="回到页面顶部"><span aria-hidden="true">↑</span> TOP</a>
+    </main>
+
+    <footer>
+      <p>PROJECT 001 · OUTRUN THE LEVEL</p>
+      <p>研究中 · 2026-08-28</p>
+    </footer>
+  </body>
+</html>

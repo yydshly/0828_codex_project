@@ -6,6 +6,9 @@ on:
       - main
     paths:
       - "docs/**"
+      - "projects/outrun-the-level/**"
+      - "scripts/build-pages.mjs"
+      - "package.json"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -31,10 +34,13 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v6
 
+      - name: Assemble site and playable demo
+        run: node scripts/build-pages.mjs
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v5
         with:
-          path: docs
+          path: .pages-dist
 
       - name: Deploy to GitHub Pages
         id: deployment

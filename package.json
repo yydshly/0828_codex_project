@@ -1,0 +1,11 @@
+{
+  "name": "0828-codex-project",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:pages": "node scripts/build-pages.mjs",
+    "preview:pages": "node scripts/serve-pages.mjs",
+    "test:project-001": "node --check projects/outrun-the-level/game/game.js && node projects/outrun-the-level/game/tests/static-check.mjs"
+  }
+}

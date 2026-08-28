@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#050811" />
+    <meta name="description" content="OUTRUN THE LEVEL，一款完整可玩的 2.5D 横版自动跑酷游戏。" />
+    <title>OUTRUN THE LEVEL</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="app" class="app-shell">
+      <canvas id="game" aria-label="OUTRUN THE LEVEL 游戏画面"></canvas>
+
+      <section id="hud" class="hud is-hidden" aria-live="polite">
+        <div class="hud__left">
+          <div class="hud-card hud-card--score">
+            <span class="hud-label">分数</span>
+            <strong id="scoreValue">000000</strong>
+          </div>
+          <div class="hud-card">
+            <span class="hud-label">距离</span>
+            <strong id="distanceValue">0 m</strong>
+          </div>
+          <div class="hud-card">
+            <span class="hud-label">数据片</span>
+            <strong id="collectibleValue">0</strong>
+          </div>
+        </div>
+        <div class="hud__right">
+          <div id="gravityBadge" class="gravity-badge"><span>↓</span> 标准重力</div>
+          <div class="timer-block">
+            <span id="phaseValue" class="hud-label">阶段 1 / 6</span>
+            <strong id="timerValue">120.0</strong>
+          </div>
+        </div>
+        <div class="progress-track" aria-hidden="true"><i id="progressFill"></i></div>
+      </section>
+
+      <div id="toast" class="toast" aria-live="assertive"></div>
+
+      <section id="menuScreen" class="screen screen--menu">
+        <div class="menu-layout">
+          <div class="eyebrow">PROCEDURAL RUN // BUILD 01</div>
+          <h1><span>OUTRUN</span><span>THE LEVEL</span></h1>
+          <p class="lead">向右奔跑。越过缺口。穿过重力门。别让正在删除的世界追上你。</p>
+
+          <div class="instructions">
+            <div class="instruction-row">
+              <span class="keycap">SPACE</span>
+              <span>或鼠标点击跳跃</span>
+            </div>
+            <div class="instruction-row">
+              <span class="tap-icon" aria-hidden="true"></span>
+              <span>移动端点击屏幕跳跃</span>
+            </div>
+            <div class="instruction-row instruction-row--danger">
+              <span class="danger-mark">!</span>
+              <span>避开障碍与缺口，穿越重力门后在顶面继续奔跑</span>
+            </div>
+          </div>
+
+          <div class="menu-actions">
+            <button id="startCampaign" class="button button--primary" type="button">
+              <span>开始 120 秒主模式</span><b>→</b>
+            </button>
+            <button id="startInfinite" class="button button--secondary" type="button" disabled>
+              <span id="infiniteButtonLabel">无限模式 · 完成主模式后解锁</span>
+            </button>
+          </div>
+
+          <div class="menu-records">
+            <span>历史最高分 <strong id="menuBest">000000</strong></span>
+            <span>最远距离 <strong id="menuDistance">0 m</strong></span>
+          </div>
+          <a class="research-link" href="../../projects/outrun-the-level/">← 返回 PROJECT 001 研究总结</a>
+        </div>
+        <div class="menu-visual" aria-hidden="true">
+          <div class="runner-mark"><i></i><i></i><i></i></div>
+          <div class="signal-lines"><i></i><i></i><i></i><i></i></div>
+          <span class="vertical-copy">WORLD DELETION IN PROGRESS</span>
+        </div>
+      </section>
+
+      <section id="resultScreen" class="screen screen--result is-hidden">
+        <div class="result-card">
+          <div id="resultKicker" class="eyebrow">RUN TERMINATED</div>
+          <h2 id="resultTitle">连接中断</h2>
+          <p id="resultReason" class="result-reason">你撞上了障碍。</p>
+
+          <div class="result-stats">
+            <div><span>本局分数</span><strong id="resultScore">0</strong></div>
+            <div><span>奔跑距离</span><strong id="resultDistance">0 m</strong></div>
+            <div><span>收集数据片</span><strong id="resultCollectibles">0</strong></div>
+            <div><span>历史最高分</span><strong id="resultBest">0</strong></div>
+          </div>
+
+          <div class="result-actions">
+            <button id="retryButton" class="button button--primary" type="button"><span>再次挑战</span><b>↻</b></button>
+            <button id="resultInfiniteButton" class="button button--secondary" type="button">进入无限模式</button>
+            <button id="menuButton" class="text-button" type="button">返回主界面</button>
+          </div>
+          <p class="shortcut-hint">按空格可立即重新开始</p>
+          <a class="research-link research-link--result" href="../../projects/outrun-the-level/">返回 PROJECT 001 研究总结 ↗</a>
+        </div>
+      </section>
+
+      <div class="safe-area-note">JUMP // SURVIVE // ESCAPE</div>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>

@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "outrun-the-level",
+    "number": "001",
+    "name": "OUTRUN THE LEVEL",
+    "status": "可玩原型已验证",
+    "category": "程序化游戏",
+    "summary": "研究实时生成关卡、删除浪与重力翻转能否组成一款完整、公平且可读的 2.5D 自动跑酷游戏。",
+    "url": "./projects/outrun-the-level/",
+    "demoUrl": "./demos/outrun-the-level/",
+    "image": "./assets/outrun-the-level-cover.png"
+  }
+]
