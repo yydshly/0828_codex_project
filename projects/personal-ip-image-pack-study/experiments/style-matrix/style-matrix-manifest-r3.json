@@ -1,0 +1,134 @@
+{
+  "matrix_id": "lin-jian-style-matrix",
+  "character_id": "lin-jian",
+  "character_version": "v1",
+  "approved_identity_anchor": "docs/assets/project-003-sample/lin-jian-anchor-v1-r1.png",
+  "generation_mode": "Codex built-in ImageGen",
+  "style_reference_mode": "textual style rules only; no upstream style image used",
+  "release": "r3",
+  "styles": [
+    {
+      "style_version": "s1",
+      "style_id": "IP-04",
+      "name": "彩铅换装小人",
+      "status": "passed",
+      "assets": [
+        {
+          "slot": "portrait",
+          "asset_form": "avatar",
+          "source_release": "r6",
+          "file": "docs/assets/project-003-sample/lin-jian-avatar-v1-r6.png",
+          "capability": "ready"
+        },
+        {
+          "slot": "full_body",
+          "asset_form": "full_body_prototype",
+          "source_release": "r1",
+          "file": "docs/assets/project-003-sample/lin-jian-anchor-v1-r1.png",
+          "capability": "ready"
+        },
+        {
+          "slot": "content_card",
+          "asset_form": "scene_card",
+          "capability": "blocked",
+          "file": null,
+          "reason": "IP-04 does not support scene_card; route to IP-05 instead."
+        }
+      ]
+    },
+    {
+      "style_version": "s2",
+      "style_id": "IP-02",
+      "name": "清透扁平肖像",
+      "status": "passed_with_conditional",
+      "assets": [
+        {
+          "slot": "portrait",
+          "asset_form": "avatar",
+          "release": "r1",
+          "file": "docs/assets/project-003-style-matrix/lin-jian-ip02-avatar-v1-s2-r1.png",
+          "width": 1254,
+          "height": 1254,
+          "alpha": false,
+          "sha256": "020c8a6dc0a3ffa34a7911f0609b8216ae56a9536efc0ede1c90aabee8d696a8",
+          "capability": "ready"
+        },
+        {
+          "slot": "full_body",
+          "asset_form": "full_body",
+          "release": "r2",
+          "file": "docs/assets/project-003-style-matrix/lin-jian-ip02-full-body-v1-s2-r2.png",
+          "width": 1122,
+          "height": 1402,
+          "alpha": false,
+          "sha256": "bb007a6ac08c93e7e4443dbe82e9334669d6563a212ca6cfaf7201ce77d08d42",
+          "capability": "conditional"
+        },
+        {
+          "slot": "content_card",
+          "asset_form": "cover_card",
+          "release": "r3",
+          "file": "docs/assets/project-003-style-matrix/lin-jian-ip02-cover-v1-s2-r3.png",
+          "width": 1086,
+          "height": 1448,
+          "alpha": false,
+          "sha256": "dafc2db80bc9e44b260f6e3682def2df00d211545d7501cbaa8a70aaebcc1643",
+          "capability": "ready"
+        }
+      ]
+    },
+    {
+      "style_version": "s3",
+      "style_id": "IP-05",
+      "name": "治愈手帐小剧场",
+      "status": "passed_after_alpha_rework",
+      "assets": [
+        {
+          "slot": "portrait",
+          "asset_form": "bust_sticker",
+          "release": "r1",
+          "file": "docs/assets/project-003-style-matrix/lin-jian-ip05-bust-sticker-v1-s3-r1.png",
+          "width": 1235,
+          "height": 1274,
+          "alpha": true,
+          "corner_alpha": [0, 0, 1, 0],
+          "sha256": "fd18deaaeebb0862fa80c186e0f3006627952a458ac108ffc51220394ab1584e",
+          "capability": "ready"
+        },
+        {
+          "slot": "full_body",
+          "asset_form": "full_body_sticker",
+          "release": "r2",
+          "file": "docs/assets/project-003-style-matrix/lin-jian-ip05-full-body-sticker-v1-s3-r2.png",
+          "width": 1024,
+          "height": 1536,
+          "alpha": true,
+          "corner_alpha": [0, 0, 0, 0],
+          "sha256": "6e268f7b3b1530085e853aeca231d01ac88830723b0fab1a2fe9074a8f372acb",
+          "capability": "ready"
+        },
+        {
+          "slot": "content_card",
+          "asset_form": "scene_card",
+          "release": "r3",
+          "file": "docs/assets/project-003-style-matrix/lin-jian-ip05-scene-v1-s3-r3.png",
+          "width": 1122,
+          "height": 1402,
+          "alpha": false,
+          "sha256": "71d904ccdcea5d8e8903386119bb8f66fc9344e00fd3ca1fe5dbbb20803ebe75",
+          "capability": "ready"
+        }
+      ]
+    }
+  ],
+  "rejected_evidence": [
+    {
+      "file": "projects/personal-ip-image-pack-study/experiments/style-matrix/evidence/rejected-ip05-bust-painted-checkerboard.png",
+      "reason": "Painted checkerboard in opaque RGB plus an unrequested decorative plant."
+    },
+    {
+      "file": "projects/personal-ip-image-pack-study/experiments/style-matrix/evidence/rejected-ip05-full-body-painted-checkerboard.png",
+      "reason": "Painted checkerboard in opaque RGB; all four corner alpha values were 255."
+    }
+  ]
+}

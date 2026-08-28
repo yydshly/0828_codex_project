@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" role="img" aria-labelledby="title desc">
+  <title id="title">PERSONAL IP ASSET SYSTEM 项目封面</title>
+  <desc id="desc">一个参数化人物锚点连接角色设定、版本和独立资产的系统图。</desc>
+  <rect width="1280" height="800" fill="#0b0b10"/>
+  <circle cx="980" cy="115" r="260" fill="#d8a3ff" opacity=".07"/>
+  <circle cx="218" cy="646" r="300" fill="#ff8b70" opacity=".06"/>
+  <g fill="none" stroke="#30303b">
+    <path d="M0 95h1280M0 705h1280"/>
+    <path d="M82 0v800M1198 0v800"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Consolas, monospace">
+    <text x="82" y="74" fill="#ff8b70" font-size="19" font-weight="700" letter-spacing="4">PROJECT 003 · ASSET MEMORY</text>
+    <text x="82" y="748" fill="#77727d" font-size="15" letter-spacing="3">IDENTITY LOCK · VERSION · QA · DELIVERY</text>
+    <text x="1198" y="748" fill="#aaa5ae" font-size="15" text-anchor="end">97b10c8</text>
+  </g>
+
+  <g transform="translate(98 170)">
+    <text x="0" y="0" fill="#f7f3ee" font-family="Inter, system-ui, sans-serif" font-size="76" font-weight="620" letter-spacing="-5">PERSONAL IP</text>
+    <text x="0" y="83" fill="#ff8b70" font-family="Inter, system-ui, sans-serif" font-size="76" font-weight="620" letter-spacing="-5">ASSET SYSTEM</text>
+    <text x="4" y="130" fill="#aaa5ae" font-family="Inter, system-ui, sans-serif" font-size="23">从一次生成，到可以持续扩展的角色资产。</text>
+  </g>
+
+  <g transform="translate(680 158)">
+    <path d="M233 25c103 0 187 84 187 187s-84 187-187 187S46 315 46 212 130 25 233 25Z" fill="#15151c" stroke="#494956"/>
+    <path d="M112 165c34-82 202-122 276-31" fill="none" stroke="#d8a3ff" stroke-width="2" stroke-dasharray="8 10" opacity=".7"/>
+    <ellipse cx="233" cy="211" rx="104" ry="118" fill="#f1bea3" stroke="#2b2630" stroke-width="8"/>
+    <path d="M127 190c-5-106 49-151 113-151 76 0 123 62 105 161-34-9-72-37-91-68-30 36-72 55-127 58Z" fill="#27232c" stroke="#1b181e" stroke-width="9"/>
+    <ellipse cx="196" cy="213" rx="8" ry="12" fill="#252129"/>
+    <ellipse cx="270" cy="213" rx="8" ry="12" fill="#252129"/>
+    <circle cx="195" cy="211" r="27" fill="none" stroke="#252129" stroke-width="5"/>
+    <circle cx="271" cy="211" r="27" fill="none" stroke="#252129" stroke-width="5"/>
+    <path d="M222 210h22M210 254q23 22 47 0" fill="none" stroke="#252129" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="164" cy="248" r="14" fill="#ea858c" opacity=".52"/>
+    <circle cx="301" cy="248" r="14" fill="#ea858c" opacity=".52"/>
+    <path d="M144 336c49-42 131-43 181 0l22 162H121Z" fill="#e77761" stroke="#2b2630" stroke-width="8"/>
+    <rect x="135" y="438" width="196" height="95" rx="30" fill="#455c82" stroke="#2b2630" stroke-width="8"/>
+    <g font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-weight="700">
+      <rect x="-8" y="116" width="92" height="38" rx="19" fill="#ff8b70"/>
+      <text x="38" y="141" fill="#191116" font-size="18" text-anchor="middle">ANCHOR</text>
+      <rect x="363" y="330" width="92" height="38" rx="19" fill="#d8a3ff"/>
+      <text x="409" y="355" fill="#191116" font-size="18" text-anchor="middle">v1 / r4</text>
+    </g>
+  </g>
+
+  <g fill="none" stroke="#ff8b70" stroke-width="2" opacity=".7">
+    <path d="M615 480H532v72"/>
+    <path d="M1088 485h91v-82"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Consolas, monospace">
+    <rect x="374" y="553" width="294" height="85" rx="14" fill="#121218" stroke="#30303b"/>
+    <text x="398" y="583" fill="#77727d" font-size="14">CHARACTER-SPEC</text>
+    <text x="398" y="611" fill="#f7f3ee" font-size="17">hair · glasses · outfit</text>
+    <rect x="1017" y="311" width="184" height="85" rx="14" fill="#121218" stroke="#30303b"/>
+    <text x="1041" y="341" fill="#77727d" font-size="14">QA GATE</text>
+    <text x="1041" y="369" fill="#9ee6b2" font-size="17">5 / 5 PASS</text>
+  </g>
+</svg>

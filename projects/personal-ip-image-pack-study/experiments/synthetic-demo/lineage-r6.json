@@ -1,0 +1,18 @@
+{
+  "character_id": "lin-jian-fictional-demo",
+  "identity_version": "v1",
+  "root": "brief-knowledge-course-launch",
+  "approved_anchor": "r1",
+  "nodes": [
+    { "id": "brief", "type": "business_brief", "label": "知识课程发布包" },
+    { "id": "r1", "type": "approved_anchor", "parent": "brief", "change": "freeze_identity_and_visual_lock" },
+    { "id": "r2", "type": "release_asset", "parent": "r1", "change": "happy_wave", "qa_event": "alpha_rework" },
+    { "id": "r3", "type": "release_asset", "parent": "r1", "change": "thinking_notebook", "qa_event": "alpha_rework" },
+    { "id": "r4", "type": "release_asset", "parent": "r1", "change": "explain_point" },
+    { "id": "r5", "type": "release_asset", "parent": "r1", "change": "celebrate_thumbs_up" },
+    { "id": "r6", "type": "release_asset", "parent": "r1", "change": "square_social_avatar" },
+    { "id": "manifest-r6", "type": "delivery", "parents": ["r1", "r2", "r3", "r4", "r5", "r6"] }
+  ],
+  "identity_change": false,
+  "next_extension": { "identity_version": "v1", "release": "r7" }
+}

@@ -1,0 +1,55 @@
+{
+  "delivery_id": "lin-jian-fictional-demo-v1-r3",
+  "generated_at": "2026-08-28",
+  "generation_mode": "Codex built-in ImageGen",
+  "character_spec": "character-spec-v1.yaml",
+  "identity_version": "v1",
+  "release": "r3",
+  "status": "qa_passed_for_research_demo",
+  "assets": [
+    {
+      "release": "r1",
+      "role": "approved_anchor",
+      "asset_form": "full_body_prototype",
+      "file": "docs/assets/project-003-sample/lin-jian-anchor-v1-r1.png",
+      "pixel_size": "1060x1484",
+      "alpha": true,
+      "sha256": "514fe3766fb598be4eb94d8c1f489857525b48960fbf98f00234701398a0aa61",
+      "qa_status": "pass"
+    },
+    {
+      "release": "r2",
+      "role": "expression_action_variant",
+      "asset_form": "full_body",
+      "file": "docs/assets/project-003-sample/lin-jian-happy-wave-v1-r2.png",
+      "pixel_size": "1003x1568",
+      "alpha": false,
+      "expression": "happy",
+      "hand_gesture": "wave",
+      "sha256": "b787dbed872509454161e4e8546a6a14f2fa2901fc705e3162199fb59d001b4b",
+      "qa_status": "pass"
+    },
+    {
+      "release": "r3",
+      "role": "expression_prop_variant",
+      "asset_form": "full_body",
+      "file": "docs/assets/project-003-sample/lin-jian-thinking-notebook-v1-r3.png",
+      "pixel_size": "1122x1402",
+      "alpha": false,
+      "expression": "thinking",
+      "required_prop": "blank_cream_notebook",
+      "sha256": "1897806e9cd8e2c977504ef289232b8c3a5b41ce5a6b94f664f5375f2987a409",
+      "qa_status": "pass"
+    }
+  ],
+  "rejected_evidence": [
+    {
+      "files": [
+        "evidence/qa-rejected-wave-painted-checkerboard.png",
+        "evidence/qa-rejected-notebook-painted-checkerboard.png"
+      ],
+      "reason": "Requested transparency was rendered as opaque checkerboard pixels; corner alpha was 255."
+    }
+  ],
+  "claim_boundary": "Synthetic workflow demonstration only; not a real-person likeness restoration benchmark."
+}

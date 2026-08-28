@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project 003：研究 personal-ip-image-pack 如何把一次性生图组织成可复用、可版本化、可验收的个人 IP 资产系统。">
+    <title>PERSONAL IP ASSET SYSTEM · Project 003</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <header class="site-header">
+      <a class="brand" href="../../">0828 / PROJECT 003</a>
+      <nav aria-label="项目导航">
+        <a href="#real-demo">完整演示</a>
+        <a href="#style-matrix">风格矩阵</a>
+        <a href="#lab">机制实验台</a>
+        <a href="#use-cases">场景</a>
+        <a href="#roadmap">扩展</a>
+      </nav>
+      <a class="repo-link" href="https://github.com/DoraRabbitYan/personal-ip-image-pack">上游仓库 <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">PROJECT 003 · GENERATIVE ASSET GOVERNANCE</p>
+          <h1 id="hero-title">从一张头像，<br><em>到长期角色资产。</em></h1>
+          <p class="lede">目标不是“再生成一张好看的图”，而是建立一套可持续追加、可验收、可回退的个人 IP 资产生产系统。这个仓库负责管状态与交付，图像模型负责画图。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#real-demo">查看真实生成样例</a>
+            <a class="button secondary" href="#verdict">先看研究判断</a>
+          </div>
+        </div>
+        <aside class="hero-proof" aria-label="研究摘要">
+          <div class="proof-mark proof-mark--triple" aria-hidden="true">v1<span>/</span>s6<span>/</span>r3</div>
+          <dl>
+            <div><dt>风格路由</dt><dd>06</dd></div>
+            <div><dt>真实风格</dt><dd>06</dd></div>
+            <div><dt>实际资产</dt><dd>19</dd></div>
+            <div><dt>被 QA 拦截</dt><dd>11</dd></div>
+          </dl>
+          <p>研究版本 <code>97b10c8</code><br>访问于 2026-08-28</p>
+        </aside>
+      </section>
+
+      <section class="verdict" id="verdict" aria-labelledby="verdict-title">
+        <div>
+          <p class="section-index">01 / 核心判断</p>
+          <h2 id="verdict-title">目标：让个人形象成为可复用资产。</h2>
+        </div>
+        <div class="verdict-copy">
+          <p>它把一次性生图的价值从“这一张是否好看”，迁移到“下一张能否更快、更稳、更可控”。人物不可变特征、允许变化、版本、文件规格和失败原因都被保存，新增一张资产不必从零沟通。</p>
+          <div class="value-equation" aria-label="价值公式">
+            <span>可信人物锚点</span><i aria-hidden="true">×</i><span>可控增量变体</span><i aria-hidden="true">×</i><span>可审计交付</span><b>= 资产复利</b>
+          </div>
+          <div class="boundary-note"><strong>边界：</strong>流程可以减少失控，但不能替代底层图像模型的一致性能力。</div>
+        </div>
+      </section>
+
+      <section class="real-demo" id="real-demo" aria-labelledby="real-demo-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-index">02 / 完整生产演示</p>
+            <h2 id="real-demo-title">从课程发布目标，<br>到 6 项可追踪资产。</h2>
+          </div>
+          <p>真实图片作为证据 · 六阶段流程可操作 · 每项资产可追踪</p>
+        </div>
+
+        <div class="scenario-brief">
+          <div class="scenario-code"><span>DEMO SCENARIO</span><b>知识课程发布包</b><small>LIN JIAN · CHARACTER v1</small></div>
+          <div class="scenario-goal"><span>业务目标</span><p>为一名知识博主准备课程发布所需的头像、欢迎、讲解、思考与庆祝素材；同一人物跨社交账号、课程页、PPT 和社群持续复用。</p></div>
+          <dl class="scenario-facts">
+            <div><dt>目标渠道</dt><dd>04</dd></div>
+            <div><dt>规划资产</dt><dd>06</dd></div>
+            <div><dt>人物版本</dt><dd>v1</dd></div>
+          </dl>
+        </div>
+
+        <div class="production-stage-nav" aria-label="生产流程阶段">
+          <button type="button" data-production-step="0" aria-current="step"><span>01</span><b>目标简报</b><small>BRIEF</small></button>
+          <button type="button" data-production-step="1"><span>02</span><b>冻结原型</b><small>ANCHOR</small></button>
+          <button type="button" data-production-step="2"><span>03</span><b>资产规划</b><small>PLAN</small></button>
+          <button type="button" data-production-step="3"><span>04</span><b>增量生产</b><small>PRODUCE</small></button>
+          <button type="button" data-production-step="4"><span>05</span><b>质量门槛</b><small>VERIFY</small></button>
+          <button type="button" data-production-step="5"><span>06</span><b>版本发布</b><small>RELEASE</small></button>
+        </div>
+
+        <div class="production-shell" id="productionDemo">
+          <section class="production-phase" aria-labelledby="production-phase-title">
+            <div class="production-panel-heading"><span id="productionPhaseCode">01 / BRIEF</span><b id="productionPhaseState">READY</b></div>
+            <h3 id="production-phase-title">先定义结果，不先写提示词。</h3>
+            <p id="productionPhaseDescription">把“做一套个人 IP”转换成具体渠道、资产形式和验收标准，避免生成完成后才发现不能使用。</p>
+            <ul id="productionPhaseChecklist"></ul>
+            <div class="production-progress-wrap">
+              <div><span>流程进度</span><b id="productionProgressLabel">1 / 6</b></div>
+              <div class="production-progress" id="productionProgress" role="progressbar" aria-label="生产流程进度" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"><i></i></div>
+            </div>
+            <div class="production-actions">
+              <button type="button" id="productionPrevious">上一步</button>
+              <button type="button" id="productionNext">进入人物冻结</button>
+              <button type="button" id="productionReplay">重新演示</button>
+            </div>
+          </section>
+
+          <section class="production-registry" aria-labelledby="production-registry-title">
+            <div class="production-panel-heading"><span>ASSET REGISTRY</span><b id="productionCoverage">0 / 6 READY</b></div>
+            <div class="registry-title-row"><h3 id="production-registry-title">课程发布资产包</h3><p id="productionRegistryHint">资产尚未进入生产。</p></div>
+            <div class="production-metrics" aria-label="当前生产指标">
+              <div><span>已生成</span><b id="productionGenerated">0</b></div>
+              <div><span>已通过</span><b id="productionPassed">0</b></div>
+              <div><span>被阻塞</span><b id="productionBlocked">0</b></div>
+              <div><span>人物版本</span><b>v1</b></div>
+            </div>
+            <div class="production-assets" id="productionAssets" aria-label="资产列表"></div>
+          </section>
+
+          <aside class="production-trace" aria-labelledby="production-trace-title">
+            <div class="production-panel-heading"><span>TRACE</span><b id="traceStatus">PLANNED</b></div>
+            <div class="trace-preview"><img id="traceImage" src="../../assets/project-003-sample/lin-jian-anchor-v1-r1.png" alt="林简人物原型锚点" width="1060" height="1484"></div>
+            <div class="trace-title-row"><div><small id="traceRelease">v1 / r1</small><h3 id="production-trace-title">人物原型</h3></div><span id="traceAssetForm">PROTOTYPE</span></div>
+            <dl class="trace-facts">
+              <div><dt>来源锚点</dt><dd id="traceAnchor">SELF</dd></div>
+              <div><dt>本轮变化</dt><dd id="traceChange">冻结身份与视觉锁</dd></div>
+              <div><dt>输出规格</dt><dd id="traceSpec">1060 × 1484 · alpha true</dd></div>
+              <div><dt>文件指纹</dt><dd id="traceHash">514fe3766fb5…a0aa61</dd></div>
+              <div><dt>QA 证据</dt><dd id="traceQa">等待进入人物冻结</dd></div>
+            </dl>
+            <div class="lineage-box"><span>LINEAGE</span><code id="traceLineage">brief → lin-jian-v1 → r1</code></div>
+          </aside>
+        </div>
+
+        <noscript><div class="demo-disclaimer"><span>NO JAVASCRIPT</span><p>完整路径：业务 brief → 确认林简 v1/r1 → 规划 r2–r6 → 逐项参考锚点生成 → alpha / 人物 / 规格 QA → 发布六项资产和 manifest。启用 JavaScript 可逐阶段查看资产状态与追踪证据。</p></div></noscript>
+
+        <div class="case-banner">
+          <div><span>STABILITY CONTRACT</span><strong>五次追加都继承同一个 v1 人物锚点。</strong></div>
+          <p>固定圆脸、黑色中长发、圆框眼镜、珊瑚衬衫、海军蓝阔腿裤与彩铅质感；每轮只改变表情、动作、必要道具或渠道构图。</p>
+        </div>
+
+        <div class="pack-preview-heading"><span>FINAL RELEASE · v1/r6</span><h3>六项实际生成资产</h3><p>点击上方资产卡，可追踪任一文件的来源、变化、规格与 QA。</p></div>
+
+        <div class="sample-grid" aria-label="真实生成资产">
+          <figure class="sample-card sample-card--anchor">
+            <div class="sample-image sample-image--transparent">
+              <img src="../../assets/project-003-sample/lin-jian-anchor-v1-r1.png" alt="虚构人物林简的正面全身彩铅角色锚点，透明背景" width="1060" height="1484">
+            </div>
+            <figcaption><div><span>APPROVED ANCHOR</span><b>v1 / r1</b></div><h3>人物原型</h3><p>身份锁冻结；透明通道真实存在。</p><small>1060 × 1484 · ALPHA TRUE</small></figcaption>
+          </figure>
+          <figure class="sample-card">
+            <div class="sample-image">
+              <img src="../../assets/project-003-sample/lin-jian-happy-wave-v1-r2.png" alt="同一虚构人物林简微笑挥手的独立全身资产" width="1003" height="1568" loading="lazy">
+            </div>
+            <figcaption><div><span>VARIANT</span><b>v1 / r2</b></div><h3>开心挥手</h3><p>只改变表情与手势；人物锁继续继承 v1。</p><small>1003 × 1568 · ALPHA FALSE</small></figcaption>
+          </figure>
+          <figure class="sample-card">
+            <div class="sample-image">
+              <img src="../../assets/project-003-sample/lin-jian-thinking-notebook-v1-r3.png" alt="同一虚构人物林简低头思考并手持空白笔记本的独立全身资产" width="1122" height="1402" loading="lazy">
+            </div>
+            <figcaption><div><span>VARIANT</span><b>v1 / r3</b></div><h3>思考笔记</h3><p>只增加思考表情与必要道具；服装和色板不变。</p><small>1122 × 1402 · ALPHA FALSE</small></figcaption>
+          </figure>
+          <figure class="sample-card">
+            <div class="sample-image">
+              <img src="../../assets/project-003-sample/lin-jian-explain-point-v1-r4.png" alt="同一虚构人物林简做讲解指向动作的独立全身资产" width="1051" height="1496" loading="lazy">
+            </div>
+            <figcaption><div><span>VARIANT</span><b>v1 / r4</b></div><h3>讲解指向</h3><p>为 PPT 和课程讲解增加指向动作；身份锁保持 v1。</p><small>1051 × 1496 · ALPHA FALSE</small></figcaption>
+          </figure>
+          <figure class="sample-card">
+            <div class="sample-image">
+              <img src="../../assets/project-003-sample/lin-jian-celebrate-v1-r5.png" alt="同一虚构人物林简微笑点赞庆祝的独立全身资产" width="1051" height="1496" loading="lazy">
+            </div>
+            <figcaption><div><span>VARIANT</span><b>v1 / r5</b></div><h3>庆祝点赞</h3><p>为社群反馈增加庆祝表情与单手点赞；无需重做旧资产。</p><small>1051 × 1496 · ALPHA FALSE</small></figcaption>
+          </figure>
+          <figure class="sample-card sample-card--avatar">
+            <div class="sample-image sample-image--square">
+              <img src="../../assets/project-003-sample/lin-jian-avatar-v1-r6.png" alt="同一虚构人物林简的海军蓝圆形背景社交头像" width="1254" height="1254" loading="lazy">
+            </div>
+            <figcaption><div><span>CHANNEL CROP</span><b>v1 / r6</b></div><h3>社交头像</h3><p>只改变构图为方形半身头像；人物脸、头发、眼镜与上衣不变。</p><small>1254 × 1254 · ALPHA FALSE</small></figcaption>
+          </figure>
+        </div>
+
+        <div class="case-evidence">
+          <article><span>01 / STABLE</span><h3>稳定不是“不许变化”</h3><p>六项资产都继承 v1/r1 的人物锁；表情、动作、道具和构图可以变化，脸、发型、眼镜、服装与色板不能偷偷变化。</p></article>
+          <article><span>02 / TRACEABLE</span><h3>每张图都有来源链</h3><p>版本、anchor、唯一变量、像素尺寸、alpha、SHA-256 和 QA 结论均进入 manifest，失败原因也保留。</p></article>
+          <article><span>03 / EXTENSIBLE</span><h3>追加 r4–r6，不重做 r1–r3</h3><p>新增讲解、庆祝和头像时只生产缺少的文件；历史资产和人物版本保持可用，这就是可持续扩展。</p></article>
+          <article class="case-evidence--warning"><span>04 / QA CAUGHT IT</span><h3>透明背景失败了两次</h3><p>初始变体把棋盘格画进 RGB 像素，四角 alpha 均为 255。流程拒绝“看起来透明”的假贴纸，最终改为明确带底色的全身资产。</p></article>
+          <article><span>05 / EFFECT</span><h3>效果看四个指标</h3><p>首次通过率、人物一致性通过率、单项追加成本和渠道覆盖率，比“总共生成了多少张”更有意义。</p></article>
+          <article><span>06 / CLAIM BOUNDARY</span><h3>证明流程，不冒充真人测试</h3><p>林简是虚构人物；本轮证明真实生产与 QA 链路，真人肖像还原仍需已授权照片另测。</p></article>
+        </div>
+      </section>
+
+      <section class="style-matrix-section" id="style-matrix" aria-labelledby="style-matrix-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-index">03 / 真实风格矩阵</p>
+            <h2 id="style-matrix-title">同一个人，进入不同的视觉系统。</h2>
+          </div>
+          <p>CHARACTER v1 不变 · STYLE sN 独立 · RELEASE rN 继续追加</p>
+        </div>
+
+        <div class="style-version-model" aria-label="三轴版本模型">
+          <div><span>人物身份</span><b>character v1</b><small>脸、发型、眼镜、标志服装</small></div>
+          <i aria-hidden="true">×</i>
+          <div><span>视觉系统</span><b id="matrixStyleVersion">style s1</b><small>线条、色块、质感、构图能力</small></div>
+          <i aria-hidden="true">×</i>
+          <div><span>交付迭代</span><b id="matrixReleaseVersion">release r6</b><small>新增资产、局部修复、渠道版本</small></div>
+        </div>
+
+        <div class="style-matrix-shell" id="styleMatrix">
+          <section class="style-matrix-selector" aria-labelledby="matrix-selector-title">
+            <div class="production-panel-heading"><span>STYLE ROUTER</span><b>06 TESTED</b></div>
+            <h3 id="matrix-selector-title">选择真实风格包</h3>
+            <div class="matrix-style-tabs" role="tablist" aria-label="真实风格包">
+              <button type="button" role="tab" aria-selected="false" data-matrix-style="IP-01"><span>s4 · IP-01</span><b>简笔涂鸦头像</b><small>头像 / 表情贴纸</small></button>
+              <button type="button" role="tab" aria-selected="false" data-matrix-style="IP-02"><span>s2 · IP-02</span><b>清透扁平肖像</b><small>品牌头像 / 封面</small></button>
+              <button type="button" role="tab" aria-selected="false" data-matrix-style="IP-03"><span>s5 · IP-03</span><b>粉蜡笔撞色肖像</b><small>头像 / 动作贴纸</small></button>
+              <button type="button" role="tab" aria-selected="true" data-matrix-style="IP-04"><span>s1 · IP-04</span><b>彩铅换装小人</b><small>全身 / 换装</small></button>
+              <button type="button" role="tab" aria-selected="false" data-matrix-style="IP-05"><span>s3 · IP-05</span><b>治愈手帐小剧场</b><small>贴纸 / 微场景</small></button>
+              <button type="button" role="tab" aria-selected="false" data-matrix-style="IP-06"><span>s6 · IP-06</span><b>粗线撞色漫画</b><small>头像 / 贴纸 / 封面</small></button>
+            </div>
+            <div class="matrix-router-note"><span>ROUTING RULE</span><p id="matrixRoutingNote">IP-04 擅长全身与换装；场景卡不应勉强生成，而应路由到 IP-05。</p></div>
+          </section>
+
+          <section class="style-matrix-assets" id="styleMatrixPanel" role="tabpanel" aria-labelledby="matrix-assets-title">
+            <div class="production-panel-heading"><span>REAL OUTPUTS</span><b id="matrixPackState">2 READY · 1 BLOCKED</b></div>
+            <div class="matrix-title-row"><div><small id="matrixProfileCode">s1 · IP-04</small><h3 id="matrix-assets-title">彩铅换装小人</h3></div><span id="matrixProfileUse">全身资产包</span></div>
+            <div class="matrix-asset-grid" id="matrixAssetGrid">
+              <article class="matrix-asset-card" data-capability="ready">
+                <div class="matrix-image"><img src="../../assets/project-003-sample/lin-jian-avatar-v1-r6.png" alt="林简 IP-04 彩铅风格社交头像" width="1254" height="1254" loading="lazy"></div>
+                <div><span>PORTRAIT · READY</span><h4>社交头像</h4><p>avatar · v1/s1/r6</p></div>
+              </article>
+              <article class="matrix-asset-card" data-capability="ready">
+                <div class="matrix-image matrix-image--transparent"><img src="../../assets/project-003-sample/lin-jian-anchor-v1-r1.png" alt="林简 IP-04 彩铅风格全身原型" width="1060" height="1484" loading="lazy"></div>
+                <div><span>FULL BODY · READY</span><h4>全身原型</h4><p>full_body · v1/s1/r1</p></div>
+              </article>
+              <article class="matrix-asset-card matrix-asset-card--blocked" data-capability="blocked">
+                <div class="matrix-blocked-mark" aria-hidden="true"><b>BLOCKED</b><span>→ IP-05</span></div>
+                <div><span>CONTENT CARD · BLOCKED</span><h4>场景卡</h4><p>能力规范拒绝，而不是让模型碰运气。</p></div>
+              </article>
+            </div>
+          </section>
+
+          <aside class="style-matrix-qa" aria-labelledby="matrix-qa-title">
+            <div class="production-panel-heading"><span>3-WAY QA</span><b id="matrixQaState">PASS</b></div>
+            <h3 id="matrix-qa-title">分别判断“像、风格、任务”。</h3>
+            <div class="matrix-qa-list">
+              <div><span>身份一致性</span><b id="matrixIdentityQa">PASS</b><p id="matrixIdentityNote">圆脸、黑色中长发、圆眼镜与标志服装保持 v1。</p></div>
+              <div><span>风格一致性</span><b id="matrixStyleQa">PASS</b><p id="matrixStyleNote">彩铅颗粒、柔灰轮廓、完整全身与低饱和配色成立。</p></div>
+              <div><span>任务完成度</span><b id="matrixTaskQa">2/3 ROUTED</b><p id="matrixTaskNote">头像和全身通过；场景卡按能力规范路由到 IP-05。</p></div>
+            </div>
+            <div class="matrix-source-note"><span>EVIDENCE</span><p id="matrixEvidenceNote">复用已发布的 v1/r1 与 v1/r6；没有为了填满矩阵而生成不支持的场景卡。</p></div>
+          </aside>
+        </div>
+
+        <noscript><div class="demo-disclaimer"><span>NO JAVASCRIPT</span><p>默认展示 IP-04：头像和全身 READY，场景卡 BLOCKED。启用 JavaScript 可切换 IP-01 至 IP-06，查看十五张矩阵真实图片（十三张为新增文件）、三轴版本和三类 QA。</p></div></noscript>
+
+        <div class="style-atlas-heading"><span>FULL STYLE ATLAS · 06</span><h3>六种风格已全部进入同一人物的真实回归。</h3></div>
+        <div class="style-atlas-grid" aria-label="六种上游风格覆盖状态">
+          <article class="is-tested"><span>IP-01 · REAL TEST</span><h3>简笔涂鸦头像</h3><p>强项：头像、半身表情；全身被能力路由阻塞。</p></article>
+          <article class="is-tested"><span>IP-02 · REAL TEST</span><h3>清透扁平肖像</h3><p>强项：品牌头像与封面；全身需要条件验收。</p></article>
+          <article class="is-tested"><span>IP-03 · REAL TEST</span><h3>粉蜡笔撞色肖像</h3><p>强项：高饱和表情和动作贴纸；换装被能力路由阻塞。</p></article>
+          <article class="is-tested"><span>IP-04 · REAL TEST</span><h3>彩铅换装小人</h3><p>强项：全身、换装和头像裁切；场景卡被阻塞。</p></article>
+          <article class="is-tested"><span>IP-05 · REAL TEST</span><h3>治愈手帐小剧场</h3><p>强项：贴纸与微场景；换装不是其能力重点。</p></article>
+          <article class="is-tested"><span>IP-06 · REAL TEST</span><h3>粗线撞色漫画</h3><p>强项：漫画头像、半身贴纸和营销封面，三项均通过。</p></article>
+        </div>
+      </section>
+
+      <section class="lab-section" id="lab" aria-labelledby="lab-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-index">04 / 机制实验台</p>
+            <h2 id="lab-title">角色资产实验台</h2>
+          </div>
+          <p>原创参数化 SVG · 不使用真实照片与上游参考图</p>
+        </div>
+
+        <div class="lab-shell" id="assetLab">
+          <section class="controls-panel" aria-labelledby="controls-title">
+            <div class="panel-heading">
+              <span>CONTROL</span>
+              <h3 id="controls-title">只改变一个变量</h3>
+            </div>
+
+            <fieldset>
+              <legend>01 · 选择风格</legend>
+              <div class="style-options" id="styleOptions"></div>
+            </fieldset>
+
+            <fieldset>
+              <legend>02 · 资产形式</legend>
+              <label class="select-label" for="assetForm">本轮要交付</label>
+              <select id="assetForm"></select>
+              <p class="control-help" id="formHelp"></p>
+            </fieldset>
+
+            <fieldset>
+              <legend>03 · 允许变量</legend>
+              <div class="segmented" id="expressionOptions" aria-label="表情"></div>
+              <div class="segmented" id="propOptions" aria-label="必要道具"></div>
+            </fieldset>
+
+            <fieldset>
+              <legend>04 · 身份锁实验</legend>
+              <button class="identity-change" id="changeHair" type="button">改变发型 · 创建新 vN</button>
+              <p class="control-help">发型属于身份锁；改变它不会覆盖当前人物版本。</p>
+            </fieldset>
+          </section>
+
+          <section class="character-panel" aria-labelledby="character-title">
+            <div class="panel-heading panel-heading--row">
+              <div><span>APPROVED ANCHOR</span><h3 id="character-title">虚构角色 · MUSE</h3></div>
+              <div class="version-badge"><span id="identityVersion">v1</span><b id="releaseVersion">r1</b></div>
+            </div>
+
+            <div class="character-stage" id="characterStage" data-style="IP-04" data-form="full_body">
+              <svg viewBox="0 0 520 560" role="img" aria-labelledby="avatarTitle avatarDesc">
+                <title id="avatarTitle">参数化虚构角色 MUSE</title>
+                <desc id="avatarDesc">角色保持脸型、发型、眼镜、服装和配色，只根据控件改变风格渲染、表情、道具或人物版本。</desc>
+                <defs>
+                  <filter id="paperTexture" x="-20%" y="-20%" width="140%" height="140%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="7" result="noise"/>
+                    <feComposite in="noise" in2="SourceGraphic" operator="in" result="texture"/>
+                    <feBlend in="SourceGraphic" in2="texture" mode="multiply"/>
+                  </filter>
+                </defs>
+                <path class="stage-shape stage-shape--one" d="M54 124C116 33 256 8 362 48c91 35 138 126 96 206-48 91-126 36-203 71-88 41-196 43-229-37-22-53-6-113 28-164Z"/>
+                <path class="stage-shape stage-shape--two" d="M417 425c46 16 64 60 39 89-27 32-94 35-128 4-31-28-8-75 31-91 18-7 39-9 58-2Z"/>
+                <g class="figure" id="figure">
+                  <ellipse class="shadow" cx="260" cy="514" rx="112" ry="18"/>
+                  <g class="body" id="bodyGroup">
+                    <path class="leg leg-left" d="M217 365c-2 48-7 94-19 132l45 2 14-133Z"/>
+                    <path class="leg leg-right" d="M263 366l13 132 46-2c-12-44-18-88-18-132Z"/>
+                    <path class="shoe" d="M188 495c19-4 39-3 58 1l-4 22h-66c0-11 4-18 12-23Z"/>
+                    <path class="shoe" d="M278 496c18-3 37-3 55 1 8 6 12 13 12 21h-66Z"/>
+                    <path class="torso" d="M190 259c39-23 102-23 141 0l-17 120H204Z"/>
+                    <path class="collar" d="M233 254c8 16 44 17 55 0l4 31h-65Z"/>
+                    <path class="arm arm-left" d="M204 274c-30 25-43 60-55 91l30 10 50-75Z"/>
+                    <path class="arm arm-right" d="M317 276c25 21 42 51 54 79l-28 13-51-67Z"/>
+                    <circle class="skin hand hand-left" cx="163" cy="369" r="15"/>
+                    <circle class="skin hand hand-right" cx="357" cy="360" r="15"/>
+                  </g>
+                  <g class="head" id="headGroup">
+                    <path class="hair hair-back hair-variant-a" d="M161 165c-7-79 38-133 104-132 72 1 111 57 98 137l-14 84H171Z"/>
+                    <path class="hair hair-back hair-variant-b" d="M165 183c-21-78 32-150 101-150 76 0 119 69 95 154l-5 69H169Z"/>
+                    <ellipse class="skin face" cx="261" cy="162" rx="82" ry="91"/>
+                    <path class="hair hair-front hair-variant-a" d="M180 127c14-70 54-91 96-90 51 1 80 37 87 91-29-14-51-31-63-52-28 32-70 47-120 51Z"/>
+                    <path class="hair hair-front hair-variant-b" d="M177 132c8-59 41-95 91-96 58-1 91 39 96 94-34-5-65-20-86-46-22 25-56 41-101 48Z"/>
+                    <path class="brow brow-left" d="M218 145c10-7 20-7 30-1"/>
+                    <path class="brow brow-right" d="M277 144c10-6 20-5 29 2"/>
+                    <g class="eyes" id="eyesNeutral">
+                      <ellipse class="eye" cx="232" cy="164" rx="7" ry="10"/>
+                      <ellipse class="eye" cx="292" cy="164" rx="7" ry="10"/>
+                    </g>
+                    <g class="eyes is-hidden" id="eyesHappy">
+                      <path class="eye-line" d="M222 166c7-9 14-9 21 0"/>
+                      <path class="eye-line" d="M282 166c7-9 14-9 21 0"/>
+                    </g>
+                    <g class="eyes is-hidden" id="eyesSurprised">
+                      <circle class="eye-outline" cx="232" cy="164" r="10"/>
+                      <circle class="eye-outline" cx="292" cy="164" r="10"/>
+                    </g>
+                    <circle class="blush" cx="211" cy="189" r="11"/>
+                    <circle class="blush" cx="313" cy="189" r="11"/>
+                    <path class="mouth" id="mouth" d="M245 194c11 8 22 8 33 0"/>
+                    <g class="glasses">
+                      <circle cx="231" cy="163" r="21"/>
+                      <circle cx="293" cy="163" r="21"/>
+                      <path d="M252 162h20"/>
+                    </g>
+                  </g>
+                  <g class="prop is-hidden" id="propCamera" aria-label="相机道具">
+                    <rect x="332" y="331" width="56" height="40" rx="8"/>
+                    <circle cx="360" cy="351" r="12"/>
+                    <path d="M342 331l6-9h18l6 9"/>
+                  </g>
+                  <g class="prop is-hidden" id="propCoffee" aria-label="咖啡道具">
+                    <path d="M326 331h49l-5 48h-39Z"/>
+                    <path d="M375 341c23-2 24 29 1 28"/>
+                    <path d="M339 322c-8-11 7-15 0-26M356 322c-7-10 7-15 1-25"/>
+                  </g>
+                  <g class="prop is-hidden" id="propNotebook" aria-label="笔记本道具">
+                    <path d="M324 329l62 9-8 52-62-9Z"/>
+                    <path d="M339 340l-7 38M351 342l-7 38"/>
+                  </g>
+                </g>
+              </svg>
+              <span class="stage-caption" id="stageCaption">IP-04 · 彩铅换装小人</span>
+            </div>
+
+            <div class="lock-strip" aria-label="当前人物锁">
+              <span><i aria-hidden="true"></i>圆脸</span>
+              <span><i aria-hidden="true"></i>黑色中长发</span>
+              <span><i aria-hidden="true"></i>圆框眼镜</span>
+              <span><i aria-hidden="true"></i>珊瑚上衣</span>
+            </div>
+          </section>
+
+          <section class="contract-panel" aria-labelledby="contract-title">
+            <div class="panel-heading panel-heading--row">
+              <div><span>CONTRACT</span><h3 id="contract-title">角色卡与 QA</h3></div>
+              <span class="status-pill" id="deliveryStatus">READY</span>
+            </div>
+
+            <div class="contract-tabs" role="tablist" aria-label="契约内容">
+              <button type="button" role="tab" aria-selected="true" aria-controls="characterSpec" id="specTab">character-spec</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="manifestSpec" id="manifestTab">manifest</button>
+            </div>
+            <pre id="characterSpec" role="tabpanel" aria-labelledby="specTab"><code></code></pre>
+            <pre id="manifestSpec" class="is-hidden" role="tabpanel" aria-labelledby="manifestTab"><code></code></pre>
+
+            <div class="qa-block">
+              <div class="qa-heading"><h4>发布门槛</h4><span id="qaScore">5 / 5</span></div>
+              <ul id="qaList"></ul>
+            </div>
+            <p class="live-message" id="liveMessage" aria-live="polite">当前资产符合所选风格的能力范围。</p>
+          </section>
+        </div>
+
+        <div class="demo-disclaimer">
+          <span>DEMO</span>
+          <p>这是流程与状态机制演示：验证“状态如何被管理”，不验证“模型能否稳定画出同一个真人”。真实项目仍需上传已授权照片、调用图像生成工具并进行视觉验收。</p>
+        </div>
+      </section>
+
+      <section class="capabilities" id="capabilities" aria-labelledby="capabilities-title">
+        <div class="section-heading">
+          <div><p class="section-index">05 / 能力地图</p><h2 id="capabilities-title">五层能力，一条交付链。</h2></div>
+          <p>越往下越接近可长期复用的产品资产。</p>
+        </div>
+        <div class="capability-grid">
+          <article><span>01</span><h3>权利门槛</h3><p>先确认肖像和风格素材权利，再允许生成。原始照片不进入默认交付包。</p><small>PROCESS CONTROL</small></article>
+          <article><span>02</span><h3>能力路由</h3><p>风格不仅决定外观，还明确支持、条件支持和拒绝的资产形式。</p><small>MACHINE-READABLE SPEC</small></article>
+          <article><span>03</span><h3>人物锚点</h3><p>用户确认原型后冻结身份锁；后续资产继承锚点，不重新设计人物。</p><small>IDENTITY STATE</small></article>
+          <article><span>04</span><h3>增量扩展</h3><p>每轮只改变允许字段，失败资产单独重做，避免整包重新生成。</p><small>CONTROLLED VARIATION</small></article>
+          <article><span>05</span><h3>可验收交付</h3><p>独立 PNG、实际尺寸、透明通道、哈希、QA 和用户验收形成记录。</p><small>DELIVERY CONTRACT</small></article>
+        </div>
+      </section>
+
+      <section class="mechanism" aria-labelledby="mechanism-title">
+        <div class="section-heading">
+          <div><p class="section-index">06 / 底层原理</p><h2 id="mechanism-title">不是更长的提示词，<br>而是更清楚的状态。</h2></div>
+        </div>
+        <ol class="mechanism-flow">
+          <li><span>GATE</span><h3>输入预检</h3><p>授权、照片职责、用途与资产范围先成为 brief。</p></li>
+          <li><span>COMPILE</span><h3>提示词组装</h3><p>身份锁、风格规则、资产规格和唯一变量按优先级编译。</p></li>
+          <li><span>FREEZE</span><h3>确认原型</h3><p>草案 dN 经用户确认后冻结为 vN 和 approved anchor。</p></li>
+          <li><span>EXPAND</span><h3>单变量扩展</h3><p>表情、姿势和道具形成新的 rN，不触碰身份锁。</p></li>
+          <li><span>VERIFY</span><h3>发布校验</h3><p>机器检查文件事实，人工检查人物和风格事实。</p></li>
+        </ol>
+      </section>
+
+      <section class="limits" aria-labelledby="limits-title">
+        <div class="section-heading">
+          <div><p class="section-index">07 / 真实边界</p><h2 id="limits-title">四件不能被包装掉的事。</h2></div>
+        </div>
+        <div class="limit-grid">
+          <article><b>01</b><h3>不是模型</h3><p>仓库不包含训练、LoRA、embedding 或专用人物一致性算法，最终画质依赖外部图像工具。</p></article>
+          <article><b>02</b><h3>参考图未清权</h3><p>六组内置风格图片均为 <code>pending_clearance</code>，按上游规则不能送入生成模型。</p></article>
+          <article><b>03</b><h3>视觉 QA 未自动化</h3><p>校验器检查格式、尺寸、透明像素和哈希，不能判断像不像、是否多手指或风格漂移。</p></article>
+          <article><b>04</b><h3>缺少许可证</h3><p>研究版本根目录没有 LICENSE；本项目只引用和独立演示，不复制上游代码与素材。</p></article>
+        </div>
+      </section>
+
+      <section class="use-cases" id="use-cases" aria-labelledby="use-cases-title">
+        <div class="section-heading">
+          <div><p class="section-index">08 / 使用场景</p><h2 id="use-cases-title">越需要“反复使用同一人物”，价值越高。</h2></div>
+          <p>采用它的判断标准不是行业，而是资产是否会持续追加、跨渠道复用和多人验收。</p>
+        </div>
+        <div class="use-case-grid">
+          <article><span>KNOWLEDGE CREATOR</span><h3>知识博主 / 个人品牌</h3><p>头像、课程封面、讲解动作、社媒回复表情长期共用同一人物。</p><b>高频追加 · 高一致性需求</b></article>
+          <article><span>EDUCATOR</span><h3>讲师 / 顾问 / 教练</h3><p>把个人形象扩展到 PPT、课件、海报和方法论图解，减少每次重新沟通。</p><b>多渠道 · 可审稿</b></article>
+          <article><span>SMALL STUDIO</span><h3>小型 IP 工作室</h3><p>用角色卡、版本和 manifest 管理客户确认、返工与正式交付。</p><b>多人协作 · 可追溯</b></article>
+          <article><span>COMMUNITY</span><h3>社群 / 客户成功</h3><p>持续生产欢迎、答疑、提醒、庆祝等轻量表情与动作资产。</p><b>长尾变体 · 边际成本敏感</b></article>
+          <article><span>BRAND CHARACTER</span><h3>品牌人物 / 吉祥物</h3><p>在人物身份不变的前提下管理活动服装、节日动作和渠道尺寸。</p><b>品牌规范 · 版本治理</b></article>
+          <article class="use-case-grid__avoid"><span>NOT THE BEST FIT</span><h3>这些情况不必上系统</h3><p>只做一张头像、追求完全写实数字人、需要连续动画或尚未解决素材权利时，直接生成或采用专门管线更合适。</p><b>一次性 / 高写实 / 动画管线</b></article>
+        </div>
+      </section>
+
+      <section class="roadmap" id="roadmap" aria-labelledby="roadmap-title">
+        <div class="section-heading">
+          <div><p class="section-index">09 / 可扩展路线</p><h2 id="roadmap-title">从 Skill，到角色资产基础设施。</h2></div>
+        </div>
+        <div class="roadmap-lanes">
+          <article><div class="lane-meta"><span>P0</span><small>TRUSTED BASE</small></div><h3>先把“能否交付”自动化</h3><ul><li>许可证、肖像授权与素材清权</li><li>尺寸、alpha、哈希、OCR 和文件命名检查</li><li>照片与供应商数据生命周期台账</li></ul></article>
+          <article><div class="lane-meta"><span>P1</span><small>PRODUCTION ENGINE</small></div><h3>再把“像不像”量化</h3><ul><li>多图像 provider 适配与失败重试</li><li>身份、风格、肢体和道具一致性评分</li><li>渠道规格编译与批量独立导出</li></ul></article>
+          <article><div class="lane-meta"><span>P2</span><small>ASSET PLATFORM</small></div><h3>最后形成资产产品</h3><ul><li>角色记忆、版本 diff、回退与分支</li><li>客户确认、审批和失败资产局部重做</li><li>宠物、多人、品牌角色与商业授权关系</li></ul></article>
+        </div>
+      </section>
+
+      <section class="meaning" id="meaning" aria-labelledby="meaning-title">
+        <div class="meaning-copy">
+          <p class="section-index">10 / 对我们的意义</p>
+          <h2 id="meaning-title">Project 003 补上“长期资产状态”这一层。</h2>
+          <p>Project 001 交付可运行作品；Project 002 研究如何把 Skills 组织成产品平台；Project 003 让我们看到，生成式产品还需要保存角色锚点、版本、失败记录和验收证据。它也给后续研究提供了可量化基线：单资产成本、首次通过率、一致性得分与返工率。</p>
+          <blockquote>真正可积累的不是某一次生成，而是下一次还能稳定继续的项目状态。</blockquote>
+        </div>
+        <div class="meaning-model" aria-label="研究项目关系">
+          <div><span>001</span><b>RUNNABLE OUTPUT</b><small>做出可运行成果</small></div>
+          <i aria-hidden="true">→</i>
+          <div><span>002</span><b>PRODUCT SYSTEM</b><small>组织专业能力</small></div>
+          <i aria-hidden="true">→</i>
+          <div class="is-current"><span>003</span><b>ASSET MEMORY</b><small>持续管理状态</small></div>
+        </div>
+      </section>
+
+      <section class="sources" aria-labelledby="sources-title">
+          <p class="section-index">11 / 来源</p>
+        <h2 id="sources-title">研究证据与版本边界</h2>
+        <div class="source-list">
+          <a href="https://github.com/DoraRabbitYan/personal-ip-image-pack/tree/97b10c8654b46807af131fd47076e8ca9f648070"><span>UPSTREAM</span><b>固定研究版本 97b10c8</b><i aria-hidden="true">↗</i></a>
+          <a href="https://github.com/DoraRabbitYan/personal-ip-image-pack/blob/97b10c8654b46807af131fd47076e8ca9f648070/SKILL.md"><span>WORKFLOW</span><b>Skill 主流程与人物版本规则</b><i aria-hidden="true">↗</i></a>
+          <a href="https://github.com/DoraRabbitYan/personal-ip-image-pack/blob/97b10c8654b46807af131fd47076e8ca9f648070/references/style-specs.yaml"><span>SPEC</span><b>风格能力与 QA 唯一事实来源</b><i aria-hidden="true">↗</i></a>
+          <a href="https://github.com/DoraRabbitYan/personal-ip-image-pack/blob/97b10c8654b46807af131fd47076e8ca9f648070/references/style-asset-rights.yaml"><span>RIGHTS</span><b>内置参考素材权利台账</b><i aria-hidden="true">↗</i></a>
+          <a href="https://developers.openai.com/api/reference/cli/resources/beta/subresources/responses"><span>OPENAI DOCS</span><b>本地与内联 Skill 数据结构</b><i aria-hidden="true">↗</i></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>PERSONAL IP ASSET SYSTEM · PROJECT 003</p>
+      <a href="../../">返回 0828 Codex Project</a>
+    </footer>
+  </body>
+</html>

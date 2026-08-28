@@ -1,0 +1,97 @@
+{
+  "delivery_id": "lin-jian-fictional-demo-v1-r6",
+  "generated_at": "2026-08-28",
+  "generation_mode": "Codex built-in ImageGen",
+  "character_spec": "character-spec-v1.yaml",
+  "lineage": "lineage-r6.json",
+  "identity_version": "v1",
+  "release": "r6",
+  "status": "qa_passed_for_research_demo",
+  "scenario": "knowledge_course_launch_pack",
+  "channels": ["social_profile", "course_page", "presentation", "community"],
+  "assets": [
+    {
+      "release": "r1",
+      "role": "approved_anchor",
+      "asset_form": "full_body_prototype",
+      "file": "docs/assets/project-003-sample/lin-jian-anchor-v1-r1.png",
+      "pixel_size": "1060x1484",
+      "alpha": true,
+      "sha256": "514fe3766fb598be4eb94d8c1f489857525b48960fbf98f00234701398a0aa61",
+      "qa_status": "pass"
+    },
+    {
+      "release": "r2",
+      "role": "welcome_action",
+      "asset_form": "full_body",
+      "file": "docs/assets/project-003-sample/lin-jian-happy-wave-v1-r2.png",
+      "pixel_size": "1003x1568",
+      "alpha": false,
+      "change_only": ["happy_expression", "right_hand_wave", "cream_background"],
+      "channels": ["community", "course_page"],
+      "sha256": "b787dbed872509454161e4e8546a6a14f2fa2901fc705e3162199fb59d001b4b",
+      "qa_status": "pass_after_alpha_contract_rework"
+    },
+    {
+      "release": "r3",
+      "role": "thinking_with_prop",
+      "asset_form": "full_body",
+      "file": "docs/assets/project-003-sample/lin-jian-thinking-notebook-v1-r3.png",
+      "pixel_size": "1122x1402",
+      "alpha": false,
+      "change_only": ["thinking_expression", "blank_cream_notebook", "cream_background"],
+      "channels": ["course_page", "presentation"],
+      "sha256": "1897806e9cd8e2c977504ef289232b8c3a5b41ce5a6b94f664f5375f2987a409",
+      "qa_status": "pass_after_alpha_contract_rework"
+    },
+    {
+      "release": "r4",
+      "role": "presentation_pointing",
+      "asset_form": "full_body",
+      "file": "docs/assets/project-003-sample/lin-jian-explain-point-v1-r4.png",
+      "pixel_size": "1051x1496",
+      "alpha": false,
+      "change_only": ["explanatory_expression", "single_pointing_gesture", "copy_safe_space", "cream_background"],
+      "channels": ["presentation", "course_page"],
+      "sha256": "ce2562b00fd9add3687c1743302a70dd8dbddadccc595797cb7bc1162342ae4d",
+      "qa_status": "pass"
+    },
+    {
+      "release": "r5",
+      "role": "community_celebration",
+      "asset_form": "full_body",
+      "file": "docs/assets/project-003-sample/lin-jian-celebrate-v1-r5.png",
+      "pixel_size": "1051x1496",
+      "alpha": false,
+      "change_only": ["celebratory_smile", "single_thumbs_up", "cream_background"],
+      "channels": ["community", "course_page"],
+      "sha256": "9cdc8b6feb1d7fcba675d2b9d2db13be06738bda8c613d811fddac38e885778b",
+      "qa_status": "pass"
+    },
+    {
+      "release": "r6",
+      "role": "social_profile_avatar",
+      "asset_form": "avatar",
+      "file": "docs/assets/project-003-sample/lin-jian-avatar-v1-r6.png",
+      "pixel_size": "1254x1254",
+      "alpha": false,
+      "change_only": ["square_head_shoulders_crop", "navy_circle_on_cream_background"],
+      "channels": ["social_profile"],
+      "sha256": "a62c0a4161a0a85493c82f75890850ddff5c7871f9cf7cf159b4ec3c5309ac51",
+      "qa_status": "pass"
+    }
+  ],
+  "rejected_evidence": [
+    {
+      "affected_releases": ["r2", "r3"],
+      "files": [
+        "evidence/qa-rejected-wave-painted-checkerboard.png",
+        "evidence/qa-rejected-notebook-painted-checkerboard.png"
+      ],
+      "reason": "Requested transparency was rendered as opaque checkerboard pixels; corner alpha was 255.",
+      "resolution": "Regenerated as full_body assets with explicit warm cream backgrounds and alpha=false contracts."
+    }
+  ],
+  "next_release": "r7",
+  "claim_boundary": "Synthetic workflow demonstration only; not a real-person likeness restoration benchmark."
+}

@@ -21,6 +21,18 @@
     "image": "./assets/gear-zero-platform-study-cover.svg"
   },
   {
+    "id": "personal-ip-image-pack-study",
+    "number": "003",
+    "name": "PERSONAL IP ASSET SYSTEM",
+    "status": "六风格真实矩阵已验证",
+    "category": "生成式资产治理",
+    "summary": "用十九张真实资产验证人物锚点、六风格能力路由、三轴版本和交付 QA，把一次性图生图升级为可持续扩展、可跨风格运营的个人 IP 资产系统。",
+    "url": "./projects/personal-ip-image-pack-study/",
+    "demoUrl": "./projects/personal-ip-image-pack-study/#style-matrix",
+    "demoLabel": "查看真实风格矩阵 →",
+    "image": "./assets/personal-ip-image-pack-study-cover.svg"
+  },
+  {
     "id": "daizhige-capability-atlas",
     "number": "004",
     "name": "DAIZHIGE CAPABILITY ATLAS",

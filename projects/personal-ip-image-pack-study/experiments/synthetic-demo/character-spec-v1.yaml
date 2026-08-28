@@ -1,0 +1,40 @@
+character_id: lin-jian-fictional-demo
+display_name: 林简
+fictional: true
+identity_version: v1
+status: approved_anchor
+
+rights:
+  likeness_source: synthetic_original
+  real_person_reference: false
+  upstream_reference_asset_used: false
+
+identity_lock:
+  face_shape: round
+  hair: black_shoulder_length_soft_curve
+  glasses: thin_round_dark_frame
+  apparent_age: adult
+
+visual_lock:
+  style_id: IP-04-inspired-original-study
+  medium: colored_pencil_editorial_illustration
+  proportions: 2.8_head_fashion_doll
+  palette:
+    - coral_red
+    - navy_blue
+    - warm_cream
+  outfit:
+    top: coral_red_long_sleeve_blouse
+    bottom: navy_high_waist_wide_leg_trousers
+    shoes: cream_low_top_sneakers
+
+mutable_fields:
+  - expression
+  - hand_gesture
+  - required_prop
+  - background_mode
+
+approved_anchor:
+  release: r1
+  file: ../../../../docs/assets/project-003-sample/lin-jian-anchor-v1-r1.png
+  alpha: true

@@ -1,0 +1,67 @@
+character_id: lin-jian
+character_version: v1
+approved_identity_anchor: ../../../../docs/assets/project-003-sample/lin-jian-anchor-v1-r1.png
+identity_lock:
+  face_shape: round
+  hair: black_shoulder_length_soft_curve_center_part
+  glasses: thin_round_dark
+  signature_outfit: coral_collared_blouse_navy_wide_leg_trousers_cream_sneakers
+
+version_axes:
+  character: "vN changes only when identity-lock fields change"
+  style: "sN selects a rendering and capability system without redefining identity"
+  release: "rN records an asset addition or correction inside the selected style pack"
+
+styles:
+  - style_version: s1
+    upstream_style_id: IP-04
+    name: 彩铅换装小人
+    source: existing_project_003_release_assets
+    status: passed
+    capability_cells: { portrait: ready, full_body: ready, content_card: blocked }
+    blocked_reason: IP-04 marks scene_card unsupported; use IP-05.
+
+  - style_version: s2
+    upstream_style_id: IP-02
+    name: 清透扁平肖像
+    source: codex_builtin_imagegen_text_spec_only
+    status: passed_with_conditional
+    capability_cells: { portrait: ready, full_body: conditional, content_card: ready }
+    conditional_reason: Full body requires explicit identity and crop review.
+
+  - style_version: s3
+    upstream_style_id: IP-05
+    name: 治愈手帐小剧场
+    source: codex_builtin_imagegen_text_spec_only
+    status: passed_after_alpha_rework
+    capability_cells: { portrait: ready_as_bust_sticker, full_body: ready_as_full_body_sticker, content_card: ready_as_scene_card }
+
+  - style_version: s4
+    upstream_style_id: IP-01
+    name: 简笔涂鸦头像
+    source: codex_builtin_imagegen_text_spec_only
+    status: passed_after_alpha_rework
+    capability_cells: { portrait: ready, bust_sticker: ready, full_body: blocked }
+    blocked_reason: IP-01 is a portrait and expression system; use IP-03 or IP-04 for full body.
+
+  - style_version: s5
+    upstream_style_id: IP-03
+    name: 粉蜡笔撞色肖像
+    source: codex_builtin_imagegen_text_spec_only
+    status: passed_with_alpha_note
+    capability_cells: { portrait: ready, full_body_sticker: ready, outfit_system: blocked }
+    blocked_reason: IP-03 does not provide an outfit system; use IP-04.
+    qa_note: Full-body sticker has real alpha and transparent corners but retains a soft partial-alpha fringe.
+
+  - style_version: s6
+    upstream_style_id: IP-06
+    name: 粗线撞色漫画
+    source: codex_builtin_imagegen_text_spec_only
+    status: passed_after_alpha_rework
+    capability_cells: { portrait: ready, bust_sticker: ready, content_card: ready }
+
+rights:
+  real_person_reference: false
+  upstream_reference_asset_used: false
+  upstream_style_images_used: false
+  style_source: textual_rules_only
