@@ -11,6 +11,8 @@ const demoRoot = join(outputRoot, "demos", "outrun-the-level");
 const assetsRoot = join(outputRoot, "assets");
 const directorStudyRoot = join(repositoryRoot, "projects", "stickman-video-director-study");
 const directorStudyOutputRoot = join(outputRoot, "projects", "stickman-video-director-study");
+const sceneGenStudyRoot = join(repositoryRoot, "projects", "scenegen-capability-study");
+const sceneGenStudyOutputRoot = join(outputRoot, "projects", "scenegen-capability-study");
 
 if (!outputRoot.startsWith(repositoryRoot)) {
   throw new Error("Refusing to build outside the repository.");
@@ -48,6 +50,21 @@ await copyFile(
 await copyFile(
   join(directorStudyRoot, "experiments", "user-generated-sample.json"),
   join(directorStudyOutputRoot, "user-generated-sample.json")
+);
+
+await copyFile(
+  join(sceneGenStudyRoot, "REUSE-MANIFEST.json"),
+  join(sceneGenStudyOutputRoot, "reuse-manifest.json")
+);
+
+await copyFile(
+  join(sceneGenStudyRoot, "POC-RUNBOOK.md"),
+  join(sceneGenStudyOutputRoot, "poc-runbook.md")
+);
+
+await copyFile(
+  join(sceneGenStudyRoot, "experiments", "poc-scorecard-template.md"),
+  join(sceneGenStudyOutputRoot, "poc-scorecard-template.md")
 );
 
 console.log("Pages bundle ready:", outputRoot);

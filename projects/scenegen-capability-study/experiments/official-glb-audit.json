@@ -1,0 +1,42 @@
+{
+  "subject": "SceneGen official repository GLB samples",
+  "upstreamCommit": "605d1a0b51d2dab950c8131d584d875862c8a17f",
+  "auditedAt": "2026-08-29",
+  "method": "Static GLB JSON/chunk inspection; no model inference was run.",
+  "samples": [
+    {
+      "file": "0004691.glb",
+      "sizeMiB": 6.58,
+      "meshes": 5,
+      "triangles": 68279,
+      "cameras": 0,
+      "animations": 0,
+      "skins": 0,
+      "lights": 0,
+      "extensionsUsed": []
+    },
+    {
+      "file": "0005153.glb",
+      "sizeMiB": 5.24,
+      "meshes": 4,
+      "triangles": 52828,
+      "cameras": 0,
+      "animations": 0,
+      "skins": 0,
+      "lights": 0,
+      "extensionsUsed": []
+    },
+    {
+      "file": "0005473.glb",
+      "sizeMiB": 8.05,
+      "meshes": 9,
+      "triangles": 165827,
+      "cameras": 0,
+      "animations": 0,
+      "skins": 0,
+      "lights": 0,
+      "extensionsUsed": []
+    }
+  ],
+  "interpretation": "The samples are inspectable, textured, multi-mesh static scenes. This audit does not establish generation success rate, metric accuracy, physical validity, or production readiness."
+}

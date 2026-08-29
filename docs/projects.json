@@ -67,5 +67,17 @@
     "demoUrl": "./projects/stickman-video-director-study/#user-sample",
     "demoLabel": "观看 20 秒实测 →",
     "image": "./assets/stickman-video-director-study-cover.svg"
+  },
+  {
+    "id": "scenegen-capability-study",
+    "number": "010",
+    "name": "SCENE, GENERATED.",
+    "status": "研究完成 · 按真实任务触发",
+    "category": "单图 3D 场景生成",
+    "summary": "以官方输入图、可交互 GLB、论文架构和静态资产审计，拆解 SceneGen 联合生成多件 3D 资产与相对布局的效果、原理、工程边界及采用时机。",
+    "url": "./projects/scenegen-capability-study/",
+    "demoUrl": "./projects/scenegen-capability-study/#effect",
+    "demoLabel": "查看官方 3D 证据 →",
+    "image": "./assets/scenegen-capability-study-cover.svg"
   }
 ]

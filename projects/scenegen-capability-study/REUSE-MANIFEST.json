@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "number": "010",
+    "id": "scenegen-capability-study",
+    "name": "SCENE, GENERATED.",
+    "status": "watch-trigger",
+    "recommendation": "Do not install without a real downstream task. Start one bounded POC when all activation gates are true."
+  },
+  "researchSnapshot": {
+    "date": "2026-08-29",
+    "upstreamRepository": "https://github.com/Mengmouxu/SceneGen",
+    "upstreamCommit": "605d1a0b51d2dab950c8131d584d875862c8a17f",
+    "paper": "https://arxiv.org/html/2508.15769v2",
+    "projectPage": "https://mengmouxu.github.io/SceneGen/",
+    "modelPage": "https://huggingface.co/haoningwu/SceneGen",
+    "license": "MIT",
+    "evidenceBoundary": "Official media and GLBs were inspected and displayed. Project 010 did not install checkpoints or run SceneGen inference."
+  },
+  "canonicalArtifacts": {
+    "researchPage": "docs/projects/scenegen-capability-study/index.html",
+    "researchReadme": "projects/scenegen-capability-study/README.md",
+    "designContract": "projects/scenegen-capability-study/DESIGN-CONTRACT.md",
+    "reuseManifest": "projects/scenegen-capability-study/REUSE-MANIFEST.json",
+    "pocRunbook": "projects/scenegen-capability-study/POC-RUNBOOK.md",
+    "pocScorecard": "projects/scenegen-capability-study/experiments/poc-scorecard-template.md",
+    "officialGlbAudit": "projects/scenegen-capability-study/experiments/official-glb-audit.json",
+    "mediaManifest": "docs/assets/project-010-media/manifest.json"
+  },
+  "preservedEvidence": {
+    "interactiveSampleId": "0002101",
+    "inputImage": "docs/assets/project-010-media/official-demo-input-0002101.png",
+    "outputGlb": "docs/assets/project-010-media/official-demo-output-0002101.glb",
+    "architectureFigure": "docs/assets/project-010-media/official-architecture.png",
+    "qualitativeFigure": "docs/assets/project-010-media/official-quality-comparison.png",
+    "viewerRuntime": "Three.js r128, loaded only after explicit user action"
+  },
+  "upstreamRuntimeSnapshot": {
+    "minimumGpu": "NVIDIA GPU with at least 16GB VRAM",
+    "testedGpus": ["NVIDIA A100", "NVIDIA RTX 3090"],
+    "testedCuda": "12.1",
+    "minimumPython": "3.8",
+    "setupEntry": "setup.sh",
+    "interactiveEntry": "interactive_demo.py",
+    "batchEntry": "inference.py",
+    "checkpointFamilies": ["SceneGen", "VGGT-1B", "SAM2-Hiera-Large for interactive segmentation"],
+    "verificationStatus": "Documented from the pinned upstream README; not installed or executed by Project 010."
+  },
+  "activationGates": [
+    "A legally usable indoor source image and a clear 3-5 object scope exist.",
+    "The output has a named downstream consumer such as Blender, Three.js, Unity, VR/AR, or a spatial product.",
+    "At least 16GB NVIDIA VRAM or a controlled cloud-GPU budget is available.",
+    "The plan includes manual geometry, texture, collision, scale, and runtime cleanup."
+  ],
+  "reentrySequence": [
+    "Compare upstream HEAD, releases, README, model card, and open issues against the pinned snapshot.",
+    "Confirm all activation gates before installing any model dependency.",
+    "Freeze one input image, 3-5 ordered object masks, a target runtime, and pre-registered acceptance budgets.",
+    "Run the smallest interactive or pre-segmented POC in an isolated environment.",
+    "Complete the scorecard and record adopt, watch, or reject with evidence."
+  ],
+  "deferredUntilTriggered": [
+    "Clone or fork the upstream repository into this research project.",
+    "Install CUDA, compiled extensions, model checkpoints, or SAM2.",
+    "Run inference, training, or evaluation.",
+    "Purchase or provision cloud GPU capacity.",
+    "Build production colliders, LODs, compression, semantic scene graphs, or a generation service."
+  ],
+  "nextSessionFirstAction": "Open this manifest, then run the source-drift gate in POC-RUNBOOK.md before changing the pinned commit or installing dependencies."
+}

@@ -11,9 +11,11 @@ const types = {
   ".js": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
   ".jpg": "image/jpeg",
+  ".md": "text/markdown; charset=utf-8",
   ".mp4": "video/mp4",
   ".png": "image/png",
-  ".svg": "image/svg+xml"
+  ".svg": "image/svg+xml",
+  ".glb": "model/gltf-binary"
 };
 
 createServer((request, response) => {

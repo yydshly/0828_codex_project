@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">SCENE, GENERATED.</title>
+  <desc id="desc">Project 010 cover showing an image plane becoming multiple spatial objects.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07100f"/><stop offset="1" stop-color="#10241f"/></linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd17b"/><stop offset="1" stop-color="#f8793d"/></linearGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#71e4d1" stroke-opacity=".08"/></pattern>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#grid)"/>
+  <g font-family="ui-monospace, monospace" letter-spacing="5">
+    <text x="72" y="84" fill="#71e4d1" font-size="18">PROJECT 010 / IMAGE → EDITABLE SCENE</text>
+    <text x="72" y="650" fill="#eef4e9" font-family="ui-sans-serif, system-ui" font-weight="800" font-size="76" letter-spacing="-4">SCENE, GENERATED.</text>
+    <text x="76" y="691" fill="#9baaa3" font-size="15">OFFICIAL EFFECT · PRINCIPLE · VALUE · EXTENSION</text>
+  </g>
+  <g transform="translate(96 170)">
+    <rect width="318" height="318" rx="2" fill="#142820" stroke="#71e4d1" stroke-opacity=".55"/>
+    <path d="M48 229l63-81 52 52 42-87 70 116" fill="none" stroke="#71e4d1" stroke-width="3"/>
+    <circle cx="104" cy="94" r="26" fill="#ffb454" fill-opacity=".8"/>
+    <rect x="36" y="36" width="246" height="246" fill="none" stroke="#eef4e9" stroke-opacity=".13"/>
+    <text x="24" y="347" fill="#9baaa3" font-family="ui-monospace, monospace" font-size="14">RGB + MASKS</text>
+  </g>
+  <path d="M454 326h108" stroke="#ffb454" stroke-width="2"/><path d="M552 316l18 10-18 10" fill="none" stroke="#ffb454" stroke-width="2"/>
+  <g transform="translate(626 145)" fill="none" stroke="url(#amber)" stroke-width="3">
+    <path d="M28 242l112 65 112-65-112-65z"/>
+    <path d="M28 242v72l112 65 112-65v-72M140 307v72"/>
+    <path d="M197 126l72 42 72-42-72-42zM197 126v82l72 42 72-42v-82M269 168v82"/>
+    <path d="M349 271l55 32 55-32-55-32zM349 271v58l55 32 55-32v-58M404 303v58"/>
+  </g>
+  <g fill="#71e4d1">
+    <circle cx="766" cy="322" r="5"/><circle cx="895" cy="313" r="5"/><circle cx="1030" cy="448" r="5"/>
+  </g>
+  <text x="628" y="546" fill="#9baaa3" font-family="ui-monospace, monospace" font-size="14" letter-spacing="3">OBJECTS + RELATIVE POSES + GLB</text>
+</svg>
