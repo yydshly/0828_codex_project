@@ -1,0 +1,287 @@
+{
+  "project": "007",
+  "study": "night-diary-image-skill-study",
+  "auditedAt": "2026-08-29T00:00:00+08:00",
+  "upstream": {
+    "repository": "https://github.com/xianxie6/night-diary-image-skill",
+    "commit": "4f9c189da2ddbb07f0fdb6b87e603c4ae91518f7",
+    "licenseObserved": null,
+    "provenanceNote": "The upstream repository contains no LICENSE file. Its README thanks the original style-reference author without naming the author or supplying a source/license. Copied images are retained here as research evidence, not as cleared commercial assets."
+  },
+  "upstreamExamples": [
+    {
+      "file": "assets/upstream-examples/style-reference.png",
+      "role": "upstream-style-reference",
+      "width": 972,
+      "height": 1290,
+      "sha256": "955fec5eb0b81b165c143dcfedf7971c8a999ec29297f632cf83a7c4763eef48"
+    },
+    {
+      "file": "assets/upstream-examples/rainy-city-before-after.png",
+      "role": "upstream-before-after",
+      "capabilities": ["composition-lock", "lighting", "handwritten-copy"],
+      "width": 1428,
+      "height": 1138,
+      "sha256": "55bdd9053b4a83ed001565caf61aaf84620e13ef8653f65310113b96b1b2bb77"
+    },
+    {
+      "file": "assets/upstream-examples/train-window-before-after.png",
+      "role": "upstream-before-after",
+      "capabilities": ["rain-window", "silhouette", "handwritten-copy"],
+      "width": 1576,
+      "height": 1182,
+      "sha256": "6a7fe39d95e93481d511359dd24a87f63c8e4ffeadb4816f3a2b74ea600b45ac"
+    },
+    {
+      "file": "assets/upstream-examples/sea-sky-before-after.png",
+      "role": "upstream-before-after",
+      "capabilities": ["horizon-lock", "day-to-night", "negative-space"],
+      "width": 1276,
+      "height": 1130,
+      "sha256": "6ec9b97eb99561f6dce5777e009438d37929ff168e71baf9d0520ce5c46af534"
+    },
+    {
+      "file": "assets/upstream-examples/san-francisco-hill-before-after.png",
+      "role": "upstream-before-after",
+      "capabilities": ["architecture-geometry", "window-light", "white-contours"],
+      "width": 2369,
+      "height": 1709,
+      "sha256": "8d5aec7b44b6bb06f4eb374c7ec10432238eb2ea1723e41ee9f3ac180ba40545"
+    },
+    {
+      "file": "assets/upstream-examples/hong-kong-neon-figures-before-after.png",
+      "role": "upstream-before-after",
+      "capabilities": ["explicit-figure-branch", "pose-lock", "occlusion"],
+      "width": 2241,
+      "height": 1692,
+      "sha256": "26f8afdaeee9cc0035b6e1219b299faf04e5423499374b3a36fa4bda7b4b3929"
+    }
+  ],
+  "projectExperiments": [
+    {
+      "id": "courtyard-night-diary",
+      "provenance": "Project 007 built-in imagegen experiment; not upstream output",
+      "before": {
+        "file": "assets/project-experiments/courtyard-before.png",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "b27e488f6abc6c4f95746c18065861a0732e220a6925f0cdf8c2dda2f177af61"
+      },
+      "firstPass": {
+        "file": "assets/project-experiments/courtyard-after-v1.png",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "51c97a92d385587ad8a95f89428f64ea7ae81bcc722c8e5d5e709d768dc4a229",
+        "qa": "Rejected for verbatim-copy capitalization drift: requested lowercase 'some', rendered 'Some'."
+      },
+      "acceptedAfterOneRetry": {
+        "file": "assets/project-experiments/courtyard-after.png",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "29b02f91011eee479f590e1c2aa9cde2bf982a62ed437eecedd8f889fc1fa590",
+        "qa": [
+          "Canvas ratio, camera, architecture, window geometry, wires, car, bicycle and two-person count remain visually aligned.",
+          "Night palette, localized warm lights, grain and three-part handwriting are present.",
+          "The targeted retry corrected the observed capitalization issue but still re-rendered subtle texture, so it is not a pixel-local edit."
+        ]
+      }
+    },
+    {
+      "id": "coast-night-diary",
+      "provenance": "Project 007 built-in imagegen experiment; not upstream output",
+      "before": {
+        "file": "assets/project-experiments/coast-before.png",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "b6750a491f3bb1620d6732739eb1c9d6ead184b0ca9fcf3ff82b410ca7cfaf7c"
+      },
+      "accepted": {
+        "file": "assets/project-experiments/coast-after.png",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "6c53921de9c13524279c22b7d66cd10e2256979189884f5f3f12f023897e560f",
+        "qa": [
+          "Canvas, level horizon, boat, right-side person, grass slope and rock regions remain visually aligned.",
+          "Deep indigo night and a restrained pre-existing horizon afterglow are present without a new moon or stars.",
+          "The exact three-part copy is readable; localized sea and cloud texture is generatively reinterpreted."
+        ]
+      }
+    },
+    {
+      "id": "rain-window-chinese",
+      "provenance": "Project 007 built-in imagegen Chinese-text experiment; not upstream output",
+      "before": {
+        "file": "assets/project-experiments/rain-window-before.png",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "cb95211dce074f78fbf89f35afd0532933b1fd4a07e68d034cf476ea73747518"
+      },
+      "accepted": {
+        "file": "assets/project-experiments/rain-window-after.png",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "85366cee516cb6641ce5bacd96a706e917a2f71a3a23efe4e72f3608a4013acd",
+        "copyRequested": ["雨落在窗外", "（城市还没有睡）", "我把安静带回家"],
+        "copyQa": "Manual first-pass check: all Chinese characters and parentheses rendered exactly; no English, signature, extra punctuation or extra text observed.",
+        "retryCount": 0,
+        "qa": [
+          "Canvas, window frame, rain, seats, streetlights and the single right-side passenger remain visually aligned.",
+          "Deep navy, localized amber reflections, grain and thick rough Chinese handwriting are present.",
+          "Structure QA v2 passes the Project 007 smoke thresholds."
+        ]
+      }
+    },
+    {
+      "id": "forest-stop-chinese",
+      "provenance": "Project 007 built-in imagegen Chinese-text experiment; not upstream output",
+      "before": {
+        "file": "assets/project-experiments/forest-stop-before.png",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "7232c3dc40258fe25aa2311954389d17845a304b673c30e689c624a9188d92b2"
+      },
+      "firstPass": {
+        "file": "assets/project-experiments/forest-stop-after.png",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "8fd1681d9a2c8ab79d7d1b10d9137f6789b151ef141118773bac211210e4d252",
+        "copyRequested": ["树影慢慢合上", "（风还记得路）", "等一盏灯亮起来"],
+        "copyQa": "Chinese text rendered exactly, but structure QA found only 5/30 RANSAC inliers and 12.4588% mean corner drift; rejected for excessive scene re-rendering.",
+        "retryCount": 0
+      },
+      "acceptedAfterOneRetry": {
+        "file": "assets/project-experiments/forest-stop-after-v2.png",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "f0841faf2e9128580c17cf676d84ba104c75f72bf5f36cced48d6d990a0ed7bd",
+        "copyRequested": ["树影慢慢合上", "（风还记得路）", "等一盏灯亮起来"],
+        "copyQa": "Manual retry check: all Chinese characters and parentheses rendered exactly; no English, signature, extra punctuation or extra text observed.",
+        "retryCount": 1,
+        "qa": [
+          "The targeted retry preserved the road, shelter, lamp, person and canopy geometry more closely.",
+          "Structure QA improved from 5/30 to 14/23 RANSAC inliers and from 12.4588% to 0.1849% mean corner drift.",
+          "The retry passes the Project 007 smoke thresholds while retaining exact Chinese copy."
+        ]
+      }
+    },
+    {
+      "id": "canal-chinese",
+      "provenance": "Project 007 built-in imagegen Chinese-text experiment; not upstream output",
+      "before": {
+        "file": "assets/project-experiments/canal-before.png",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "f711c12205215aa0c2fe1c34207f288a6267fd26c9feb9aecb7a6c19dfd90b4c"
+      },
+      "accepted": {
+        "file": "assets/project-experiments/canal-after.png",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "8744ac9c6e63a770e33bd9c45df8caff7f80bf9d6c9146f32f687c0bcc07b24a",
+        "copyRequested": ["水巷收起余光", "（屋里有人醒着）", "夜色沿着桥走远"],
+        "copyQa": "Manual first-pass check: all Chinese characters and parentheses rendered exactly; no English, signature, extra punctuation or extra text observed.",
+        "retryCount": 0,
+        "qa": [
+          "Square canvas, bridge, canal, houses, windows, stairs and reflection remain visually aligned with zero people or added objects.",
+          "Night palette, two localized warm windows, sparse contour accents and thick Chinese handwriting are present.",
+          "Structure QA v2 passes the Project 007 smoke thresholds."
+        ]
+      }
+    }
+  ],
+  "applicationDemos": {
+    "promptRecord": "experiments/application-demo-prompts.md",
+    "sameSourceEmotion": {
+      "provenance": "Project 007 built-in imagegen edits; not upstream output and not an emotion-recognition system",
+      "input": {
+        "file": "assets/project-experiments/rain-window-before.png",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "cb95211dce074f78fbf89f35afd0532933b1fd4a07e68d034cf476ea73747518"
+      },
+      "outputs": [
+        {
+          "id": "lonely",
+          "file": "assets/project-experiments/rain-window-emotion-lonely.png",
+          "width": 1536,
+          "height": 1024,
+          "sha256": "d9b8b190ac202ff0310a0b763b487452d0d1fc6a952044e075534ac5e3bcee39",
+          "copyRequested": ["夜把人声收走", "（只剩雨还醒着）", "我在窗边等自己"],
+          "copyQa": "Manual first-pass observation: exact Chinese copy; no extra English, signature or watermark observed."
+        },
+        {
+          "id": "warm",
+          "file": "assets/project-experiments/rain-window-emotion-warm.png",
+          "width": 1536,
+          "height": 1024,
+          "sha256": "fd314d25757f431b2ae124578483e3f01180e7da07169ef0dfe8882c193d34a6",
+          "copyRequested": ["灯一盏一盏亮起", "（有人为我留着）", "回家的路不再远"],
+          "copyQa": "Manual first-pass observation: exact Chinese copy; no extra English, signature or watermark observed."
+        },
+        {
+          "id": "release",
+          "file": "assets/project-experiments/rain-window-emotion-release.png",
+          "width": 1536,
+          "height": 1024,
+          "sha256": "8c41d68f71d566278792ced007fdac847d41b768f5cbf0169f94f34640c27e8c",
+          "copyRequested": ["雨终究会停下", "（风会带走旧事）", "今晚就到这里吧"],
+          "copyQa": "Manual first-pass observation: exact Chinese copy; no extra English, signature or watermark observed."
+        }
+      ],
+      "scope": "Three successful edits from one source image; demonstrates directed narrative variation, not automatic emotion inference or a success rate."
+    },
+    "fluorescentFigure": {
+      "provenance": "Project 007 built-in imagegen targeted edit; not upstream output",
+      "input": {
+        "file": "assets/project-experiments/rain-window-after.png",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "85366cee516cb6641ce5bacd96a706e917a2f71a3a23efe4e72f3608a4013acd"
+      },
+      "output": {
+        "file": "assets/project-experiments/rain-window-figure-fluorescent.png",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "ae1f1c96fc30bc37329a702ce36dead5949fb673e6b4dfb3f746df1ee582d9cc"
+      },
+      "copyRequested": ["雨落在窗外", "（城市还没有睡）", "我把安静带回家"],
+      "qa": "Manual first-pass observation: one seated passenger remains at right with matching facing direction and seat occlusion; off-white outer contour and limited garment lines are present without a skeleton or solid-white fill; Chinese copy remains exact. Generative boundary texture changed, so this is not pixel-local editing."
+    },
+    "productAssemblies": [
+      {
+        "id": "music-cover",
+        "runtime": "HTML/CSS assembly",
+        "image": "assets/project-experiments/rain-window-emotion-warm.png"
+      },
+      {
+        "id": "diary-card",
+        "runtime": "HTML/CSS assembly",
+        "image": "assets/project-experiments/rain-window-emotion-release.png"
+      },
+      {
+        "id": "social-post",
+        "runtime": "HTML/CSS assembly",
+        "image": "assets/project-experiments/canal-after.png"
+      }
+    ]
+  },
+  "structureQa": {
+    "script": "experiments/run_structure_qa.py",
+    "report": "experiments/structure-qa-report-v2.json",
+    "reportSha256": "5d5491eec4945fe1b5f6217cdae19c0ac2ffc0cd130baac5d80071faa65fc596",
+    "schemaVersion": "project-007-structure-qa/v2",
+    "runtime": "Python + NumPy + Pillow; no OpenCV, OCR, model, or network call",
+    "pairs": ["courtyard-night-diary", "coast-night-diary", "rain-window-chinese", "forest-stop-chinese", "canal-chinese"],
+    "scope": "Five accepted Project 007 experiment pairs only; smoke baseline, not a cross-model benchmark."
+  },
+  "claimsBoundary": [
+    "The upstream examples demonstrate the visual language claimed by the upstream README, not repeatability or cross-model performance.",
+    "The five Project 007 experiments demonstrate five successful small-sample runs, not a benchmark or success rate.",
+    "The three Chinese-text experiments rendered the requested copy exactly in these observed outputs; this is not a general Chinese-text accuracy rate.",
+    "The three same-source emotion variants follow user-specified directions and exact copy; they do not infer, classify or diagnose emotion.",
+    "The fluorescent-figure demonstration is one successful targeted edit and does not prove pixel-local figure isolation.",
+    "The music cover, diary card and social post are deterministic HTML/CSS assemblies, not additional image-model outputs.",
+    "Semantic composition locking reduced visible drift in these examples but is not pixel-level geometry control.",
+    "The runtime web simulator compiles text only and does not invoke an image model."
+  ]
+}

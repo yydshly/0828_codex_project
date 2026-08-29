@@ -1,0 +1,397 @@
+{
+  "schemaVersion": "project-007-structure-qa/v2",
+  "generatedAt": "2026-08-29T00:00:00+08:00",
+  "method": {
+    "runtime": "Python + NumPy + Pillow; no OpenCV, OCR, model, or network call",
+    "analysisMaxDimension": 640,
+    "landmarks": "Harris-style corners with local gradient/luminance descriptors and mutual nearest matching",
+    "alignment": "Deterministic affine RANSAC with a fixed seed and a 4 px analysis-space inlier radius",
+    "edgeMetric": "Gradient edges after affine alignment; precision/recall/F1 with 2 px analysis-space dilation tolerance",
+    "appearance": "Mean relative luminance and HSV-style saturation; descriptive only",
+    "thresholds": {
+      "dimensionExact": true,
+      "minLandmarkInliers": 12,
+      "minLandmarkInlierRatio": 0.25,
+      "minTolerantEdgeF1": 0.25,
+      "maxMeanCornerDriftPercent": 2.5
+    }
+  },
+  "pairs": [
+    {
+      "id": "courtyard-night-diary",
+      "label": "城市旧住宅院落",
+      "inputs": {
+        "before": {
+          "file": "assets/project-experiments/courtyard-before.png",
+          "sha256": "b27e488f6abc6c4f95746c18065861a0732e220a6925f0cdf8c2dda2f177af61",
+          "width": 1024,
+          "height": 1536
+        },
+        "after": {
+          "file": "assets/project-experiments/courtyard-after.png",
+          "sha256": "29b02f91011eee479f590e1c2aa9cde2bf982a62ed437eecedd8f889fc1fa590",
+          "width": 1024,
+          "height": 1536
+        }
+      },
+      "analysis": {
+        "width": 427,
+        "height": 640,
+        "scaleFromOriginal": 0.416667
+      },
+      "dimensions": {
+        "exact": true,
+        "aspectRatioBefore": 0.666667,
+        "aspectRatioAfter": 0.666667
+      },
+      "landmarks": {
+        "detectedBefore": 260,
+        "detectedAfter": 260,
+        "mutualCandidateMatches": 99,
+        "ransacInliers": 85,
+        "inlierRatio": 0.8586,
+        "medianInlierResidualAnalysisPx": 0.612,
+        "meanInlierSimilarity": 0.7623
+      },
+      "alignment": {
+        "affineBeforeToAfter": [
+          [
+            0.997799,
+            -0.000433,
+            0.462204
+          ],
+          [
+            0.000675,
+            0.998853,
+            0.36333
+          ]
+        ],
+        "meanCornerDriftPercent": 0.0833
+      },
+      "edges": {
+        "toleranceAnalysisPx": 2,
+        "approxToleranceOriginalPx": 4.8,
+        "precision": 0.8232,
+        "recall": 0.9597,
+        "f1": 0.8862
+      },
+      "appearance": {
+        "meanLuminanceBefore": 0.308,
+        "meanLuminanceAfter": 0.0717,
+        "meanLuminanceDelta": -0.2364,
+        "meanSaturationBefore": 0.3137,
+        "meanSaturationAfter": 0.475,
+        "meanSaturationDelta": 0.1614
+      },
+      "acceptance": {
+        "dimensionLock": true,
+        "landmarkConsensus": true,
+        "edgeRetention": true,
+        "cornerDrift": true,
+        "baselinePass": true
+      }
+    },
+    {
+      "id": "coast-night-diary",
+      "label": "海岸地平线",
+      "inputs": {
+        "before": {
+          "file": "assets/project-experiments/coast-before.png",
+          "sha256": "b6750a491f3bb1620d6732739eb1c9d6ead184b0ca9fcf3ff82b410ca7cfaf7c",
+          "width": 1536,
+          "height": 1024
+        },
+        "after": {
+          "file": "assets/project-experiments/coast-after.png",
+          "sha256": "6c53921de9c13524279c22b7d66cd10e2256979189884f5f3f12f023897e560f",
+          "width": 1536,
+          "height": 1024
+        }
+      },
+      "analysis": {
+        "width": 640,
+        "height": 427,
+        "scaleFromOriginal": 0.416667
+      },
+      "dimensions": {
+        "exact": true,
+        "aspectRatioBefore": 1.5,
+        "aspectRatioAfter": 1.5
+      },
+      "landmarks": {
+        "detectedBefore": 260,
+        "detectedAfter": 260,
+        "mutualCandidateMatches": 49,
+        "ransacInliers": 43,
+        "inlierRatio": 0.8776,
+        "medianInlierResidualAnalysisPx": 0.7135,
+        "meanInlierSimilarity": 0.6081
+      },
+      "alignment": {
+        "affineBeforeToAfter": [
+          [
+            0.997621,
+            -0.026167,
+            8.257257
+          ],
+          [
+            -8.9e-05,
+            1.002555,
+            0.270715
+          ]
+        ],
+        "meanCornerDriftPercent": 0.7407
+      },
+      "edges": {
+        "toleranceAnalysisPx": 2,
+        "approxToleranceOriginalPx": 4.8,
+        "precision": 0.5029,
+        "recall": 0.7674,
+        "f1": 0.6076
+      },
+      "appearance": {
+        "meanLuminanceBefore": 0.5625,
+        "meanLuminanceAfter": 0.1051,
+        "meanLuminanceDelta": -0.4574,
+        "meanSaturationBefore": 0.1832,
+        "meanSaturationAfter": 0.6276,
+        "meanSaturationDelta": 0.4444
+      },
+      "acceptance": {
+        "dimensionLock": true,
+        "landmarkConsensus": true,
+        "edgeRetention": true,
+        "cornerDrift": true,
+        "baselinePass": true
+      }
+    },
+    {
+      "id": "rain-window-chinese",
+      "label": "雨夜车窗 · 中文",
+      "inputs": {
+        "before": {
+          "file": "assets/project-experiments/rain-window-before.png",
+          "sha256": "cb95211dce074f78fbf89f35afd0532933b1fd4a07e68d034cf476ea73747518",
+          "width": 1536,
+          "height": 1024
+        },
+        "after": {
+          "file": "assets/project-experiments/rain-window-after.png",
+          "sha256": "85366cee516cb6641ce5bacd96a706e917a2f71a3a23efe4e72f3608a4013acd",
+          "width": 1536,
+          "height": 1024
+        }
+      },
+      "analysis": {
+        "width": 640,
+        "height": 427,
+        "scaleFromOriginal": 0.416667
+      },
+      "dimensions": {
+        "exact": true,
+        "aspectRatioBefore": 1.5,
+        "aspectRatioAfter": 1.5
+      },
+      "landmarks": {
+        "detectedBefore": 260,
+        "detectedAfter": 260,
+        "mutualCandidateMatches": 69,
+        "ransacInliers": 43,
+        "inlierRatio": 0.6232,
+        "medianInlierResidualAnalysisPx": 0.1585,
+        "meanInlierSimilarity": 0.7078
+      },
+      "alignment": {
+        "affineBeforeToAfter": [
+          [
+            1.000057,
+            0.000482,
+            -0.221979
+          ],
+          [
+            -0.000114,
+            0.999717,
+            0.022159
+          ]
+        ],
+        "meanCornerDriftPercent": 0.0223
+      },
+      "edges": {
+        "toleranceAnalysisPx": 2,
+        "approxToleranceOriginalPx": 4.8,
+        "precision": 0.8346,
+        "recall": 0.9112,
+        "f1": 0.8712
+      },
+      "appearance": {
+        "meanLuminanceBefore": 0.1789,
+        "meanLuminanceAfter": 0.0803,
+        "meanLuminanceDelta": -0.0987,
+        "meanSaturationBefore": 0.4734,
+        "meanSaturationAfter": 0.525,
+        "meanSaturationDelta": 0.0516
+      },
+      "acceptance": {
+        "dimensionLock": true,
+        "landmarkConsensus": true,
+        "edgeRetention": true,
+        "cornerDrift": true,
+        "baselinePass": true
+      }
+    },
+    {
+      "id": "forest-stop-chinese",
+      "label": "森林站台 · 中文",
+      "inputs": {
+        "before": {
+          "file": "assets/project-experiments/forest-stop-before.png",
+          "sha256": "7232c3dc40258fe25aa2311954389d17845a304b673c30e689c624a9188d92b2",
+          "width": 1024,
+          "height": 1536
+        },
+        "after": {
+          "file": "assets/project-experiments/forest-stop-after-v2.png",
+          "sha256": "f0841faf2e9128580c17cf676d84ba104c75f72bf5f36cced48d6d990a0ed7bd",
+          "width": 1024,
+          "height": 1536
+        }
+      },
+      "analysis": {
+        "width": 427,
+        "height": 640,
+        "scaleFromOriginal": 0.416667
+      },
+      "dimensions": {
+        "exact": true,
+        "aspectRatioBefore": 0.666667,
+        "aspectRatioAfter": 0.666667
+      },
+      "landmarks": {
+        "detectedBefore": 260,
+        "detectedAfter": 260,
+        "mutualCandidateMatches": 23,
+        "ransacInliers": 14,
+        "inlierRatio": 0.6087,
+        "medianInlierResidualAnalysisPx": 0.6846,
+        "meanInlierSimilarity": 0.6514
+      },
+      "alignment": {
+        "affineBeforeToAfter": [
+          [
+            0.99518,
+            0.000416,
+            0.829186
+          ],
+          [
+            -0.003254,
+            0.997739,
+            1.263347
+          ]
+        ],
+        "meanCornerDriftPercent": 0.1849
+      },
+      "edges": {
+        "toleranceAnalysisPx": 2,
+        "approxToleranceOriginalPx": 4.8,
+        "precision": 0.7151,
+        "recall": 0.9401,
+        "f1": 0.8123
+      },
+      "appearance": {
+        "meanLuminanceBefore": 0.2419,
+        "meanLuminanceAfter": 0.0563,
+        "meanLuminanceDelta": -0.1856,
+        "meanSaturationBefore": 0.3792,
+        "meanSaturationAfter": 0.7692,
+        "meanSaturationDelta": 0.39
+      },
+      "acceptance": {
+        "dimensionLock": true,
+        "landmarkConsensus": true,
+        "edgeRetention": true,
+        "cornerDrift": true,
+        "baselinePass": true
+      }
+    },
+    {
+      "id": "canal-chinese",
+      "label": "江南水巷 · 中文",
+      "inputs": {
+        "before": {
+          "file": "assets/project-experiments/canal-before.png",
+          "sha256": "f711c12205215aa0c2fe1c34207f288a6267fd26c9feb9aecb7a6c19dfd90b4c",
+          "width": 1254,
+          "height": 1254
+        },
+        "after": {
+          "file": "assets/project-experiments/canal-after.png",
+          "sha256": "8744ac9c6e63a770e33bd9c45df8caff7f80bf9d6c9146f32f687c0bcc07b24a",
+          "width": 1254,
+          "height": 1254
+        }
+      },
+      "analysis": {
+        "width": 640,
+        "height": 640,
+        "scaleFromOriginal": 0.510367
+      },
+      "dimensions": {
+        "exact": true,
+        "aspectRatioBefore": 1.0,
+        "aspectRatioAfter": 1.0
+      },
+      "landmarks": {
+        "detectedBefore": 260,
+        "detectedAfter": 260,
+        "mutualCandidateMatches": 56,
+        "ransacInliers": 42,
+        "inlierRatio": 0.75,
+        "medianInlierResidualAnalysisPx": 0.5588,
+        "meanInlierSimilarity": 0.7834
+      },
+      "alignment": {
+        "affineBeforeToAfter": [
+          [
+            0.999154,
+            0.001886,
+            -0.639765
+          ],
+          [
+            0.000586,
+            0.999567,
+            0.153229
+          ]
+        ],
+        "meanCornerDriftPercent": 0.0769
+      },
+      "edges": {
+        "toleranceAnalysisPx": 2,
+        "approxToleranceOriginalPx": 3.92,
+        "precision": 0.8133,
+        "recall": 0.9627,
+        "f1": 0.8817
+      },
+      "appearance": {
+        "meanLuminanceBefore": 0.2703,
+        "meanLuminanceAfter": 0.0632,
+        "meanLuminanceDelta": -0.2071,
+        "meanSaturationBefore": 0.3765,
+        "meanSaturationAfter": 0.5619,
+        "meanSaturationDelta": 0.1854
+      },
+      "acceptance": {
+        "dimensionLock": true,
+        "landmarkConsensus": true,
+        "edgeRetention": true,
+        "cornerDrift": true,
+        "baselinePass": true
+      }
+    }
+  ],
+  "claimsBoundary": [
+    "This is a five-pair Project 007 smoke baseline, not a cross-model benchmark or success rate.",
+    "A passing affine/edge baseline does not prove pixel-level lock, identity preservation, or local-only editing.",
+    "Appearance deltas describe visible style change and are not quality thresholds.",
+    "Text accuracy and person counting remain outside this script; those require OCR or task-specific detectors."
+  ]
+}

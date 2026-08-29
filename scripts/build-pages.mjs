@@ -11,6 +11,8 @@ const demoRoot = join(outputRoot, "demos", "outrun-the-level");
 const assetsRoot = join(outputRoot, "assets");
 const directorStudyRoot = join(repositoryRoot, "projects", "stickman-video-director-study");
 const directorStudyOutputRoot = join(outputRoot, "projects", "stickman-video-director-study");
+const nightDiaryStudyRoot = join(repositoryRoot, "projects", "night-diary-image-skill-study");
+const nightDiaryAssetsRoot = join(assetsRoot, "night-diary-image-skill-study");
 const sceneGenStudyRoot = join(repositoryRoot, "projects", "scenegen-capability-study");
 const sceneGenStudyOutputRoot = join(outputRoot, "projects", "scenegen-capability-study");
 
@@ -22,6 +24,7 @@ await rm(outputRoot, { recursive: true, force: true });
 await cp(docsRoot, outputRoot, { recursive: true });
 await mkdir(demoRoot, { recursive: true });
 await mkdir(assetsRoot, { recursive: true });
+await mkdir(nightDiaryAssetsRoot, { recursive: true });
 
 for (const file of ["index.html", "style.css", "game.js"]) {
   await copyFile(join(gameRoot, file), join(demoRoot, file));
@@ -50,6 +53,23 @@ await copyFile(
 await copyFile(
   join(directorStudyRoot, "experiments", "user-generated-sample.json"),
   join(directorStudyOutputRoot, "user-generated-sample.json")
+);
+
+await cp(
+  join(nightDiaryStudyRoot, "assets", "upstream-examples"),
+  join(nightDiaryAssetsRoot, "upstream"),
+  { recursive: true }
+);
+
+await cp(
+  join(nightDiaryStudyRoot, "assets", "project-experiments"),
+  join(nightDiaryAssetsRoot, "experiments"),
+  { recursive: true }
+);
+
+await copyFile(
+  join(nightDiaryStudyRoot, "experiments", "structure-qa-report-v2.json"),
+  join(nightDiaryAssetsRoot, "structure-qa-report-v2.json")
 );
 
 await copyFile(

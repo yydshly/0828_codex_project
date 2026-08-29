@@ -1,3 +1,6 @@
 [submodule "projects/stickman-video-director-study/source"]
 	path = projects/stickman-video-director-study/source
 	url = https://github.com/kaomei/stickman-video-director.git
+[submodule "projects/night-diary-image-skill-study/source"]
+	path = projects/night-diary-image-skill-study/source
+	url = https://github.com/xianxie6/night-diary-image-skill.git

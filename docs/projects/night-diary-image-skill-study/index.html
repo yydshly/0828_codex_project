@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project 007：用上游样例、五组构图实测、同图三种中文情绪、人物荧光分支和产品装配，研究 Night Diary Image Skill 的能力、场景、价值与边界。">
+    <title>NIGHT DIARY AS CONTROL LAYER · Project 007</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../project-detail.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="../../project-detail.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body id="page-top" class="project-page night-diary-page">
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+    <header class="site-header">
+      <a class="brand" href="../../" aria-label="返回研究总库">0828 / PROJECT 007</a>
+      <nav class="detail-nav" aria-label="项目导航">
+        <a href="../../">总库首页</a>
+        <a href="https://github.com/xianxie6/night-diary-image-skill">上游仓库 ↗</a>
+      </nav>
+    </header>
+
+    <nav class="section-nav" aria-label="研究章节">
+      <div class="section-nav__inner">
+        <span class="section-nav__label">NIGHT DIARY / STUDY</span>
+        <div class="section-nav__links">
+          <a href="#experiments" data-section-link="experiments">实测</a>
+          <a href="#chinese-tests" data-section-link="chinese-tests">中文</a>
+          <a href="#applications" data-section-link="applications">应用</a>
+          <a href="#structure-qa" data-section-link="structure-qa">量测</a>
+          <a href="#upstream" data-section-link="upstream">源例</a>
+          <a href="#mechanism" data-section-link="mechanism">原理</a>
+          <a href="#capabilities" data-section-link="capabilities">能力</a>
+          <a href="#scenarios" data-section-link="scenarios">场景</a>
+          <a href="#extensions" data-section-link="extensions">扩展</a>
+          <a href="#meaning" data-section-link="meaning">落地</a>
+          <a href="#boundaries" data-section-link="boundaries">边界</a>
+        </div>
+        <a class="section-nav__play" href="#experiments">SEE PROOF <span aria-hidden="true">↓</span></a>
+      </div>
+      <i id="readingProgress" class="reading-progress" aria-hidden="true"></i>
+    </nav>
+
+    <main id="main-content" class="detail-main">
+      <section class="detail-hero diary-hero" aria-labelledby="project-title">
+        <div class="detail-hero-copy">
+          <p class="eyebrow">PROJECT 007 · IMAGE EDITING SKILL · RESEARCH BUILD</p>
+          <h1 id="project-title">NIGHT<br>DIARY</h1>
+          <p class="detail-lede">它不是新的图像模型。它把“深夜胶片、局部暖光、白色手写独白”写成一份可重复执行、带构图保护和质检的美术指导合同。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#experiments">看五组独立实测</a>
+            <a class="button secondary" href="#applications">看场景落地</a>
+            <a class="button secondary" href="#upstream">拖动上游对照</a>
+            <a class="button secondary" href="#mechanism">操作 Prompt 合同</a>
+          </div>
+          <ul class="hero-evidence" aria-label="研究摘要">
+            <li><strong>5 PAIRS</strong><span>上游 Before / After</span></li>
+            <li><strong>5 TESTS</strong><span>Project 007 独立实测</span></li>
+            <li><strong>0 MODEL</strong><span>仓库不含模型与脚本</span></li>
+          </ul>
+        </div>
+
+        <aside class="hero-art" aria-label="Night Diary 视觉语言拆解">
+          <div class="hero-art__sky">
+            <span class="scribble">some windows<br><i>(stay awake)</i><br>after midnight.*</span>
+            <span class="grain" aria-hidden="true"></span>
+          </div>
+          <div class="window-grid" aria-hidden="true">
+            <i></i><i class="is-warm"></i><i></i><i class="is-blue"></i><i></i>
+            <i class="is-warm"></i><i></i><i></i><i class="is-warm"></i><i></i>
+            <i></i><i></i><i class="is-warm"></i><i></i><i class="is-blue"></i>
+          </div>
+          <div class="hero-art__contract">
+            <span>STYLE CONTRACT / 4f9c189</span>
+            <strong>COMPOSITION LOCK</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section class="fact-strip" aria-label="仓库审计事实">
+        <div><span>UPSTREAM COMMIT</span><strong>4f9c189</strong></div>
+        <div><span>INSTRUCTION FILES</span><strong>3 份</strong></div>
+        <div><span>UPSTREAM IMAGES</span><strong>6 张</strong></div>
+        <div><span>EXECUTABLE CODE</span><strong>0</strong></div>
+      </section>
+
+      <section id="experiments" class="proof-section" data-section aria-labelledby="experiments-title">
+        <div class="section-heading-wide">
+          <div>
+            <p class="section-index">01 / PROJECT 007 TESTS</p>
+            <p class="kicker">先演示，再解释</p>
+            <h2 id="experiments-title">两种构图，两次风格编辑，<br>一次真实的文字重试。</h2>
+          </div>
+          <p class="evidence-note"><b>我们的独立实测</b>基准图与编辑图均由本项目使用内置 imagegen 生成，不属于上游官方样片，也不代表跨模型成功率。</p>
+        </div>
+
+        <div class="experiment-grid">
+          <article class="experiment-card">
+            <div class="project-comparison" data-pair-comparison style="--split: 50%; --ratio: 2 / 3;">
+              <img class="pair-before" src="../../assets/night-diary-image-skill-study/experiments/courtyard-before.png" width="1024" height="1536" alt="风格处理前的蓝灰色旧住宅院落">
+              <div class="pair-after" aria-hidden="true">
+                <img src="../../assets/night-diary-image-skill-study/experiments/courtyard-after.png" width="1024" height="1536" alt="">
+              </div>
+              <span class="compare-label is-before">BEFORE</span>
+              <span class="compare-label is-after">AFTER</span>
+              <span class="split-line" aria-hidden="true"></span>
+              <input class="comparison-range" type="range" min="0" max="100" value="50" aria-label="拖动比较城市院落处理前后">
+            </div>
+            <div class="experiment-copy">
+              <div class="experiment-title"><span>TEST 01 · VERTICAL</span><b>城市窗景</b></div>
+              <h3>构图锁 + 暖窗 + 精确文案</h3>
+              <p>建筑、架空线、车、自行车和两个人物维持原位置；改变集中在夜色、现有窗光、颗粒和天空负空间中的三段文字。</p>
+              <ul class="qa-list">
+                <li><b>保持</b><span>画幅、透视、主体数量与位置</span></li>
+                <li><b>改变</b><span>时间、局部光色、胶片质感与文字</span></li>
+                <li><b>观察</b><span>首轮把小写 some 自动大写，定向重试后修正</span></li>
+              </ul>
+              <details class="prompt-details">
+                <summary>查看 Prompt 与一次重试记录</summary>
+                <p><strong>逐字文案：</strong>“some windows stay awake” / “(long after the street goes quiet)” / “to keep a little warmth alive.”</p>
+                <p><strong>核心锁定：</strong>画幅、三组建筑、天空负空间、全部窗格、架空线、院落、门口、汽车、自行车和两个人物不可移动或增删。</p>
+                <p><strong>重试：</strong>只要求把首字母 S 改为 s，并重新声明其余画面、文字、位置和质感全部保持。重试仍有轻微生成重绘，说明“只改一个字”不是像素级保证。</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="experiment-card is-landscape">
+            <div class="project-comparison" data-pair-comparison style="--split: 18%; --ratio: 3 / 2;">
+              <img class="pair-before" src="../../assets/night-diary-image-skill-study/experiments/coast-before.png" width="1536" height="1024" alt="风格处理前的日暮海岸、船与远处人物">
+              <div class="pair-after" aria-hidden="true">
+                <img src="../../assets/night-diary-image-skill-study/experiments/coast-after.png" width="1536" height="1024" alt="">
+              </div>
+              <span class="compare-label is-before">BEFORE</span>
+              <span class="compare-label is-after">AFTER</span>
+              <span class="split-line" aria-hidden="true"></span>
+              <input class="comparison-range" type="range" min="0" max="100" value="50" aria-label="拖动比较海岸处理前后">
+            </div>
+            <div class="experiment-copy">
+              <div class="experiment-title"><span>TEST 02 · LANDSCAPE</span><b>海岸地平线</b></div>
+              <h3>白昼转夜 + 几何与剪影保持</h3>
+              <p>地平线、草坡、礁石、船和右侧人物仍在原有关系中；天空转为靛蓝，只保留原地平线已有的暖色余辉。</p>
+              <ul class="qa-list">
+                <li><b>保持</b><span>水平线、船、人物、草坡与岩石关系</span></li>
+                <li><b>改变</b><span>夜色、云层质感、暗部与三段文案</span></li>
+                <li><b>观察</b><span>文案正确；局部海浪纹理被生成模型重新解释</span></li>
+              </ul>
+              <details class="prompt-details">
+                <summary>查看 Prompt 摘要</summary>
+                <p><strong>逐字文案：</strong>“the sea keeps the last light” / “(a little longer)” / “before night takes it home.”</p>
+                <p><strong>核心锁定：</strong>画幅、水平地平线、云带、草坡、礁石、左侧船和右侧唯一人物不可移动或增删；禁止月亮、星星、飞鸟和新光源。</p>
+              </details>
+            </div>
+          </article>
+        </div>
+
+        <aside class="retry-proof" aria-labelledby="retry-title">
+          <div>
+            <p class="kicker">质量门禁不是装饰</p>
+            <h3 id="retry-title">首轮偏差被留下，而不是被结果图掩盖。</h3>
+            <p>源 Skill 要求检查文案准确性并最多定向重试一次。这个案例说明它能形成修复流程，也说明文字与局部像素仍由生成模型控制。</p>
+          </div>
+          <figure>
+            <img src="../../assets/night-diary-image-skill-study/experiments/courtyard-after-v1.png" width="1024" height="1536" alt="城市案例首轮生成，第一行 some 被大写为 Some" loading="lazy">
+            <figcaption>V1 · “Some” 大写偏差</figcaption>
+          </figure>
+          <figure>
+            <img src="../../assets/night-diary-image-skill-study/experiments/courtyard-after.png" width="1024" height="1536" alt="城市案例定向重试后的结果" loading="lazy">
+            <figcaption>RETRY 01 · 重新声明不变量</figcaption>
+          </figure>
+        </aside>
+      </section>
+
+      <section id="chinese-tests" class="chinese-tests-section" data-section aria-labelledby="chinese-tests-title">
+        <div class="section-heading-wide">
+          <div>
+            <p class="section-index">01A / CHINESE COPY TESTS</p>
+            <p class="kicker">三种场景，三种画幅，全部指定中文</p>
+            <h2 id="chinese-tests-title">中文不是后期贴字。<br>这次直接让图片模型写。</h2>
+          </div>
+          <p class="evidence-note"><b>Project 007 新增实测</b>三张无字原创底图分别覆盖雨夜车窗、森林站台和江南水巷。三组中文均逐字人工核对；这是三次观察结果，不是中文成功率。</p>
+        </div>
+
+        <div class="chinese-sample-grid">
+          <article class="chinese-sample-card" data-cn-copy-status="exact">
+            <div class="project-comparison" data-pair-comparison style="--split: 50%; --ratio: 3 / 2;">
+              <img class="pair-before" src="../../assets/night-diary-image-skill-study/experiments/rain-window-before.png" width="1536" height="1024" alt="中文 Night Diary 处理前的雨夜公交车窗与一名乘客" loading="lazy">
+              <div class="pair-after" aria-hidden="true"><img src="../../assets/night-diary-image-skill-study/experiments/rain-window-after.png" width="1536" height="1024" alt="" loading="lazy"></div>
+              <span class="compare-label is-before">BEFORE</span><span class="compare-label is-after">AFTER</span><span class="split-line" aria-hidden="true"></span>
+              <input class="comparison-range" type="range" min="0" max="100" value="18" aria-label="拖动比较中文雨夜车窗处理前后">
+            </div>
+            <div class="chinese-sample-copy">
+              <div class="chinese-sample-meta"><span>CN 01 · 3:2</span><b>FIRST PASS EXACT</b></div>
+              <h3>雨夜车窗</h3>
+              <blockquote><span>雨落在窗外</span><span>（城市还没有睡）</span><span>我把安静带回家</span></blockquote>
+              <p>窗框、雨滴、座椅和右侧唯一乘客保持；模型直接生成粗糙粉笔感中文，没有英文或额外文字。</p>
+            </div>
+          </article>
+
+          <article class="chinese-sample-card" data-cn-copy-status="exact-retry">
+            <div class="project-comparison" data-pair-comparison style="--split: 18%; --ratio: 2 / 3;">
+              <img class="pair-before" src="../../assets/night-diary-image-skill-study/experiments/forest-stop-before.png" width="1024" height="1536" alt="中文 Night Diary 处理前的森林站台、道路和一名等车人" loading="lazy">
+              <div class="pair-after" aria-hidden="true"><img src="../../assets/night-diary-image-skill-study/experiments/forest-stop-after-v2.png" width="1024" height="1536" alt="" loading="lazy"></div>
+              <span class="compare-label is-before">BEFORE</span><span class="compare-label is-after">AFTER</span><span class="split-line" aria-hidden="true"></span>
+              <input class="comparison-range" type="range" min="0" max="100" value="18" aria-label="拖动比较中文森林站台处理前后">
+            </div>
+            <div class="chinese-sample-copy">
+              <div class="chinese-sample-meta"><span>CN 02 · 2:3</span><b>EXACT · RETRY 01</b></div>
+              <h3>森林站台</h3>
+              <blockquote><span>树影慢慢合上</span><span>（风还记得路）</span><span>等一盏灯亮起来</span></blockquote>
+              <p>中文首轮就正确，但自动结构线发现树冠重绘过多；唯一一次定向重试把角点漂移从 12.4588% 降到 0.1849%。</p>
+            </div>
+          </article>
+
+          <article class="chinese-sample-card" data-cn-copy-status="exact">
+            <div class="project-comparison" data-pair-comparison style="--split: 18%; --ratio: 1 / 1;">
+              <img class="pair-before" src="../../assets/night-diary-image-skill-study/experiments/canal-before.png" width="1254" height="1254" alt="中文 Night Diary 处理前的江南水巷、石桥和倒影" loading="lazy">
+              <div class="pair-after" aria-hidden="true"><img src="../../assets/night-diary-image-skill-study/experiments/canal-after.png" width="1254" height="1254" alt="" loading="lazy"></div>
+              <span class="compare-label is-before">BEFORE</span><span class="compare-label is-after">AFTER</span><span class="split-line" aria-hidden="true"></span>
+              <input class="comparison-range" type="range" min="0" max="100" value="18" aria-label="拖动比较中文江南水巷处理前后">
+            </div>
+            <div class="chinese-sample-copy">
+              <div class="chinese-sample-meta"><span>CN 03 · 1:1</span><b>FIRST PASS EXACT</b></div>
+              <h3>江南水巷</h3>
+              <blockquote><span>水巷收起余光</span><span>（屋里有人醒着）</span><span>夜色沿着桥走远</span></blockquote>
+              <p>方形画幅、石桥、房屋、窗格和倒影保持；两处原有暖窗被强化，没有增加灯笼、人物或船。</p>
+            </div>
+          </article>
+        </div>
+
+        <aside class="chinese-outcome" aria-labelledby="chinese-outcome-title">
+          <div class="chinese-outcome-stats" aria-label="中文实测摘要">
+            <p><strong>3 / 3</strong><span>观察输出逐字正确</span></p>
+            <p><strong>1 / 3</strong><span>因结构线失败而重试</span></p>
+            <p><strong>0</strong><span>额外英文、署名或水印</span></p>
+          </div>
+          <figure>
+            <img src="../../assets/night-diary-image-skill-study/experiments/forest-stop-after.png" width="1024" height="1536" alt="森林站台中文首轮结果，文字正确但结构量测未通过" loading="lazy">
+            <figcaption>FOREST V1 · 中文正确，结构 QA 失败</figcaption>
+          </figure>
+          <div>
+            <p class="kicker">这次最有价值的发现</p>
+            <h3 id="chinese-outcome-title">“文字正确”和“构图稳定”必须分开验收。</h3>
+            <p>三组中文都在首轮逐字命中，但森林样例仍因为场景重绘触发重试。中文效果在这些样本中成立，却不能因此省略结构检查，也不能推导出普遍成功率。</p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="applications" class="application-section" data-section aria-labelledby="applications-title">
+        <div class="section-heading-wide">
+          <div>
+            <p class="section-index">01B / USE-CASE DEMONSTRATIONS</p>
+            <p class="kicker">不是多画几张，而是验证怎么被使用</p>
+            <h2 id="applications-title"><span>同一张照片如何承载情绪，</span><span>再进入真实内容容器。</span></h2>
+          </div>
+          <p class="evidence-note"><b>Project 007 场景扩展实测</b>三种情绪图都从同一张雨窗无字底图编辑；荧光分支从已接受普通版本继续编辑；三个产品界面由本页 HTML/CSS 装配，不是图片模型直接生成的界面。</p>
+        </div>
+
+        <article class="emotion-demo" data-emotion-demo aria-labelledby="emotion-demo-title">
+          <header class="emotion-demo__header">
+            <div>
+              <span>DEMO 01 · SAME SOURCE / THREE NARRATIVES</span>
+              <h3 id="emotion-demo-title">同一构图，孤独、温暖、释然。</h3>
+              <p>这不是自动情绪识别；它把用户选择的情绪方向、指定文案和同一套 Night Diary 视觉规则编译成三个版本。</p>
+            </div>
+            <div class="emotion-tabs" role="tablist" aria-label="切换同图情绪版本">
+              <button id="emotion-tab-lonely" type="button" role="tab" aria-selected="true" aria-controls="emotion-panel-lonely" data-emotion-value="lonely">孤独</button>
+              <button id="emotion-tab-warm" type="button" role="tab" aria-selected="false" aria-controls="emotion-panel-warm" data-emotion-value="warm">温暖</button>
+              <button id="emotion-tab-release" type="button" role="tab" aria-selected="false" aria-controls="emotion-panel-release" data-emotion-value="release">释然</button>
+            </div>
+          </header>
+
+          <div class="emotion-stage">
+            <figure class="emotion-source">
+              <img src="../../assets/night-diary-image-skill-study/experiments/rain-window-before.png" width="1536" height="1024" alt="三种情绪版本共同使用的无字雨夜公交车窗底图" loading="lazy">
+              <figcaption><b>共同输入</b><span>同一 3:2 无字底图 · 同一窗框、座椅、灯位与乘客</span></figcaption>
+            </figure>
+            <div class="emotion-results" aria-live="polite">
+              <article id="emotion-panel-lonely" class="emotion-panel is-active" role="tabpanel" aria-labelledby="emotion-tab-lonely" data-emotion-panel="lonely">
+                <img src="../../assets/night-diary-image-skill-study/experiments/rain-window-emotion-lonely.png" width="1536" height="1024" alt="同一雨窗底图的孤独情绪 Night Diary 中文版本" loading="lazy">
+                <div><span>LONELINESS · FIRST PASS EXACT</span><blockquote>夜把人声收走<br>（只剩雨还醒着）<br>我在窗边等自己</blockquote><p>冷靛蓝占主导，暖光稀疏；情绪主要由文案与留白建立。</p></div>
+              </article>
+              <article id="emotion-panel-warm" class="emotion-panel" role="tabpanel" aria-labelledby="emotion-tab-warm" data-emotion-panel="warm">
+                <img src="../../assets/night-diary-image-skill-study/experiments/rain-window-emotion-warm.png" width="1536" height="1024" alt="同一雨窗底图的温暖情绪 Night Diary 中文版本" loading="lazy">
+                <div><span>WARMTH · FIRST PASS EXACT</span><blockquote>灯一盏一盏亮起<br>（有人为我留着）<br>回家的路不再远</blockquote><p>只强化原有橙色灯与倒影，让“被等待”的语义变得更近。</p></div>
+              </article>
+              <article id="emotion-panel-release" class="emotion-panel" role="tabpanel" aria-labelledby="emotion-tab-release" data-emotion-panel="release">
+                <img src="../../assets/night-diary-image-skill-study/experiments/rain-window-emotion-release.png" width="1536" height="1024" alt="同一雨窗底图的释然情绪 Night Diary 中文版本" loading="lazy">
+                <div><span>RELEASE · FIRST PASS EXACT</span><blockquote>雨终究会停下<br>（风会带走旧事）<br>今晚就到这里吧</blockquote><p>冷暖更平衡，叙事从等待转为收束；仍保持深夜而不是改成黎明。</p></div>
+              </article>
+            </div>
+          </div>
+          <p class="emotion-boundary"><b>观察结论</b>三次输出的指定中文均逐字正确，且共同输入仍可辨认；这是三个成功样本，不代表情绪识别、稳定成功率或像素级构图锁。</p>
+        </article>
+
+        <div class="application-proof-grid">
+          <article class="figure-branch-demo" aria-labelledby="figure-branch-title">
+            <div class="project-comparison" data-pair-comparison style="--split: 50%; --ratio: 3 / 2;">
+              <img class="pair-before" src="../../assets/night-diary-image-skill-study/experiments/rain-window-after.png" width="1536" height="1024" alt="人物保持普通暗色剪影的 Night Diary 雨窗版本" loading="lazy">
+              <div class="pair-after" aria-hidden="true"><img src="../../assets/night-diary-image-skill-study/experiments/rain-window-figure-fluorescent.png" width="1536" height="1024" alt="" loading="lazy"></div>
+              <span class="compare-label is-before">普通人物</span><span class="compare-label is-after">荧光分支</span><span class="split-line" aria-hidden="true"></span>
+              <input class="comparison-range" type="range" min="0" max="100" value="50" aria-label="拖动比较普通人物与荧光人物分支">
+            </div>
+            <div class="figure-branch-copy">
+              <span>DEMO 02 · EXPLICIT FIGURE BRANCH</span>
+              <h3 id="figure-branch-title">人物荧光不是默认风格，必须明确打开。</h3>
+              <p>编辑目标是已接受的普通中文版本，只处理右侧唯一乘客。数量、位置、坐姿和遮挡经人工检查保持，中文仍逐字正确；人物边缘有生成式重绘，因此不声称像素局部编辑。</p>
+            </div>
+          </article>
+
+          <aside class="application-logic" aria-label="场景落地逻辑">
+            <span>WHAT THE DEMOS PROVE</span>
+            <ol>
+              <li><b>情绪层</b><p>用户选择方向并提供文案，Skill 负责把它翻译成光色、留白与文字语气。</p></li>
+              <li><b>分支层</b><p>高风险人物处理默认关闭，只有明确要求才加入，并单独验收。</p></li>
+              <li><b>装配层</b><p>图片是内容资产；封面、卡片和帖子仍应由确定性的产品界面承载。</p></li>
+            </ol>
+          </aside>
+        </div>
+
+        <div class="product-demo-heading">
+          <div><span>DEMO 03 · PRODUCT ASSEMBLY</span><h3><span>同一能力，</span><span>进入三种实际内容产品。</span></h3></div>
+          <p>下列界面是本页使用本地结果图进行的 HTML/CSS 装配，用来说明交付形态，不冒充生图模型输出。</p>
+        </div>
+        <div class="product-mockup-grid">
+          <article class="product-mockup is-cover">
+            <span class="assembly-badge">HTML / CSS ASSEMBLY</span>
+            <div class="cover-art"><img src="../../assets/night-diary-image-skill-study/experiments/rain-window-emotion-warm.png" width="1536" height="1024" alt="温暖雨窗情绪图用于音乐封面装配" loading="lazy"><div><small>声音日记 · 07</small><strong>夜车之后</strong><span>一张适合独立音乐、歌单与播客的情绪封面</span></div></div>
+            <footer><b>音乐 / 播客封面</b><span>结果图 + 确定性标题排版</span></footer>
+          </article>
+          <article class="product-mockup is-diary">
+            <span class="assembly-badge">HTML / CSS ASSEMBLY</span>
+            <div class="diary-shell"><header><span>8月29日 · 周六</span><b>夜间记录</b></header><img src="../../assets/night-diary-image-skill-study/experiments/rain-window-emotion-release.png" width="1536" height="1024" alt="释然雨窗情绪图用于日记卡装配" loading="lazy"><div><span>今日情绪 · 释然</span><p>今晚就到这里吧。照片留下环境，文字留下当时的解释。</p></div></div>
+            <footer><b>日记 / 心情记录</b><span>用户主动选择情绪，不做心理诊断</span></footer>
+          </article>
+          <article class="product-mockup is-social">
+            <span class="assembly-badge">HTML / CSS ASSEMBLY</span>
+            <div class="social-shell"><header><i aria-hidden="true">N</i><div><b>夜间栏目</b><span>刚刚 · 城市记录</span></div><strong aria-hidden="true">•••</strong></header><img src="../../assets/night-diary-image-skill-study/experiments/canal-after.png" width="1254" height="1254" alt="江南水巷 Night Diary 结果用于社交媒体帖子装配" loading="lazy"><p><b>#夜色手记</b> 水巷收起余光，夜色沿着桥走远。</p></div>
+            <footer><b>栏目 / 社交媒体</b><span>把不同原图统一为可持续的视觉系列</span></footer>
+          </article>
+        </div>
+      </section>
+
+      <section id="structure-qa" class="qa-baseline-section" data-section aria-labelledby="structure-qa-title">
+        <div class="section-heading-wide">
+          <div>
+            <p class="section-index">01C / STRUCTURE QA BASELINE · V2</p>
+            <p class="kicker">从人工观察推进到可复算证据</p>
+            <h2 id="structure-qa-title">把“看起来没漂”，<br>变成一条可复现的量测基线。</h2>
+          </div>
+          <p class="evidence-note"><b>Project 007 五组烟雾线</b>量测原两组英文样本和新增三组中文样本。它说明这五次接受输出存在可测的结构对齐，不等于像素锁，也不代表跨模型成功率。</p>
+        </div>
+
+        <ol class="qa-method" aria-label="结构量测流程">
+          <li><b>01</b><span>锁定输入</span><small>文件尺寸 + SHA-256</small></li>
+          <li><b>02</b><span>提取边缘地标</span><small>640px 分析画布</small></li>
+          <li><b>03</b><span>建立仿射共识</span><small>固定种子的 RANSAC</small></li>
+          <li><b>04</b><span>比较结构边缘</span><small>约 4.8px 原图容差</small></li>
+        </ol>
+
+        <div class="qa-pair-grid">
+          <article class="qa-pair-card" data-qa-pair="courtyard-night-diary">
+            <header>
+              <div><span>PAIR 01 · VERTICAL</span><h3>城市旧住宅院落</h3></div>
+              <b class="qa-status">BASELINE PASS</b>
+            </header>
+            <dl class="qa-metric-grid">
+              <div><dt>画布锁</dt><dd>1024 × 1536</dd><small>尺寸与比例完全一致</small></div>
+              <div><dt>RANSAC 内点</dt><dd>85 / 99</dd><small>内点率 85.86%</small></div>
+              <div><dt>容差边缘 F1</dt><dd>0.8862</dd><small>对齐后结构重合</small></div>
+              <div><dt>平均角点漂移</dt><dd>0.0833%</dd><small>相对分析画布对角线</small></div>
+              <div><dt>平均亮度变化</dt><dd>−0.2364</dd><small>风格变化描述，不设门槛</small></div>
+              <div><dt>平均饱和度变化</dt><dd>+0.1614</dd><small>风格变化描述，不设门槛</small></div>
+            </dl>
+          </article>
+
+          <article class="qa-pair-card" data-qa-pair="coast-night-diary">
+            <header>
+              <div><span>PAIR 02 · LANDSCAPE</span><h3>海岸地平线</h3></div>
+              <b class="qa-status">BASELINE PASS</b>
+            </header>
+            <dl class="qa-metric-grid">
+              <div><dt>画布锁</dt><dd>1536 × 1024</dd><small>尺寸与比例完全一致</small></div>
+              <div><dt>RANSAC 内点</dt><dd>43 / 49</dd><small>内点率 87.76%</small></div>
+              <div><dt>容差边缘 F1</dt><dd>0.6076</dd><small>对齐后结构重合</small></div>
+              <div><dt>平均角点漂移</dt><dd>0.7407%</dd><small>相对分析画布对角线</small></div>
+              <div><dt>平均亮度变化</dt><dd>−0.4574</dd><small>风格变化描述，不设门槛</small></div>
+              <div><dt>平均饱和度变化</dt><dd>+0.4444</dd><small>风格变化描述，不设门槛</small></div>
+            </dl>
+          </article>
+        </div>
+
+        <p class="qa-subheading"><span>CHINESE COPY PAIRS</span>三组中文样例的接受版本</p>
+        <div class="qa-pair-grid is-chinese">
+          <article class="qa-pair-card" data-qa-pair="rain-window-chinese">
+            <header><div><span>PAIR 03 · CN / 3:2</span><h3>雨夜车窗</h3></div><b class="qa-status">COPY EXACT</b></header>
+            <dl class="qa-metric-grid is-compact">
+              <div><dt>画布锁</dt><dd>1536 × 1024</dd><small>尺寸与比例完全一致</small></div>
+              <div><dt>RANSAC 内点</dt><dd>43 / 69</dd><small>内点率 62.32%</small></div>
+              <div><dt>容差边缘 F1</dt><dd>0.8712</dd><small>对齐后结构重合</small></div>
+              <div><dt>平均角点漂移</dt><dd>0.0223%</dd><small>相对分析画布对角线</small></div>
+            </dl>
+          </article>
+          <article class="qa-pair-card" data-qa-pair="forest-stop-chinese">
+            <header><div><span>PAIR 04 · CN / 2:3</span><h3>森林站台</h3></div><b class="qa-status">RETRY PASS</b></header>
+            <dl class="qa-metric-grid is-compact">
+              <div><dt>画布锁</dt><dd>1024 × 1536</dd><small>尺寸与比例完全一致</small></div>
+              <div><dt>RANSAC 内点</dt><dd>14 / 23</dd><small>内点率 60.87%</small></div>
+              <div><dt>容差边缘 F1</dt><dd>0.8123</dd><small>对齐后结构重合</small></div>
+              <div><dt>平均角点漂移</dt><dd>0.1849%</dd><small>首轮为 12.4588%</small></div>
+            </dl>
+          </article>
+          <article class="qa-pair-card" data-qa-pair="canal-chinese">
+            <header><div><span>PAIR 05 · CN / 1:1</span><h3>江南水巷</h3></div><b class="qa-status">COPY EXACT</b></header>
+            <dl class="qa-metric-grid is-compact">
+              <div><dt>画布锁</dt><dd>1254 × 1254</dd><small>尺寸与比例完全一致</small></div>
+              <div><dt>RANSAC 内点</dt><dd>42 / 56</dd><small>内点率 75.00%</small></div>
+              <div><dt>容差边缘 F1</dt><dd>0.8817</dd><small>对齐后结构重合</small></div>
+              <div><dt>平均角点漂移</dt><dd>0.0769%</dd><small>相对分析画布对角线</small></div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="qa-readout">
+          <p><b>如何读这些数：</b>尺寸锁是硬检查；地标内点、边缘 F1 与角点漂移使用本项目的烟雾阈值，只用于发现明显回归。中文准确性仍是逐字人工观察，不能由结构脚本证明，也不能视为通用成功率。</p>
+          <p class="qa-command"><span>复算命令</span><code>python projects/night-diary-image-skill-study/experiments/run_structure_qa.py</code><a href="../../assets/night-diary-image-skill-study/structure-qa-report-v2.json">下载 JSON 报告 ↓</a></p>
+        </div>
+      </section>
+
+      <section id="upstream" class="upstream-section" data-section aria-labelledby="upstream-title">
+        <div class="section-heading-wide">
+          <div>
+            <p class="section-index">02 / UPSTREAM EVIDENCE</p>
+            <p class="kicker">源库公开样例</p>
+            <h2 id="upstream-title">五组场景对照，<br>覆盖核心能力与可选分支。</h2>
+          </div>
+          <p class="evidence-note is-warning"><b>上游示例原样引入</b>页面用 CSS 对同一张左右拼图做无损裁切。仓库未提供 LICENSE，且风格参考只写“感谢原图作者”，因此这里只作为研究证据，不视为已获得商业再分发授权。</p>
+        </div>
+
+        <div class="style-reference-card">
+          <img src="../../assets/night-diary-image-skill-study/upstream/style-reference.png" width="972" height="1290" alt="上游 Night Diary 风格参考：暗色建筑、暖窗与白色手写文字" loading="lazy">
+          <div>
+            <span>UPSTREAM STYLE REFERENCE</span>
+            <h3>风格 DNA：黑色负空间、暖窗节奏、粗白手写线。</h3>
+            <p>这张图定义了风格目标，但当前 `SKILL.md` 没有要求执行时自动把它送入图片模型；实际运行主要依赖文字规则。</p>
+            <ul>
+              <li>暖色只集中在已有光源，不把全图变成橙色滤镜</li>
+              <li>白线只强调少量窗格与轮廓，不描遍全部物体</li>
+              <li>文字占用真实负空间，构成画面的一部分</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="upstream-toolbar">
+          <div class="filter-group" role="group" aria-label="筛选上游案例">
+            <button type="button" data-case-filter="all" aria-pressed="true">全部 / 5</button>
+            <button type="button" data-case-filter="composition" aria-pressed="false">构图保护</button>
+            <button type="button" data-case-filter="lighting" aria-pressed="false">光色转换</button>
+            <button type="button" data-case-filter="text" aria-pressed="false">手写文字</button>
+            <button type="button" data-case-filter="figure" aria-pressed="false">人物荧光</button>
+          </div>
+          <div class="toolbar-status">
+            <span id="caseCount" role="status">显示 5 / 5 组上游对照</span>
+            <button id="resetComparisons" type="button">全部复位 50%</button>
+          </div>
+        </div>
+
+        <div class="upstream-grid">
+          <article class="upstream-card" data-case-card data-categories="composition lighting text">
+            <div class="source-comparison" data-source-comparison style="--split: 50%; --ratio: 714 / 1138; --source-image: url('../../assets/night-diary-image-skill-study/upstream/rainy-city-before-after.png');">
+              <div class="source-layer is-before" aria-hidden="true"></div>
+              <div class="source-layer is-after" aria-hidden="true"></div>
+              <span class="compare-label is-before">BEFORE</span><span class="compare-label is-after">AFTER</span>
+              <span class="split-line" aria-hidden="true"></span>
+              <input class="comparison-range" type="range" min="0" max="100" value="50" aria-label="拖动比较雨夜街景处理前后">
+            </div>
+            <div class="upstream-card__body">
+              <span>UPSTREAM 01 · RAINY CITY</span><h3>雨夜街景</h3>
+              <p>人物、红车、植物和街道透视保留；蓝绿雨景转为近黑与暖橙，并把天空改造成文字负空间。</p>
+              <div class="tag-row"><i>构图</i><i>暖光</i><i>文字</i></div>
+            </div>
+          </article>
+
+          <article class="upstream-card" data-case-card data-categories="composition lighting text">
+            <div class="source-comparison" data-source-comparison style="--split: 50%; --ratio: 788 / 1182; --source-image: url('../../assets/night-diary-image-skill-study/upstream/train-window-before-after.png');">
+              <div class="source-layer is-before" aria-hidden="true"></div><div class="source-layer is-after" aria-hidden="true"></div>
+              <span class="compare-label is-before">BEFORE</span><span class="compare-label is-after">AFTER</span><span class="split-line" aria-hidden="true"></span>
+              <input class="comparison-range" type="range" min="0" max="100" value="50" aria-label="拖动比较雨夜车窗处理前后">
+            </div>
+            <div class="upstream-card__body">
+              <span>UPSTREAM 02 · TRAIN WINDOW</span><h3>雨夜车窗</h3>
+              <p>保留车窗、雾气、乘客剪影和彩色散景；强化近黑负空间与局部暖光，适合室内/车窗适配规则。</p>
+              <div class="tag-row"><i>雨景</i><i>剪影</i><i>文字</i></div>
+            </div>
+          </article>
+
+          <article class="upstream-card" data-case-card data-categories="composition lighting text">
+            <div class="source-comparison" data-source-comparison style="--split: 50%; --ratio: 638 / 1130; --source-image: url('../../assets/night-diary-image-skill-study/upstream/sea-sky-before-after.png');">
+              <div class="source-layer is-before" aria-hidden="true"></div><div class="source-layer is-after" aria-hidden="true"></div>
+              <span class="compare-label is-before">BEFORE</span><span class="compare-label is-after">AFTER</span><span class="split-line" aria-hidden="true"></span>
+              <input class="comparison-range" type="range" min="0" max="100" value="50" aria-label="拖动比较海边天空处理前后">
+            </div>
+            <div class="upstream-card__body">
+              <span>UPSTREAM 03 · SEA SKY</span><h3>海边旋涡天空</h3>
+              <p>太阳、地平线、草坡和人物维持位置；明亮日景进入靛蓝暮夜，只在原有地平线留下克制余辉。</p>
+              <div class="tag-row"><i>地平线</i><i>时间转换</i><i>负空间</i></div>
+            </div>
+          </article>
+
+          <article class="upstream-card" data-case-card data-categories="composition lighting text">
+            <div class="source-comparison" data-source-comparison style="--split: 50%; --ratio: 1184 / 1709; --source-image: url('../../assets/night-diary-image-skill-study/upstream/san-francisco-hill-before-after.png');">
+              <div class="source-layer is-before" aria-hidden="true"></div><div class="source-layer is-after" aria-hidden="true"></div>
+              <span class="compare-label is-before">BEFORE</span><span class="compare-label is-after">AFTER</span><span class="split-line" aria-hidden="true"></span>
+              <input class="comparison-range" type="range" min="0" max="100" value="50" aria-label="拖动比较山城街景处理前后">
+            </div>
+            <div class="upstream-card__body">
+              <span>UPSTREAM 04 · HILL CITY</span><h3>山城街景</h3>
+              <p>桥塔、陡坡、建筑和车辆分布保留；窗光与少量白色框线成为暗色建筑中的视觉节奏。</p>
+              <div class="tag-row"><i>建筑几何</i><i>窗光</i><i>白线</i></div>
+            </div>
+          </article>
+
+          <article class="upstream-card is-wide" data-case-card data-categories="composition lighting text figure">
+            <div class="source-comparison" data-source-comparison style="--split: 50%; --ratio: 1120 / 1692; --source-image: url('../../assets/night-diary-image-skill-study/upstream/hong-kong-neon-figures-before-after.png');">
+              <div class="source-layer is-before" aria-hidden="true"></div><div class="source-layer is-after" aria-hidden="true"></div>
+              <span class="compare-label is-before">STANDARD</span><span class="compare-label is-after">FIGURE MODE</span><span class="split-line" aria-hidden="true"></span>
+              <input class="comparison-range" type="range" min="0" max="100" value="50" aria-label="拖动比较普通人物与荧光人物模式">
+            </div>
+            <div class="upstream-card__body">
+              <span>UPSTREAM 05 · OPTIONAL BRANCH</span><h3>香港旧楼 · 人物荧光线条</h3>
+              <p>这不是默认风格，而是显式开启的可选分支：沿所有现有人物描冷白灯管轮廓，保持数量、姿态、尺度、朝向和遮挡。</p>
+              <div class="tag-row"><i>显式开关</i><i>人物轮廓</i><i>遮挡</i></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="mechanism" class="mechanism-section" data-section aria-labelledby="mechanism-title">
+        <div class="section-heading-wide">
+          <div><p class="section-index">03 / HOW IT WORKS</p><p class="kicker">这是一份软程序</p><h2 id="mechanism-title">把审美意图编译成<br>四层图片编辑合同。</h2></div>
+          <p class="evidence-note"><b>运行时模拟器</b>只展示规则如何组装，不调用 LLM 或图片模型。真正执行仍依赖宿主环境的图像编辑能力。</p>
+        </div>
+
+        <ol class="mechanism-flow" aria-label="Skill 执行流程">
+          <li><b>01</b><span>识别场景</span><small>城市 / 海岸 / 雨窗</small></li>
+          <li><b>02</b><span>列出不变量</span><small>构图、主体、透视</small></li>
+          <li><b>03</b><span>叠加风格层</span><small>夜色、暖光、颗粒</small></li>
+          <li><b>04</b><span>加入文字层</span><small>自动或逐字文案</small></li>
+          <li><b>05</b><span>检查与重试</span><small>最多一次定向修复</small></li>
+        </ol>
+
+        <div class="contract-lab" id="lab">
+          <form id="contractForm" class="contract-controls">
+            <div class="lab-heading"><span>PROMPT CONTRACT LAB</span><b>LOCAL SIMULATOR</b></div>
+            <label>场景适配器
+              <select id="sceneSelect">
+                <option value="city">城市与住宅窗户</option>
+                <option value="coast">海面、天空与日落</option>
+                <option value="window">室内、车窗与雨景</option>
+              </select>
+            </label>
+            <fieldset>
+              <legend>文字策略</legend>
+              <label class="radio-row"><input type="radio" name="copyMode" value="auto" checked><span>根据画面自动生成 12–28 个英文单词</span></label>
+              <label class="radio-row"><input type="radio" name="copyMode" value="exact"><span>逐字使用指定文案</span></label>
+            </fieldset>
+            <label>指定文案
+              <textarea id="exactCopy" rows="4" disabled>the windows remember the rain
+(even after midnight)
+until the last light comes home.</textarea>
+            </label>
+            <label class="switch-row"><span><b>人物荧光线条</b><small>只在用户明确要求时加入</small></span><input id="figureToggle" type="checkbox"></label>
+            <div class="lab-actions"><button class="button primary" type="submit">重新编译</button><button id="resetContract" class="button secondary" type="button">重置</button></div>
+          </form>
+
+          <div class="contract-output">
+            <div class="lab-heading"><span>COMPILED EDIT CONTRACT</span><b id="contractRevision">REV 01</b></div>
+            <div class="contract-layers" id="contractLayers" aria-label="当前合同层"></div>
+            <pre id="compiledContract" tabindex="0"></pre>
+            <div class="output-footer"><p id="contractStatus" role="status">已编译；尚未调用图片模型</p><button id="copyContract" type="button">复制合同</button></div>
+            <ul class="gate-list" id="gateList" aria-label="生成后质量门禁"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="capabilities" class="detail-section" data-section aria-labelledby="capabilities-title">
+        <p class="section-index">04 / CAPABILITY MAP</p>
+        <div class="section-copy">
+          <p class="kicker">能力不是一张滤镜</p><h2 id="capabilities-title">它把风格、保护、文案和质检<br>组合成一次完整编辑。</h2>
+          <div class="capability-grid">
+            <article><span>01</span><h3>构图保护</h3><p>锁定比例、裁切、方向、主体数量、位置、姿态、透视与关键几何关系。</p></article>
+            <article><span>02</span><h3>夜色重塑</h3><p>用深黑、靛蓝和暗褐建立负空间，让暖光只发生在已有光源附近。</p></article>
+            <article><span>03</span><h3>图形质感</h3><p>加入胶片颗粒、轻柔光晕、旧纸磨损与少量不规则白色轮廓线。</p></article>
+            <article><span>04</span><h3>叙事文字</h3><p>自动生成克制的三段式英文独白，或逐字使用用户提供的中文与英文文案。</p></article>
+            <article><span>05</span><h3>场景适配</h3><p>为城市窗格、海岸天空、自然剪影和雨夜车窗改变局部策略。</p></article>
+            <article><span>06</span><h3>显式分支</h3><p>只有用户明确提出时，才把现有人物转换为冷白荧光灯管轮廓。</p></article>
+          </div>
+          <div class="formula"><span>原图</span><i>→</i><strong>语义构图锁 + 风格合同</strong><i>→</i><span>宿主图片模型</span><i>→</i><strong>人工 / Agent 质检</strong></div>
+        </div>
+      </section>
+
+      <section id="scenarios" class="scenario-section" data-section aria-labelledby="scenarios-title">
+        <div class="section-heading-wide"><div><p class="section-index">05 / USE CASES</p><p class="kicker">从“能画什么”转为“谁为什么使用”</p><h2 id="scenarios-title"><span>主要价值是把已有照片，</span><span>变成可复用的情绪内容资产。</span></h2></div><p class="evidence-note"><b>一句话边界</b>它不读取或诊断人的情绪；用户提供照片、情绪方向与可选文案，Skill 负责以稳定视觉语言完成转译、保护和验收。</p></div>
+        <div class="use-case-map" aria-label="主要使用场景总结">
+          <article><span>01 · PERSONAL</span><h3>个人情绪与旅行日记</h3><dl><div><dt>适用对象</dt><dd>个人创作者、摄影爱好者</dd></div><div><dt>典型输入</dt><dd>一张夜景或旅行照 + 当晚一句话</dd></div><div><dt>交付产物</dt><dd>情绪日记图、分享卡、回忆封面</dd></div><div><dt>核心价值</dt><dd>把私人感受转成可保存、可分享的视觉记录</dd></div></dl></article>
+          <article><span>02 · CONTENT</span><h3>音乐、播客与诗性内容包装</h3><dl><div><dt>适用对象</dt><dd>音乐人、编辑、播客与栏目主理人</dd></div><div><dt>典型输入</dt><dd>构图成立的主视觉 + 标题或短独白</dd></div><div><dt>交付产物</dt><dd>封面、歌单图、文章头图、诗集配图</dd></div><div><dt>核心价值</dt><dd>快速形成统一且有叙事感的内容气质</dd></div></dl></article>
+          <article><span>03 · PRODUCT</span><h3>日记与心情记录产品</h3><dl><div><dt>适用对象</dt><dd>日记 App、照片产品、轻量陪伴产品</dd></div><div><dt>典型输入</dt><dd>用户照片 + 主动选择的情绪 + 用户文案</dd></div><div><dt>交付产物</dt><dd>每日视觉卡、月度回顾、私人收藏页</dd></div><div><dt>核心价值</dt><dd>增强记录仪式感与内容留存，不承担心理诊断</dd></div></dl></article>
+          <article><span>04 · SERIES</span><h3>品牌栏目与社交媒体系列</h3><dl><div><dt>适用对象</dt><dd>品牌内容团队、城市文化与旅行栏目</dd></div><div><dt>典型输入</dt><dd>多来源摄影素材 + 固定风格合同</dd></div><div><dt>交付产物</dt><dd>系列帖子、栏目封面、活动预热视觉</dd></div><div><dt>核心价值</dt><dd>在不重做原图构图的前提下保持长期一致性</dd></div></dl></article>
+          <article><span>05 · WORKFLOW</span><h3>团队视觉 Skill 工作流</h3><dl><div><dt>适用对象</dt><dd>视觉 Skill、内容生产与生成式资产团队</dd></div><div><dt>典型输入</dt><dd>授权原图 + 构图不变量 + 文案 + 输出用途</dd></div><div><dt>交付产物</dt><dd>带 Prompt、版本、QA 与来源记录的可审计资产</dd></div><div><dt>核心价值</dt><dd>把个人审美升级为团队可复用、可回归的生产能力</dd></div></dl></article>
+        </div>
+        <h3 class="fit-heading">适配边界</h3>
+        <div class="fit-grid">
+          <article class="is-fit"><span>HIGH FIT</span><h3>高匹配</h3><ul><li>城市窗户、旧楼、街道与雨夜</li><li>海岸、天空、树影和大面积负空间</li><li>旅行日记、音乐封面、诗性栏目视觉</li><li>需要系列统一但不想重构原图的内容</li></ul></article>
+          <article><span>CONDITIONAL</span><h3>条件匹配</h3><ul><li>人物较多的街景：需检查漏描和新增肢体</li><li>重要招牌：需检查文字被改写</li><li>印刷用途：建议生成后独立排版文字</li><li>批量系列：需要版本、回归和人工抽检</li></ul></article>
+          <article class="is-no"><span>NOT A FIT</span><h3>不适合直接承担</h3><ul><li>商品图、建筑测绘和证据类图片</li><li>必须像素级保持人脸与局部结构</li><li>必须百分百正确的长文字排版</li><li>需要透明、矢量或可编辑图层的交付</li></ul></article>
+        </div>
+      </section>
+
+      <section id="extensions" class="extension-section" data-section aria-labelledby="extensions-title">
+        <div class="section-heading-wide"><div><p class="section-index">06 / EXTENSION ROADMAP</p><p class="kicker">从美术指导升级为生产系统</p><h2 id="extensions-title">扩展重点应放在可控性，<br>而不是继续增加形容词。</h2></div></div>
+        <ol class="roadmap">
+          <li><b>P0</b><div><span>硬化构图保护 · 基线已启动</span><p>已落地尺寸、地标、仿射漂移与容差边缘量测；下一步加入分割蒙版、深度、人物关键点和区域级保护。</p></div></li>
+          <li><b>P1</b><div><span>文字后排版</span><p>让模型预留文字区，再以 SVG/Canvas 或真实手写字库完成逐字排版和印刷输出。</p></div></li>
+          <li><b>P2</b><div><span>模块与配置</span><p>拆分构图核心、风格包、场景适配器、文案策略、人物后处理和质量门禁。</p></div></li>
+          <li><b>P3</b><div><span>视觉回归</span><p>固定授权测试图，记录模型版本、Prompt、输出、OCR、结构漂移和人工采用率。</p></div></li>
+          <li><b>P4</b><div><span>生产与治理</span><p>加入批处理、队列、成本、lineage、授权来源、保留期限和商业用途字段。</p></div></li>
+        </ol>
+      </section>
+
+      <section id="meaning" class="meaning-section" data-section aria-labelledby="meaning-title">
+        <div class="section-heading-wide"><div><p class="section-index">07 / WHAT WE CAN LAND</p><p class="kicker">对我们的意义</p><h2 id="meaning-title">值得复用的是“构图保护型编辑合同”，<br>不只是这一套夜景审美。</h2></div></div>
+        <div class="landing-map">
+          <article><span>共享底座</span><h3>Composition-Preserving Edit</h3><p>统一处理目标图选择、构图不变量、已有文字、重试次数、输出保存和验收记录。</p><b>可服务全部图生图风格</b></article>
+          <article><span>风格包</span><h3>Night Diary Recipe</h3><p>把色板、光源、颗粒、白线、文字语气和禁止项保留为独立、可版本化的审美配方。</p><b>可替换而不动底座</b></article>
+          <article><span>质量层</span><h3>OCR + Structure QA</h3><p>把“看起来差不多”升级为文字准确、主体数量、关键点、地平线和遮挡的可追溯检查。</p><b>形成真正的工程壁垒</b></article>
+        </div>
+        <div class="portfolio-map" aria-label="我们的视觉 Skill 分层">
+          <div><span>固定插画配方</span><strong>主题 → 新图</strong><small>沐阳系列</small></div><i>+</i>
+          <div><span>构图保护编辑</span><strong>原图 → 风格化</strong><small>Night Diary 可参考层</small></div><i>+</i>
+          <div><span>概念化重构</span><strong>视觉本质 → 新资产</strong><small>Photo to Conceptual Art</small></div>
+        </div>
+        <p class="decision-callout"><b>采用建议</b>把它作为我们的图生图基准与架构参考；先抽取共享构图合同和质量门禁，再决定是否保留 Night Diary 作为一个具体风格包。不要把提示词本身误认为长期壁垒。</p>
+      </section>
+
+      <section id="boundaries" class="boundary-section" data-section aria-labelledby="boundaries-title">
+        <div><p class="section-index">08 / MATURITY & BOUNDARIES</p><p class="kicker">结论的证据边界</p><h2 id="boundaries-title">结构清晰，样例有说服力；<br>但仍是早期提示词型 Skill。</h2></div>
+        <div class="boundary-grid">
+          <article><span>已确认</span><ul><li>Skill 结构校验通过</li><li>核心规则、场景适配和显式人物分支完整</li><li>五组上游例覆盖不同场景</li><li>两组独立小样本能得到明显风格结果</li></ul></article>
+          <article><span>尚未证明</span><ul><li>跨模型与重复生成稳定性</li><li>像素级构图、身份或文字保证</li><li>批量生产成功率和成本</li><li>自动视觉评分或真实用户采用率</li></ul></article>
+          <article class="is-risk"><span>采用前处理</span><ul><li>上游目前未提供 LICENSE</li><li>样例参考图作者和授权信息不完整</li><li>没有自动测试、版本发行和模型锁定</li><li>商业复用前需补授权与来源记录</li></ul></article>
+        </div>
+        <div class="source-links"><a href="https://github.com/xianxie6/night-diary-image-skill/blob/main/SKILL.md">SKILL.md ↗</a><a href="https://github.com/xianxie6/night-diary-image-skill/blob/main/references/style-guide.md">Style guide ↗</a><a href="https://github.com/xianxie6/night-diary-image-skill/tree/main/assets/examples">Upstream examples ↗</a></div>
+      </section>
+    </main>
+
+    <a class="back-to-top" href="#page-top" aria-label="返回页面顶部">↑</a>
+    <footer class="detail-footer"><p>NIGHT DIARY IMAGE SKILL · PROJECT 007 RESEARCH BUILD</p><p>上游样例与项目实测已分区，结论不外推为模型指标。</p></footer>
+  </body>
+</html>

@@ -69,6 +69,18 @@
     "image": "./assets/nativepdf-structurer-analysis-cover.svg"
   },
   {
+    "id": "night-diary-image-skill-study",
+    "number": "007",
+    "name": "NIGHT DIARY AS CONTROL LAYER",
+    "status": "五组实测、中文与场景装配已验证",
+    "category": "构图保护型图像编辑",
+    "summary": "以六张上游公开图、五组 Project 007 构图实测、同图三种中文情绪、人物荧光分支、三种产品装配和结构量测，验证夜景风格如何被封装为可复用、可约束、可验收的图片编辑能力。",
+    "url": "./projects/night-diary-image-skill-study/",
+    "demoUrl": "./projects/night-diary-image-skill-study/#experiments",
+    "demoLabel": "查看能力与场景实测 →",
+    "image": "./assets/night-diary-image-skill-study-cover.svg"
+  },
+  {
     "id": "stickman-video-director-study",
     "number": "008",
     "name": "DIRECTOR AS COMPILER",

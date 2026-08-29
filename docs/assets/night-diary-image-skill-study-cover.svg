@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Night Diary Image Skill 研究封面</title>
+  <desc id="desc">同一城市构图从蓝灰日暮转换为深夜暖窗与白色手写文字，底部显示构图锁、风格合同和图片模型的流程。</desc>
+  <defs>
+    <linearGradient id="skyBefore" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#7c91b3"/><stop offset="1" stop-color="#303d50"/>
+    </linearGradient>
+    <linearGradient id="skyAfter" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#15213a"/><stop offset="1" stop-color="#05070b"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#6e2713"/><stop offset=".58" stop-color="#f2a13b"/><stop offset="1" stop-color="#ffe1a5"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" seed="6"/>
+      <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .13 0"/>
+    </filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="10"/></filter>
+    <clipPath id="frame"><rect x="56" y="52" width="1168" height="542" rx="3"/></clipPath>
+  </defs>
+
+  <rect width="1280" height="760" fill="#05070a"/>
+  <rect x="56" y="52" width="1168" height="542" fill="#0b0f15" stroke="#46505f"/>
+
+  <g clip-path="url(#frame)">
+    <rect x="56" y="52" width="584" height="542" fill="url(#skyBefore)"/>
+    <rect x="640" y="52" width="584" height="542" fill="url(#skyAfter)"/>
+    <path d="M56 328 222 238 380 302 522 200 640 280V594H56Z" fill="#252e3a"/>
+    <path d="M640 280 774 208 946 296 1091 218 1224 302V594H640Z" fill="#090c11"/>
+    <path d="M56 388 196 295 342 342 486 264 640 332V594H56Z" fill="#1c232d"/>
+    <path d="M640 332 786 265 933 340 1078 276 1224 350V594H640Z" fill="#050709"/>
+
+    <g fill="#8090a6" opacity=".5">
+      <rect x="108" y="376" width="42" height="54"/><rect x="180" y="333" width="38" height="48"/><rect x="257" y="394" width="48" height="60"/>
+      <rect x="392" y="334" width="44" height="54"/><rect x="488" y="306" width="35" height="43"/><rect x="558" y="367" width="42" height="56"/>
+    </g>
+    <g fill="#050506" stroke="#d8d1c4" stroke-opacity=".34" stroke-width="3">
+      <rect x="694" y="366" width="42" height="54"/><rect x="770" y="321" width="38" height="48"/><rect x="846" y="389" width="48" height="60"/>
+      <rect x="978" y="329" width="44" height="54"/><rect x="1070" y="303" width="35" height="43"/><rect x="1143" y="360" width="42" height="56"/>
+    </g>
+    <g filter="url(#glow)" opacity=".32" fill="#f2a13b">
+      <rect x="764" y="315" width="50" height="60"/><rect x="970" y="324" width="58" height="66"/><rect x="1137" y="353" width="54" height="68"/>
+    </g>
+    <g fill="url(#warm)">
+      <rect x="772" y="327" width="34" height="43"/><rect x="981" y="338" width="36" height="45"/><rect x="1149" y="369" width="32" height="47"/>
+    </g>
+    <path d="M56 492c210-53 388-47 584-4 192-45 376-52 584 8v98H56Z" fill="#07090c"/>
+    <path d="M641 53v541" stroke="#fff8e9" stroke-width="3"/>
+    <circle cx="641" cy="323" r="23" fill="#fff8e9"/><path d="M631 323h20m-15-7-7 7 7 7m10-14 7 7-7 7" fill="none" stroke="#16120d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g fill="#efe8d9" font-family="Segoe Print, Comic Sans MS, cursive" transform="rotate(-4 950 145)">
+      <text x="755" y="125" font-size="36">some windows stay awake</text>
+      <text x="838" y="174" font-size="25">(after the street goes quiet)</text>
+      <text x="785" y="225" font-size="34">to keep a little warmth alive.*</text>
+    </g>
+    <rect x="56" y="52" width="1168" height="542" filter="url(#grain)" opacity=".28"/>
+  </g>
+
+  <g font-family="Inter, Segoe UI, sans-serif">
+    <text x="56" y="34" fill="#f0a23d" font-size="14" font-weight="700" letter-spacing="2">PROJECT 007 / STYLE-TRANSFER RESEARCH</text>
+    <text x="84" y="84" fill="#edf0f4" font-size="14" font-weight="800" letter-spacing="2">BEFORE</text>
+    <text x="1130" y="84" fill="#edf0f4" font-size="14" font-weight="800" letter-spacing="2">AFTER</text>
+
+    <rect x="56" y="626" width="288" height="82" fill="#0c1118" stroke="#38404c"/>
+    <rect x="382" y="626" width="288" height="82" fill="#101727" stroke="#536a9f"/>
+    <rect x="708" y="626" width="288" height="82" fill="#17120c" stroke="#8d632d"/>
+    <rect x="1034" y="626" width="190" height="82" fill="#0c1118" stroke="#38404c"/>
+    <text x="78" y="656" fill="#91a0b4" font-size="12" font-weight="700" letter-spacing="2">INPUT</text>
+    <text x="78" y="684" fill="#eef0f2" font-size="20" font-weight="800">原始图片</text>
+    <text x="404" y="656" fill="#9fb8ff" font-size="12" font-weight="700" letter-spacing="2">LOCK</text>
+    <text x="404" y="684" fill="#eef0f2" font-size="20" font-weight="800">构图不变量</text>
+    <text x="730" y="656" fill="#ffd18a" font-size="12" font-weight="700" letter-spacing="2">STYLE CONTRACT</text>
+    <text x="730" y="684" fill="#eef0f2" font-size="20" font-weight="800">夜色 · 暖光 · 手写</text>
+    <text x="1056" y="656" fill="#91a0b4" font-size="12" font-weight="700" letter-spacing="2">EXECUTE</text>
+    <text x="1056" y="684" fill="#eef0f2" font-size="20" font-weight="800">图片模型</text>
+    <path d="M344 667h38m288 0h38m288 0h38" stroke="#f1eade" stroke-width="2"/>
+  </g>
+</svg>
