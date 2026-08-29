@@ -1,6 +1,6 @@
 # Project 011 — Design and Evidence Contract
 
-> **Current authority: Revision 8.** Revision 3's independent WebGL2 approximation is invalid for the user's requirement because it did not execute the researched library. Revision 4 corrected the runtime; Revision 5 organized the verified runtime and research into the canonical Web workspace. Revision 6 added bounded product-scenario demonstrations; Revision 7 turns the resulting understanding into a personal game/IP/asset growth map; Revision 8 packages the capability map and GitHub Pages delivery as one verifiable remote artifact.
+> **Current authority: Revision 9.** Revision 3's independent WebGL2 approximation is invalid for the user's requirement because it did not execute the researched library. Revision 4 corrected the runtime; Revision 5 organized the verified runtime and research into the canonical Web workspace. Revision 6 added bounded product-scenario demonstrations; Revision 7 turns the resulting understanding into a personal game/IP/asset growth map; Revision 8 packages the capability map and GitHub Pages delivery as one verifiable remote artifact; Revision 9 adds the reusable unknown-domain-to-product playbook.
 
 ## Contract record
 
@@ -371,3 +371,54 @@ Revision 7 terminal audit: all personal-map rows are closed. The route is derive
 | Scope isolation | clean worktree based on latest `origin/main` | pending commit audit |
 | Functional integrity | static, Pages build and browser verification | pending final preflight |
 | Remote availability | GitHub source, Pages research route and actual runtime route | pending deployment |
+
+---
+
+## Revision 9 — Unknown Domain → Product Capability Playbook
+
+### Design contract
+
+- Entry mode: brief-led implementation of a new companion page inside Project 011.
+- Direct authorization: the user asked for a new Web page that preserves our understanding as a detailed, reusable planning guide.
+- Target user and context: the project owner returning later to reproduce a similar environment effect or to investigate a different unfamiliar technical domain.
+- Desired first impression: this is not another capability showcase; it is an executable route from visible target to sourced understanding, bounded reproduction, reusable capability and product decision.
+- Selected pattern: research playbook plus `natural-disasters` product case.
+- Evidence branch: primary publication or official source → fixed upstream code → target media → actual runtime evidence → bounded Project 011 conclusion → planned product gate.
+- Visual ambition: editorial technical field guide.
+- Experience architecture: Editorial Flow with a persistent desktop contents rail and compact mobile section navigator.
+- Visual constraints: deep ocean/ink background, cyan for verified evidence, amber for gates and planning, coral for stop conditions; no decorative WebGL or unsupported generated imagery; readable without JavaScript.
+- Information constraints: always distinguish `PRIMARY_SOURCE`, `UPSTREAM_SOURCE`, `TARGET_MEDIA`, `RUNTIME_EVIDENCE`, `OUR_METHOD`, and `PLANNED`; cite original material directly; put target-effect analysis before implementation steps; give every phase inputs, actions, output, gate and stop condition.
+- Operation constraints: ordinary anchors work without JavaScript; JavaScript may add reading progress, active-section state and copy-template feedback only; all controls remain keyboard accessible.
+- Environment constraints: static GitHub Pages route at `/projects/natural-disasters-environment-study/unknown-to-product/`; no external fonts, trackers, runtime libraries or services; desktop, tablet and 390px phone layouts; reduced-motion support.
+- Primary journey: understand the two horizons → inspect the universal exploration loop → trace Case 001 from visible effect to algorithms and sources → follow the from-zero implementation plan → understand AI's bounded role → inspect product versions and gates → copy the template for a new domain.
+- Required artifacts: companion HTML/CSS/JS route, link from the canonical Project 011 page, README route note, static assertions and real-browser evidence.
+- Autonomy authorization: the user's direct implementation request authorizes reversible work in Project 011 and its public docs route.
+- User-decision boundary: implementing a new renderer, adding a model service, changing the upstream runtime, publishing to GitHub or starting another domain case remains outside this page-delivery revision.
+
+### Observable completion criteria
+
+- The first viewport states both the immediate `natural-disasters` objective and the long-term generalization objective.
+- The page contains a reusable exploration loop with explicit evidence classes, stage gates, artifacts, repair budget and stop rules.
+- Case 001 maps the target image to atmosphere, clouds, ocean, weather/events, camera/director and post-processing, with fixed-commit source links and original published references.
+- The from-zero plan covers research, minimal reproduction, visual validation, performance, adapter extraction, AI integration and productization.
+- The product plan separates `v0.1 research kit`, `v0.2 controllable runtime`, `v0.3 AI scenario compiler` and `v1.0 domain exploration workbench` rather than presenting planned work as complete.
+- A reusable brief, source card, effect map, experiment card and gate checklist are available directly in the Web page.
+- Desktop, tablet and 390px phone retain readable hierarchy without horizontal overflow; keyboard focus and reduced motion remain supported.
+- Targeted static checks, Pages build and real-browser checks pass without modifying the researched renderer.
+
+### Coverage manifest
+
+| User phase | Requirement | Surface / state | Evidence needed | Stage | Status | Next action |
+| --- | --- | --- | --- | --- | --- | --- |
+| 理解沉淀 | Two horizons and bounded thesis | first viewport | DOM + screenshot | 2–3 | pass | current and long-term horizons are visible in the first reading journey |
+| 举一反三 | Universal unknown-to-product loop | process section | DOM/content inspection | 3 | pass | eight repeatable phases, outputs and decisions are present |
+| 原型分析 | Case 001 effect and architecture map | case section | source links + target mapping | 3 | pass | three target states map to six fixed-source runtime layers |
+| 从零实现 | Detailed implementation route | roadmap section | DOM/content inspection | 3 | pass | twelve phases include inputs, outputs, gates and bounded work estimates |
+| 资料来源 | Primary and project evidence ledger | source section | link and label checks | 3 | pass | eight primary sources, fixed commit and Project 011 evidence are linked |
+| 产品规划 | Version plan, backlog and adapter contract | product section | DOM/content inspection | 3–6 | pass | four planned versions, proposed Adapter and staged backlog remain explicitly unimplemented |
+| AI 协作 | Bounded model workflow | AI section | diagram + schema example | 3 | pass | code-assistant and spec-compiler modes are separated |
+| 迁移复用 | Copyable new-domain templates | template section | keyboard/copy interaction | 4–5 | pass | five templates and successful copy feedback were observed |
+| 多端阅读 | Responsive, keyboard and reduced motion | 1440 / 820 / 390 | browser screenshots + interaction | 7 | pass | no overflow; sticky index, focus and reduced motion passed at all viewports |
+| 工程交付 | Static checks and Pages bundle | repository artifacts | terminal output | 9 | pass | 44/44 static, Pages build and 25/25 browser checks passed |
+
+Revision 9 terminal audit: every required row is closed. The page is a planning and research artifact; it does not claim that the proposed Adapter, AI compiler or cross-domain workbench already exists. Browser evidence is recorded in `experiments/playbook-validation.md`.

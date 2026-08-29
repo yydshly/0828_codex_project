@@ -57,9 +57,24 @@ Web 页现在把个人意义拆成三个共享同一环境核心的输出方向�
 
 浏览器验收记录见 [`experiments/web-workbench-validation.md`](./experiments/web-workbench-validation.md)：真实内嵌 App、四个证据幕、三个扩展场景、个人复利路线、Sandbox、Director reset、桌面/平板/手机、键盘、减少动态与禁用内嵌回退共 39/39 通过。
 
+## 陌生领域 → 产品能力规划指导页
+
+新增独立页面 [`unknown-to-product/`](../../docs/projects/natural-disasters-environment-study/unknown-to-product/)，把 Project 011 从“研究一个仓库”提升为“沉淀一套可以迁移的能力孵化方法”。
+
+- 当下目标：以 `natural-disasters` 为 Case 001，记录目标效果如何拆解、原始资料从哪里获取、各渲染层如何从零实现、如何验收以及如何抽成稳定能力；
+- 长期目标：复用同一套目标简报、来源账本、效果反推卡、实验卡、证据标签、产品门禁和停止规则，探索火焰、角色、地形、空间音频等陌生领域；
+- 页面明确区分 `PRIMARY_SOURCE`、`UPSTREAM_SOURCE`、`TARGET_MEDIA`、`RUNTIME_EVIDENCE`、`OUR_METHOD` 和 `PLANNED`；
+- 待实现产品路线分为 Research Kit、Environment Runtime、AI Scenario Compiler 和 Domain Exploration Workbench 四个版本，不把规划描述成已有能力；
+- 自动修复预算为同一阻塞最多 2–3 轮；没有新增证据时停止并输出阻塞报告。
+
+本地入口：`http://127.0.0.1:4173/projects/natural-disasters-environment-study/unknown-to-product/`
+
+浏览器验收见 [`experiments/playbook-validation.md`](./experiments/playbook-validation.md)：目标与长期方向、八步通用闭环、资料账本、六层效果映射、十二阶段路线、四个产品版本、五个复用模板、复制交互、键盘、减少动态和桌面/平板/手机共 25/25 通过。
+
 ## GitHub 远端交付
 
 - Web 能力与扩展工作台：<https://yydshly.github.io/0828_codex_project/projects/natural-disasters-environment-study/>
+- 陌生领域能力孵化指南：<https://yydshly.github.io/0828_codex_project/projects/natural-disasters-environment-study/unknown-to-product/>
 - 上游真实运行时：<https://yydshly.github.io/0828_codex_project/demos/natural-disasters-environment-poc/>
 - 远端研究档案：<https://github.com/yydshly/0828_codex_project/tree/main/projects/natural-disasters-environment-study>
 - Pages 部署记录：<https://github.com/yydshly/0828_codex_project/actions/workflows/pages.yml>

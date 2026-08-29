@@ -137,6 +137,11 @@ await copyFile(
 );
 
 await copyFile(
+  join(naturalDisastersStudyRoot, "experiments", "playbook-validation.md"),
+  join(naturalDisastersStudyOutputRoot, "playbook-validation.md")
+);
+
+await copyFile(
   join(naturalDisastersStudyRoot, "CAPABILITIES.md"),
   join(naturalDisastersStudyOutputRoot, "capabilities.md")
 );

@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="从 natural-disasters 案例出发，沉淀一套从陌生领域研究、效果反推、资料获取、最小复现到产品能力的可复用方法。">
+    <title>UNKNOWN → PRODUCT · 陌生领域能力孵化指南</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body class="utp-page">
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+    <header class="utp-topbar">
+      <a class="utp-brand" href="../">
+        <span>PROJECT 011 / FIELD GUIDE</span>
+        <b>UNKNOWN → PRODUCT</b>
+      </a>
+      <nav aria-label="页面入口">
+        <a href="../">返回能力页</a>
+        <a href="../../../demos/natural-disasters-environment-poc/?preset=low&amp;act=0">运行原型 ↗</a>
+        <a href="https://github.com/Token-Gremlin/natural-disasters" target="_blank" rel="noreferrer">上游源码 ↗</a>
+      </nav>
+    </header>
+
+    <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="pulse" aria-hidden="true"></span> PRODUCT PLANNING GUIDE · REVISION 01</p>
+          <h1 id="page-title">把一个看不懂的效果，<br><span>变成自己可复用的产品能力。</span></h1>
+          <p class="hero__lede">这是一份待实现产品的规划指导文档。当前以 <code>natural-disasters</code> 为 Case 001，完整记录如何从目标画面找到原始资料、读懂算法、从零复现、验证效果并封装能力；长期将同一流程迁移到任何陌生领域。</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#loop">先看总流程</a>
+            <a class="button" href="#case">进入 Case 001</a>
+            <a class="button button--quiet" href="#templates">复制新领域模板</a>
+          </div>
+        </div>
+
+        <div class="hero__system" aria-label="从目标到产品能力的五步摘要">
+          <div class="hero__system-head">
+            <span>EXPLORATION SYSTEM</span>
+            <b>不是一次性 Demo</b>
+          </div>
+          <ol>
+            <li><span>01</span><div><b>看见目标</b><small>TARGET EFFECT</small></div></li>
+            <li><span>02</span><div><b>追溯来源</b><small>SOURCE LEDGER</small></div></li>
+            <li><span>03</span><div><b>最小复现</b><small>BOUNDED PROTOTYPE</small></div></li>
+            <li><span>04</span><div><b>抽取能力</b><small>CAPABILITY CONTRACT</small></div></li>
+            <li><span>05</span><div><b>产品验证</b><small>REAL USE CASE</small></div></li>
+          </ol>
+          <p><strong>完成标准：</strong>下一次面对新领域时，可以按相同证据链得到可验证结果，而不是重新凭感觉摸索。</p>
+        </div>
+      </section>
+
+      <section class="goal-contract section" id="goals" aria-labelledby="goals-title">
+        <div class="section-heading">
+          <p class="section-index">00 / GOAL CONTRACT</p>
+          <h2 id="goals-title">两条时间线，一个项目。</h2>
+          <p>当前目标负责把方法做实，长期目标负责证明方法可以迁移。两者不能互相替代。</p>
+        </div>
+
+        <div class="goal-grid">
+          <article class="goal-card goal-card--now">
+            <div class="goal-card__head"><span>NOW · CASE 001</span><b>当下目标</b></div>
+            <h3>从零解释并复现海洋极端天气效果</h3>
+            <p>以固定提交的真实演示为目标，回答效果由哪些视觉层组成、每层依据什么资料、最小实现顺序是什么，以及做到什么程度才算通过。</p>
+            <ul class="check-list">
+              <li>目标画面可观察、可拆解</li>
+              <li>论文、源码和运行证据可追溯</li>
+              <li>实现过程有阶段、有预算、有停止规则</li>
+              <li>最终留下可控制、可测试的环境模块</li>
+            </ul>
+          </article>
+          <article class="goal-card goal-card--later">
+            <div class="goal-card__head"><span>LATER · SYSTEM</span><b>最终目标</b></div>
+            <h3>建立陌生领域能力孵化器</h3>
+            <p>把目标反推、来源追踪、算法翻译、浏览器验证和产品门禁抽成统一方法，迁移到火焰烟雾、角色动画、空间音频、程序化地形等新领域。</p>
+            <ul class="check-list">
+              <li>更换领域资料，不重做研究流程</li>
+              <li>复用证据分类、模板、验收和停止规则</li>
+              <li>让大模型在标准输入输出内协作</li>
+              <li>用真实下游需求决定是否产品化</li>
+            </ul>
+          </article>
+        </div>
+
+        <aside class="thesis">
+          <span>核心命题</span>
+          <p>真正要沉淀的不是“海浪 Shader”，而是<strong>把陌生知识转成可验证、可控制、可复用能力的过程</strong>。</p>
+        </aside>
+      </section>
+
+      <div class="document-layout">
+        <aside class="contents" aria-label="本页目录">
+          <div class="contents__label">FIELD INDEX</div>
+          <nav>
+            <a href="#loop" data-section-link="loop"><span>01</span>通用探索闭环</a>
+            <a href="#evidence" data-section-link="evidence"><span>02</span>证据与来源</a>
+            <a href="#case" data-section-link="case"><span>03</span>Case 001 拆解</a>
+            <a href="#resources" data-section-link="resources"><span>04</span>资源获取</a>
+            <a href="#roadmap" data-section-link="roadmap"><span>05</span>从零实现</a>
+            <a href="#validation" data-section-link="validation"><span>06</span>验收系统</a>
+            <a href="#ai" data-section-link="ai"><span>07</span>大模型协作</a>
+            <a href="#product" data-section-link="product"><span>08</span>产品规划</a>
+            <a href="#transfer" data-section-link="transfer"><span>09</span>举一反三</a>
+            <a href="#templates" data-section-link="templates"><span>10</span>复用模板</a>
+          </nav>
+          <p>标签说明</p>
+          <ul class="legend">
+            <li><i class="tag-dot tag-dot--source"></i>原始出处</li>
+            <li><i class="tag-dot tag-dot--runtime"></i>已运行验证</li>
+            <li><i class="tag-dot tag-dot--plan"></i>待实现规划</li>
+            <li><i class="tag-dot tag-dot--stop"></i>停止与边界</li>
+          </ul>
+        </aside>
+
+        <div class="document">
+          <section class="section document-section" id="loop" aria-labelledby="loop-title">
+            <div class="section-heading">
+              <p class="section-index">01 / UNIVERSAL LOOP</p>
+              <h2 id="loop-title">陌生领域探索，不从“我要学什么”开始。</h2>
+              <p>从一个可观察的目标结果开始，然后逐步收窄未知。流程的每一步都必须产生一个以后可复用的工程资产。</p>
+            </div>
+
+            <ol class="loop-map">
+              <li>
+                <div class="loop-node"><span>01</span><b>目标锁定</b><small>OUTCOME</small></div>
+                <p>固定参考画面、交互或输出，写清观众必须看到什么。</p>
+                <em>产出：Target Brief</em>
+              </li>
+              <li>
+                <div class="loop-node"><span>02</span><b>来源考古</b><small>PROVENANCE</small></div>
+                <p>找到论文、官方演讲、权威实现、固定源码和许可证。</p>
+                <em>产出：Source Ledger</em>
+              </li>
+              <li>
+                <div class="loop-node"><span>03</span><b>效果反推</b><small>DECOMPOSE</small></div>
+                <p>把视觉结果拆成可控制层，并映射到算法和代码模块。</p>
+                <em>产出：Effect Map</em>
+              </li>
+              <li>
+                <div class="loop-node"><span>04</span><b>最小复现</b><small>PROTOTYPE</small></div>
+                <p>每次只证明一个关键机制，不先堆完整场景。</p>
+                <em>产出：Bounded Demo</em>
+              </li>
+              <li>
+                <div class="loop-node"><span>05</span><b>证据验收</b><small>VALIDATE</small></div>
+                <p>固定镜头、参数、设备和指标，与目标逐层比较。</p>
+                <em>产出：Scorecard</em>
+              </li>
+              <li>
+                <div class="loop-node"><span>06</span><b>能力抽取</b><small>CONTRACT</small></div>
+                <p>将一次性实现抽成生命周期、参数协议和调试接口。</p>
+                <em>产出：Adapter</em>
+              </li>
+              <li>
+                <div class="loop-node"><span>07</span><b>真实用例</b><small>PRODUCT</small></div>
+                <p>接入游戏、IP 或素材生产，验证它是否解决真实问题。</p>
+                <em>产出：Vertical Slice</em>
+              </li>
+              <li>
+                <div class="loop-node"><span>08</span><b>方法回收</b><small>TRANSFER</small></div>
+                <p>只把有运行证据、能跨案例复用的部分写入母方法。</p>
+                <em>产出：Pattern Update</em>
+              </li>
+            </ol>
+
+            <div class="decision-bar" aria-label="每轮探索的决策规则">
+              <div><span>继续</span><p>证据更接近目标，且下一步成本可控。</p></div>
+              <div><span>转向</span><p>目标有效，但当前算法或实现路线不匹配。</p></div>
+              <div><span>停止</span><p>连续 2–3 轮没有新增证据，或需要超出范围的新架构。</p></div>
+            </div>
+          </section>
+
+          <section class="section document-section" id="evidence" aria-labelledby="evidence-title">
+            <div class="section-heading">
+              <p class="section-index">02 / EVIDENCE SYSTEM</p>
+              <h2 id="evidence-title">资料不是一堆链接，而是一条可审计证据链。</h2>
+              <p>论文说明方法从哪里来；源码说明作者如何实现；目标媒体说明想达到什么；运行证据说明我们实际证明了什么。四者不能混用。</p>
+            </div>
+
+            <div class="evidence-chain">
+              <article><span class="evidence-tag evidence-tag--source">PRIMARY_SOURCE</span><h3>原始论文与官方演讲</h3><p>回答算法提出者、假设、公式、限制和评估方法。</p><b>不能单独证明当前仓库实现正确。</b></article>
+              <article><span class="evidence-tag evidence-tag--upstream">UPSTREAM_SOURCE</span><h3>固定提交源码</h3><p>回答当前版本实际用了哪些模块、参数、Pass 和近似。</p><b>不能单独证明浏览器能够稳定运行。</b></article>
+              <article><span class="evidence-tag evidence-tag--target">TARGET_MEDIA</span><h3>官方目标画面</h3><p>回答视觉层次、构图、尺度、光照和状态差异。</p><b>不能当作本地复现截图。</b></article>
+              <article><span class="evidence-tag evidence-tag--runtime">RUNTIME_EVIDENCE</span><h3>真实运行记录</h3><p>回答某个固定环境中功能、状态、错误和性能观察。</p><b>不能外推到未测试设备和科学准确性。</b></article>
+              <article><span class="evidence-tag evidence-tag--method">OUR_METHOD</span><h3>我们的分析方法</h3><p>把来源、画面、源码与实验组织成可执行流程。</p><b>必须标明哪些结论仍是推断。</b></article>
+              <article><span class="evidence-tag evidence-tag--plan">PLANNED</span><h3>待实现产品能力</h3><p>描述版本、接口、门禁和资源预算。</p><b>规划不是已经具备的功能。</b></article>
+            </div>
+
+            <div class="source-ledger">
+              <div class="source-ledger__head">
+                <div><span>SOURCE LEDGER · CASE 001</span><h3>原始资料与项目证据</h3></div>
+                <p>优先使用作者、论文出版方、官方项目和固定提交链接。</p>
+              </div>
+
+              <div class="source-group">
+                <h4>海洋与波谱</h4>
+                <a href="https://jerrytessendorf.blogspot.com/2011/10/simulating-ocean-surface-jerry.html" target="_blank" rel="noreferrer"><span>PRIMARY_SOURCE</span><b>Jerry Tessendorf · Simulating Ocean Water</b><em>FFT 海面方法入口 ↗</em></a>
+                <a href="https://airsea.ucsd.edu/wp-content/uploads/sites/10/2019/10/Jonswap-Hasselmann1973.pdf" target="_blank" rel="noreferrer"><span>PRIMARY_SOURCE</span><b>Hasselmann et al. · JONSWAP Final Report, 1973</b><em>海浪能量谱来源 ↗</em></a>
+                <a href="https://github.com/Token-Gremlin/natural-disasters/blob/849ff7f4199c9322d8ecafb48d62fc63f8d5af1d/src/ocean/OceanFFT.js" target="_blank" rel="noreferrer"><span>UPSTREAM_SOURCE</span><b>OceanFFT.js · 固定提交</b><em>三层频谱与 GPU IFFT ↗</em></a>
+              </div>
+
+              <div class="source-group">
+                <h4>大气与云</h4>
+                <a href="https://ebruneton.github.io/precomputed_atmospheric_scattering/" target="_blank" rel="noreferrer"><span>PRIMARY_SOURCE</span><b>Bruneton · Precomputed Atmospheric Scattering</b><em>论文实现、GLSL 与测试 ↗</em></a>
+                <a href="https://doi.org/10.1111/cgf.14050" target="_blank" rel="noreferrer"><span>PRIMARY_SOURCE</span><b>Hillaire · Production Ready Sky and Atmosphere</b><em>EGSR 2020 / DOI ↗</em></a>
+                <a href="https://www.guerrilla-games.com/read/the-real-time-volumetric-cloudscapes-of-horizon-zero-dawn" target="_blank" rel="noreferrer"><span>PRIMARY_SOURCE</span><b>Schneider &amp; Vos · Horizon Volumetric Cloudscapes</b><em>Guerrilla 官方资料 ↗</em></a>
+                <a href="https://github.com/Token-Gremlin/natural-disasters/blob/849ff7f4199c9322d8ecafb48d62fc63f8d5af1d/src/sky/Clouds.js" target="_blank" rel="noreferrer"><span>UPSTREAM_SOURCE</span><b>Clouds.js · 固定提交</b><em>raymarch / reprojection / upsample ↗</em></a>
+              </div>
+
+              <div class="source-group">
+                <h4>画面质量与实现载体</h4>
+                <a href="https://www.advances.realtimerendering.com/s2014/index.html" target="_blank" rel="noreferrer"><span>PRIMARY_SOURCE</span><b>Brian Karis · High Quality Temporal Supersampling</b><em>SIGGRAPH 2014 课程页 ↗</em></a>
+                <a href="https://seblagarde.wordpress.com/2015/07/14/siggraph-2014-moving-frostbite-to-physically-based-rendering/" target="_blank" rel="noreferrer"><span>PRIMARY_SOURCE</span><b>Lagarde &amp; de Rousiers · Moving Frostbite to PBR</b><em>PBR 与曝光资料 ↗</em></a>
+                <a href="https://github.com/sobotka/AgX" target="_blank" rel="noreferrer"><span>PRIMARY_SOURCE</span><b>Troy Sobotka · AgX</b><em>显示变换参考实现 ↗</em></a>
+                <a href="https://threejs.org/docs/" target="_blank" rel="noreferrer"><span>OFFICIAL_DOCS</span><b>Three.js Documentation</b><em>浏览器 3D 抽象层 ↗</em></a>
+              </div>
+
+              <div class="source-group">
+                <h4>本项目固定证据</h4>
+                <a href="https://github.com/Token-Gremlin/natural-disasters/commit/849ff7f4199c9322d8ecafb48d62fc63f8d5af1d" target="_blank" rel="noreferrer"><span>UPSTREAM_SOURCE</span><b>固定提交 849ff7f</b><em>版本边界 ↗</em></a>
+                <a href="../upstream-runtime-observation.json"><span>RUNTIME_EVIDENCE</span><b>上游真实运行观察</b><em>14/14 功能检查 ↗</em></a>
+                <a href="../target-effect-reverse-engineering.md"><span>OUR_METHOD</span><b>目标效果反推记录</b><em>画面 → 参数 → 系统 → 验收 ↗</em></a>
+                <a href="../runtime-correction.md"><span>RUNTIME_EVIDENCE</span><b>错误路径纠正记录</b><em>为什么近似 Demo 不代表上游 ↗</em></a>
+                <a href="../playbook-validation.md"><span>RUNTIME_EVIDENCE</span><b>规划指导页浏览器验收</b><em>25/25 多端检查 ↗</em></a>
+              </div>
+            </div>
+          </section>
+
+          <section class="section document-section" id="case" aria-labelledby="case-title">
+            <div class="section-heading">
+              <p class="section-index">03 / CASE 001 · NATURAL DISASTERS</p>
+              <h2 id="case-title">先解释画面为什么成立，再解释代码在哪里。</h2>
+              <p>观众看到的是一场风暴；实现上它是六个相互影响的渲染与编排系统。任意一层缺失，画面都会从“环境”退化成“单一特效”。</p>
+            </div>
+
+            <div class="target-strip" aria-label="上游固定提交中的三个目标画面">
+              <figure>
+                <img src="../../../assets/natural-disasters-target-clear-sky.png" alt="上游自然灾害项目的晴朗海面目标画面">
+                <figcaption><span>01 · SCALE</span><b>晴朗海面</b><p>先建立地平线、海面频段和日照尺度。</p></figcaption>
+              </figure>
+              <figure>
+                <img src="../../../assets/natural-disasters-target-cumulus-field.png" alt="上游自然灾害项目的积云场目标画面">
+                <figcaption><span>02 · VOLUME</span><b>积云场</b><p>云的体积、明暗和远近必须影响海面。</p></figcaption>
+              </figure>
+              <figure>
+                <img src="../../../assets/natural-disasters-target-violent-storm-sea.png" alt="上游自然灾害项目的剧烈风暴海面目标画面">
+                <figcaption><span>03 · THREAT</span><b>剧烈风暴</b><p>浪、云、雨、雾、镜头共同制造威胁。</p></figcaption>
+              </figure>
+            </div>
+            <p class="media-note"><span>TARGET_MEDIA</span> 图片来自固定上游提交，只用于分析视觉目标；它们不是我们的复现结果或本地性能证据。</p>
+
+            <div class="layer-map">
+              <article>
+                <div class="layer-map__index">01</div>
+                <div><span>ATMOSPHERE</span><h3>天空、大气透视与太阳</h3><p>Rayleigh / Mie 散射与 LUT 提供天空颜色、太阳透射和远景雾化，让海洋与云使用同一套光照语境。</p></div>
+                <dl><div><dt>源码</dt><dd>Atmosphere.js / AtmosphereGLSL.js</dd></div><div><dt>原理</dt><dd>Bruneton / Hillaire style LUT</dd></div><div><dt>验收</dt><dd>固定镜头改变太阳高度，地平线仍有层次</dd></div></dl>
+              </article>
+              <article>
+                <div class="layer-map__index">02</div>
+                <div><span>CLOUD VOLUME</span><h3>可穿透、有明暗的云体</h3><p>3D Perlin-Worley 密度与 2D 天气图定义云形，通过 ray marching 积分密度和光照，再用时域重投影降低成本。</p></div>
+                <dl><div><dt>源码</dt><dd>ProceduralTextures.js / Clouds.js</dd></div><div><dt>原理</dt><dd>density field + light march + reprojection</dd></div><div><dt>验收</dt><dd>云顶明、云底暗，近云与远云尺度可辨</dd></div></dl>
+              </article>
+              <article>
+                <div class="layer-map__index">03</div>
+                <div><span>OCEAN FIELD</span><h3>多尺度浪、浪尖与白沫</h3><p>三层 JONSWAP 波谱分别覆盖涌浪、风浪和细浪；GPU butterfly IFFT 生成位移与导数，Jacobian 和陡峭度驱动泡沫历史。</p></div>
+                <dl><div><dt>源码</dt><dd>OceanFFT.js / OceanMesh.js</dd></div><div><dt>原理</dt><dd>spectrum → time evolution → IFFT</dd></div><div><dt>验收</dt><dd>前景、中景和地平线保留不同频段</dd></div></dl>
+              </article>
+              <article>
+                <div class="layer-map__index">04</div>
+                <div><span>WEATHER &amp; EVENTS</span><h3>连续天气与电影化灾害场</h3><p>Weather 插值统一风、云、雨、雾和海况；海啸、疯狗浪和涡旋使用解析高度场，不是 CFD 或真实灾害预测。</p></div>
+                <dl><div><dt>源码</dt><dd>Weather.js / Director.js / Waterspout.js</dd></div><div><dt>原理</dt><dd>state interpolation + analytic fields</dd></div><div><dt>验收</dt><dd>天气切换连续，事件有清晰生命周期</dd></div></dl>
+              </article>
+              <article>
+                <div class="layer-map__index">05</div>
+                <div><span>DIRECTOR</span><h3>镜头把算法组织成可读故事</h3><p>幕次、镜头轨迹和事件触发共同安排“平静 → 积云 → 风暴 → 英雄事件 → 余波”，让技术结果被观众理解。</p></div>
+                <dl><div><dt>源码</dt><dd>Director.js / CinematicCamera.js</dd></div><div><dt>原理</dt><dd>timeline + shot state + target tracking</dd></div><div><dt>验收</dt><dd>广角交代尺度，近景证明浪形，事件镜头可复播</dd></div></dl>
+              </article>
+              <article>
+                <div class="layer-map__index">06</div>
+                <div><span>POST &amp; QUALITY</span><h3>时域稳定、曝光与最终观感</h3><p>HDR、速度缓冲、TAA、自动曝光、Bloom、DOF、运动模糊与显示变换把多个高动态范围系统合成最终画面。</p></div>
+                <dl><div><dt>源码</dt><dd>PostFX.js / Quality.js / GpuProfiler.js</dd></div><div><dt>原理</dt><dd>temporal resolve + exposure + display transform</dd></div><div><dt>验收</dt><dd>运动无明显拖影，明暗状态可读且帧预算稳定</dd></div></dl>
+              </article>
+            </div>
+
+            <div class="architecture-diagram" aria-label="natural-disasters 运行时结构">
+              <div class="architecture-diagram__input"><span>CPU / APPLICATION</span><b>Weather · Director · Camera · Quality</b><p>更新状态、时间、镜头、uniform 和资源调度</p></div>
+              <div class="architecture-diagram__arrow">→</div>
+              <div class="architecture-diagram__gpu"><span>GPU / WEBGL2</span><b>Procedural textures · FFT · LUT · Raymarch · PostFX</b><p>并行计算波场、体积、光照和最终像素</p></div>
+              <div class="architecture-diagram__arrow">→</div>
+              <div class="architecture-diagram__output"><span>VISIBLE OUTPUT</span><b>Ocean environment film</b><p>浏览器 Canvas 中连续、可编排的海洋环境</p></div>
+            </div>
+          </section>
+
+          <section class="section document-section" id="resources" aria-labelledby="resources-title">
+            <div class="section-heading">
+              <p class="section-index">04 / RESOURCE ACQUISITION</p>
+              <h2 id="resources-title">从零获取的，不只是代码。</h2>
+              <p>一个高质量复现至少需要八类资源。缺少其中任何一类，都要在计划里显式标记，而不是让大模型或开发者自行猜测。</p>
+            </div>
+
+            <div class="resource-grid">
+              <article><span>01</span><h3>目标参考</h3><p>官方截图、视频、固定镜头、不同状态和动态节奏。</p><b>判断“要做到什么”</b></article>
+              <article><span>02</span><h3>原始理论</h3><p>论文、作者演讲、课程资料、公式和假设。</p><b>判断“为什么成立”</b></article>
+              <article><span>03</span><h3>权威实现</h3><p>作者代码、官方示例、测试和已知限制。</p><b>判断“如何正确实现”</b></article>
+              <article><span>04</span><h3>目标源码</h3><p>固定 commit、依赖、模块图、Shader 与构建脚本。</p><b>判断“仓库实际做了什么”</b></article>
+              <article><span>05</span><h3>运行环境</h3><p>浏览器、GPU、扩展、分辨率、质量档和设备限制。</p><b>判断“在哪里能运行”</b></article>
+              <article><span>06</span><h3>测试证据</h3><p>固定参数、截图、状态采样、帧时间与错误日志。</p><b>判断“我们证明了什么”</b></article>
+              <article><span>07</span><h3>许可与归属</h3><p>代码许可证、媒体归属、模型/纹理来源和商用边界。</p><b>判断“能否继续使用”</b></article>
+              <article><span>08</span><h3>产品约束</h3><p>用户、使用场景、加载预算、输出格式和维护成本。</p><b>判断“是否值得产品化”</b></article>
+            </div>
+
+            <details class="field-note" open>
+              <summary><span>采集顺序</span><b>如何避免一开始就陷入海量资料？</b></summary>
+              <ol>
+                <li>先选 3–5 张能够代表状态差异的目标图，不先收集整套论文。</li>
+                <li>根据画面写出“必须看到”的观察项，再查每一项背后的关键词。</li>
+                <li>优先找作者/官方来源，然后找对应的可运行实现。</li>
+                <li>把每个来源绑定到一个具体问题；无法回答问题的链接不进入核心资料包。</li>
+                <li>固定版本、保存许可和引用信息，避免后期无法复现。</li>
+              </ol>
+            </details>
+          </section>
+
+          <section class="section document-section" id="roadmap" aria-labelledby="roadmap-title">
+            <div class="section-heading">
+              <p class="section-index">05 / FROM ZERO ROADMAP</p>
+              <h2 id="roadmap-title">从空目录到优秀效果，分十二步实现。</h2>
+              <p>顺序的核心是先建立可观测性，再逐层增加物理和视觉复杂度。每个阶段都能独立失败、回退或停止。</p>
+            </div>
+
+            <div class="roadmap">
+              <article>
+                <div class="roadmap__number">00</div>
+                <div class="roadmap__body"><span>1–2 DAYS · TARGET LOCK</span><h3>目标与预算冻结</h3><p>选择晴朗、积云、剧烈风暴三个固定状态；确定桌面 WebGL2、目标分辨率、最低 FPS 和移动端回退。</p></div>
+                <dl><div><dt>输入</dt><dd>目标图、用户场景、设备范围</dd></div><div><dt>交付</dt><dd>Target Brief + Performance Budget</dd></div><div><dt>门禁</dt><dd>不用看源码也能判断状态是否不同</dd></div></dl>
+              </article>
+              <article>
+                <div class="roadmap__number">01</div>
+                <div class="roadmap__body"><span>2–3 DAYS · PROVENANCE</span><h3>资料和许可证账本</h3><p>固定论文、官方演讲、参考实现、目标 commit、依赖版本和许可证；建立问题到来源的映射。</p></div>
+                <dl><div><dt>输入</dt><dd>目标观察项和关键词</dd></div><div><dt>交付</dt><dd>Source Ledger + License Ledger</dd></div><div><dt>门禁</dt><dd>每个核心机制至少有一个原始出处</dd></div></dl>
+              </article>
+              <article>
+                <div class="roadmap__number">02</div>
+                <div class="roadmap__body"><span>2–4 DAYS · BASELINE</span><h3>最小渲染骨架</h3><p>建立 Three.js / WebGL2 应用、相机、渲染循环、HDR 目标、调试 HUD 和稳定截图入口。</p></div>
+                <dl><div><dt>输入</dt><dd>技术栈与目标设备</dd></div><div><dt>交付</dt><dd>空场景、诊断信息、截图工具</dd></div><div><dt>门禁</dt><dd>固定参数得到可复现像素和无错误启动</dd></div></dl>
+              </article>
+              <article>
+                <div class="roadmap__number">03</div>
+                <div class="roadmap__body"><span>3–5 DAYS · ATMOSPHERE</span><h3>先做天空与光照语境</h3><p>实现透射、天空视图和环境光 LUT；提供太阳方向、浑浊度和曝光控制，并建立大气调试通道。</p></div>
+                <dl><div><dt>输入</dt><dd>Bruneton / Hillaire 资料</dd></div><div><dt>交付</dt><dd>AtmospherePass + LUT inspector</dd></div><div><dt>门禁</dt><dd>三种太阳高度下地平线和天空均可读</dd></div></dl>
+              </article>
+              <article>
+                <div class="roadmap__number">04</div>
+                <div class="roadmap__body"><span>5–10 DAYS · OCEAN</span><h3>从单层频谱到三层海面</h3><p>先做一个可验证频谱和 IFFT，再扩展到三层 cascade、投影网格、法线、Fresnel 和泡沫历史。</p></div>
+                <dl><div><dt>输入</dt><dd>JONSWAP / Tessendorf / GPU FFT</dd></div><div><dt>交付</dt><dd>OceanFFT + OceanSurface</dd></div><div><dt>门禁</dt><dd>频谱统计合理；固定镜头三种空间频段可见</dd></div></dl>
+              </article>
+              <article>
+                <div class="roadmap__number">05</div>
+                <div class="roadmap__body"><span>5–10 DAYS · CLOUDS</span><h3>体积云分三次完成</h3><p>依次完成密度场、光照 march、时间重投影与上采样；每次保留 first-hit、density 和 tap-count 调试图。</p></div>
+                <dl><div><dt>输入</dt><dd>Perlin-Worley / Horizon cloudscapes</dd></div><div><dt>交付</dt><dd>CloudDensity + March + Reproject</dd></div><div><dt>门禁</dt><dd>云体有轮廓、明暗、远近且静止时无明显闪烁</dd></div></dl>
+              </article>
+              <article>
+                <div class="roadmap__number">06</div>
+                <div class="roadmap__body"><span>3–6 DAYS · WEATHER</span><h3>统一天气状态，不散落参数</h3><p>把风、海况、云量、云底、雨、雾、太阳和曝光收口为 WeatherSpec，使用时间插值驱动所有系统。</p></div>
+                <dl><div><dt>输入</dt><dd>三个目标状态的参数草案</dd></div><div><dt>交付</dt><dd>WeatherSpec + transition controller</dd></div><div><dt>门禁</dt><dd>状态切换无突跳、无系统间矛盾</dd></div></dl>
+              </article>
+              <article>
+                <div class="roadmap__number">07</div>
+                <div class="roadmap__body"><span>3–7 DAYS · EVENTS</span><h3>灾害事件作为有界解析场</h3><p>先实现一个可控制的英雄事件，例如孤立波；同步提供 GPU 位移与 CPU 高度采样，定义开始、峰值和退出。</p></div>
+                <dl><div><dt>输入</dt><dd>事件目标镜头和数学模型</dd></div><div><dt>交付</dt><dd>EventSpec + field + lifecycle</dd></div><div><dt>门禁</dt><dd>可重播、可复位，明确不声明科学预测</dd></div></dl>
+              </article>
+              <article>
+                <div class="roadmap__number">08</div>
+                <div class="roadmap__body"><span>3–5 DAYS · DIRECTOR</span><h3>用镜头证明能力，不只是展示控制器</h3><p>建立初始态、变化、近看、英雄事件和最终状态；所有时间从一个 DirectorState 计算。</p></div>
+                <dl><div><dt>输入</dt><dd>ShotSpec 与效果验收镜头</dd></div><div><dt>交付</dt><dd>Director timeline + camera tracks</dd></div><div><dt>门禁</dt><dd>观众不看 UI 也能读懂状态变化</dd></div></dl>
+              </article>
+              <article>
+                <div class="roadmap__number">09</div>
+                <div class="roadmap__body"><span>3–7 DAYS · IMAGE QUALITY</span><h3>后处理与时域稳定</h3><p>按速度缓冲 → TAA → 曝光 → Bloom/DOF → 显示变换的顺序接入；每个 Pass 都能单独旁路。</p></div>
+                <dl><div><dt>输入</dt><dd>HDR 目标、motion vector、质量档</dd></div><div><dt>交付</dt><dd>PostFX graph + debug bypass</dd></div><div><dt>门禁</dt><dd>运动、亮度和细节稳定，没有用特效掩盖结构问题</dd></div></dl>
+              </article>
+              <article>
+                <div class="roadmap__number">10</div>
+                <div class="roadmap__body"><span>2–5 DAYS · HARDENING</span><h3>性能档、回退和生命周期</h3><p>测量 CPU/GPU 帧时间和资源体积；建立质量 preset、动态分辨率、错误状态、移动端静态回退与 dispose。</p></div>
+                <dl><div><dt>输入</dt><dd>真实设备矩阵和预算</dd></div><div><dt>交付</dt><dd>Quality presets + profiler + fallback</dd></div><div><dt>门禁</dt><dd>命名设备上满足预算，失败时内容仍可理解</dd></div></dl>
+              </article>
+              <article>
+                <div class="roadmap__number">11</div>
+                <div class="roadmap__body"><span>3–7 DAYS · EXTRACTION</span><h3>从 Demo 抽成产品能力</h3><p>外部宿主只能通过稳定协议设置环境、触发事件、重播镜头、采集证据和释放资源。</p></div>
+                <dl><div><dt>输入</dt><dd>通过验收的垂直切片</dd></div><div><dt>交付</dt><dd>EnvironmentAdapter + schemas + examples</dd></div><div><dt>门禁</dt><dd>第二个宿主不复制内部 UI 即可完成主流程</dd></div></dl>
+              </article>
+            </div>
+
+            <aside class="time-boundary">
+              <span>ESTIMATE BOUNDARY</span>
+              <p>以上是探索顺序和相对工作量，不是交付承诺。复杂度受 GPU 经验、目标画质、可复用程度和已有代码影响；任何阶段如果连续三轮没有新增证据，应先报告阻塞而不是继续无限修复。</p>
+            </aside>
+          </section>
+
+          <section class="section document-section" id="validation" aria-labelledby="validation-title">
+            <div class="section-heading">
+              <p class="section-index">06 / VALIDATION SYSTEM</p>
+              <h2 id="validation-title">优秀效果不是“感觉不错”，而是一组可重复证据。</h2>
+              <p>视觉验收、数学诊断、运行正确性和产品可用性需要分别记录。通过一个层级，不能替代另一个层级。</p>
+            </div>
+
+            <div class="validation-matrix">
+              <article><span>A</span><h3>视觉签名</h3><p>固定镜头下，晴朗、积云和风暴是否在尺度、轮廓、明暗和运动上明显不同。</p><ul><li>目标图对照</li><li>同机位截图</li><li>盲读状态</li></ul></article>
+              <article><span>B</span><h3>算法诊断</h3><p>频谱、位移、导数、密度、首次命中和时域历史是否处于预期范围。</p><ul><li>中间纹理</li><li>统计区间</li><li>CPU/GPU 对照</li></ul></article>
+              <article><span>C</span><h3>运行证据</h3><p>启动、状态切换、重播、复位、错误处理和资源释放是否可观察。</p><ul><li>Console</li><li>状态采样</li><li>自动浏览器路径</li></ul></article>
+              <article><span>D</span><h3>性能预算</h3><p>在命名设备、固定分辨率和质量档下记录 CPU/GPU 时间与资产成本。</p><ul><li>帧时间分解</li><li>显存/资源</li><li>质量档变化</li></ul></article>
+              <article><span>E</span><h3>产品门禁</h3><p>第二个宿主能否通过协议使用能力，并在用户任务中产生可衡量价值。</p><ul><li>接入成本</li><li>可控性</li><li>维护与许可</li></ul></article>
+            </div>
+
+            <div class="shot-table" role="table" aria-label="Case 001 固定验收镜头">
+              <div class="shot-table__row shot-table__head" role="row"><span role="columnheader">镜头</span><span role="columnheader">证明内容</span><span role="columnheader">失败信号</span><span role="columnheader">证据</span></div>
+              <div class="shot-table__row" role="row"><b role="cell">CALM WIDE</b><p role="cell">天空、地平线、三层波频和反射方向</p><p role="cell">海面像平面噪声；地平线糊成一条线</p><em role="cell">截图 + spectrum stats</em></div>
+              <div class="shot-table__row" role="row"><b role="cell">CLOUD FIELD</b><p role="cell">云体轮廓、顶底明暗、远近和海面阴影</p><p role="cell">云像 billboard；颜色一致；运动闪烁</p><em role="cell">截图 + density/first-hit</em></div>
+              <div class="shot-table__row" role="row"><b role="cell">STORM LOW</b><p role="cell">浪峰尺度、泡沫、雨雾、低云和威胁构图</p><p role="cell">只是整体变暗；海浪和天气互不关联</p><em role="cell">截图 + frame breakdown</em></div>
+              <div class="shot-table__row" role="row"><b role="cell">EVENT CHASE</b><p role="cell">英雄事件生命周期、相机高度与 CPU/GPU 场一致</p><p role="cell">镜头穿模；事件无法重播或复位</p><em role="cell">录像 + sampled height</em></div>
+            </div>
+
+            <details class="field-note field-note--danger" open>
+              <summary><span>REPAIR BUDGET</span><b>遇到阻塞时如何停止？</b></summary>
+              <div class="stop-grid">
+                <div><span>尝试 1</span><p>复现问题，保存浏览器、Shader 编译、输入参数和当前截图。</p></div>
+                <div><span>尝试 2</span><p>只改变一个假设，验证是否产生新证据；禁止同时重构多个模块。</p></div>
+                <div><span>尝试 3</span><p>若仍无新增证据，停止自动修复并输出阻塞报告。</p></div>
+                <div><span>报告内容</span><p>现象、已验证项、失败尝试、最可能根因、需要的新输入或决策。</p></div>
+              </div>
+            </details>
+          </section>
+
+          <section class="section document-section" id="ai" aria-labelledby="ai-title">
+            <div class="section-heading">
+              <p class="section-index">07 / MODEL-ASSISTED EXPLORATION</p>
+              <h2 id="ai-title">大模型负责翻译和编排，运行时负责确定性。</h2>
+              <p>最稳妥的产品形态不是每次让模型重新写 Shader，而是让模型使用经过验证的资料和协议，生成实现任务或结构化场景。</p>
+            </div>
+
+            <div class="ai-modes">
+              <article>
+                <span>MODE A · RESEARCH / BUILD</span>
+                <h3>模型生成与修复渲染代码</h3>
+                <p>用于研究新算法：检索相关资料，解释公式，生成一个模块，运行浏览器，读取截图/日志，再进行有限修复。</p>
+                <ol><li>只提供相关论文段落和源码</li><li>限定一个 Pass 或模块</li><li>声明输入、输出和 GPU 资源</li><li>附带固定镜头和验收指标</li><li>最多 2–3 轮自动修复</li></ol>
+                <b>适合：探索未知能力</b>
+              </article>
+              <article>
+                <span>MODE B · PRODUCT / GENERATE</span>
+                <h3>模型生成场景协议</h3>
+                <p>用于稳定生产：把自然语言转为 WeatherSpec、EventSpec 和 ShotSpec，再交给确定性运行时执行、预览与导出。</p>
+                <ol><li>自然语言描述目标氛围</li><li>模型输出受 Schema 约束的 JSON</li><li>运行时校验并应用参数</li><li>浏览器返回截图与性能</li><li>模型只调整允许的字段</li></ol>
+                <b>适合：游戏、IP、素材批量生产</b>
+              </article>
+            </div>
+
+            <div class="ai-flow" aria-label="大模型驱动稳定环境运行时的流程">
+              <div><span>USER INTENT</span><b>“台风登陆前夜的港口”</b></div>
+              <i>→</i>
+              <div><span>LLM</span><b>检索知识包并生成 ScenarioSpec</b></div>
+              <i>→</i>
+              <div><span>VALIDATOR</span><b>Schema / 边界 / 性能档检查</b></div>
+              <i>→</i>
+              <div><span>RUNTIME</span><b>确定性渲染、预览与采证</b></div>
+            </div>
+
+            <div class="code-panel">
+              <div class="code-panel__head"><span>SCENARIO SPEC · PLANNED</span><button type="button" class="copy-button" data-copy-target="scenarioSpec">复制示例</button></div>
+              <pre id="scenarioSpec"><code>{
+  "intent": "port-before-typhoon",
+  "weather": {
+    "sunElevation": 0.08,
+    "windSpeed": 32,
+    "cloudCoverage": 0.92,
+    "rain": 0.85,
+    "fog": 0.55,
+    "waveStrength": 0.90
+  },
+  "events": [
+    { "type": "lightning", "at": 4.2 },
+    { "type": "hurricane", "at": 8.0 }
+  ],
+  "shots": ["harbor-wide", "wave-close", "storm-reveal"],
+  "quality": "medium",
+  "duration": 15
+}</code></pre>
+            </div>
+
+            <aside class="boundary-note">
+              <span>模型不能替代</span>
+              <p>目标美术判断、论文公式核对、GPU 实测、浏览器证据、许可证审查和最终产品决策。微调也不能把一个未经验证的算法自动变成可靠运行时。</p>
+            </aside>
+          </section>
+
+          <section class="section document-section" id="product" aria-labelledby="product-title">
+            <div class="section-heading">
+              <p class="section-index">08 / PRODUCT PLAN</p>
+              <h2 id="product-title">产品不是“更多效果”，而是更低成本地重复得到正确结果。</h2>
+              <p>下面全部属于 <span class="inline-plan">PLANNED</span>，当前项目尚未实现这些版本。只有上一版本通过门禁，才进入下一版本。</p>
+            </div>
+
+            <div class="version-roadmap">
+              <article class="version-card version-card--current">
+                <div><span>v0.1</span><b>RESEARCH KIT</b></div>
+                <h3>陌生领域研究包</h3>
+                <p>固定目标、来源账本、能力图、实验卡、证据标签和停止规则。</p>
+                <ul><li>目标效果反推工具</li><li>资料与许可账本</li><li>浏览器证据模板</li><li>阻塞报告模板</li></ul>
+                <strong>门禁：第二个研究者能复现结论</strong>
+              </article>
+              <article class="version-card">
+                <div><span>v0.2</span><b>ENVIRONMENT RUNTIME</b></div>
+                <h3>可控制环境能力</h3>
+                <p>从上游 Demo 抽取稳定生命周期、参数协议、事件与镜头调用。</p>
+                <ul><li>init / applySpec / trigger</li><li>reset / capture / dispose</li><li>质量档和移动端回退</li><li>第二宿主接入示例</li></ul>
+                <strong>门禁：不复制内部 UI 也能完成真实用例</strong>
+              </article>
+              <article class="version-card">
+                <div><span>v0.3</span><b>AI SCENARIO COMPILER</b></div>
+                <h3>自然语言场景编译器</h3>
+                <p>模型只生成受约束的场景、天气、事件和镜头协议，运行时负责确定执行。</p>
+                <ul><li>Prompt → ScenarioSpec</li><li>Schema 校验和修复</li><li>实时预览与证据回传</li><li>预设版本与可追溯生成</li></ul>
+                <strong>门禁：批量生成仍保持质量和性能边界</strong>
+              </article>
+              <article class="version-card">
+                <div><span>v1.0</span><b>DOMAIN EXPLORATION WORKBENCH</b></div>
+                <h3>陌生领域能力孵化工作台</h3>
+                <p>更换领域知识包和 Adapter，即可复用目标锁定、资料检索、实验、验收和产品决策流程。</p>
+                <ul><li>领域知识包注册</li><li>实验与证据工作台</li><li>能力合同生成</li><li>模式库和跨案例复盘</li></ul>
+                <strong>门禁：至少两个不同领域完整闭环</strong>
+              </article>
+            </div>
+
+            <div class="adapter-contract">
+              <div>
+                <span>PROPOSED PRODUCT CONTRACT</span>
+                <h3>EnvironmentAdapter</h3>
+                <p>上游内部可以复杂，但给产品的边界必须稳定、可验证、可释放。</p>
+              </div>
+              <div class="adapter-methods">
+                <code>init(host, options)</code>
+                <code>applySpec(weatherSpec)</code>
+                <code>trigger(eventSpec)</code>
+                <code>play(shotSequence)</code>
+                <code>captureEvidence()</code>
+                <code>reset()</code>
+                <code>dispose()</code>
+              </div>
+              <dl>
+                <div><dt>必须保证</dt><dd>确定输入、可观察状态、明确错误、资源回收</dd></div>
+                <div><dt>不应暴露</dt><dd>内部 render target、全局 UI、散落 uniform、实现细节</dd></div>
+                <div><dt>产品证明</dt><dd>游戏关卡、IP 镜头或素材生产中的一个真实下游</dd></div>
+              </dl>
+            </div>
+
+            <div class="backlog">
+              <div class="backlog__column">
+                <span>NOW / REQUIRED</span><h3>先证明可复用</h3>
+                <ul><li>真实 GPU 基线</li><li>运行时耦合图</li><li>Adapter 生命周期</li><li>固定镜头证据</li><li>第二宿主 POC</li></ul>
+              </div>
+              <div class="backlog__column">
+                <span>NEXT / PRODUCT</span><h3>再降低使用成本</h3>
+                <ul><li>Scenario schemas</li><li>预设与镜头库</li><li>可视化参数面板</li><li>一键截图/视频</li><li>错误与回退体验</li></ul>
+              </div>
+              <div class="backlog__column">
+                <span>LATER / SCALE</span><h3>最后扩大领域</h3>
+                <ul><li>LLM 场景编译</li><li>知识包注册</li><li>跨案例模式库</li><li>自动证据比较</li><li>素材与版本管理</li></ul>
+              </div>
+              <div class="backlog__column backlog__column--not">
+                <span>NOT YET</span><h3>现在不做</h3>
+                <ul><li>自然灾害大全</li><li>真实气象预测</li><li>无目标的 Shader 重写</li><li>一次性全自动生成引擎</li><li>没有下游的过度抽象</li></ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="section document-section" id="transfer" aria-labelledby="transfer-title">
+            <div class="section-heading">
+              <p class="section-index">09 / TRANSFER TEST</p>
+              <h2 id="transfer-title">如何判断这套方法真的能“举一反三”？</h2>
+              <p>不是换一个名词继续写同样的文档，而是在新领域中仍能得到可运行证据和产品边界。</p>
+            </div>
+
+            <div class="transfer-grid">
+              <article><span>CASE 002</span><h3>火焰、烟雾与爆炸</h3><p><b>更换：</b>流体、体积密度、燃烧与粒子资料。</p><p><b>复用：</b>目标镜头、来源账本、Pass 验收、性能档、Adapter。</p><em>产品切片：技能特效或 VFX 素材生成器</em></article>
+              <article><span>CASE 003</span><h3>角色、布料与毛发</h3><p><b>更换：</b>骨骼、IK、PBD、布料约束与毛发着色。</p><p><b>复用：</b>视觉签名、状态协议、调试通道、真实设备门禁。</p><em>产品切片：个人 IP 角色表现系统</em></article>
+              <article><span>CASE 004</span><h3>程序化世界与地形</h3><p><b>更换：</b>噪声、侵蚀、植被分布、LOD 和导航资料。</p><p><b>复用：</b>目标反推、资源预算、证据截图、质量 preset。</p><em>产品切片：游戏关卡环境生成器</em></article>
+              <article><span>CASE 005</span><h3>空间音频与反馈</h3><p><b>更换：</b>HRTF、混响、遮挡、响度和交互反馈资料。</p><p><b>复用：</b>来源分级、对照实验、产品门禁和停止规则。</p><em>产品切片：沉浸式游戏声音运行时</em></article>
+            </div>
+
+            <div class="transfer-gate">
+              <div><span>TRANSFER PASS</span><h3>迁移通过的四个条件</h3></div>
+              <ol>
+                <li><span>01</span><p>新领域能在一周内建立目标、来源和能力地图。</p></li>
+                <li><span>02</span><p>不修改母流程，只替换领域资料和验收信号。</p></li>
+                <li><span>03</span><p>至少一个最小模块产生真实运行证据。</p></li>
+                <li><span>04</span><p>能说清产品边界、接入成本和停止条件。</p></li>
+              </ol>
+            </div>
+          </section>
+
+          <section class="section document-section" id="templates" aria-labelledby="templates-title">
+            <div class="section-heading">
+              <p class="section-index">10 / REUSABLE TEMPLATES</p>
+              <h2 id="templates-title">下次开始陌生领域时，直接复制这些模板。</h2>
+              <p>模板的作用不是制造文档负担，而是确保目标、证据、实现和产品判断没有断层。</p>
+            </div>
+
+            <div class="template-list">
+              <details class="template-card" open>
+                <summary><span>01</span><div><b>探索任务简报</b><small>EXPLORATION BRIEF</small></div></summary>
+                <div class="template-card__body">
+                  <button type="button" class="copy-button" data-copy-target="briefTemplate">复制模板</button>
+                  <pre id="briefTemplate"><code>领域：
+目标效果 / 产品结果：
+目标用户与使用场景：
+3–5 个参考画面或行为：
+必须可见的变化：
+目标平台与设备：
+帧率 / 延迟 / 体积预算：
+当前已有资源：
+明确不做的范围：
+成功标准：
+停止条件：</code></pre>
+                </div>
+              </details>
+
+              <details class="template-card">
+                <summary><span>02</span><div><b>来源卡</b><small>SOURCE CARD</small></div></summary>
+                <div class="template-card__body">
+                  <button type="button" class="copy-button" data-copy-target="sourceTemplate">复制模板</button>
+                  <pre id="sourceTemplate"><code>标题 / 作者 / 年份：
+原始 URL / DOI / commit：
+证据类别：PRIMARY_SOURCE | UPSTREAM_SOURCE | TARGET_MEDIA
+解决的问题：
+关键假设与公式：
+可复用实现：
+许可证 / 归属：
+已知限制：
+对应目标观察项：
+下一项实验：</code></pre>
+                </div>
+              </details>
+
+              <details class="template-card">
+                <summary><span>03</span><div><b>效果反推卡</b><small>EFFECT MAP</small></div></summary>
+                <div class="template-card__body">
+                  <button type="button" class="copy-button" data-copy-target="effectTemplate">复制模板</button>
+                  <pre id="effectTemplate"><code>目标画面 / 状态：
+观众必须看到：
+可控制原因：
+对应系统 / 模块：
+算法原理：
+输入与输出：
+固定验收镜头：
+通过信号：
+失败信号：
+证据文件：</code></pre>
+                </div>
+              </details>
+
+              <details class="template-card">
+                <summary><span>04</span><div><b>单次实验卡</b><small>EXPERIMENT CARD</small></div></summary>
+                <div class="template-card__body">
+                  <button type="button" class="copy-button" data-copy-target="experimentTemplate">复制模板</button>
+                  <pre id="experimentTemplate"><code>假设：
+只改变的一个变量：
+固定输入 / seed / camera：
+运行环境：browser / GPU / resolution / preset
+观察指标：
+预期结果：
+实际截图 / 日志 / 数值：
+结论：pass | continue | pivot | stop
+下一步：
+剩余修复预算：</code></pre>
+                </div>
+              </details>
+
+              <details class="template-card">
+                <summary><span>05</span><div><b>产品门禁卡</b><small>CAPABILITY GATE</small></div></summary>
+                <div class="template-card__body">
+                  <button type="button" class="copy-button" data-copy-target="gateTemplate">复制模板</button>
+                  <pre id="gateTemplate"><code>能力名称：
+真实下游用例：
+外部输入协议：
+可观察输出 / 状态：
+性能与资源预算：
+生命周期：init / reset / dispose
+错误与回退：
+许可证边界：
+第二宿主验证：
+维护成本：
+决策：adopt | watch | reject</code></pre>
+                </div>
+              </details>
+            </div>
+
+            <div class="usage-sequence">
+              <span>HOW TO USE THIS PAGE</span>
+              <ol>
+                <li><b>第一次</b><p>只填写探索简报和三张效果反推卡。</p></li>
+                <li><b>找到资料后</b><p>为每个核心机制创建来源卡，不做无问题链接收藏。</p></li>
+                <li><b>开始实现</b><p>每次只运行一张实验卡，保存可比较证据。</p></li>
+                <li><b>准备复用</b><p>只有真实用例出现后，才填写产品门禁卡。</p></li>
+              </ol>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <section class="closing section" aria-labelledby="closing-title">
+        <div>
+          <p class="section-index">END / WORKING THESIS</p>
+          <h2 id="closing-title">Case 001 研究海洋风暴，<br>母项目研究如何获得能力。</h2>
+          <p>下一次遇到陌生领域，我们不从空白对话开始，而是从目标简报、来源账本、效果反推卡、单次实验和产品门禁继续。</p>
+        </div>
+        <div class="closing__actions">
+          <a class="button button--primary" href="../">查看当前能力与真实演示</a>
+          <a class="button" href="../../../demos/natural-disasters-environment-poc/?preset=low&amp;act=0">独立运行上游原型 ↗</a>
+          <a class="button button--quiet" href="#templates">返回模板 ↑</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="utp-footer">
+      <div><span>PROJECT 011 · CASE 001</span><b>NATURAL DISASTERS → UNKNOWN DOMAIN CAPABILITY SYSTEM</b></div>
+      <p>方法与产品路线由 Project 011 整理；算法归属与引用见 Source Ledger。规划项不代表已经实现。</p>
+      <a href="#main-content">返回顶部 ↑</a>
+    </footer>
+  </body>
+</html>

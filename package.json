@@ -18,9 +18,10 @@
     "test:project-009-application-lab": "node --check docs/demos/sprite-maker-application-lab/app.js && node projects/sprite-maker-study/application-lab/tests/static-check.mjs",
     "test:project-009": "node --check docs/projects/sprite-maker-study/app.js && node projects/sprite-maker-study/tests/static-check.mjs && npm run test:project-009-game && npm run test:project-009-combat-trial && npm run test:project-009-application-lab",
     "test:project-010": "node --check docs/projects/scenegen-capability-study/app.js && node projects/scenegen-capability-study/tests/static-check.mjs",
-    "test:project-011": "node --check docs/projects/natural-disasters-environment-study/app.js && node projects/natural-disasters-environment-study/tests/static-check.mjs",
+    "test:project-011": "node --check docs/projects/natural-disasters-environment-study/app.js && node --check docs/projects/natural-disasters-environment-study/unknown-to-product/app.js && node projects/natural-disasters-environment-study/tests/static-check.mjs",
     "test:project-011:upstream-browser": "node projects/natural-disasters-environment-study/tests/upstream-runtime-check.mjs",
     "test:project-011:web-browser": "node projects/natural-disasters-environment-study/tests/web-workbench-check.mjs",
+    "test:project-011:playbook-browser": "node projects/natural-disasters-environment-study/tests/playbook-check.mjs",
     "test:all": "npm run test:project-001 && npm run test:project-002 && npm run test:project-003 && npm run test:project-004 && npm run test:project-005 && npm run test:project-007 && npm run test:project-008 && npm run test:project-009 && npm run test:project-010 && npm run test:project-011"
   }
 }
