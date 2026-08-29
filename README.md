@@ -20,6 +20,7 @@
 | [**008 · DIRECTOR AS COMPILER**](projects/stickman-video-director-study/) | [Idea-to-video 导演协议、六幕分镜、首条 20 秒外部实测与八种静态替代形象](projects/stickman-video-director-study/README.md) | [▶ 阅读项目必要总结](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/#summary) | [最终总结](projects/stickman-video-director-study/SUMMARY.md) · [在线研究](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/) · [形象清单](projects/stickman-video-director-study/experiments/character-style-gallery.json) · [实测审计](projects/stickman-video-director-study/experiments/user-generated-sample.json) · [上游子模块](projects/stickman-video-director-study/source/) | 已验证 · 必要结论已收束，四层证据可追溯 |
 | [**009 · SPRITE PRODUCTION, LOCAL FIRST**](projects/sprite-maker-study/) | [从单张角色图到多动作 Sprite 资产、版本化 QA 与五类应用装配](projects/sprite-maker-study/README.md) | [▶ 进入五场景应用实验室](https://yydshly.github.io/0828_codex_project/demos/sprite-maker-application-lab/) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/sprite-maker-study/) · [原多动作能力关卡](https://yydshly.github.io/0828_codex_project/demos/sprite-maker-scene/) · [发布索引](projects/sprite-maker-study/RELEASE.md) · [仓库档案](projects/sprite-maker-study/README.md) · [上游子模块](projects/sprite-maker-study/source/) | 已验证 · 自有样例、五类场景与复杂战斗试运行完成 |
 | [**010 · SCENE, GENERATED.**](projects/scenegen-capability-study/) | [SceneGen 的官方效果、联合资产与布局生成、工程边界和触发式采用路线](projects/scenegen-capability-study/README.md) | [▶ 查看官方 3D 证据](https://yydshly.github.io/0828_codex_project/projects/scenegen-capability-study/#effect) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/scenegen-capability-study/) · [仓库档案](projects/scenegen-capability-study/README.md) · [页面源码](docs/projects/scenegen-capability-study/) | 已验证 · 按真实 3D 任务触发 |
+| [**011 · ENVIRONMENT AS RUNTIME**](projects/natural-disasters-environment-study/) | [固定上游真实运行时，梳理六层能力、三项扩展场景和游戏 / IP / 素材个人路线](projects/natural-disasters-environment-study/CAPABILITIES.md) | [▶ 打开能力与扩展工作台](https://yydshly.github.io/0828_codex_project/projects/natural-disasters-environment-study/) | [真实上游演示](https://yydshly.github.io/0828_codex_project/demos/natural-disasters-environment-poc/) · [仓库档案](projects/natural-disasters-environment-study/README.md) · [运行证据](projects/natural-disasters-environment-study/experiments/upstream-runtime-observation.json) · [Web 验收](projects/natural-disasters-environment-study/experiments/web-workbench-validation.md) | 已验证 · 真实上游运行 · Web 39/39 · 静态 31/31 |
 
 状态统一使用：`规划中`、`研究中`、`已验证`、`已归档`。
 
@@ -37,6 +38,7 @@
 - `projects/stickman-video-director-study/` 是 Project 008 的视频导演 Skill、用户 20 秒外部生成实测、八种静态替代形象、代表性案例、自有风格迁移与后期生产路线档案。
 - `projects/sprite-maker-study/` 是 Project 009 的 Sprite Maker 固定上游、自有角色多动作资产、像素 QA、五类应用实验室和复杂战斗试运行档案。
 - `projects/scenegen-capability-study/` 是 Project 010 的单图 3D 场景生成效果、原理、GLB 证据、工程边界、复用手册与采用判断档案。
+- `projects/natural-disasters-environment-study/` 是 Project 011 的固定上游真实运行时、六层能力地图、三项扩展场景、个人游戏/IP/素材路线和 GitHub Pages 交付档案。
 - `docs/` 是 GitHub Pages 展示层，包含总库首页和项目研究总结。
 - `scripts/build-pages.mjs` 将展示层与游戏组装到 `.pages-dist/`。
 - `.github/workflows/pages.yml` 负责自动构建和部署。
@@ -56,6 +58,7 @@ npm run test:project-007
 npm run test:project-008
 npm run test:project-009
 npm run test:project-010
+npm run test:project-011
 npm run build:pages
 npm run preview:pages
 ```
@@ -74,6 +77,8 @@ npm run preview:pages
 - Sprite Maker 动作资产研究：`http://127.0.0.1:4173/projects/sprite-maker-study/`
 - 五场景应用实验室：`http://127.0.0.1:4173/demos/sprite-maker-application-lab/`
 - SceneGen 能力研究：`http://127.0.0.1:4173/projects/scenegen-capability-study/`
+- natural-disasters 能力与扩展工作台：`http://127.0.0.1:4173/projects/natural-disasters-environment-study/`
+- natural-disasters 上游真实演示：`http://127.0.0.1:4173/demos/natural-disasters-environment-poc/`
 - 游戏：`http://127.0.0.1:4173/demos/outrun-the-level/`
 
 `preview:pages` 读取 `.pages-dist/`，修改后需先重新构建。
@@ -112,6 +117,7 @@ npm run preview:pages
 │  ├─ stickman-video-director-study/ # Project 008 视频导演工作流研究
 │  ├─ sprite-maker-study/            # Project 009 Sprite 动作资产与应用研究
 │  ├─ scenegen-capability-study/     # Project 010 单图 3D 场景生成研究
+│  ├─ natural-disasters-environment-study/ # Project 011 海洋环境运行时与扩展研究
 │  └─ outrun-the-level/
 │     ├─ README.md                    # Project 001 研究档案
 │     ├─ assets/                      # 截图与证据
@@ -139,6 +145,8 @@ npm run preview:pages
 - Project 009：已固定 Sprite Maker v0.3.2 上游，使用 Project 003 自有角色完成 idle/run/cast 多动作资产、版本化像素 QA、五类应用实验室、场景游戏与双阶段 Boss 战试运行
 - Project 009 验证：研究页静态 53/53、浏览器 66/66；场景游戏静态 36/36、浏览器 53/53；复杂战斗静态 30/30、浏览器 46/46；五类应用静态 26/26、浏览器 32/32，控制台与页面错误 0
 - Project 010：已固定 SceneGen 上游证据，完成官方输入 / GLB 实时对照、方法拆解、三件 GLB 静态审计、复用包、工程边界与触发式采用路线；静态检查 38/38
+- Project 011：已固定 `natural-disasters` 上游提交并直接发布其真实生产构建，完成六层能力梳理、四个证据幕、三个业务扩展场景、游戏/IP/素材个人复利路线和 GitHub Pages 远端交付
+- Project 011 验证：上游运行浏览器 14/14、Web 工作台浏览器 39/39、静态检查 31/31；SwiftShader 只证明功能链路，物理 GPU 性能仍待实测
 - 120 秒主流程，每 20 秒提升阶段
 - 20/20 重力门种子、10/10 出口与解锁流程
 - 静态检查 11/11；浏览器与控制台错误 0

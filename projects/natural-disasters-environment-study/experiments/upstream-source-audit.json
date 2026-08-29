@@ -1,0 +1,124 @@
+{
+  "auditVersion": "1.0",
+  "auditedAt": "2026-08-29",
+  "upstream": {
+    "repository": "https://github.com/Token-Gremlin/natural-disasters",
+    "commit": "849ff7f4199c9322d8ecafb48d62fc63f8d5af1d",
+    "version": "1.0.0",
+    "license": "MIT",
+    "commitCountAtAudit": 4,
+    "commitHistoryComplete": true,
+    "cursorEvidence": {
+      "commitsWithCursorCoAuthorTrailer": 4,
+      "trailer": "Co-authored-by: Cursor <cursoragent@cursor.com>",
+      "boundedConclusion": "The public history provides strong evidence of Cursor Agent-assisted development, but does not prove every line was generated autonomously."
+    }
+  },
+  "package": {
+    "runtimeDependencies": {
+      "three": "^0.169.0"
+    },
+    "developmentDependencies": {
+      "puppeteer": "^25.8.0",
+      "vite": "^8.2.2"
+    },
+    "node": "^20.19.0 || >=22.12.0",
+    "scripts": [
+      "dev",
+      "build",
+      "preview",
+      "test",
+      "smoke"
+    ]
+  },
+  "staticProbe": {
+    "sourceLikeFiles": 34,
+    "srcAndToolsFiles": 33,
+    "srcAndToolsBytes": 433181,
+    "srcAndToolsApproxLines": 9648,
+    "renderer": "src/core/App.js",
+    "renderLoop": "src/core/App.js",
+    "entry": "src/main.js",
+    "majorModules": [
+      "src/ocean/OceanFFT.js",
+      "src/ocean/OceanMesh.js",
+      "src/ocean/OceanSampleGLSL.js",
+      "src/sky/Atmosphere.js",
+      "src/sky/Clouds.js",
+      "src/weather/Director.js",
+      "src/weather/Weather.js",
+      "src/post/PostFX.js",
+      "src/core/Quality.js",
+      "src/core/GpuProfiler.js"
+    ],
+    "externalRuntimeAssetsInSrc": false,
+    "audioSystemFound": false,
+    "recordingSystemFound": false,
+    "modelLoaderFound": false,
+    "physicsEngineFound": false
+  },
+  "architecture": {
+    "cpuResponsibilities": [
+      "Application lifecycle and render scheduling",
+      "Weather targets and interpolation",
+      "Director timeline and event state",
+      "Camera and input",
+      "Shared uniform updates",
+      "CPU mirror of analytic event height for camera floor"
+    ],
+    "gpuResponsibilities": [
+      "Procedural texture baking",
+      "FFT spectrum evolution and inverse transforms",
+      "Ocean displacement, derivatives and foam history",
+      "Atmosphere lookup tables",
+      "Volumetric cloud ray marching and reprojection",
+      "Rain, spray, lightning and waterspout rendering",
+      "HDR post-processing"
+    ],
+    "disasterModelBoundary": "Analytic, physically inspired cinematic height and visual fields; not a validated flood, weather, CFD or hazard prediction solver."
+  },
+  "localChecks": {
+    "pureLogicTest": {
+      "command": "npm test",
+      "result": "pass",
+      "scope": "Adaptive quality simulation only",
+      "notProven": [
+        "GPU shader compilation across devices",
+        "Author-reported GTX 1650 performance",
+        "Cross-browser visual consistency",
+        "Environment Pack integration"
+      ]
+    },
+    "gpuSmoke": {
+      "result": "pass-14-of-14-functional",
+      "environment": "Chrome headless, WebGL2, ANGLE SwiftShader, 1280x720, preset=potato, adaptive=0",
+      "scope": "Actual fixed-commit App, Director, Sandbox, render buffer and four critical act transitions",
+      "evidence": "upstream-runtime-observation.json",
+      "notProven": [
+        "Physical-GPU performance",
+        "Cross-browser visual consistency",
+        "Environment Pack integration"
+      ]
+    },
+    "targetMediaReview": {
+      "result": "pass",
+      "scope": "Official clear-sky, cumulus-field and violent-storm-sea frames stored in the fixed commit",
+      "evidenceClass": "TARGET_DEMO_MEDIA",
+      "notProven": [
+        "Temporal stability",
+        "Local GPU performance",
+        "Physical-GPU performance"
+      ]
+    }
+  },
+  "sourceLinks": [
+    "https://github.com/Token-Gremlin/natural-disasters/blob/849ff7f4199c9322d8ecafb48d62fc63f8d5af1d/README.md",
+    "https://github.com/Token-Gremlin/natural-disasters/blob/849ff7f4199c9322d8ecafb48d62fc63f8d5af1d/package.json",
+    "https://github.com/Token-Gremlin/natural-disasters/blob/849ff7f4199c9322d8ecafb48d62fc63f8d5af1d/src/core/App.js",
+    "https://github.com/Token-Gremlin/natural-disasters/blob/849ff7f4199c9322d8ecafb48d62fc63f8d5af1d/src/ocean/OceanFFT.js",
+    "https://github.com/Token-Gremlin/natural-disasters/blob/849ff7f4199c9322d8ecafb48d62fc63f8d5af1d/src/ocean/OceanSampleGLSL.js",
+    "https://github.com/Token-Gremlin/natural-disasters/blob/849ff7f4199c9322d8ecafb48d62fc63f8d5af1d/src/sky/Clouds.js",
+    "https://github.com/Token-Gremlin/natural-disasters/blob/849ff7f4199c9322d8ecafb48d62fc63f8d5af1d/src/weather/Director.js",
+    "https://github.com/Token-Gremlin/natural-disasters/blob/849ff7f4199c9322d8ecafb48d62fc63f8d5af1d/src/core/Quality.js"
+  ]
+}

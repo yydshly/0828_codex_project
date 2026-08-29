@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project 011：用 natural-disasters 固定提交的真实 WebGL 运行时，梳理能力、原理、扩展场景，以及游戏、个人 IP 和素材库的个人落地路线。">
+    <title>NATURAL DISASTERS · Runtime Atlas</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body class="nd-page">
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+    <header class="topbar">
+      <a class="topbar__brand" href="../../">0828 / CODEX PROJECT</a>
+      <nav class="topbar__nav" aria-label="项目导航">
+        <a href="#runtime">真实演示</a>
+        <a href="#scenarioLab">扩展演示</a>
+        <a href="#personal">个人路线</a>
+        <a href="#capabilities">能力</a>
+        <a href="#landing">落地</a>
+        <a href="#delivery">远端交付</a>
+        <a href="https://github.com/Token-Gremlin/natural-disasters">上游仓库 ↗</a>
+      </nav>
+    </header>
+
+    <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+
+    <main id="main-content">
+      <section id="runtime" class="workspace" aria-labelledby="page-title">
+        <div class="workspace__intro">
+          <div class="intro-copy">
+            <p class="eyebrow"><span class="signal signal--live"></span> PROJECT 011 · UPSTREAM_RUNTIME</p>
+            <h1 id="page-title">它不是灾害大全。<br><span>它是一套海洋环境运行时。</span></h1>
+            <p class="lede">当前舞台直接运行 <code>natural-disasters</code> 固定提交的 Three.js / WebGL2 构建。Project 011 只负责版本锁、说明、调度和证据，不重画海浪、云或灾害。</p>
+          </div>
+
+          <dl class="fact-strip" aria-label="上游运行时概要">
+            <div><dt>DIRECTOR</dt><dd>11 ACTS</dd></div>
+            <div><dt>SANDBOX</dt><dd>7 CONDITIONS</dd></div>
+            <div><dt>EVENTS</dt><dd>7 TRIGGERS</dd></div>
+            <div><dt>QUALITY</dt><dd>5 PRESETS</dd></div>
+            <div><dt>DECISION</dt><dd class="amber">WATCH</dd></div>
+          </dl>
+        </div>
+
+        <div class="runtime-grid">
+          <aside class="runtime-brief" aria-live="polite">
+            <div class="runtime-brief__head">
+              <span>当前证据幕</span>
+              <b id="actIndex">ACT 01 / 11</b>
+            </div>
+            <p class="act-kicker" id="actKicker">ORIENTATION</p>
+            <h2 id="actTitle">DEAD CALM</h2>
+            <p id="actSummary">平静海况负责建立尺度：地平线、三个波浪频段、低机位和连续反光共同证明“海”不是一张平面材质。</p>
+
+            <dl class="act-proof" id="actProof">
+              <div><dt>看什么</dt><dd>多尺度海面、低风速、稳定地平线</dd></div>
+              <div><dt>由什么驱动</dt><dd>三层 JONSWAP FFT + OceanMesh</dd></div>
+              <div><dt>证明什么</dt><dd>基础海洋运行时成立</dd></div>
+            </dl>
+
+            <section class="extension-demo-controls" id="scenarioLab" aria-labelledby="scenarioLabTitle">
+              <div class="extension-demo-controls__head">
+                <div>
+                  <span>EXTENSION SCENES</span>
+                  <h3 id="scenarioLabTitle">用真实环境能力做业务演示</h3>
+                </div>
+                <b>03 DEMOS</b>
+              </div>
+              <div class="scenario-control-rail" aria-label="选择扩展场景">
+                <button type="button" class="scenario-control" data-scenario="port" aria-pressed="false">
+                  <span>01</span><b>港口台风预警</b><small>HURRICANE</small>
+                </button>
+                <button type="button" class="scenario-control" data-scenario="tsunami" aria-pressed="false">
+                  <span>02</span><b>近岸海啸疏散</b><small>TSUNAMI</small>
+                </button>
+                <button type="button" class="scenario-control" data-scenario="platform" aria-pressed="false">
+                  <span>03</span><b>平台风暴作业</b><small>NIGHT STORM</small>
+                </button>
+              </div>
+              <p class="extension-demo-controls__boundary">海洋、天气和灾害事件来自上游；港区、风险带和作业状态是 Project 011 的业务覆盖层。</p>
+            </section>
+
+            <div class="act-rail" aria-label="选择上游证据幕">
+              <a class="act-control is-active" href="../../demos/natural-disasters-environment-poc/?preset=low&amp;act=0" data-act="0" aria-current="step">
+                <span>01</span><b>CALM</b><small>定标</small>
+              </a>
+              <a class="act-control" href="../../demos/natural-disasters-environment-poc/?preset=low&amp;act=4" data-act="4">
+                <span>05</span><b>STORM</b><small>组合威胁</small>
+              </a>
+              <a class="act-control" href="../../demos/natural-disasters-environment-poc/?preset=low&amp;act=8" data-act="8">
+                <span>09</span><b>TSUNAMI</b><small>英雄事件</small>
+              </a>
+              <a class="act-control" href="../../demos/natural-disasters-environment-poc/?preset=low&amp;act=10" data-act="10">
+                <span>11</span><b>AFTERMATH</b><small>恢复</small>
+              </a>
+            </div>
+
+            <div class="runtime-actions">
+              <button class="action action--return" id="returnEvidence" type="button" hidden>返回上游证据幕</button>
+              <button class="action action--primary" id="resetDirector" type="button">重播完整 Director</button>
+              <a class="action" id="openSandbox" href="../../demos/natural-disasters-environment-poc/?preset=low&amp;director=0">进入 Sandbox</a>
+              <a class="action action--quiet" id="openFullDemo" href="../../demos/natural-disasters-environment-poc/?preset=low&amp;act=0">独立打开 ↗</a>
+            </div>
+          </aside>
+
+          <div class="runtime-stage" data-runtime="loading" id="runtimeStage">
+            <div class="stage-toolbar">
+              <div class="runtime-status">
+                <span class="signal" id="runtimeSignal"></span>
+                <b id="runtimeStatus">等待真实运行时</b>
+              </div>
+              <div class="runtime-metrics" aria-label="运行状态">
+                <span id="runtimePreset">PRESET —</span>
+                <span id="runtimeFrame">FRAME —</span>
+                <span>COMMIT 849FF7F</span>
+              </div>
+            </div>
+
+            <div class="stage-shell">
+              <div class="stage-poster" id="stagePoster">
+                <img src="../../assets/natural-disasters-target-violent-storm-sea.png" alt="上游 natural-disasters 固定提交中的剧烈风暴目标图">
+                <div>
+                  <span>TARGET_DEMO_MEDIA</span>
+                  <b>桌面端将加载固定提交的真实 WebGL 运行时</b>
+                  <p>移动端和受限设备保留说明与独立启动入口，不用静态图冒充运行结果。</p>
+                </div>
+              </div>
+              <iframe
+                id="upstreamRuntime"
+                title="natural-disasters 固定提交真实运行时"
+                data-src="../../demos/natural-disasters-environment-poc/?preset=low&amp;act=0"
+                allow="fullscreen"
+              ></iframe>
+              <div class="scenario-overlay scenario-overlay--port" data-scenario-overlay="port" hidden>
+                <div class="scenario-overlay__label"><span>PROJECT 011 / BUSINESS LAYER</span><b>港口台风预警</b></div>
+                <div class="port-radar" aria-hidden="true">
+                  <i class="radar-ring radar-ring--one"></i>
+                  <i class="radar-ring radar-ring--two"></i>
+                  <i class="radar-sweep"></i>
+                  <span class="map-node map-node--channel">主航道</span>
+                  <span class="map-node map-node--berth">危险品泊位</span>
+                  <span class="map-node map-node--yard">堆场</span>
+                </div>
+                <dl class="scenario-hud">
+                  <div><dt>预案级别</dt><dd>橙色 · 演示</dd></div>
+                  <div><dt>动作</dt><dd>封港 / 停靠 / 撤离</dd></div>
+                  <div><dt>环境来源</dt><dd>UPSTREAM HURRICANE</dd></div>
+                </dl>
+                <p class="scenario-overlay__boundary">示意覆盖层，不提供真实港区位置、台风路径或风险预测。</p>
+              </div>
+
+              <div class="scenario-overlay scenario-overlay--tsunami" data-scenario-overlay="tsunami" hidden>
+                <div class="scenario-overlay__label"><span>PROJECT 011 / BUSINESS LAYER</span><b>近岸海啸疏散</b></div>
+                <div class="evacuation-map" aria-hidden="true">
+                  <span class="risk-band risk-band--red">临海禁入区</span>
+                  <span class="risk-band risk-band--amber">立即疏散区</span>
+                  <span class="risk-band risk-band--safe">高地集合区</span>
+                  <i class="evacuation-route evacuation-route--one"></i>
+                  <i class="evacuation-route evacuation-route--two"></i>
+                </div>
+                <dl class="scenario-hud">
+                  <div><dt>演示到达时间</dt><dd>00:38</dd></div>
+                  <div><dt>动作</dt><dd>广播 / 逆向疏散 / 集合</dd></div>
+                  <div><dt>环境来源</dt><dd>UPSTREAM TSUNAMI</dd></div>
+                </dl>
+                <p class="scenario-overlay__boundary">时间和风险带仅用于交互演示，不是淹没计算或预警信息。</p>
+              </div>
+
+              <div class="scenario-overlay scenario-overlay--platform" data-scenario-overlay="platform" hidden>
+                <div class="scenario-overlay__label"><span>PROJECT 011 / BUSINESS LAYER</span><b>海上平台风暴作业</b></div>
+                <div class="platform-schematic" aria-hidden="true">
+                  <i class="platform-schematic__deck"></i>
+                  <i class="platform-schematic__tower"></i>
+                  <i class="platform-schematic__flare"></i>
+                  <span>PLATFORM A-17</span>
+                </div>
+                <ul class="operation-checks">
+                  <li class="is-done">吊装作业已停止</li>
+                  <li class="is-done">甲板人员已清点</li>
+                  <li class="is-live">等待雷暴窗口解除</li>
+                </ul>
+                <dl class="scenario-hud">
+                  <div><dt>作业状态</dt><dd>HOLD</dd></div>
+                  <div><dt>关注</dt><dd>浪高 / 雷暴 / 能见度</dd></div>
+                  <div><dt>环境来源</dt><dd>UPSTREAM NIGHT + LIGHTNING</dd></div>
+                </dl>
+                <p class="scenario-overlay__boundary">平台图形和检查项是产品界面示意，不代表结构安全计算。</p>
+              </div>
+              <div class="stage-error" id="stageError" hidden>
+                <strong>内嵌运行时未能启动</strong>
+                <p id="stageErrorText">可继续阅读能力说明，或在独立页面打开上游演示。</p>
+                <a href="../../demos/natural-disasters-environment-poc/?preset=low">打开真实演示 ↗</a>
+              </div>
+            </div>
+
+            <p class="stage-caption"><strong>ACTUAL UPSTREAM BUILD</strong> · iframe 内是固定提交的原始 App、Shader、Director 与 Sandbox；外层网页只调用其公开在页面上的运行对象。</p>
+          </div>
+        </div>
+
+        <noscript>
+          <p class="noscript-note">JavaScript 未启用。全部研究内容仍可阅读；请使用“独立打开”进入上游演示。</p>
+        </noscript>
+      </section>
+
+      <section class="boundary section-block" aria-labelledby="boundary-title">
+        <div class="section-heading">
+          <p class="section-index">01 / BOUNDARY</p>
+          <h2 id="boundary-title">先确定它是什么，再讨论扩展。</h2>
+          <p>仓库名叫 natural-disasters，但源码能力集中在开放海洋、天空、极端天气和电影化海上灾害。</p>
+        </div>
+        <div class="boundary-grid">
+          <article class="boundary-card boundary-card--yes">
+            <span>IT IS</span>
+            <h3>程序化海洋环境引擎</h3>
+            <ul>
+              <li>GPU 实时生成海面、云、雨、飞沫和闪电</li>
+              <li>天气状态、灾害事件和摄影机共用一条时间轴</li>
+              <li>Director 自动演示与 Sandbox 自由操作双入口</li>
+              <li>从 POTATO 到 ULTRA 的五档质量与自适应分辨率</li>
+            </ul>
+          </article>
+          <article class="boundary-card boundary-card--no">
+            <span>IT IS NOT</span>
+            <h3>通用自然灾害或科学模拟器</h3>
+            <ul>
+              <li>没有地震、火山、山洪、森林火灾等陆地系统</li>
+              <li>没有岸线、城市、真实海床和淹没计算</li>
+              <li>灾害是电影化解析场，不是 CFD 或预测模型</li>
+              <li>当前是可扩展源码，不是稳定的外部 SDK</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="capabilities" class="section-block" aria-labelledby="capabilities-title">
+        <div class="section-heading section-heading--wide">
+          <p class="section-index">02 / CAPABILITY STACK</p>
+          <h2 id="capabilities-title">观众看到的是一场风暴，内部运行的是六层系统。</h2>
+          <p>以下每一层都来自固定提交源码，并已由真实 App 运行链路装配。</p>
+        </div>
+
+        <div class="capability-stack" role="table" aria-label="natural-disasters 能力栈">
+          <div class="capability-row capability-row--head" role="row">
+            <span role="columnheader">可见结果</span><span role="columnheader">真实模块</span><span role="columnheader">核心原理</span><span role="columnheader">扩展入口</span>
+          </div>
+          <div class="capability-row" role="row">
+            <strong role="cell"><i>01</i> 多尺度海面与白沫</strong><span role="cell">OceanFFT / OceanMesh</span><p role="cell">三层 JONSWAP 频谱、GPU butterfly IFFT、屏幕空间投影网格</p><em role="cell">风、涌浪、周期、颜色、船尾波</em>
+          </div>
+          <div class="capability-row" role="row">
+            <strong role="cell"><i>02</i> 天空与体积云</strong><span role="cell">Atmosphere / Clouds</span><p role="cell">大气 LUT、Perlin-Worley 密度、ray marching、时域重投影</p><em role="cell">云型、日照、雾霾、昼夜</em>
+          </div>
+          <div class="capability-row" role="row">
+            <strong role="cell"><i>03</i> 雨、飞沫与闪电</strong><span role="cell">Weather / Precipitation / Lightning</span><p role="cell">连续天气状态、GPU 实例、共享光照与大气消光</p><em role="cell">天气预设、强度曲线、触发规则</em>
+          </div>
+          <div class="capability-row" role="row">
+            <strong role="cell"><i>04</i> 海上灾害事件</strong><span role="cell">Director event fields</span><p role="cell">孤立波、涡旋、Gerstner 波组、解析高度场</p><em role="cell">新事件、范围、速度、生命周期</em>
+          </div>
+          <div class="capability-row" role="row">
+            <strong role="cell"><i>05</i> 电影镜头与交互</strong><span role="cell">Director / CinematicCamera / Sandbox</span><p role="cell">幕次状态机、镜头轨迹、事件构图、自由飞行</p><em role="cell">新分镜、外部 Timeline、镜头模板</em>
+          </div>
+          <div class="capability-row" role="row">
+            <strong role="cell"><i>06</i> 画质与性能</strong><span role="cell">Quality / GpuProfiler / PostFX</span><p role="cell">五档 preset、动态分辨率、TAA、曝光、Bloom、DOF</p><em role="cell">预算策略、设备档、证据采样</em>
+          </div>
+        </div>
+      </section>
+
+      <section id="scenarios" class="section-block" aria-labelledby="scenarios-title">
+        <div class="section-heading">
+          <p class="section-index">03 / USE CASES</p>
+          <h2 id="scenarios-title">同一套技术，使用边界分为三圈。</h2>
+        </div>
+
+        <div class="scenario-rings">
+          <article class="scenario-card scenario-card--now">
+            <div><span>NOW</span><b>基本不改</b></div>
+            <h3>视觉演示与预演</h3>
+            <ul>
+              <li>品牌网站、活动页和沉浸式 Hero</li>
+              <li>海洋风暴、灾害镜头和影视预演</li>
+              <li>FFT、体积云、Shader 和 GPU 教学</li>
+              <li>浏览器画质档与性能基准展示</li>
+            </ul>
+          </article>
+          <article class="scenario-card scenario-card--adapt">
+            <div><span>ADAPT</span><b>受控改造</b></div>
+            <h3>产品环境层</h3>
+            <ul>
+              <li>航海游戏、海战游戏和世界事件</li>
+              <li>船只、浮标、海上平台展示</li>
+              <li>海事安全培训与互动展览</li>
+              <li>AI 生成天气状态和镜头序列</li>
+            </ul>
+          </article>
+          <article class="scenario-card scenario-card--stop">
+            <div><span>DO NOT CLAIM</span><b>不可直接使用</b></div>
+            <h3>科学与决策系统</h3>
+            <ul>
+              <li>真实海啸、风暴潮和气象预测</li>
+              <li>城市淹没与岸线风险分析</li>
+              <li>船舶结构受力与工程计算</li>
+              <li>应急指挥中的定量决策依据</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="personal" class="section-block personal-map" aria-labelledby="personal-title">
+        <div class="section-heading section-heading--wide">
+          <p class="section-index">04 / PERSONAL COMPOUNDING</p>
+          <h2 id="personal-title">对你最有价值的，不是多一个 Demo，而是建立一套持续复利的环境母体。</h2>
+          <p>同一次环境制作可以同时变成可玩的关卡、个人 IP 的叙事舞台和可复用素材；三条路线共用同一套海洋、天气、事件与镜头能力。</p>
+        </div>
+
+        <div class="personal-flywheel">
+          <div class="personal-core">
+            <span>SHARED CORE</span>
+            <p class="personal-core__mark">ENV<br>CORE</p>
+            <h3>动态环境母体</h3>
+            <p>上游已经提供海洋、天气、灾害事件、Director、Sandbox 与画质系统。</p>
+            <dl>
+              <div><dt>保留</dt><dd>真实运行时与固定版本</dd></div>
+              <div><dt>新增</dt><dd>玩法、身份、资产和发布流程</dd></div>
+              <div><dt>目标</dt><dd>一次制作，多路复用</dd></div>
+            </dl>
+          </div>
+
+          <div class="personal-tracks">
+            <article class="personal-track personal-track--game">
+              <div class="personal-track__head"><span>01</span><b>GAME</b></div>
+              <h3>把天气变成玩法</h3>
+              <p>从“看风暴”推进到“在风暴中完成任务”，优先做一个 5–10 分钟的海上生存垂直切片。</p>
+              <div class="personal-output">
+                <span>可以产出</span>
+                <ul>
+                  <li>航行、搜救与撤离关卡</li>
+                  <li>疯狗浪、飓风眼和海啸事件</li>
+                  <li>Boss 战、主菜单与电影过场</li>
+                </ul>
+              </div>
+              <p class="personal-gap"><b>仍需补齐</b> 玩家、船舶控制、碰撞伤害、任务、存档和敌人 AI。</p>
+            </article>
+
+            <article class="personal-track personal-track--ip">
+              <div class="personal-track__head"><span>02</span><b>PERSONAL IP</b></div>
+              <h3>把环境变成世界观</h3>
+              <p>让“深海档案馆、风暴观测员、海洋异常调查局”成为持续更新的视觉世界，而不是一次性画面。</p>
+              <div class="personal-output">
+                <span>可以产出</span>
+                <ul>
+                  <li>互动个人主页与 IP 控制台</li>
+                  <li>每期一个异常天气事件</li>
+                  <li>动态海报、短视频和设定集</li>
+                </ul>
+              </div>
+              <p class="personal-gap"><b>仍需补齐</b> 名称、主角、标志物、世界设定、内容节点和稳定更新节奏。</p>
+            </article>
+
+            <article class="personal-track personal-track--asset">
+              <div class="personal-track__head"><span>03</span><b>ASSET LIBRARY</b></div>
+              <h3>把过程变成素材库</h3>
+              <p>每次开发同步整理天气、镜头、界面和媒体输出，让项目结束后仍留下可销售、可组合的资产。</p>
+              <div class="personal-output">
+                <span>可以产出</span>
+                <ul>
+                  <li>环境预设、灾害事件和镜头包</li>
+                  <li>雷达、警报、航线与任务 UI</li>
+                  <li>封面、循环视频和 Three.js 模板</li>
+                </ul>
+              </div>
+              <p class="personal-gap"><b>仍需补齐</b> 命名、元数据、版本、导出格式、资产预算和 MIT 说明。</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="personal-sequence">
+          <div class="personal-sequence__intro">
+            <span>RECOMMENDED ORDER</span>
+            <h3>一条主线，四次沉淀。</h3>
+            <p>避免同时启动三个大项目；用同一个可玩原型逐步产出 IP 与素材。</p>
+          </div>
+          <ol>
+            <li><span>01</span><div><b>可玩切片</b><p>小船进入风暴区，完成搜救并返回。</p></div></li>
+            <li><span>02</span><div><b>IP 身份</b><p>确定主角、组织、世界名称与第一期档案。</p></div></li>
+            <li><span>03</span><div><b>素材封装</b><p>整理预设、镜头、UI、截图和视频。</p></div></li>
+            <li><span>04</span><div><b>个人工具包</b><p>抽取为 Environment Director Kit。</p></div></li>
+          </ol>
+        </div>
+
+        <aside class="personal-thesis">
+          <span>PERSONAL VALUE</span>
+          <p>最大价值不是“拥有一个海洋特效库”，而是让一次制作同时积累<strong>游戏作品、个人品牌和可复用资产</strong>。</p>
+        </aside>
+      </section>
+
+      <section id="extensions" class="section-block" aria-labelledby="extensions-title">
+        <div class="section-heading section-heading--wide">
+          <p class="section-index">05 / EXTENSION LADDER</p>
+          <h2 id="extensions-title">可以扩展，但不是所有扩展都应该修改 Shader。</h2>
+          <p>优先使用已有状态、幕次和事件组合；越靠后越接近新引擎，而不是“加一个配置”。</p>
+        </div>
+
+        <ol class="extension-ladder">
+          <li>
+            <span class="effort effort--low">LOW</span>
+            <div><b>LEVEL 0</b><h3>环境预设</h3><p>晨雾、极夜、台风前夕、热带信风、红色夕阳。</p></div>
+            <em>CONDITIONS + Weather.set()</em>
+          </li>
+          <li>
+            <span class="effort effort--low">LOW–MID</span>
+            <div><b>LEVEL 1</b><h3>新幕次与镜头</h3><p>重排天气、事件、时间和摄影机，形成新的可重复故事。</p></div>
+            <em>Director acts + shots</em>
+          </li>
+          <li>
+            <span class="effort effort--mid">MID–HIGH</span>
+            <div><b>LEVEL 2</b><h3>船只与海上资产</h3><p>加入 GLB、浮力、碰撞、海面采样、跟随镜头和任务状态。</p></div>
+            <em>Three.js Scene + asset pipeline</em>
+          </li>
+          <li>
+            <span class="effort effort--high">HIGH</span>
+            <div><b>LEVEL 3</b><h3>新型海洋事件</h3><p>船尾波、连续风暴潮、冲击波组或新的解析涡旋。</p></div>
+            <em>CPU / GLSL twin field</em>
+          </li>
+          <li>
+            <span class="effort effort--rewrite">REWRITE</span>
+            <div><b>LEVEL 4</b><h3>岸线、城市与科学模拟</h3><p>真实海床、浅水方程、地形交互、建筑淹没与数据校准。</p></div>
+            <em>new simulation architecture</em>
+          </li>
+        </ol>
+      </section>
+
+      <section id="landing" class="section-block landing" aria-labelledby="landing-title">
+        <div class="landing__decision">
+          <p class="section-index">06 / VALUE TO US</p>
+          <span class="decision-badge">RECOMMENDATION · WATCH → ENVIRONMENT LAB</span>
+          <h2 id="landing-title">先做环境编排实验室，不做自然灾害大全。</h2>
+          <p>这条路线保留上游最强的海洋、天气与镜头能力，同时避免在没有下游需求时重写渲染内核。</p>
+          <div class="decision-rule">
+            <span>进入抽取的唯一触发条件</span>
+            <strong>一个真实项目明确需要运行时海洋或天气。</strong>
+          </div>
+        </div>
+
+        <div class="landing-phases">
+          <article>
+            <span>PHASE 01</span>
+            <h3>Scenario Spec</h3>
+            <p>把自然语言天气编译成 Weather 状态、Director 幕次、事件和证据镜头。</p>
+            <b>先复用现有运行时</b>
+          </article>
+          <article>
+            <span>PHASE 02</span>
+            <h3>Asset Scene</h3>
+            <p>加入船只、浮标或海上平台，验证 Project 009/010 资产与环境的组合。</p>
+            <b>按真实用例接入</b>
+          </article>
+          <article>
+            <span>PHASE 03</span>
+            <h3>Environment Adapter</h3>
+            <p>完成 init、applySpec、trigger、reset、captureEvidence 和 dispose。</p>
+            <b>通过生命周期门禁</b>
+          </article>
+        </div>
+      </section>
+
+      <section id="evidence" class="section-block evidence" aria-labelledby="evidence-title">
+        <div class="section-heading">
+          <p class="section-index">07 / EVIDENCE</p>
+          <h2 id="evidence-title">结论有来源，也有明确未证明项。</h2>
+        </div>
+        <div class="evidence-grid">
+          <a href="./upstream-runtime-observation.json"><span>01</span><h3>UPSTREAM RUNTIME</h3><p>14/14 浏览器检查、11 幕和四个关键场景状态。</p><b>查看证据 →</b></a>
+          <a href="./runtime-correction.md"><span>02</span><h3>CORRECTION RECORD</h3><p>为什么独立近似不能代表这个库，以及如何纠正。</p><b>查看记录 →</b></a>
+          <a href="./target-effect-reverse-engineering.md"><span>03</span><h3>EFFECT MAP</h3><p>从画面到参数、系统、算法、镜头和验收。</p><b>打开反推 →</b></a>
+          <a href="./research-plan.md"><span>04</span><h3>RESEARCH PLAN</h3><p>真实 GPU、Adapter 和停止规则。</p><b>打开方案 →</b></a>
+          <a href="./reuse-manifest.json"><span>05</span><h3>REUSE MANIFEST</h3><p>固定提交、当前判断、门禁和下一步。</p><b>查看清单 →</b></a>
+          <a href="./web-workbench-validation.md"><span>06</span><h3>WEB VALIDATION</h3><p>真实内嵌运行、四幕、三个扩展场景、三端布局和回退路径。</p><b>查看 39/39 →</b></a>
+        </div>
+        <aside class="evidence-boundary">
+          <span>STILL NOT PROVEN</span>
+          <p>命名物理 GPU 上的产品性能、跨浏览器一致性、多个实例、统一 App.dispose()、科学准确性。</p>
+        </aside>
+      </section>
+
+      <section id="delivery" class="section-block evidence" aria-labelledby="delivery-title">
+        <div class="section-heading">
+          <p class="section-index">08 / GITHUB DELIVERY</p>
+          <h2 id="delivery-title">研究结论、真实运行时和部署记录在同一个远端版本里。</h2>
+          <p>GitHub Pages 从 <code>main</code> 自动构建；远端页面不是截图归档，而是可交互运行、可回溯源码、可核对证据的交付物。</p>
+        </div>
+        <div class="evidence-grid">
+          <a href="https://yydshly.github.io/0828_codex_project/projects/natural-disasters-environment-study/"><span>01</span><h3>LIVE RESEARCH</h3><p>能力、原理、三项扩展场景与个人游戏 / IP / 素材路线。</p><b>打开远端 Web →</b></a>
+          <a href="https://yydshly.github.io/0828_codex_project/demos/natural-disasters-environment-poc/"><span>02</span><h3>ACTUAL RUNTIME</h3><p>直接运行固定上游提交的 Three.js / WebGL2 生产构建。</p><b>独立打开 →</b></a>
+          <a href="https://github.com/yydshly/0828_codex_project/tree/main/projects/natural-disasters-environment-study"><span>03</span><h3>RESEARCH SOURCE</h3><p>能力地图、固定源码、研究方案、边界与自动验证。</p><b>查看 GitHub →</b></a>
+          <a href="https://github.com/yydshly/0828_codex_project/actions/workflows/pages.yml"><span>04</span><h3>DEPLOYMENT EVIDENCE</h3><p>每次 main 更新的构建、上传和 GitHub Pages 发布记录。</p><b>查看 Actions →</b></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="../../">← 返回研究总库</a>
+      <p>PROJECT 011 · ACTUAL UPSTREAM RUNTIME · REVISION 8</p>
+      <a href="#runtime">返回真实演示 ↑</a>
+    </footer>
+  </body>
+</html>

@@ -115,5 +115,17 @@
     "demoUrl": "./projects/scenegen-capability-study/#effect",
     "demoLabel": "查看官方 3D 证据 →",
     "image": "./assets/scenegen-capability-study-cover.svg"
+  },
+  {
+    "id": "natural-disasters-environment-study",
+    "number": "011",
+    "name": "ENVIRONMENT AS RUNTIME",
+    "status": "真实上游运行 · Web 39/39 · WATCH",
+    "category": "WebGL 海洋环境运行时",
+    "summary": "直接运行 natural-disasters 固定提交，用真实效果梳理 FFT 海洋、体积天气、灾害事件、Director 与画质系统，并演示港口、海啸疏散、平台作业及个人游戏/IP/素材路线。",
+    "url": "./projects/natural-disasters-environment-study/",
+    "demoUrl": "./demos/natural-disasters-environment-poc/",
+    "demoLabel": "运行上游真实演示 →",
+    "image": "./assets/natural-disasters-environment-study-cover.svg"
   }
 ]

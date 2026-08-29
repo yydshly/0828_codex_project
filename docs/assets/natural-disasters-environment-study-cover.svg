@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">ENVIRONMENT AS RUNTIME</title>
+  <desc id="desc">程序化天气、FFT 海洋、运行时环境合同与证据门禁的研究封面。</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#07141d"/>
+      <stop offset="0.58" stop-color="#164253"/>
+      <stop offset="1" stop-color="#817a71"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#176071"/>
+      <stop offset="1" stop-color="#031019"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="20"/></filter>
+  </defs>
+  <rect width="1200" height="750" fill="#03090d"/>
+  <rect x="34" y="34" width="1132" height="682" fill="none" stroke="#214a58"/>
+  <rect x="58" y="58" width="1084" height="358" fill="url(#sky)"/>
+  <circle cx="955" cy="153" r="58" fill="#ffd49a" opacity=".92"/>
+  <circle cx="955" cy="153" r="92" fill="#ffc779" opacity=".2" filter="url(#glow)"/>
+  <g fill="#0a202a" opacity=".92">
+    <ellipse cx="286" cy="239" rx="142" ry="48"/>
+    <ellipse cx="407" cy="214" rx="130" ry="70"/>
+    <ellipse cx="532" cy="251" rx="165" ry="54"/>
+    <ellipse cx="720" cy="307" rx="135" ry="46" opacity=".75"/>
+  </g>
+  <g stroke="#a6fbff" opacity=".25">
+    <path d="M230 286l-46 94M294 278l-46 102M358 276l-46 104M422 282l-46 98M486 291l-44 89M550 300l-40 80"/>
+  </g>
+  <rect x="58" y="416" width="1084" height="276" fill="url(#sea)"/>
+  <g fill="none" stroke="#88eef4">
+    <path d="M58 473c96-68 166 48 260-17s166 62 260-6 162 50 260-6 190 45 304-14" stroke-width="8"/>
+    <path d="M58 530c103-48 186 34 286-9s181 35 286-12 183 34 286-6 147 20 226-3" stroke-width="5" opacity=".62"/>
+    <path d="M58 590c112-33 180 19 288-4s180 26 286-5 188 22 288-6 147 13 222-3" stroke-width="3" opacity=".4"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="88" y="108" fill="#a6fbff" font-size="20" font-weight="700" letter-spacing="5">PROJECT 011 · TARGET EFFECT</text>
+    <text x="88" y="629" fill="#eefbfc" font-size="76" font-weight="800" letter-spacing="-4">ENVIRONMENT</text>
+    <text x="88" y="684" fill="#66dae2" font-size="42" font-weight="700" letter-spacing="8">AS RUNTIME</text>
+    <text x="740" y="657" fill="#91aeb8" font-size="17" font-weight="700" letter-spacing="3">TARGET → SYSTEM → REPRODUCTION</text>
+  </g>
+</svg>

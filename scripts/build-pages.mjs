@@ -17,6 +17,8 @@ const sceneGenStudyRoot = join(repositoryRoot, "projects", "scenegen-capability-
 const sceneGenStudyOutputRoot = join(outputRoot, "projects", "scenegen-capability-study");
 const spriteMakerStudyRoot = join(repositoryRoot, "projects", "sprite-maker-study");
 const spriteMakerStudyOutputRoot = join(outputRoot, "projects", "sprite-maker-study");
+const naturalDisastersStudyRoot = join(repositoryRoot, "projects", "natural-disasters-environment-study");
+const naturalDisastersStudyOutputRoot = join(outputRoot, "projects", "natural-disasters-environment-study");
 
 if (!outputRoot.startsWith(repositoryRoot)) {
   throw new Error("Refusing to build outside the repository.");
@@ -97,6 +99,51 @@ await copyFile(
 await copyFile(
   join(sceneGenStudyRoot, "experiments", "poc-scorecard-template.md"),
   join(sceneGenStudyOutputRoot, "poc-scorecard-template.md")
+);
+
+await copyFile(
+  join(naturalDisastersStudyRoot, "experiments", "target-effect-reverse-engineering.md"),
+  join(naturalDisastersStudyOutputRoot, "target-effect-reverse-engineering.md")
+);
+
+await copyFile(
+  join(naturalDisastersStudyRoot, "RESEARCH-PLAN.md"),
+  join(naturalDisastersStudyOutputRoot, "research-plan.md")
+);
+
+await copyFile(
+  join(naturalDisastersStudyRoot, "REUSE-MANIFEST.json"),
+  join(naturalDisastersStudyOutputRoot, "reuse-manifest.json")
+);
+
+await copyFile(
+  join(naturalDisastersStudyRoot, "experiments", "upstream-source-audit.json"),
+  join(naturalDisastersStudyOutputRoot, "upstream-source-audit.json")
+);
+
+await copyFile(
+  join(naturalDisastersStudyRoot, "experiments", "upstream-runtime-observation.json"),
+  join(naturalDisastersStudyOutputRoot, "upstream-runtime-observation.json")
+);
+
+await copyFile(
+  join(naturalDisastersStudyRoot, "experiments", "runtime-correction.md"),
+  join(naturalDisastersStudyOutputRoot, "runtime-correction.md")
+);
+
+await copyFile(
+  join(naturalDisastersStudyRoot, "experiments", "web-workbench-validation.md"),
+  join(naturalDisastersStudyOutputRoot, "web-workbench-validation.md")
+);
+
+await copyFile(
+  join(naturalDisastersStudyRoot, "CAPABILITIES.md"),
+  join(naturalDisastersStudyOutputRoot, "capabilities.md")
+);
+
+await copyFile(
+  join(naturalDisastersStudyRoot, "README.md"),
+  join(naturalDisastersStudyOutputRoot, "readme.md")
 );
 
 console.log("Pages bundle ready:", outputRoot);

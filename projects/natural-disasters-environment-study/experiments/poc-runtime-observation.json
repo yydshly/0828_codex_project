@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0",
+  "recordedAt": "2026-08-29T00:00:00+08:00",
+  "evidenceClass": "INVALIDATED_PROJECT_011_POC",
+  "validForUpstreamClaims": false,
+  "invalidationReason": "Independent approximation; did not execute the researched natural-disasters runtime.",
+  "canonicalRoute": "http://127.0.0.1:4173/demos/natural-disasters-environment-poc/",
+  "implementation": {
+    "renderer": "native WebGL2",
+    "shaderLanguage": "GLSL ES 3.00",
+    "upstreamCodeCopied": false,
+    "runtimeDependenciesAdded": 0,
+    "sequenceSeconds": 52,
+    "beats": [
+      "calm",
+      "cloud-field",
+      "violent-storm",
+      "tsunami",
+      "aftermath"
+    ]
+  },
+  "environment": {
+    "os": "Windows 10/11 host",
+    "browser": "Headless Chrome 151",
+    "automation": "Codex bundled Playwright runtime; agent-browser CLI was unavailable",
+    "angleBackendRequested": "SwiftShader",
+    "viewport": "1440x1000",
+    "devicePixelRatio": 1,
+    "internalRenderScale": 0.76,
+    "internalRenderBuffer": "1094x760",
+    "importantBoundary": "This is a software-renderer observation, not a physical GPU or upstream ABYSSAL performance baseline."
+  },
+  "runtimeSamples": [
+    {
+      "beat": "calm",
+      "samples": 76,
+      "averageFrameMs": 37.28,
+      "derivedFps": 26.82
+    },
+    {
+      "beat": "cloud-field",
+      "samples": 38,
+      "averageFrameMs": 30.27,
+      "derivedFps": 33.04
+    },
+    {
+      "beat": "violent-storm",
+      "samples": 39,
+      "averageFrameMs": 29.59,
+      "derivedFps": 33.79
+    },
+    {
+      "beat": "tsunami",
+      "samples": 37,
+      "averageFrameMs": 29.82,
+      "derivedFps": 33.53
+    },
+    {
+      "beat": "aftermath",
+      "samples": 38,
+      "averageFrameMs": 30.63,
+      "derivedFps": 32.65
+    }
+  ],
+  "browserValidation": {
+    "result": "pass",
+    "checks": "48/48",
+    "desktop": "1440x1000",
+    "tablet": "820x1180",
+    "phone": "390x844",
+    "verified": [
+      "HTTP 200 and meaningful content",
+      "WebGL2 shader compiles and renders",
+      "five direct beat states",
+      "play, pause, replay, previous, next and timeline scrub",
+      "visible keyboard focus",
+      "reduced-motion autoplay suppression",
+      "forced DOM fallback with explicit target-media attribution",
+      "no console errors, page errors, failed requests or horizontal overflow",
+      "research-page demo links and responsive POC section"
+    ],
+    "transientEvidenceDirectory": "C:/Users/yun68/AppData/Local/Temp/project-011-poc-evidence-20260829/"
+  },
+  "boundedConclusion": {
+    "passed": "A target-effect-led five-beat director can drive an independent, inspectable WebGL2 scene without copying the upstream runtime.",
+    "notProven": [
+      "visual parity with the official ABYSSAL target frames",
+      "equivalence to three-cascade JONSWAP FFT ocean simulation",
+      "equivalence to volumetric cloud ray marching",
+      "physical disaster accuracy",
+      "production performance on a named hardware GPU",
+      "EnvironmentAdapter lifecycle and multiple-instance disposal"
+    ],
+    "decision": "WATCH"
+  }
+}

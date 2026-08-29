@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "2.0",
+  "project": {
+    "number": "011",
+    "slug": "natural-disasters-environment-study",
+    "name": "ENVIRONMENT AS RUNTIME",
+    "status": "upstream-runtime-verified-watch",
+    "lastUpdated": "2026-08-29"
+  },
+  "upstream": {
+    "repository": "https://github.com/Token-Gremlin/natural-disasters",
+    "commit": "849ff7f4199c9322d8ecafb48d62fc63f8d5af1d",
+    "version": "1.0.0",
+    "license": "MIT",
+    "vendoredSource": "vendor/natural-disasters/",
+    "canonicalDemo": "docs/demos/natural-disasters-environment-poc/"
+  },
+  "implementation": {
+    "kind": "actual-upstream-production-build",
+    "runtime": [
+      "JavaScript",
+      "Three.js",
+      "WebGL2",
+      "GLSL3"
+    ],
+    "projectAuthoredRenderer": false,
+    "upstreamApp": true,
+    "upstreamDirector": true,
+    "upstreamSandbox": true,
+    "upstreamShaders": true
+  },
+  "correction": {
+    "invalidatedRevision": 3,
+    "invalidatedApproach": "independent native WebGL2 approximation",
+    "reason": "It did not execute the researched library and therefore could not demonstrate the library's actual effect.",
+    "record": "experiments/runtime-correction.md"
+  },
+  "runtimeEvidence": {
+    "class": "UPSTREAM_RUNTIME",
+    "browserChecks": "14/14",
+    "renderer": "ANGLE SwiftShader via Chrome headless",
+    "functionalOnly": true,
+    "appRunning": true,
+    "webgl2": true,
+    "directorActs": 11,
+    "sandboxInstalled": true,
+    "sampledActs": [
+      "DEAD CALM",
+      "VIOLENT STORM",
+      "TSUNAMI",
+      "AFTERMATH"
+    ],
+    "bootErrors": 0,
+    "pageErrors": 0,
+    "failedRequests": 0,
+    "observation": "experiments/upstream-runtime-observation.json"
+  },
+  "currentJudgment": {
+    "state": "WATCH",
+    "summary": "The fixed upstream runtime and Director effect chain work. Reuse as a general Environment Pack remains gated by physical-GPU performance, host decoupling, lifecycle disposal and a real downstream need."
+  },
+  "confirmedCapabilities": [
+    "three-cascade JONSWAP FFT ocean and persistent foam",
+    "procedural atmosphere and volumetric clouds",
+    "rain, spray, lightning and fog",
+    "analytic cinematic disaster events",
+    "eleven-act Director and interactive Sandbox",
+    "quality presets, adaptive resolution, GPU profiling and post-processing"
+  ],
+  "activationGates": [
+    "Run acts 0, 4, 8 and 10 on an identified physical GPU across low, medium and high presets.",
+    "Show that a downstream host can control environment state without copying the complete upstream UI and Director.",
+    "Document and verify init, reset and dispose behavior, including GPU resources.",
+    "Confirm that an active Project 002, 008, 009 or 010 task needs runtime ocean or weather."
+  ],
+  "nextAction": "Capture the fixed upstream build on an identified physical GPU; do not rewrite or extend the renderer before that evidence exists."
+}
