@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "project": "Project 008 · DIRECTOR AS COMPILER",
+  "experiment": "character-style-expansion",
+  "generated_at": "2026-08-29",
+  "generation_mode": "image_only",
+  "generator": "built-in imagegen",
+  "purpose": "Compare static character languages that could replace the default stick figure before spending video-generation budget.",
+  "shared_contract": {
+    "use_case": "stylized-concept",
+    "asset_type": "website character-style capability sample",
+    "composition": "one full-body character centered in a square 1:1 frame with generous clean margin",
+    "scene": "neutral studio backdrop with a restrained ground shadow",
+    "constraints": [
+      "exactly one character",
+      "simple repeatable silhouette",
+      "no text, letters, logos or watermark",
+      "no split panels",
+      "no complex background",
+      "no stick figure"
+    ]
+  },
+  "evidence_boundary": [
+    "These images demonstrate static visual directions only.",
+    "They do not prove animation quality, action readability in motion, cross-shot identity consistency, model success rate or cost.",
+    "The stability labels are design hypotheses based on structural simplicity, not measured video benchmark results."
+  ],
+  "styles": [
+    {
+      "id": "geometric-paper",
+      "name_zh": "几何纸片人",
+      "file": "../../assets/project-008-characters/geometric-paper-character.webp",
+      "prompt_spec": {
+        "subject": "gender-neutral geometric paper-cut human, circular head, trapezoid torso, rectangular limbs, simple articulated joints, one hand slightly raised",
+        "style": "premium flat layered paper-cut illustration with crisp silhouette and minimal facial detail",
+        "palette": "cobalt blue, ice blue, white and one small coral accent",
+        "texture": "subtle paper fibers and layered edges"
+      },
+      "suitable_for": ["知识解释", "产品流程", "商业汇报"],
+      "continuity_anchor": "fixed geometry ratios and joint count",
+      "hypothesis": "very high structural stability"
+    },
+    {
+      "id": "faceless-editorial",
+      "name_zh": "无脸时尚人物",
+      "file": "../../assets/project-008-characters/faceless-editorial-character.webp",
+      "prompt_spec": {
+        "subject": "androgynous adult with elongated proportions, short asymmetrical hair, fixed high-collar jacket and straight trousers",
+        "style": "contemporary faceless editorial illustration with flowing contours and subtle painted texture",
+        "palette": "ice blue, white, silver gray and restrained midnight blue",
+        "texture": "matte gouache and subtle paper grain"
+      },
+      "suitable_for": ["品牌故事", "职场", "生活方式", "时尚"],
+      "continuity_anchor": "hair silhouette, outfit construction and body proportions",
+      "hypothesis": "high expression, medium structural stability"
+    },
+    {
+      "id": "clay",
+      "name_zh": "黏土小人",
+      "file": "../../assets/project-008-characters/clay-character.webp",
+      "prompt_spec": {
+        "subject": "rounded gender-neutral clay character with compact torso, short limbs, dot eyes, small smile and one raised hand",
+        "style": "polished stop-motion clay character with a simple repeatable design",
+        "palette": "warm terracotta, cream and muted teal",
+        "texture": "soft matte modeling clay with subtle fingerprints"
+      },
+      "suitable_for": ["教育", "轻科普", "儿童内容", "温暖品牌"],
+      "continuity_anchor": "head-to-body ratio, hair mass and clothing color blocks",
+      "hypothesis": "high friendliness and deformation tolerance"
+    },
+    {
+      "id": "felt-doll",
+      "name_zh": "毛毡玩偶",
+      "file": "../../assets/project-008-characters/felt-doll-character.webp",
+      "prompt_spec": {
+        "subject": "gender-neutral handmade felt person with round body, short limbs, bead eyes, stitched mouth and a small teal scarf",
+        "style": "premium needle-felt doll photography with a tactile handcrafted finish",
+        "palette": "oatmeal, charcoal, muted teal and a tiny rust accent",
+        "texture": "visible wool fibers and neat stitching"
+      },
+      "suitable_for": ["心理健康", "亲子", "情感表达", "治愈叙事"],
+      "continuity_anchor": "round silhouette, scarf, bead eyes and stitch pattern",
+      "hypothesis": "high emotional affinity, limited complex-action range"
+    },
+    {
+      "id": "silhouette",
+      "name_zh": "黑色剪影人物",
+      "file": "../../assets/project-008-characters/silhouette-character.webp",
+      "prompt_spec": {
+        "subject": "complete human silhouette with a distinctive long-coat shape and one arm extended",
+        "style": "editorial cut-paper silhouette with solid graphic shapes and cinematic poster quality",
+        "palette": "deep matte black, warm off-white and controlled crimson",
+        "texture": "crisp paper-cut edges with subtle grain"
+      },
+      "suitable_for": ["概念表达", "悬疑", "压力叙事", "社会议题"],
+      "continuity_anchor": "filled long-coat silhouette and constrained accent color",
+      "hypothesis": "very high silhouette stability, low facial expression"
+    },
+    {
+      "id": "low-poly",
+      "name_zh": "低多边形人物",
+      "file": "../../assets/project-008-characters/low-poly-character.webp",
+      "prompt_spec": {
+        "subject": "gender-neutral low-poly person with angular head, fixed navy jacket, teal trousers and one raised hand",
+        "style": "polished low-poly 3D character render with faceted geometry and no realistic face",
+        "palette": "navy, teal, light gray and a small amber accent",
+        "texture": "matte faceted surfaces"
+      },
+      "suitable_for": ["科技产品", "工业流程", "游戏化教育"],
+      "continuity_anchor": "faceting density, outfit colors and body proportions",
+      "hypothesis": "high spatial capability, medium generation cost"
+    },
+    {
+      "id": "wooden-mannequin",
+      "name_zh": "木偶关节人",
+      "file": "../../assets/project-008-characters/wooden-mannequin-character.webp",
+      "prompt_spec": {
+        "subject": "classic articulated wooden human mannequin with visible ball joints and one hand raised",
+        "style": "refined product-style 3D render with an artistic storyboard mood",
+        "palette": "natural pale wood, charcoal joints and a restrained cobalt-blue base",
+        "texture": "fine wood grain and smooth crafted joints"
+      },
+      "suitable_for": ["动作教学", "分镜预演", "创意实验"],
+      "continuity_anchor": "joint topology and wood material",
+      "hypothesis": "high action readability, neutral brand personality"
+    },
+    {
+      "id": "brand-mascot",
+      "name_zh": "品牌吉祥物",
+      "file": "../../assets/project-008-characters/brand-mascot-character.webp",
+      "prompt_spec": {
+        "subject": "friendly capsule-shaped AI helper with compact body, short limbs, glowing eyes, one antenna notch and a waving hand",
+        "style": "premium soft 3D original brand character with simple recognizable geometry",
+        "palette": "cobalt blue, ice blue, white and a small coral accent",
+        "texture": "matte soft-touch polymer with restrained translucent detail"
+      },
+      "suitable_for": ["产品教程", "AI 助手", "品牌连载", "社交媒体"],
+      "continuity_anchor": "capsule silhouette, face panel, antenna notch and palette",
+      "hypothesis": "highest long-term IP value; requires a formal character sheet"
+    }
+  ],
+  "recommended_first_video_set": [
+    "geometric-paper",
+    "silhouette",
+    "clay",
+    "brand-mascot"
+  ]
+}

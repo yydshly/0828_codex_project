@@ -19,6 +19,8 @@ const [
   adaptersRaw,
   abPlanRaw,
   userSampleRaw,
+  styleGalleryRaw,
+  siteStyleGalleryRaw,
   projectReadme,
   designContract,
   rootReadme,
@@ -36,6 +38,8 @@ const [
   readFile(join(projectRoot, "experiments", "style-adapter-blueprint.json"), "utf8"),
   readFile(join(projectRoot, "experiments", "ab-execution-plan.json"), "utf8"),
   readFile(join(projectRoot, "experiments", "user-generated-sample.json"), "utf8"),
+  readFile(join(projectRoot, "experiments", "character-style-gallery.json"), "utf8"),
+  readFile(join(pageRoot, "character-style-gallery.json"), "utf8"),
   readFile(join(projectRoot, "README.md"), "utf8"),
   readFile(join(projectRoot, "DESIGN-CONTRACT.md"), "utf8"),
   readFile(join(repositoryRoot, "README.md"), "utf8"),
@@ -51,6 +55,7 @@ const cases = JSON.parse(casesRaw);
 const adapters = JSON.parse(adaptersRaw);
 const abPlan = JSON.parse(abPlanRaw);
 const userSample = JSON.parse(userSampleRaw);
+const styleGallery = JSON.parse(styleGalleryRaw);
 const packageJson = JSON.parse(packageRaw);
 const pageProject = projects.find((project) => project.id === "stickman-video-director-study");
 const expectedCommit = "6d7f8c83a16c594c23bb73da832c8864ccd2aeb5";
@@ -71,6 +76,13 @@ const mediaChecks = await Promise.all(audit.official_demo_assets.map(async (asse
 }));
 const userSampleMedia = await readFile(join(repositoryRoot, "docs", "assets", "project-008-media", "user-motivation-clips-01-02.mp4"));
 const userSamplePoster = await readFile(join(repositoryRoot, "docs", "assets", "project-008-media", "user-motivation-clips-01-02-poster.jpg"));
+const styleGalleryAssets = await Promise.all(styleGallery.styles.map((style) => readFile(join(
+  repositoryRoot,
+  "docs",
+  "assets",
+  "project-008-characters",
+  style.file.split("/").at(-1)
+))));
 
 const caseContractPasses = cases.cases.every((item) => {
   const totalWords = wordCount(item.scenes.map((scene) => scene.vo).join(" "));
@@ -108,7 +120,11 @@ const checks = [
   ["用户实测证据边界完整", userSample.evidence_limitations.length >= 4 && userSample.generation_backend === "not_recorded" && userSample.prompt_invocation === "not_recorded"],
   ["用户实测页面与 poster 已接入", userSamplePoster.length > 10000 && html.includes('id="user-sample"') && html.includes("USER-GENERATED EXTERNAL MODEL OUTPUT") && html.includes("user-motivation-clips-01-02.mp4")],
   ["必要理解归纳五项职责", (html.match(/class="necessary-understanding"/g) || []).length === 1 && (html.match(/<li><span>0[1-5]<\/span><strong>/g) || []).length >= 5 && projectReadme.includes("## 必要理解")],
-  ["外部 README 关联实测与审计", rootReadme.includes("观看我们的 CLIP 01–02 实测") && rootReadme.includes("user-generated-sample.json") && projectReadme.includes("#user-sample")],
+  ["八种静态形象扩展已登记", styleGallery.generation_mode === "image_only" && styleGallery.styles.length === 8 && styleGallery.recommended_first_video_set.length === 4],
+  ["八张形象图片已接入且非空", styleGalleryAssets.length === 8 && styleGalleryAssets.every((asset) => asset.length > 10000) && (html.match(/class="character-style-card(?: is-priority)?"/g) || []).length === 8],
+  ["形象实验明确静态证据边界", html.includes('id="character-styles"') && html.includes("GENERATED IMAGE EXPLORATION") && html.includes("不能证明视频动作") && projectReadme.includes("本轮没有生成新视频")],
+  ["形象清单在研究与站点保持一致", styleGalleryRaw.trim() === siteStyleGalleryRaw.trim() && html.includes('href="./character-style-gallery.json"')],
+  ["外部 README 关联形象、实测与审计", rootReadme.includes("查看 8 种火柴人替代形象") && rootReadme.includes("character-style-gallery.json") && rootReadme.includes("user-generated-sample.json") && projectReadme.includes("#user-sample")],
   ["三类案例存在", cases.cases.length === 3 && ["motivational", "educational", "commercial"].every((pattern) => cases.cases.some((item) => item.pattern === pattern))],
   ["三个案例均满足旁白与六幕合同", caseContractPasses],
   ["模拟证据边界明确", cases.generated_by.includes("Project 008") && html.includes("DETERMINISTIC RESEARCH SIMULATION") && html.includes("不调用 LLM 或视频模型")],
@@ -139,7 +155,7 @@ const checks = [
   ["页面不依赖外部运行素材", !/(src|href)=["']https?:\/\/[^"']+\.(js|css|png|jpg|jpeg|webp|svg|mp4)/i.test(html)],
   ["Pages checkout 初始化 submodule", workflow.includes("submodules: recursive")],
   ["Project 008 测试命令已登记", packageJson.scripts["test:project-008"]?.includes("static-check.mjs") && packageJson.scripts["test:all"]?.includes("test:project-008")],
-  ["设计契约包含 Revision 3 部署验收边界", designContract.includes("Request revision: 3") && designContract.includes("Observable completion criteria") && designContract.includes("用户实测证据") && designContract.includes("远端部署")],
+  ["设计契约包含 Revision 4 形象扩展与部署边界", designContract.includes("Request revision: 4") && designContract.includes("Observable completion criteria") && designContract.includes("八种静态替代形象") && designContract.includes("远端部署")],
   ["不存在模板占位符", !/[<［\[]待填写[>］\]]|TODO|Lorem ipsum/i.test(`${html}\n${projectReadme}\n${designContract}`)]
 ];
 

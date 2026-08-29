@@ -85,6 +85,26 @@ async function run() {
     await page.waitForTimeout(250);
     await page.screenshot({ path: join(evidenceRoot, "project-008-user-sample.png"), fullPage: false });
 
+    await page.locator("#character-styles").scrollIntoViewIfNeeded();
+    await page.waitForFunction(() => [...document.querySelectorAll(".character-style-card img")].every((image) => image.complete && image.naturalWidth > 0));
+    const characterImages = await page.locator(".character-style-card img").evaluateAll((images) => images.map((image) => ({
+      width: image.naturalWidth,
+      height: image.naturalHeight,
+      alt: image.alt
+    })));
+    record("八种静态形象样张完整加载", characterImages.length === 8 && characterImages.every((image) => image.width === 1000 && image.height === 1000 && image.alt.length > 8), JSON.stringify(characterImages));
+    record("形象卡覆盖描述、场景与注意项", await page.locator(".character-style-card").count() === 8 && await page.locator(".character-style-card dl").count() === 8 && (await page.locator(".character-priority").innerText()).includes("几何纸片人"));
+    record("形象实验不冒充视频验证", (await page.locator("#character-styles").innerText()).includes("不能证明视频动作") && (await page.locator("#character-styles").innerText()).includes("本轮只确认形象方向"));
+    const galleryResponse = await page.request.get(`${projectUrl}character-style-gallery.json`);
+    const galleryPayload = await galleryResponse.json();
+    record("机器可读形象清单可访问", galleryResponse.ok() && galleryPayload.generation_mode === "image_only" && galleryPayload.styles.length === 8);
+    await page.locator("#character-styles").evaluate((element) => window.scrollTo({
+      top: window.scrollY + element.getBoundingClientRect().top - 86,
+      behavior: "instant"
+    }));
+    await page.waitForTimeout(250);
+    await page.screenshot({ path: join(evidenceRoot, "project-008-character-styles.png"), fullPage: false });
+
     await page.locator("#lab").scrollIntoViewIfNeeded();
     record("默认案例是励志叙事", await page.locator("#patternBadge").textContent() === "MOTIVATIONAL" && await page.locator("#wordCount").textContent() === "143");
     record("默认六幕均已渲染", await page.locator(".scene-card").count() === 6);
@@ -175,6 +195,8 @@ async function run() {
     record("390px 手机无横向溢出", !mobileLayout.overflow, JSON.stringify(mobileLayout));
     await page.locator("#user-sample").scrollIntoViewIfNeeded();
     record("手机用户实测视频与审计可见", await page.locator(".user-sample-video video").isVisible() && await page.locator(".sample-audit").isVisible());
+    await page.locator("#character-styles").scrollIntoViewIfNeeded();
+    record("手机八张形象卡顺序可见", await page.locator(".character-style-card").count() === 8 && await page.locator(".character-style-card").first().isVisible() && await page.locator(".character-style-card").last().isVisible());
     await page.locator("#lab").scrollIntoViewIfNeeded();
     record("手机案例与控制可见", await page.locator("#caseTabs").isVisible() && await page.locator("#ratioSelect").isVisible() && await page.locator("#approveButton").isVisible());
     await page.getByRole("tab", { name: /科普解释/ }).click();
