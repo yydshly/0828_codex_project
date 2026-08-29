@@ -1,0 +1,29 @@
+{
+  "id": "de10ec7e-4b92-41e4-a246-0fd905d62d33",
+  "workspaceId": "f060f036-d6e0-45d3-a760-90acf229ea7f",
+  "worktreeId": null,
+  "name": "project003-anchor-idle-revised3",
+  "fps": 6.0,
+  "looping": true,
+  "frames": [
+    {
+      "assetId": "5d81b74e-9e40-41a5-a44a-a8dd3147b0e1",
+      "durationMs": null
+    },
+    {
+      "assetId": "949098ae-7948-4e01-adb6-4860fb8d93a1",
+      "durationMs": null
+    },
+    {
+      "assetId": "c0006547-0be7-4c52-bf8a-98261b757999",
+      "durationMs": null
+    },
+    {
+      "assetId": "4a3310a4-d6b7-4542-adbb-3ee3ea788306",
+      "durationMs": null
+    }
+  ],
+  "motionPlan": null,
+  "createdAt": "2026-08-28T17:48:38.832467100+00:00",
+  "updatedAt": "2026-08-28T17:48:38.832467100+00:00"
+}

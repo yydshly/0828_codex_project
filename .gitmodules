@@ -4,3 +4,6 @@
 [submodule "projects/night-diary-image-skill-study/source"]
 	path = projects/night-diary-image-skill-study/source
 	url = https://github.com/xianxie6/night-diary-image-skill.git
+[submodule "projects/sprite-maker-study/source"]
+	path = projects/sprite-maker-study/source
+	url = https://github.com/JohnKinyanjui/sprite-maker.git

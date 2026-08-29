@@ -1,6 +1,6 @@
 # 0828 Codex Project
 
-一个用于持续开发、验证和公开展示独立研究子项目的仓库。当前收录九个项目：一个完整可玩的程序化跑酷游戏，以及面向产品模式、个人 IP 资产、古籍资料源、写真视觉 Skill、PDF 结构恢复、构图保护型图像编辑、idea-to-video 导演协议和单图 3D 场景生成的八项研究。
+一个用于持续开发、验证和公开展示独立研究子项目的仓库。当前收录十个项目：一个完整可玩的程序化跑酷游戏，以及面向产品模式、个人 IP 资产、古籍资料源、写真视觉 Skill、PDF 结构恢复、构图保护型图像编辑、idea-to-video 导演协议、动作资产生产和单图 3D 场景生成的九项研究。
 
 [在线研究总库](https://yydshly.github.io/0828_codex_project/) · [项目在线演示](#当前研究项目) · [参与方式](CONTRIBUTING.md)
 
@@ -18,6 +18,7 @@
 | [**006 · NATIVE PDF, STRUCTURED**](projects/nativepdf-structurer-analysis/) | [nativePDF-structurer 的能力、本质、适用边界、扩展方向与同类产品](projects/nativepdf-structurer-analysis/README.md) | [▶ 阅读最终判断](https://yydshly.github.io/0828_codex_project/projects/nativepdf-structurer-analysis/) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/nativepdf-structurer-analysis/) · [仓库档案](projects/nativepdf-structurer-analysis/README.md) · [页面源码](docs/projects/nativepdf-structurer-analysis/) | 已验证 · 进入观察清单 |
 | [**007 · NIGHT DIARY AS CONTROL LAYER**](projects/night-diary-image-skill-study/) | [构图保护、夜色风格合同、上游样例与五组独立图像编辑实测](projects/night-diary-image-skill-study/README.md) | [▶ 查看能力与场景实测](https://yydshly.github.io/0828_codex_project/projects/night-diary-image-skill-study/#experiments) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/night-diary-image-skill-study/) · [仓库档案](projects/night-diary-image-skill-study/README.md) · [上游子模块](projects/night-diary-image-skill-study/source/) | 已验证 · 中文、场景装配与结构量测已完成 |
 | [**008 · DIRECTOR AS COMPILER**](projects/stickman-video-director-study/) | [Idea-to-video 导演协议、六幕分镜、首条 20 秒外部实测与八种静态替代形象](projects/stickman-video-director-study/README.md) | [▶ 阅读项目必要总结](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/#summary) | [最终总结](projects/stickman-video-director-study/SUMMARY.md) · [在线研究](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/) · [形象清单](projects/stickman-video-director-study/experiments/character-style-gallery.json) · [实测审计](projects/stickman-video-director-study/experiments/user-generated-sample.json) · [上游子模块](projects/stickman-video-director-study/source/) | 已验证 · 必要结论已收束，四层证据可追溯 |
+| [**009 · SPRITE PRODUCTION, LOCAL FIRST**](projects/sprite-maker-study/) | [从单张角色图到多动作 Sprite 资产、版本化 QA 与五类应用装配](projects/sprite-maker-study/README.md) | [▶ 进入五场景应用实验室](https://yydshly.github.io/0828_codex_project/demos/sprite-maker-application-lab/) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/sprite-maker-study/) · [原多动作能力关卡](https://yydshly.github.io/0828_codex_project/demos/sprite-maker-scene/) · [发布索引](projects/sprite-maker-study/RELEASE.md) · [仓库档案](projects/sprite-maker-study/README.md) · [上游子模块](projects/sprite-maker-study/source/) | 已验证 · 自有样例、五类场景与复杂战斗试运行完成 |
 | [**010 · SCENE, GENERATED.**](projects/scenegen-capability-study/) | [SceneGen 的官方效果、联合资产与布局生成、工程边界和触发式采用路线](projects/scenegen-capability-study/README.md) | [▶ 查看官方 3D 证据](https://yydshly.github.io/0828_codex_project/projects/scenegen-capability-study/#effect) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/scenegen-capability-study/) · [仓库档案](projects/scenegen-capability-study/README.md) · [页面源码](docs/projects/scenegen-capability-study/) | 已验证 · 按真实 3D 任务触发 |
 
 状态统一使用：`规划中`、`研究中`、`已验证`、`已归档`。
@@ -34,6 +35,7 @@
 - `projects/nativepdf-structurer-analysis/` 是 Project 006 的 PDF 结构恢复、RAG 预处理边界、同类产品与采用判断档案。
 - `projects/night-diary-image-skill-study/` 是 Project 007 的 Night Diary 图像编辑 Skill、上游样例、五组独立实测、中文/人物分支和落地建议档案。
 - `projects/stickman-video-director-study/` 是 Project 008 的视频导演 Skill、用户 20 秒外部生成实测、八种静态替代形象、代表性案例、自有风格迁移与后期生产路线档案。
+- `projects/sprite-maker-study/` 是 Project 009 的 Sprite Maker 固定上游、自有角色多动作资产、像素 QA、五类应用实验室和复杂战斗试运行档案。
 - `projects/scenegen-capability-study/` 是 Project 010 的单图 3D 场景生成效果、原理、GLB 证据、工程边界、复用手册与采用判断档案。
 - `docs/` 是 GitHub Pages 展示层，包含总库首页和项目研究总结。
 - `scripts/build-pages.mjs` 将展示层与游戏组装到 `.pages-dist/`。
@@ -52,6 +54,7 @@ npm run test:project-005
 node projects/nativepdf-structurer-analysis/tests/static-check.mjs
 npm run test:project-007
 npm run test:project-008
+npm run test:project-009
 npm run test:project-010
 npm run build:pages
 npm run preview:pages
@@ -68,6 +71,8 @@ npm run preview:pages
 - nativePDF 结构恢复研究：`http://127.0.0.1:4173/projects/nativepdf-structurer-analysis/`
 - Night Diary 图像编辑研究：`http://127.0.0.1:4173/projects/night-diary-image-skill-study/`
 - 视频导演工作流研究：`http://127.0.0.1:4173/projects/stickman-video-director-study/`
+- Sprite Maker 动作资产研究：`http://127.0.0.1:4173/projects/sprite-maker-study/`
+- 五场景应用实验室：`http://127.0.0.1:4173/demos/sprite-maker-application-lab/`
 - SceneGen 能力研究：`http://127.0.0.1:4173/projects/scenegen-capability-study/`
 - 游戏：`http://127.0.0.1:4173/demos/outrun-the-level/`
 
@@ -105,6 +110,7 @@ npm run preview:pages
 │  ├─ nativepdf-structurer-analysis/ # Project 006 PDF 结构恢复研究
 │  ├─ night-diary-image-skill-study/ # Project 007 构图保护型图像编辑研究
 │  ├─ stickman-video-director-study/ # Project 008 视频导演工作流研究
+│  ├─ sprite-maker-study/            # Project 009 Sprite 动作资产与应用研究
 │  ├─ scenegen-capability-study/     # Project 010 单图 3D 场景生成研究
 │  └─ outrun-the-level/
 │     ├─ README.md                    # Project 001 研究档案
@@ -130,6 +136,8 @@ npm run preview:pages
 - Project 007：已固定 Night Diary 上游仓库，引入六张公开图，完成五组构图保护实测、指定中文、同图三情绪、人物荧光分支、三种产品装配和结构量测
 - Project 007 验证：静态检查 47/47、真实浏览器检查 63/63，覆盖 2470/1440/1024/820/390px，控制台错误、页面错误与横向溢出均为 0
 - Project 008：已固定上游仓库，完成两条官方视频、用户 CLIP 01–02 二十秒实测、八种静态替代形象、三类六幕导演案例、两级批准门和采用路线研究
+- Project 009：已固定 Sprite Maker v0.3.2 上游，使用 Project 003 自有角色完成 idle/run/cast 多动作资产、版本化像素 QA、五类应用实验室、场景游戏与双阶段 Boss 战试运行
+- Project 009 验证：研究页静态 53/53、浏览器 66/66；场景游戏静态 36/36、浏览器 53/53；复杂战斗静态 30/30、浏览器 46/46；五类应用静态 26/26、浏览器 32/32，控制台与页面错误 0
 - Project 010：已固定 SceneGen 上游证据，完成官方输入 / GLB 实时对照、方法拆解、三件 GLB 静态审计、复用包、工程边界与触发式采用路线；静态检查 38/38
 - 120 秒主流程，每 20 秒提升阶段
 - 20/20 重力门种子、10/10 出口与解锁流程

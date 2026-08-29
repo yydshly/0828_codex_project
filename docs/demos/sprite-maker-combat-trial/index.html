@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Project 009 Combat Trial：用真实 run/cast 帧、显式动作时序、三波敌人与双阶段 Boss 演示复杂游戏场景接入。">
+    <meta name="theme-color" content="#05090c">
+    <title>COMBAT TRIAL · Sprite Studio Complex Scene</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="../../projects/sprite-maker-study/#combat-trial"><span>PROJECT 009 / TRIAL 02</span><strong>COMBAT TRIAL</strong></a>
+      <div class="asset-source"><span>VERSIONED CHARACTER ASSET</span><strong>IDLE · RUN V2 · CAST V1</strong></div>
+      <nav aria-label="试运行导航">
+        <a href="../sprite-maker-scene/?state=near">能力关卡</a>
+        <a href="../../projects/sprite-maker-study/#combat-trial">研究说明 ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="trial-title">
+        <div><p>COMPLEX SCENE PROOF / MODULE 02</p><h1 id="trial-title">同步穹顶战斗试运行</h1></div>
+        <p>三段压力测试把真实 companion 动作接入追击、远程、护盾和 Boss 状态机。重点不是“敌人更多”，而是动作时序、命中事件与资产来源都可以观察和复核。</p>
+      </section>
+
+      <section class="trial-shell" aria-label="复杂战斗试运行">
+        <header class="trial-hud">
+          <article><span>TRIAL STATE</span><strong id="trialState">BRIEFING</strong></article>
+          <article><span>PRESSURE</span><strong id="waveState">0 / 3</strong></article>
+          <article><span>INTEGRITY</span><strong id="healthState">●●●●●</strong></article>
+          <article class="sync-readout"><span>SYNC ENERGY</span><strong id="syncState">0%</strong><i><b id="syncFill"></b></i></article>
+          <article><span>ASSET STATE</span><strong id="assetState">MASTER · 00</strong></article>
+        </header>
+
+        <div class="canvas-frame" id="canvasFrame">
+          <canvas id="combatCanvas" width="960" height="540" tabindex="0" aria-label="同步穹顶横向战斗场景。左右移动，脉冲攻击，闪避，协同施法，开始或继续试运行。">
+            当前浏览器不支持 Canvas。你仍可阅读下方动作合同、复杂场景结构与资产边界。
+          </canvas>
+          <div class="canvas-fallback" id="canvasFallback" hidden>
+            <span>CANVAS UNAVAILABLE</span><strong>复杂战斗运行时不可用，资产合同仍然有效。</strong>
+            <p>Sprite Studio：master / run-v2 / cast-v1。游戏层：敌人 AI、波次、Boss、碰撞、伤害与胜负。</p>
+          </div>
+
+          <div class="briefing-card" id="briefingCard">
+            <span>TACTICAL ASSET INTEGRATION</span>
+            <strong>三段压力 · 可追踪动作投影</strong>
+            <p>脉冲命中积累同步能量；闪避穿过危险窗口；能量满后命令林简施法，优先击破护盾并对 Boss 造成双倍压力。</p>
+            <div><b>01 混合巡逻</b><b>02 护盾单元</b><b>03 双阶段守门者</b></div>
+            <button type="button" data-action="start">开始试运行</button>
+          </div>
+
+          <div class="result-card victory-card" id="victoryCard" hidden>
+            <span>TRIAL COMPLETE</span><strong>复杂场景资产链通过</strong>
+            <p>真实 run/cast 已进入跟随、能量、命中与 Boss 阶段；敌人和玩法仍由游戏运行时负责。</p>
+            <button type="button" data-action="reset">重新试运行</button>
+          </div>
+
+          <div class="result-card failure-card" id="failureCard" hidden>
+            <span>LINK INTERRUPTED</span><strong>探索器完整度归零</strong>
+            <p>从当前压力段重新部署；已完成的波次不会要求重新磨关。</p>
+            <button type="button" data-action="retry">重试当前压力段</button>
+          </div>
+
+          <div class="encounter-strip" aria-live="polite">
+            <span id="encounterLabel">BRIEFING CHANNEL</span>
+            <strong id="encounterTitle">等待部署</strong>
+            <small id="encounterMeta">E / ENTER 开始</small>
+          </div>
+        </div>
+
+        <div class="touch-controls" aria-label="试运行触控操作">
+          <button type="button" data-hold="left" aria-label="向左移动"><b>←</b><span>LEFT</span></button>
+          <button type="button" data-hold="right" aria-label="向右移动"><b>→</b><span>RIGHT</span></button>
+          <button type="button" data-action="pulse" aria-label="发射脉冲"><b>J</b><span>PULSE</span></button>
+          <button type="button" data-action="dodge" aria-label="闪避"><b>K</b><span>DODGE</span></button>
+          <button type="button" data-action="sync" aria-label="协同施法"><b>L</b><span>SYNC</span></button>
+          <button type="button" data-action="start" aria-label="开始或继续"><b>E</b><span>ACT</span></button>
+          <button type="button" data-action="reset" aria-label="重置试运行"><b>R</b><span>RESET</span></button>
+        </div>
+
+        <div class="telemetry-grid">
+          <section aria-labelledby="event-log-title"><header><span>AUTHORITATIVE EVENTS</span><strong id="event-log-title">命中与阶段日志</strong></header><ol id="eventLog"><li>等待试运行开始。</li></ol></section>
+          <section aria-labelledby="enemy-state-title"><header><span>ENCOUNTER STATE</span><strong id="enemy-state-title">敌人状态</strong></header><div id="enemyState"><span>当前没有活动目标。</span></div></section>
+          <section aria-labelledby="action-state-title"><header><span>ACTION WINDOWS</span><strong id="action-state-title">动作时序</strong></header><div id="actionState"><span>PULSE ready</span><span>DODGE ready</span><span>SYNC charging</span></div></section>
+        </div>
+      </section>
+
+      <section class="contract-section" aria-labelledby="contract-title">
+        <header><div><p>EXPLICIT COMBAT VERBS</p><h2 id="contract-title">复杂战斗不是动画猜测，而是显式时序合同。</h2></div><p>视觉只跟随已经解决的模拟事件。每次命中都有稳定 action id；同一攻击不会重复伤害同一目标。</p></header>
+        <div class="verb-grid">
+          <article><span>PLAYER / PULSE</span><strong>80ms startup · projectile active · 220ms cooldown</strong><p>命中造成 1 点压力并积累 25% 同步；护盾先吸收伤害。</p></article>
+          <article><span>PLAYER / DODGE</span><strong>180ms travel · 220ms invulnerable · 850ms cooldown</strong><p>用于穿过明确危险窗口；成功回避投射物额外获得同步。</p></article>
+          <article><span>COMPANION / SYNC CAST</span><strong>167ms startup · single contact · 250ms recovery</strong><p>消耗 100% 同步；对护盾造成 4 点压力，对生命造成 2 点伤害。</p></article>
+          <article><span>ENEMY / ATTACK</span><strong>telegraph → danger → contact → recovery</strong><p>追击、远程、护盾和 Boss 改变决策压力，但都遵守可见预警。</p></article>
+        </div>
+      </section>
+
+      <section class="proof-section" aria-labelledby="proof-title">
+        <header><div><p>WHAT THIS MODULE PROVES</p><h2 id="proof-title">库产物进入复杂运行时，但不冒充运行时。</h2></div></header>
+        <div class="proof-grid">
+          <article><span>SPRITE STUDIO OUTPUT</span><strong>master · run-v2 · cast-v1</strong><p>林简投影的像素、帧顺序、FPS 与版本来自已留档多动作实验。</p></article>
+          <article><span>GAME RUNTIME</span><strong>3 encounters · 4 archetypes · 2 boss phases</strong><p>AI、攻击窗口、碰撞、波次、护盾、同步能量、镜头和胜负属于本模块。</p></article>
+          <article><span>OBSERVABILITY</span><strong>fixture · snapshot · event log</strong><p>每个关键状态都可用查询参数直接进入，并由真实浏览器验证。</p></article>
+          <article class="boundary"><span>BOUNDARY</span><strong>CONDITIONAL / COMPLEX-SCENE READY</strong><p>证明了状态接入，不证明 run-v2 已达到生产级人体 locomotion。</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer"><span>PROJECT 009 · COMBAT TRIAL MODULE</span><p>A / D 移动 · J 脉冲 · K 闪避 · L 协同 · E 开始 · R 重置</p><a href="../../projects/sprite-maker-study/#combat-trial">返回研究说明 ↑</a></footer>
+
+    <noscript><section class="noscript-note"><strong>JavaScript 已关闭。</strong><p>本模块使用 Canvas 运行敌人状态机。Sprite Studio 只提供林简的 master、run-v2 与 cast-v1；三波敌人、Boss、碰撞、伤害和同步能量来自游戏代码。</p></section></noscript>
+    <script src="./game.js"></script>
+  </body>
+</html>

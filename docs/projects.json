@@ -93,6 +93,18 @@
     "image": "./assets/stickman-video-director-study-cover.svg"
   },
   {
+    "id": "sprite-maker-study",
+    "number": "009",
+    "name": "SPRITE PRODUCTION, LOCAL FIRST",
+    "status": "多动作资产与五类应用试运行已完成",
+    "category": "AI 游戏资产工作台",
+    "summary": "以 Project 003 自有角色验证 native idle、版本化 run/cast、像素 QA 与导出，并把同一动作资产接入桌面伙伴、互动展厅、教学、营销、低成本游戏原型及双阶段 Boss 战。",
+    "url": "./projects/sprite-maker-study/",
+    "demoUrl": "./demos/sprite-maker-application-lab/",
+    "demoLabel": "进入五场景应用实验室 →",
+    "image": "./assets/sprite-maker-study-cover.svg"
+  },
+  {
     "id": "scenegen-capability-study",
     "number": "010",
     "name": "SCENE, GENERATED.",

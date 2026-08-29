@@ -1,0 +1,179 @@
+{
+  "benchmark": "Project 009 own-sample native rig benchmark",
+  "verdict": "CONDITIONAL",
+  "input": {
+    "sourceProject": "Project 003",
+    "sourcePath": "docs/assets/project-003-sample/lin-jian-anchor-v1-r1.png",
+    "normalizedCanvas": [
+      160,
+      224
+    ],
+    "generativeEdits": 0
+  },
+  "execution": {
+    "provider": "Codex CLI",
+    "providerTask": "vision-only rig point, capsule bone, and four-frame idle suggestion",
+    "imageGenerationCalls": 0,
+    "nativeApp": "Sprite Studio v0.3.2 Tauri dev build",
+    "nativeCommands": [
+      "create_workspace",
+      "import_asset",
+      "suggest_rig_points",
+      "validate_rig_spec",
+      "save_rig",
+      "render_rig_animation",
+      "queue_quality_analysis",
+      "get_quality_report"
+    ]
+  },
+  "comparison": {
+    "nativeAuto": {
+      "points": 15,
+      "bones": 10,
+      "minimumConfidence": 0.95,
+      "shoulderSpanPx": 7,
+      "handSpanPx": 17,
+      "kneeConfidence": [
+        0.97,
+        0.97
+      ]
+    },
+    "provider": {
+      "points": 23,
+      "bones": 19,
+      "minimumConfidence": 0.25,
+      "shoulderSpanPx": 36,
+      "handSpanPx": 57,
+      "kneeConfidence": [
+        0.25,
+        0.25
+      ]
+    },
+    "finding": "The local template snapped central body axes with uniformly high confidence; vision-based planning matched the visible arm span and honestly downgraded concealed knees."
+  },
+  "gateSequence": [
+    {
+      "attempt": 1,
+      "result": "PASS",
+      "gate": "validate_rig_spec",
+      "detail": "Provider points, bones, hierarchy, contacts, and coordinates were structurally valid."
+    },
+    {
+      "attempt": 1,
+      "result": "FAIL",
+      "gate": "render_rig_animation",
+      "code": "imperceptible_rig_motion",
+      "detail": "0.1–0.3° conservative motion was below the 8° / 1.5 px / 5% native threshold."
+    },
+    {
+      "attempt": 2,
+      "result": "FAIL",
+      "gate": "render_rig_animation",
+      "code": "missing_body_motion",
+      "detail": "Moving both arms was insufficient while the biped torso stayed below the meaningful-motion threshold."
+    },
+    {
+      "attempt": 3,
+      "result": "PASS",
+      "gate": "render_rig_animation",
+      "detail": "Opposing ±4° arms plus ±4° upper-torso counter-motion generated four frames."
+    }
+  ],
+  "output": {
+    "frameCount": 4,
+    "fps": 6,
+    "frameSha256": [
+      "3b4ee38c3d5224622b8e5aa93313519518e10725e14c4911e7e6d454ac84d465",
+      "4024d8883d0a5574430e18fe3ef43a662a7e3cf56f87cb46a2cc8b9b669975b3",
+      "8824c795dd8b4d4285002abd149a96eb44d7b5d09d00928cda4313720e3efe6f",
+      "2aa5bbe910448c45b95d827cb1bf91be9ac84735240e0ab56c60faa880c28606"
+    ],
+    "uniqueHashes": 4,
+    "deterministicRerender": true,
+    "alphaBounds": [
+      [
+        47,
+        0,
+        119,
+        223
+      ],
+      [
+        45,
+        0,
+        119,
+        222
+      ],
+      [
+        47,
+        0,
+        119,
+        223
+      ],
+      [
+        47,
+        1,
+        119,
+        224
+      ]
+    ],
+    "visiblePixelCount": [
+      10972,
+      10749,
+      11192,
+      11048,
+      10885
+    ],
+    "sourcePaletteReusePercent": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "exactRgbaChangedCanvasPercent": [
+      32.273996,
+      31.224888,
+      31.395089,
+      30.125558
+    ],
+    "exactRgbaMetricBoundary": "Exact per-pixel RGBA mismatch across the full canvas after normalizing fully transparent RGB; this is not the native-v1 duplicate-frame heuristic."
+  },
+  "nativeQuality": {
+    "overall": 94,
+    "characterConsistency": 100,
+    "motionContinuity": 76,
+    "frameAlignment": 100,
+    "loopQuality": 95.12430477945402,
+    "transparency": 100,
+    "warnings": [
+      {
+        "checkType": "duplicate",
+        "frameIndex": 2,
+        "comparisonFrameIndex": 1,
+        "severity": "warning",
+        "score": 45,
+        "message": "Frames 2 and 3 appear nearly identical.",
+        "metricValue": 2.402133118872549,
+        "metricUnit": "% pixel difference",
+        "repairAction": "remove_duplicate"
+      },
+      {
+        "checkType": "duplicate",
+        "frameIndex": 3,
+        "comparisonFrameIndex": 2,
+        "severity": "warning",
+        "score": 45,
+        "message": "Frames 3 and 4 appear nearly identical.",
+        "metricValue": 2.7940355829831933,
+        "metricUnit": "% pixel difference",
+        "repairAction": "remove_duplicate"
+      }
+    ],
+    "boundary": "Native pixel metrics only; the scores do not prove semantic identity, anatomical correctness, or artistic quality."
+  },
+  "humanReview": {
+    "identity": "PASS for a subtle idle; face, palette, clothing, and silhouette remain sourced from the same master pixels.",
+    "motion": "CONDITIONAL; readable only as a small idle, while native QA flags frames 2→3 and 3→4 as near-duplicates.",
+    "anatomy": "CONDITIONAL; wide trousers conceal knees, so walk/run is not approved from this source master.",
+    "adoption": "Use the current asset for idle and UI presentation. Generate or author a motion-ready master with separated limbs before locomotion testing."
+  }
+}

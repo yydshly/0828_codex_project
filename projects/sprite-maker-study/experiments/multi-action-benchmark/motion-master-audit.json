@@ -1,0 +1,45 @@
+{
+  "schema": "project009-motion-master-audit-v1",
+  "source": "input\\lin-jian-motion-master-generated-v2.png",
+  "sourceMode": "generated identity-preserving edit followed by background extraction",
+  "sourceSha256": "f8816918df74d15bf84185af5ddfce639a23ccc5705d3273bab53a72e843c8db",
+  "sourceSize": [
+    1024,
+    1536
+  ],
+  "sourceAlphaExtrema": [
+    0,
+    254
+  ],
+  "cropBoxAtAlpha128": [
+    185,
+    42,
+    838,
+    1440
+  ],
+  "output": "workspace\\assets\\characters\\lin-jian-motion-master-v1.png",
+  "outputSha256": "17e42a876c90448c16ada180bee190a1ee852d90bb1ac5f896003578aca1219c",
+  "outputSize": [
+    256,
+    384
+  ],
+  "outputVisibleBounds": [
+    44,
+    12,
+    212,
+    372
+  ],
+  "outputAlphaExtrema": [
+    0,
+    255
+  ],
+  "preparation": [
+    "reject generated-v1 because it was RGB checkerboard, not transparent",
+    "accept generated-v2 because it contains a real RGBA channel",
+    "remove only alpha values below 32 before crop",
+    "crop at alpha >= 128",
+    "Lanczos contain-resize into a 256x384 transparent canvas",
+    "clear post-resize alpha values below 8"
+  ],
+  "boundary": "Image generation prepared the master. Sprite Studio is responsible only for deterministic rig transforms and rendered action frames that consume this master."
+}

@@ -1,0 +1,142 @@
+{
+  "benchmark": "Project 009 own-sample input preflight",
+  "canvas": [
+    160,
+    224
+  ],
+  "normalization": "contain on transparent canvas; one Lanczos resize; no generative edits",
+  "samples": [
+    {
+      "id": "project003-anchor",
+      "expectedFit": "high",
+      "manualObservation": "正面全身、透明背景、双臂与鞋可见；宽腿裤仍会降低膝部可辨性。",
+      "source": "docs/assets/project-003-sample/lin-jian-anchor-v1-r1.png",
+      "sourceSha256": "514fe3766fb598be4eb94d8c1f489857525b48960fbf98f00234701398a0aa61",
+      "normalized": "workspace/assets/characters/project003-anchor.png",
+      "normalizedSha256": "3db8cd715b72b183bd409e8c47b0b62031f8ae701312eed3c7d09e0081d3863f",
+      "originalSize": [
+        1060,
+        1484
+      ],
+      "originalMode": "RGBA",
+      "originalAlpha": {
+        "alphaMin": 0,
+        "alphaMax": 255,
+        "zeroAlphaFraction": 0.71116,
+        "nonOpaqueFraction": 0.999463,
+        "meanAlpha": 69.143,
+        "opaqueBounds": [
+          198,
+          1,
+          1046,
+          1469
+        ]
+      },
+      "normalizedSize": [
+        160,
+        224
+      ],
+      "normalizedAlpha": {
+        "alphaMin": 0,
+        "alphaMax": 255,
+        "zeroAlphaFraction": 0.693862,
+        "nonOpaqueFraction": 0.982478,
+        "meanAlpha": 69.166,
+        "opaqueBounds": [
+          47,
+          0,
+          118,
+          223
+        ]
+      }
+    },
+    {
+      "id": "project003-arms-crossed",
+      "expectedFit": "conditional",
+      "manualObservation": "透明全身，但双臂交叉且被笔记本遮挡，腿部被宽裤合并；适合静态资产，不适合直接做完整人体 Rig。",
+      "source": "docs/assets/project-003-style-matrix/lin-jian-ip05-full-body-sticker-v1-s3-r2.png",
+      "sourceSha256": "6e268f7b3b1530085e853aeca231d01ac88830723b0fab1a2fe9074a8f372acb",
+      "normalized": "workspace/assets/characters/project003-arms-crossed.png",
+      "normalizedSha256": "2cb437a544020ade9a0838d997bb6d69d20e71cda9ea0de6b2635bb73addf24c",
+      "originalSize": [
+        1024,
+        1536
+      ],
+      "originalMode": "RGBA",
+      "originalAlpha": {
+        "alphaMin": 0,
+        "alphaMax": 254,
+        "zeroAlphaFraction": 0.660746,
+        "nonOpaqueFraction": 1.0,
+        "meanAlpha": 83.399,
+        "opaqueBounds": [
+          270,
+          0,
+          769,
+          1504
+        ]
+      },
+      "normalizedSize": [
+        160,
+        224
+      ],
+      "normalizedAlpha": {
+        "alphaMin": 0,
+        "alphaMax": 255,
+        "zeroAlphaFraction": 0.668387,
+        "nonOpaqueFraction": 0.988616,
+        "meanAlpha": 77.695,
+        "opaqueBounds": [
+          42,
+          0,
+          118,
+          221
+        ]
+      }
+    },
+    {
+      "id": "project001-scene",
+      "expectedFit": "reject",
+      "manualObservation": "完整游戏截图而非独立透明角色；应在进入 Rig 前被输入门禁拒绝。",
+      "source": "projects/outrun-the-level/assets/menu-check.png",
+      "sourceSha256": "1023ae60d8da1edcaec87e87ad93a438d2bc89e0258909785a68729db3781a6f",
+      "normalized": "workspace/assets/characters/project001-scene.png",
+      "normalizedSha256": "b2a278aa7f3edf8aa10100d38c66b3e3221f55da751b677ed5b362da7cd4ac19",
+      "originalSize": [
+        1258,
+        622
+      ],
+      "originalMode": "RGB",
+      "originalAlpha": {
+        "alphaMin": 255,
+        "alphaMax": 255,
+        "zeroAlphaFraction": 0.0,
+        "nonOpaqueFraction": 0.0,
+        "meanAlpha": 255.0,
+        "opaqueBounds": [
+          0,
+          0,
+          1258,
+          622
+        ]
+      },
+      "normalizedSize": [
+        160,
+        224
+      ],
+      "normalizedAlpha": {
+        "alphaMin": 0,
+        "alphaMax": 255,
+        "zeroAlphaFraction": 0.647321,
+        "nonOpaqueFraction": 0.647321,
+        "meanAlpha": 89.933,
+        "opaqueBounds": [
+          0,
+          145,
+          160,
+          224
+        ]
+      }
+    }
+  ]
+}

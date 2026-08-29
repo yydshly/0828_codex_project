@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title description">
+  <title id="title">Sprite Production, Local First</title>
+  <desc id="description">A pixel-art production pipeline with an AI input node, a local rig, quality checks and sprite-sheet output.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#20362f" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="14" dy="14" stdDeviation="0" flood-color="#07100d" flood-opacity=".8"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="#09130f"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity=".8"/>
+  <path d="M0 0h1200v10H0z" fill="#8ff0b5"/>
+  <text x="68" y="78" fill="#86a897" font-family="ui-monospace,Consolas,monospace" font-size="22" letter-spacing="4">PROJECT 009 / GAME ASSET WORKBENCH</text>
+  <text x="68" y="156" fill="#f1f6ef" font-family="ui-monospace,Consolas,monospace" font-size="68" font-weight="800" letter-spacing="-4">SPRITE PRODUCTION,</text>
+  <text x="68" y="222" fill="#8ff0b5" font-family="ui-monospace,Consolas,monospace" font-size="68" font-weight="800" letter-spacing="-4">LOCAL FIRST.</text>
+
+  <g transform="translate(70 300)" filter="url(#shadow)">
+    <rect width="252" height="270" fill="#111e19" stroke="#e8a75b" stroke-width="3"/>
+    <text x="20" y="34" fill="#e8a75b" font-family="ui-monospace,Consolas,monospace" font-size="16" font-weight="700">AI / PROVIDER</text>
+    <rect x="28" y="68" width="196" height="132" fill="#0a120f" stroke="#355448" stroke-width="2"/>
+    <path d="M61 173l24-56 28 30 30-64 46 90z" fill="#e8a75b" opacity=".85"/>
+    <rect x="48" y="220" width="156" height="20" fill="#2f493e"/>
+    <rect x="48" y="220" width="104" height="20" fill="#e8a75b"/>
+  </g>
+
+  <path d="M344 435h86" fill="none" stroke="#6d8d7d" stroke-width="4" stroke-dasharray="10 9"/>
+  <path d="M420 423l18 12-18 12" fill="none" stroke="#6d8d7d" stroke-width="4"/>
+
+  <g transform="translate(454 278)" filter="url(#shadow)">
+    <rect width="310" height="320" fill="#111e19" stroke="#8ff0b5" stroke-width="3"/>
+    <text x="22" y="36" fill="#8ff0b5" font-family="ui-monospace,Consolas,monospace" font-size="16" font-weight="700">LOCAL / RUST RIG</text>
+    <rect x="42" y="66" width="226" height="222" fill="#09130f" stroke="#355448" stroke-width="2"/>
+    <g transform="translate(84 78)" stroke-linecap="square">
+      <path d="M72 18v65M72 83l-37 55M72 83l41 56M72 52L31 94M72 52l48 33" fill="none" stroke="#5ca7ff" stroke-width="10"/>
+      <g fill="#f1f6ef" stroke="#09130f" stroke-width="3">
+        <rect x="64" y="10" width="16" height="16"/>
+        <rect x="64" y="45" width="16" height="16"/>
+        <rect x="64" y="76" width="16" height="16"/>
+        <rect x="27" y="86" width="16" height="16"/>
+        <rect x="112" y="77" width="16" height="16"/>
+        <rect x="27" y="130" width="16" height="16"/>
+        <rect x="105" y="131" width="16" height="16"/>
+      </g>
+      <path d="M10 168h142" stroke="#8ff0b5" stroke-width="4"/>
+    </g>
+  </g>
+
+  <path d="M790 435h78" fill="none" stroke="#6d8d7d" stroke-width="4" stroke-dasharray="10 9"/>
+  <path d="M858 423l18 12-18 12" fill="none" stroke="#6d8d7d" stroke-width="4"/>
+
+  <g transform="translate(892 324)" filter="url(#shadow)">
+    <rect width="238" height="220" fill="#111e19" stroke="#5ca7ff" stroke-width="3"/>
+    <text x="20" y="34" fill="#5ca7ff" font-family="ui-monospace,Consolas,monospace" font-size="16" font-weight="700">FILES / EXPORT</text>
+    <g transform="translate(22 65)">
+      <rect width="42" height="42" fill="#8ff0b5"/><rect x="50" width="42" height="42" fill="#75c999"/><rect x="100" width="42" height="42" fill="#58a87b"/><rect x="150" width="42" height="42" fill="#387354"/>
+      <rect y="50" width="42" height="42" fill="#387354"/><rect x="50" y="50" width="42" height="42" fill="#58a87b"/><rect x="100" y="50" width="42" height="42" fill="#75c999"/><rect x="150" y="50" width="42" height="42" fill="#8ff0b5"/>
+      <path d="M0 116h192" stroke="#355448" stroke-width="2"/>
+      <text x="0" y="142" fill="#a9beb4" font-family="ui-monospace,Consolas,monospace" font-size="14">PNG + JSON + GODOT</text>
+    </g>
+  </g>
+
+  <g transform="translate(68 650)" font-family="ui-monospace,Consolas,monospace" font-size="18" font-weight="700">
+    <rect width="18" height="18" fill="#e8a75b"/><text x="30" y="16" fill="#c2d1c9">AI CREATION</text>
+    <rect x="196" width="18" height="18" fill="#8ff0b5"/><text x="226" y="16" fill="#c2d1c9">DETERMINISTIC ENGINE</text>
+    <rect x="516" width="18" height="18" fill="#5ca7ff"/><text x="546" y="16" fill="#c2d1c9">OWNED ARTIFACTS</text>
+  </g>
+</svg>

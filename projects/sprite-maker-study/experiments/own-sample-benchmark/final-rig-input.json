@@ -1,0 +1,689 @@
+{
+  "name": "project003-anchor-idle-revised3",
+  "morphology": "biped",
+  "fps": 6,
+  "looping": true,
+  "points": [
+    {
+      "id": "ai-p1",
+      "name": "pelvis",
+      "kind": "pivot",
+      "x": 80,
+      "y": 126,
+      "confidence": 0.52,
+      "source": "ai",
+      "note": "Root inferred beneath the waistband; trouser volume obscures the pelvis."
+    },
+    {
+      "id": "ai-p2",
+      "name": "chest",
+      "kind": "anchor",
+      "x": 80,
+      "y": 91,
+      "confidence": 0.84,
+      "source": "ai",
+      "note": "Central upper-torso anchor estimated from the blouse silhouette."
+    },
+    {
+      "id": "ai-p3",
+      "name": "neck",
+      "kind": "joint",
+      "x": 80,
+      "y": 70,
+      "confidence": 0.9,
+      "source": "ai",
+      "note": "Visible neck base between the collar and head."
+    },
+    {
+      "id": "ai-p4",
+      "name": "head_center",
+      "kind": "pivot",
+      "x": 80,
+      "y": 51,
+      "confidence": 0.96,
+      "source": "ai",
+      "note": "Center of the face and head mass."
+    },
+    {
+      "id": "ai-p5",
+      "name": "head_top",
+      "kind": "anchor",
+      "x": 80,
+      "y": 31,
+      "confidence": 0.93,
+      "source": "ai",
+      "note": "Top of the hair silhouette."
+    },
+    {
+      "id": "ai-p6",
+      "name": "shoulder_r",
+      "kind": "joint",
+      "x": 62,
+      "y": 76,
+      "confidence": 0.74,
+      "source": "ai",
+      "note": "Anatomical right shoulder, on the viewer's left; partly softened by the puffed sleeve."
+    },
+    {
+      "id": "ai-p7",
+      "name": "elbow_r",
+      "kind": "joint",
+      "x": 54,
+      "y": 105,
+      "confidence": 0.43,
+      "source": "ai",
+      "note": "Anatomical right elbow inferred inside the wide sleeve."
+    },
+    {
+      "id": "ai-p8",
+      "name": "wrist_r",
+      "kind": "joint",
+      "x": 53,
+      "y": 126,
+      "confidence": 0.76,
+      "source": "ai",
+      "note": "Visible transition from the right sleeve cuff to the hand."
+    },
+    {
+      "id": "ai-p9",
+      "name": "hand_tip_r",
+      "kind": "anchor",
+      "x": 52,
+      "y": 143,
+      "confidence": 0.83,
+      "source": "ai",
+      "note": "Lowest visible point of the anatomical right hand."
+    },
+    {
+      "id": "ai-p10",
+      "name": "shoulder_l",
+      "kind": "joint",
+      "x": 98,
+      "y": 76,
+      "confidence": 0.74,
+      "source": "ai",
+      "note": "Anatomical left shoulder, on the viewer's right; partly softened by the puffed sleeve."
+    },
+    {
+      "id": "ai-p11",
+      "name": "elbow_l",
+      "kind": "joint",
+      "x": 106,
+      "y": 105,
+      "confidence": 0.43,
+      "source": "ai",
+      "note": "Anatomical left elbow inferred inside the wide sleeve."
+    },
+    {
+      "id": "ai-p12",
+      "name": "wrist_l",
+      "kind": "joint",
+      "x": 108,
+      "y": 125,
+      "confidence": 0.76,
+      "source": "ai",
+      "note": "Visible transition from the left sleeve cuff to the hand."
+    },
+    {
+      "id": "ai-p13",
+      "name": "hand_tip_l",
+      "kind": "anchor",
+      "x": 109,
+      "y": 142,
+      "confidence": 0.83,
+      "source": "ai",
+      "note": "Lowest visible point of the anatomical left hand."
+    },
+    {
+      "id": "ai-p14",
+      "name": "hip_r",
+      "kind": "joint",
+      "x": 68,
+      "y": 129,
+      "confidence": 0.41,
+      "source": "ai",
+      "note": "Anatomical right hip inferred beneath the waistband and wide trousers."
+    },
+    {
+      "id": "ai-p15",
+      "name": "knee_r",
+      "kind": "joint",
+      "x": 66,
+      "y": 169,
+      "confidence": 0.25,
+      "source": "ai",
+      "note": "Highly uncertain anatomical right knee; the wide trouser leg conceals articulation."
+    },
+    {
+      "id": "ai-p16",
+      "name": "ankle_r",
+      "kind": "joint",
+      "x": 66,
+      "y": 204,
+      "confidence": 0.55,
+      "source": "ai",
+      "note": "Anatomical right ankle inferred where the trouser hem meets the shoe."
+    },
+    {
+      "id": "ai-p17",
+      "name": "toe_r",
+      "kind": "anchor",
+      "x": 68,
+      "y": 214,
+      "confidence": 0.82,
+      "source": "ai",
+      "note": "Center-front of the anatomical right shoe."
+    },
+    {
+      "id": "ai-p18",
+      "name": "sole_r",
+      "kind": "contact",
+      "x": 67,
+      "y": 219,
+      "confidence": 0.91,
+      "source": "ai",
+      "note": "Planted anatomical right foot contact at the visible sole."
+    },
+    {
+      "id": "ai-p19",
+      "name": "hip_l",
+      "kind": "joint",
+      "x": 92,
+      "y": 129,
+      "confidence": 0.41,
+      "source": "ai",
+      "note": "Anatomical left hip inferred beneath the waistband and wide trousers."
+    },
+    {
+      "id": "ai-p20",
+      "name": "knee_l",
+      "kind": "joint",
+      "x": 95,
+      "y": 169,
+      "confidence": 0.25,
+      "source": "ai",
+      "note": "Highly uncertain anatomical left knee; the wide trouser leg conceals articulation."
+    },
+    {
+      "id": "ai-p21",
+      "name": "ankle_l",
+      "kind": "joint",
+      "x": 97,
+      "y": 205,
+      "confidence": 0.55,
+      "source": "ai",
+      "note": "Anatomical left ankle inferred where the trouser hem meets the shoe."
+    },
+    {
+      "id": "ai-p22",
+      "name": "toe_l",
+      "kind": "anchor",
+      "x": 99,
+      "y": 215,
+      "confidence": 0.82,
+      "source": "ai",
+      "note": "Center-front of the anatomical left shoe."
+    },
+    {
+      "id": "ai-p23",
+      "name": "sole_l",
+      "kind": "contact",
+      "x": 99,
+      "y": 220,
+      "confidence": 0.91,
+      "source": "ai",
+      "note": "Planted anatomical left foot contact at the visible sole."
+    }
+  ],
+  "bones": [
+    {
+      "id": "ai-b1",
+      "name": "spine",
+      "startPoint": "pelvis",
+      "endPoint": "chest",
+      "radius": 16,
+      "parent": null,
+      "z": 0
+    },
+    {
+      "id": "ai-b2",
+      "name": "upper_torso",
+      "startPoint": "chest",
+      "endPoint": "neck",
+      "radius": 13,
+      "parent": "spine",
+      "z": 0
+    },
+    {
+      "id": "ai-b3",
+      "name": "head",
+      "startPoint": "neck",
+      "endPoint": "head_center",
+      "radius": 13,
+      "parent": "upper_torso",
+      "z": 0
+    },
+    {
+      "id": "ai-b4",
+      "name": "clavicle_r",
+      "startPoint": "chest",
+      "endPoint": "shoulder_r",
+      "radius": 8,
+      "parent": "upper_torso",
+      "z": 1
+    },
+    {
+      "id": "ai-b5",
+      "name": "upper_arm_r",
+      "startPoint": "shoulder_r",
+      "endPoint": "elbow_r",
+      "radius": 7,
+      "parent": "clavicle_r",
+      "z": 1
+    },
+    {
+      "id": "ai-b6",
+      "name": "forearm_r",
+      "startPoint": "elbow_r",
+      "endPoint": "wrist_r",
+      "radius": 5,
+      "parent": "upper_arm_r",
+      "z": 1
+    },
+    {
+      "id": "ai-b7",
+      "name": "hand_r",
+      "startPoint": "wrist_r",
+      "endPoint": "hand_tip_r",
+      "radius": 4,
+      "parent": "forearm_r",
+      "z": 1
+    },
+    {
+      "id": "ai-b8",
+      "name": "clavicle_l",
+      "startPoint": "chest",
+      "endPoint": "shoulder_l",
+      "radius": 8,
+      "parent": "upper_torso",
+      "z": 3
+    },
+    {
+      "id": "ai-b9",
+      "name": "upper_arm_l",
+      "startPoint": "shoulder_l",
+      "endPoint": "elbow_l",
+      "radius": 7,
+      "parent": "clavicle_l",
+      "z": 3
+    },
+    {
+      "id": "ai-b10",
+      "name": "forearm_l",
+      "startPoint": "elbow_l",
+      "endPoint": "wrist_l",
+      "radius": 5,
+      "parent": "upper_arm_l",
+      "z": 3
+    },
+    {
+      "id": "ai-b11",
+      "name": "hand_l",
+      "startPoint": "wrist_l",
+      "endPoint": "hand_tip_l",
+      "radius": 4,
+      "parent": "forearm_l",
+      "z": 3
+    },
+    {
+      "id": "ai-b12",
+      "name": "pelvis_r",
+      "startPoint": "pelvis",
+      "endPoint": "hip_r",
+      "radius": 11,
+      "parent": "spine",
+      "z": 0
+    },
+    {
+      "id": "ai-b13",
+      "name": "thigh_r",
+      "startPoint": "hip_r",
+      "endPoint": "knee_r",
+      "radius": 14,
+      "parent": "pelvis_r",
+      "z": 0
+    },
+    {
+      "id": "ai-b14",
+      "name": "shin_r",
+      "startPoint": "knee_r",
+      "endPoint": "ankle_r",
+      "radius": 13,
+      "parent": "thigh_r",
+      "z": 0
+    },
+    {
+      "id": "ai-b15",
+      "name": "foot_r",
+      "startPoint": "ankle_r",
+      "endPoint": "toe_r",
+      "radius": 8,
+      "parent": "shin_r",
+      "z": 0
+    },
+    {
+      "id": "ai-b16",
+      "name": "pelvis_l",
+      "startPoint": "pelvis",
+      "endPoint": "hip_l",
+      "radius": 11,
+      "parent": "spine",
+      "z": 2
+    },
+    {
+      "id": "ai-b17",
+      "name": "thigh_l",
+      "startPoint": "hip_l",
+      "endPoint": "knee_l",
+      "radius": 14,
+      "parent": "pelvis_l",
+      "z": 2
+    },
+    {
+      "id": "ai-b18",
+      "name": "shin_l",
+      "startPoint": "knee_l",
+      "endPoint": "ankle_l",
+      "radius": 13,
+      "parent": "thigh_l",
+      "z": 2
+    },
+    {
+      "id": "ai-b19",
+      "name": "foot_l",
+      "startPoint": "ankle_l",
+      "endPoint": "toe_l",
+      "radius": 8,
+      "parent": "shin_l",
+      "z": 2
+    }
+  ],
+  "frames": [
+    {
+      "phase": "idle_mid_a",
+      "rootDx": 0,
+      "rootDy": 0,
+      "transforms": [
+        {
+          "bone": "upper_torso",
+          "rotate": -4,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "head",
+          "rotate": 0,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "upper_arm_r",
+          "rotate": -4,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "forearm_r",
+          "rotate": 0,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "upper_arm_l",
+          "rotate": 4,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "forearm_l",
+          "rotate": 0,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        }
+      ],
+      "contacts": [
+        {
+          "bone": "foot_r",
+          "x": 67,
+          "y": 219,
+          "bend": -1
+        },
+        {
+          "bone": "foot_l",
+          "x": 99,
+          "y": 220,
+          "bend": 1
+        }
+      ]
+    },
+    {
+      "phase": "idle_inhale",
+      "rootDx": 0,
+      "rootDy": -1,
+      "transforms": [
+        {
+          "bone": "upper_torso",
+          "rotate": 4,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1.004,
+          "scaleY": 1.002
+        },
+        {
+          "bone": "head",
+          "rotate": 0.3,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "upper_arm_r",
+          "rotate": 4,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "forearm_r",
+          "rotate": -0.15,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "upper_arm_l",
+          "rotate": -4,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "forearm_l",
+          "rotate": 0.15,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        }
+      ],
+      "contacts": [
+        {
+          "bone": "foot_r",
+          "x": 67,
+          "y": 219,
+          "bend": -1
+        },
+        {
+          "bone": "foot_l",
+          "x": 99,
+          "y": 220,
+          "bend": 1
+        }
+      ]
+    },
+    {
+      "phase": "idle_mid_b",
+      "rootDx": 0,
+      "rootDy": 0,
+      "transforms": [
+        {
+          "bone": "upper_torso",
+          "rotate": 2,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "head",
+          "rotate": 0,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "upper_arm_r",
+          "rotate": 2,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "forearm_r",
+          "rotate": 0,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "upper_arm_l",
+          "rotate": -2,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "forearm_l",
+          "rotate": 0,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        }
+      ],
+      "contacts": [
+        {
+          "bone": "foot_r",
+          "x": 67,
+          "y": 219,
+          "bend": -1
+        },
+        {
+          "bone": "foot_l",
+          "x": 99,
+          "y": 220,
+          "bend": 1
+        }
+      ]
+    },
+    {
+      "phase": "idle_exhale",
+      "rootDx": 0,
+      "rootDy": 1,
+      "transforms": [
+        {
+          "bone": "upper_torso",
+          "rotate": -2,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 0.998,
+          "scaleY": 0.999
+        },
+        {
+          "bone": "head",
+          "rotate": -0.3,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "upper_arm_r",
+          "rotate": -2,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "forearm_r",
+          "rotate": 0.1,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "upper_arm_l",
+          "rotate": 2,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "bone": "forearm_l",
+          "rotate": -0.1,
+          "dx": 0,
+          "dy": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        }
+      ],
+      "contacts": [
+        {
+          "bone": "foot_r",
+          "x": 67,
+          "y": 219,
+          "bend": -1
+        },
+        {
+          "bone": "foot_l",
+          "x": 99,
+          "y": 220,
+          "bend": 1
+        }
+      ]
+    }
+  ]
+}

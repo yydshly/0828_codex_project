@@ -13,7 +13,11 @@
     "test:project-005": "node --check docs/projects/nuyoah-xiezhen-prompt-study/app.js && node projects/nuyoah-xiezhen-prompt-study/tests/static-check.mjs",
     "test:project-007": "node --check docs/projects/night-diary-image-skill-study/app.js && node projects/night-diary-image-skill-study/tests/static-check.mjs",
     "test:project-008": "node --check docs/projects/stickman-video-director-study/app.js && node projects/stickman-video-director-study/tests/static-check.mjs",
+    "test:project-009-game": "node --check docs/demos/sprite-maker-scene/game.js && node projects/sprite-maker-study/game-demo/tests/static-check.mjs",
+    "test:project-009-combat-trial": "node --check docs/demos/sprite-maker-combat-trial/game.js && node projects/sprite-maker-study/combat-trial/tests/static-check.mjs",
+    "test:project-009-application-lab": "node --check docs/demos/sprite-maker-application-lab/app.js && node projects/sprite-maker-study/application-lab/tests/static-check.mjs",
+    "test:project-009": "node --check docs/projects/sprite-maker-study/app.js && node projects/sprite-maker-study/tests/static-check.mjs && npm run test:project-009-game && npm run test:project-009-combat-trial && npm run test:project-009-application-lab",
     "test:project-010": "node --check docs/projects/scenegen-capability-study/app.js && node projects/scenegen-capability-study/tests/static-check.mjs",
-    "test:all": "npm run test:project-001 && npm run test:project-002 && npm run test:project-003 && npm run test:project-004 && npm run test:project-005 && npm run test:project-007 && npm run test:project-008 && npm run test:project-010"
+    "test:all": "npm run test:project-001 && npm run test:project-002 && npm run test:project-003 && npm run test:project-004 && npm run test:project-005 && npm run test:project-007 && npm run test:project-008 && npm run test:project-009 && npm run test:project-010"
   }
 }

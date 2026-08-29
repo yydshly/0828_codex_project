@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project 009：研究 Sprite Studio 如何把 AI 生图推进为可动画、可检查、可版本化、可导出的本地游戏资产生产系统。">
+    <meta name="theme-color" content="#09130f">
+    <title>SPRITE PRODUCTION, LOCAL FIRST · Project 009</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body id="page-top">
+    <a class="skip-link" href="#main-content">跳到正文</a>
+
+    <header class="site-header">
+      <a class="brand" href="../../" aria-label="返回 0828 Codex Project 研究总库">
+        <span>0828 / RESEARCH</span>
+        <strong>PROJECT 009</strong>
+      </a>
+      <nav class="section-nav" aria-label="本页章节">
+        <a href="#judgment" data-nav="judgment">判断</a>
+        <a href="#evidence" data-nav="evidence">证据</a>
+        <a href="#own-test" data-nav="own-test">实测</a>
+        <a href="#use-case-demo" data-nav="use-case-demo">演示</a>
+        <a href="#game-demo" data-nav="game-demo">游戏</a>
+        <a href="#combat-trial" data-nav="combat-trial">战斗</a>
+        <a href="#application-lab" data-nav="application-lab">应用</a>
+        <a href="#lab" data-nav="lab">实验台</a>
+        <a href="#mechanism" data-nav="mechanism">原理</a>
+        <a href="#scenarios" data-nav="scenarios">场景</a>
+        <a href="#value" data-nav="value">价值</a>
+        <a href="#extensions" data-nav="extensions">扩展</a>
+      </nav>
+      <a class="source-link" href="https://github.com/JohnKinyanjui/sprite-maker">SOURCE ↗</a>
+      <div class="reading-progress" aria-hidden="true"><i id="readingProgress"></i></div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="judgment" data-section="judgment" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">AI GAME ASSET WORKBENCH / v0.3.2 / 2026-08-29</p>
+          <h1 id="page-title">SPRITE PRODUCTION,<br><span>LOCAL FIRST.</span></h1>
+          <p class="hero-lede">它不是模型，也不附带模型权重。它把外部 AI、确定性 Rust 动画、像素 QA、资产版本和游戏导出组织进一个本地桌面工作台。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#own-test">查看自有样例实测</a>
+            <a class="button secondary" href="#evidence">查看上游真实演示</a>
+          </div>
+          <div class="install-answer" aria-label="模型安装结论">
+            <span>MODEL INSTALL?</span>
+            <strong>不需要下载模型权重</strong>
+            <p>需要一个已认证的 Agent / 图像 Provider；Rig、IK、QA、版本和导出在本地运行。</p>
+          </div>
+        </div>
+
+        <aside class="hero-console" aria-label="能力边界总览">
+          <div class="console-head"><span>EXECUTION MAP</span><b>v0.3.2</b></div>
+          <div class="console-media evidence-media">
+            <img src="../../assets/project-009-media/workspace-tour.gif" width="960" height="540" alt="Sprite Studio 上游官方工作台操作演示">
+            <div class="motion-fallback"><strong>WORKSPACE TOUR</strong><span>reduced-motion 模式下隐藏动态 GIF；下方流程仍完整说明能力。</span></div>
+          </div>
+          <ol class="execution-map">
+            <li class="lane-ai"><span>01 · AI</span><strong>理解与创造</strong><small>Prompt、参考图、源图、Rig 建议、可选润色</small></li>
+            <li class="lane-local"><span>02 · LOCAL</span><strong>计算与验证</strong><small>骨骼、权重、IK、渲染、像素 QA、修复</small></li>
+            <li class="lane-files"><span>03 · FILES</span><strong>长期资产</strong><small>PNG、动画、Manifest、版本、Sheet、JSON</small></li>
+          </ol>
+          <p class="source-caption"><b>UPSTREAM OFFICIAL MEDIA</b> 工作台 GIF 来自上游 `docs/media/`，不是 Project 009 生成结果。</p>
+        </aside>
+      </section>
+
+      <section class="signal-strip" aria-label="四项核心判断">
+        <div><span>不是</span><strong>本地模型包</strong></div>
+        <div><span>是</span><strong>桌面资产工作台</strong></div>
+        <div><span>核心</span><strong>Rig-first 混合管线</strong></div>
+        <div><span>价值</span><strong>从生成到游戏交付</strong></div>
+      </section>
+
+      <section class="section" id="evidence" data-section="evidence" aria-labelledby="evidence-title">
+        <div class="section-label"><span>01</span><p>UPSTREAM EVIDENCE</p></div>
+        <div class="section-body">
+          <div class="section-heading">
+            <div>
+              <p class="kicker">真实能力外观</p>
+              <h2 id="evidence-title">先看它做出过什么，再讨论它是否适合我们。</h2>
+            </div>
+            <p>以下媒体均为上游 MIT 仓库发布证据。它们证明端到端工作区曾产出这些动画和资产，但不证明任意角色、任意 Provider 的稳定成功率。</p>
+          </div>
+
+          <div class="evidence-grid">
+            <figure class="evidence-card is-wide">
+              <div class="evidence-media">
+                <img src="../../assets/project-009-media/rabbit-hop.gif" width="960" height="540" alt="上游官方八帧兔子跳跃循环" loading="lazy">
+                <div class="motion-fallback"><strong>RABBIT HOP</strong><span>8 帧 · 8 FPS · 压缩、蹬地、腾空、接触与恢复</span></div>
+              </div>
+              <figcaption><span>ANATOMY-AWARE LOOP</span><strong>兔子不是上下平移，而是完整跳跃机械阶段。</strong><small>上游记录：8 frames / 8 FPS</small></figcaption>
+            </figure>
+
+            <figure class="evidence-card">
+              <div class="evidence-media">
+                <img src="../../assets/project-009-media/dragon-flight.gif" width="960" height="540" alt="上游官方十二帧龙飞行动画" loading="lazy">
+                <div class="motion-fallback"><strong>DRAGON FLIGHT</strong><span>12 帧 · 翼拍、身体抬升、腿与尾巴延迟</span></div>
+              </div>
+              <figcaption><span>IDENTITY THROUGH MOTION</span><strong>同一条龙完成完整翼拍。</strong><small>上游记录：12 frames / 8 FPS</small></figcaption>
+            </figure>
+
+            <figure class="evidence-card">
+              <div class="evidence-media">
+                <img src="../../assets/project-009-media/centipede-crawl.gif" width="960" height="540" alt="上游官方十二帧蜈蚣爬行动画" loading="lazy">
+                <div class="motion-fallback"><strong>CENTIPEDE CRAWL</strong><span>12 帧 · 分段体波与交替足组</span></div>
+              </div>
+              <figcaption><span>MORPHOLOGY ROUTING</span><strong>非人形也能进入专用运动合同。</strong><small>上游记录：12 frames / 12 FPS</small></figcaption>
+            </figure>
+
+            <figure class="evidence-card">
+              <div class="evidence-media">
+                <img src="../../assets/project-009-media/grasslands-pack.gif" width="960" height="540" alt="上游官方草地主题协调资产包" loading="lazy">
+                <div class="motion-fallback"><strong>GRASSLANDS PACK</strong><span>同一 art direction 下的八项独立资产</span></div>
+              </div>
+              <figcaption><span>COORDINATED PACK</span><strong>不是一张拼图，而是带 Manifest 的独立资产集合。</strong><small>上游记录：8 assets</small></figcaption>
+            </figure>
+
+            <figure class="evidence-card terrain-card">
+              <div class="evidence-media">
+                <img src="../../assets/project-009-media/grasslands-terrain.png" width="768" height="512" alt="上游官方草地和池塘地形图集" loading="lazy">
+              </div>
+              <figcaption><span>COMPLETE ATLAS</span><strong>填充、边缘、转角和过渡保持在同一地形概念中。</strong><small>静态 PNG atlas</small></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section own-test-section" id="own-test" data-section="own-test" aria-labelledby="own-test-title">
+        <div class="section-label"><span>02</span><p>OWN-SAMPLE TEST</p></div>
+        <div class="section-body">
+          <div class="section-heading">
+            <div>
+              <p class="kicker">Project 003 × Sprite Studio v0.3.2</p>
+              <h2 id="own-test-title">不是看官方样片：我们自己的角色，真实跑了一遍。</h2>
+            </div>
+            <p>在 Windows 上启动固定提交的 Tauri 应用，导入 Project 003 身份锚点；一次 Codex 视觉调用只建议骨架，四帧像素由 Rust 本地渲染。本次 ImageGen 调用为 0。</p>
+          </div>
+
+          <div class="test-verdict" aria-label="自有样例实测结论">
+            <div><span>VERDICT</span><strong>CONDITIONAL</strong><p>轻微 idle 有条件通过；不批准 walk / run。</p></div>
+            <dl>
+              <div><dt>PROVIDER</dt><dd>1 次视觉规划</dd></div>
+              <div><dt>IMAGEGEN</dt><dd>0 次</dd></div>
+              <div><dt>RENDER</dt><dd>3 次尝试</dd></div>
+              <div><dt>OUTPUT</dt><dd>4 帧 / 6 FPS</dd></div>
+              <div><dt>NATIVE QA</dt><dd>94 / 100</dd></div>
+              <div><dt>MOTION</dt><dd>76 / 100</dd></div>
+            </dl>
+          </div>
+
+          <div class="own-evidence-grid">
+            <figure class="own-evidence-card is-result">
+              <div class="evidence-media">
+                <img src="../../assets/project-009-own-sample/project003-idle.gif" width="640" height="896" alt="Project 003 自有角色经 Sprite Studio 本地 Rig 渲染的四帧 idle 循环">
+                <div class="motion-fallback"><strong>4-FRAME IDLE</strong><span>动态预览已关闭；右侧接触表保留源图与四帧静态证据。</span></div>
+              </div>
+              <figcaption><span>OUR NATIVE OUTPUT</span><strong>身份、衣服、调色板保持；动作幅度较小。</strong><small>真实 Rig-only 输出，不是 AI 重绘</small></figcaption>
+            </figure>
+
+            <figure class="own-evidence-card is-sheet">
+              <img src="../../assets/project-009-own-sample/project003-idle-contact-sheet.png" width="2400" height="714" alt="Project 003 源图与 Sprite Studio 本地渲染四帧接触表">
+              <figcaption><span>SOURCE → 01 → 02 → 03 → 04</span><strong>同一 master 的确定性像素变形。</strong><small>重复渲染时四个 SHA-256 逐一相同</small></figcaption>
+            </figure>
+
+            <figure class="own-evidence-card is-native-ui">
+              <img src="../../assets/project-009-own-sample/native-results.png" width="2160" height="1350" alt="真实 Sprite Studio Media Gallery 显示导入源图与四帧动画结果">
+              <figcaption><span>REAL TAURI APP</span><strong>源角色与 4-frame sprite set 已进入本地 Media Gallery。</strong><small>Windows / v0.3.2 / 隔离工作区</small></figcaption>
+            </figure>
+          </div>
+
+          <div class="sample-gates" aria-label="测试样例输入门禁">
+            <article class="sample-pass">
+              <img src="../../assets/project-009-own-sample/project003-anchor.png" width="160" height="224" alt="Project 003 透明正面全身角色样例">
+              <div><span>HIGH FIT</span><strong>Project 003 身份锚点</strong><p>透明、正面、全身、单角色；进入真实 Rig 测试。</p></div>
+            </article>
+            <article class="sample-conditional">
+              <img src="../../assets/project-009-own-sample/project003-arms-crossed.png" width="160" height="224" alt="Project 003 交叉手臂全身角色样例">
+              <div><span>CONDITIONAL</span><strong>交叉手臂样例</strong><p>手臂与躯干互相遮挡，宽裤腿隐藏膝点；保留作后续困难集。</p></div>
+            </article>
+            <article class="sample-reject">
+              <img src="../../assets/project-009-own-sample/project001-scene.png" width="160" height="224" alt="Project 001 完整游戏场景截图样例">
+              <div><span>REJECT</span><strong>Project 001 场景截图</strong><p>不是独立透明角色，输入门禁直接拒绝，不用漂亮分数掩盖错误任务。</p></div>
+            </article>
+          </div>
+
+          <div class="test-comparison">
+            <article>
+              <span>LOCAL AUTO-SUGGEST</span>
+              <strong>15 点 / 10 骨</strong>
+              <p>肩跨度仅 7px、手跨度 17px；膝点在宽裤遮挡下仍给 0.97，快速但过度吸附身体中轴。</p>
+            </article>
+            <i aria-hidden="true">VS</i>
+            <article>
+              <span>VISION PLAN</span>
+              <strong>23 点 / 19 骨</strong>
+              <p>肩跨度 36px、手跨度 57px；被遮挡膝点降到 0.25，更符合可见人体与真实不确定性。</p>
+            </article>
+          </div>
+
+          <ol class="gate-sequence" aria-label="三次真实渲染门禁">
+            <li class="gate-fail"><span>ATTEMPT 01</span><strong>FAIL · imperceptible_rig_motion</strong><p>视觉规划的 0.1–0.3° 动作太保守，低于本地有效动作阈值。</p></li>
+            <li class="gate-fail"><span>ATTEMPT 02</span><strong>FAIL · missing_body_motion</strong><p>只把双臂提高到 ±4° 仍不够：biped 躯干没有有效运动。</p></li>
+            <li class="gate-pass"><span>ATTEMPT 03</span><strong>PASS · 4 frames rendered</strong><p>双臂与上躯干反向 ±4°；脚保持着地，四帧写入工作区。</p></li>
+            <li class="gate-pass"><span>RERENDER</span><strong>PASS · deterministic</strong><p>再次渲染的四个文件哈希逐一相同，证明相同 master + Rig 可复现。</p></li>
+          </ol>
+
+          <aside class="test-boundary">
+            <span>WHAT THIS PROVES</span>
+            <p><strong>证明：</strong>它能把我们的透明全身角色，通过“视觉骨架建议 + 本地门禁 + Rust 变形”生产为可重复的轻微 idle。<strong>没有证明：</strong>宽裤腿人物的 walk/run、语义身份绝对正确，或任意样例都能一次通过。native-v1 的 94 分是像素诊断，不是审美模型。</p>
+            <a href="./own-sample-benchmark.json">查看结构化实测数据 →</a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section usecase-demo-section" id="use-case-demo" data-section="use-case-demo" aria-labelledby="usecase-title">
+        <div class="section-label"><span>03</span><p>USE-CASE DEMO</p></div>
+        <div class="section-body">
+          <div class="section-heading">
+            <div>
+              <p class="kicker">合理使用场景</p>
+              <h2 id="usecase-title">它的意义不是“图片会动”，而是一个角色资产开始被产品复用。</h2>
+            </div>
+            <p>同一个已确认 master 经过一次 Rig，可以进入角色选择、NPC 对话、商店或任务面板等低幅度待机场景；文件、版本和 QA 仍然可追溯。真正需要位移的战斗动作则必须重新准备素材和验证。</p>
+          </div>
+
+          <div class="scenario-tabs" role="tablist" aria-label="合理使用场景选择">
+            <button type="button" role="tab" id="scenario-tab-select" aria-controls="scenario-view-select" aria-selected="true" data-scenario="select"><span>01</span><strong>角色选择</strong><small>适合当前 idle</small></button>
+            <button type="button" role="tab" id="scenario-tab-dialogue" aria-controls="scenario-view-dialogue" aria-selected="false" tabindex="-1" data-scenario="dialogue"><span>02</span><strong>NPC 对话</strong><small>可复用同一资产</small></button>
+            <button type="button" role="tab" id="scenario-tab-combat" aria-controls="scenario-view-combat" aria-selected="false" tabindex="-1" data-scenario="combat"><span>03</span><strong>战斗移动</strong><small>当前应当阻断</small></button>
+          </div>
+
+          <div class="scenario-stage">
+            <article class="scenario-view is-active" id="scenario-view-select" role="tabpanel" aria-labelledby="scenario-tab-select" data-scenario-view="select">
+              <div class="game-surface character-select-surface">
+                <header><span>CHARACTER SELECT</span><small>SLOT 01 / LOCAL ASSET</small></header>
+                <div class="character-pedestal scenario-character">
+                  <i aria-hidden="true"></i>
+                  <img class="animated-avatar" src="../../assets/project-009-own-sample/project003-idle.gif" width="640" height="896" alt="在角色选择界面循环播放的 Project 003 四帧 idle">
+                  <img class="static-avatar" src="../../assets/project-009-own-sample/project003-anchor.png" width="160" height="224" alt="Project 003 角色静态替代图">
+                </div>
+                <div class="character-sheet">
+                  <span>IDENTITY LOCK / PROJECT 003</span>
+                  <h3>林简</h3>
+                  <p>城市观察者 · Asset v1 · Idle r1</p>
+                  <div class="asset-chips"><b>4 FRAMES</b><b>6 FPS</b><b>LOOP 95.12</b></div>
+                  <dl><div><dt>身份</dt><dd>同一 master 像素</dd></div><div><dt>状态</dt><dd>READY FOR UI</dd></div><div><dt>来源</dt><dd>本地 Rig-only</dd></div></dl>
+                  <strong class="scenario-action">已发布到角色选择界面</strong>
+                </div>
+              </div>
+              <footer class="scenario-rationale"><span>合理原因</span><p>角色选择需要的是“活着但不离开原地”。微弱呼吸、重心摆动和衣服轮廓变化足够增加生命感，同时不会暴露宽裤腿下不可见的膝部结构。</p><strong>USE NOW</strong></footer>
+            </article>
+
+            <article class="scenario-view" id="scenario-view-dialogue" role="tabpanel" aria-labelledby="scenario-tab-dialogue" data-scenario-view="dialogue">
+              <div class="game-surface dialogue-surface">
+                <header><span>QUEST / 04</span><small>OLD STATION · 18:40</small></header>
+                <div class="dialogue-character scenario-character">
+                  <img class="animated-avatar" src="../../assets/project-009-own-sample/project003-idle.gif" width="640" height="896" alt="在 NPC 对话界面循环播放的 Project 003 四帧 idle">
+                  <img class="static-avatar" src="../../assets/project-009-own-sample/project003-anchor.png" width="160" height="224" alt="Project 003 角色静态替代图">
+                </div>
+                <div class="dialogue-box">
+                  <span>林简 · 城市观察者</span>
+                  <p>“车站的灯每隔七秒闪一次。等下一次熄灭，我们再过去。”</p>
+                  <small>同一 4-frame idle 被复用；对话文字和状态属于游戏层。</small>
+                </div>
+              </div>
+              <footer class="scenario-rationale"><span>合理原因</span><p>对话停留时间较长，完全静止显得僵硬；轻微 idle 能增加存在感。动作不承担叙事信息，因此即使幅度较小也不会影响任务理解。</p><strong>REUSE</strong></footer>
+            </article>
+
+            <article class="scenario-view" id="scenario-view-combat" role="tabpanel" aria-labelledby="scenario-tab-combat" data-scenario-view="combat">
+              <div class="game-surface combat-surface">
+                <header><span>COMBAT LOCOMOTION</span><small>PRE-PUBLISH GATE</small></header>
+                <div class="blocked-character">
+                  <img src="../../assets/project-009-own-sample/project003-anchor.png" width="160" height="224" alt="尚未批准用于战斗移动的 Project 003 角色">
+                  <b>BLOCKED</b>
+                </div>
+                <div class="combat-audit">
+                  <span>WHY NOT SHIP?</span>
+                  <h3>Idle 通过，不等于 Run 通过。</h3>
+                  <ul><li>宽裤腿遮挡膝点</li><li>双腿轮廓缺少独立运动空间</li><li>当前四帧没有腾空、触地与推进阶段</li></ul>
+                  <strong>需要：四肢分离的 motion-ready master → 新 Rig → run QA</strong>
+                </div>
+              </div>
+              <footer class="scenario-rationale"><span>合理原因</span><p>战斗移动承载方向、速度和命中判断。把轻微 idle 强行循环成跑步会产生滑行和错误动作语义，因此生产系统应该阻断，而不是“有动画就发布”。</p><strong>DO NOT SHIP</strong></footer>
+            </article>
+          </div>
+
+          <div class="meaning-grid" aria-label="Sprite Studio 对我们的三层意义">
+            <article><span>01 · REUSE</span><h3>一个身份资产，多处低成本复用</h3><p>角色选择、NPC 对话、商店和任务面板共享同一 master 与 idle，不必为每个界面重新生图。</p></article>
+            <article><span>02 · CONTROL</span><h3>模型建议不直接等于发布结果</h3><p>Rig schema、动作门禁、确定性复渲染和人工审核让失败有明确原因，也让结果可以回退。</p></article>
+            <article><span>03 · DELIVERY</span><h3>从聊天图片变成游戏合同</h3><p>帧、FPS、循环、pivot、版本和 QA 一起交付，游戏代码只负责播放和状态切换。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section game-demo-section" id="game-demo" data-section="game-demo" aria-labelledby="game-demo-title">
+        <div class="section-label"><span>04</span><p>PLAYABLE SCENE</p></div>
+        <div class="section-body">
+          <div class="section-heading">
+            <div>
+              <p class="kicker">真实资产 × 游戏代码</p>
+              <h2 id="game-demo-title">让角色从 idle 证据继续走进 run、cast 与协同战斗状态。</h2>
+            </div>
+            <p>Revision 5 已冻结保存。主路由进入 Revision 6：激活 Rig 后，林简动作投影会使用真实 run-v2 跟随玩家，并在发射脉冲时切换真实 pulse-cast-v1；QA 和 Export 继续说明它为什么仍是有条件采用。</p>
+          </div>
+
+          <div class="game-demo-hero">
+            <div class="game-demo-scene" aria-label="旧站信号游戏场景预览">
+              <div class="scene-hud"><span>CAPABILITY RUN / RIG DISTRICT</span><strong>●●●● · 0 / 3 MODULES</strong></div>
+              <div class="station-light" aria-hidden="true"></div>
+              <div class="station-lines" aria-hidden="true"></div>
+              <div class="preview-player" aria-hidden="true"><i></i></div>
+              <div class="preview-fault" aria-hidden="true"><i></i></div>
+              <div class="preview-terminal" aria-hidden="true"><i></i><b>RIG</b><small>READY</small></div>
+              <div class="preview-npc">
+                <img src="../../assets/project-009-game/lin-jian-motion-run-v2_02.png" width="256" height="384" alt="Sprite Studio 确定性 Rig helper 渲染的林简 run-v2 第二帧">
+                <span>林简投影 · RUN V2</span>
+              </div>
+              <div class="preview-dialogue"><span>W / J / E · JUMP / PULSE / ACT</span><p>“恢复 Rig、QA、Export 三个终端，再到最右侧启动信标。”</p></div>
+            </div>
+
+            <aside class="game-demo-brief">
+              <span>PLAYABLE PROOF / REVISION 06</span>
+              <h3>旧站能力试运行</h3>
+              <p>一条 2,800px 的横向能力关卡，用 13 张角色帧和三状态切换回答“这个库怎样成为游戏资产生产层”。</p>
+              <ol>
+                <li><b>01</b><div><strong>保留 native idle</strong><small>四张 Revision 5 帧继续作为不可覆盖的基线</small></div></li>
+                <li><b>02</b><div><strong>部署动作投影</strong><small>Rig 上线后加载 motion-ready master、run 与 cast</small></div></li>
+                <li><b>03</b><div><strong>跟随与施放</strong><small>游戏选择状态；13 张角色帧来自版本化资产输出</small></div></li>
+                <li><b>04</b><div><strong>QA / Export 门禁</strong><small>run 仅批准小比例演示，Manifest 交付三种状态</small></div></li>
+              </ol>
+              <a class="button primary game-launch" href="../../demos/sprite-maker-scene/">进入可玩场景 →</a>
+              <a class="snapshot-link" href="../../demos/sprite-maker-scene-r5/?state=near">对比已保存的 Revision 5 ↗</a>
+              <small class="game-controls">A / D 移动 · W 跳跃 · J 脉冲 · E 交互 · R 重置 · 支持触控</small>
+            </aside>
+          </div>
+
+          <div class="responsibility-map" aria-label="Sprite Studio 与游戏代码职责边界">
+            <article><span>SPRITE STUDIO</span><strong>idle 4 · run 4 · cast 5</strong><p>native idle 与版本化 helper 动作均为真实输出；run-v1 被保留，run-v2 不覆盖旧版本。</p></article>
+            <i aria-hidden="true">+</i>
+            <article><span>GAME LAYER</span><strong>跟随、状态选择、镜头、物理、伤害与任务</strong><p>Canvas 决定何时播放 run/cast，但不生成角色帧；故障体、命中、检查点和信标属于演示代码。</p></article>
+            <i aria-hidden="true">=</i>
+            <article class="is-result"><span>USABLE SCENE</span><strong>有复杂玩法的能力展示关卡</strong><p>证明它适合作为资产生产环节进入更复杂运行时，而不是替代游戏引擎或自动生成完整玩法。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section combat-trial-section" id="combat-trial" data-section="combat-trial" aria-labelledby="combat-trial-title">
+        <div class="section-label"><span>04B</span><p>COMBAT TRIAL</p></div>
+        <div class="section-body">
+          <div class="section-heading">
+            <div><p class="kicker">新增试运行模块</p><h2 id="combat-trial-title">让多动作资产进入三波战斗、护盾破坏与双阶段 Boss。</h2></div>
+            <p>这是独立模块，不覆盖 Revision 6 能力关卡。它用同一组真实 master / run-v2 / cast-v1 证明资产状态可以进入更复杂的战斗合同。</p>
+          </div>
+
+          <div class="combat-trial-hero">
+            <div class="combat-trial-preview" aria-label="同步穹顶复杂战斗预览">
+              <div class="trial-preview-hud"><span>PRESSURE 03 / SIGNAL WARDEN</span><strong>SYNC 100% · PHASE 2</strong></div>
+              <div class="trial-preview-grid" aria-hidden="true"></div>
+              <div class="trial-preview-player" aria-hidden="true"><i></i></div>
+              <div class="trial-preview-companion"><img src="../../assets/project-009-game/lin-jian-motion-cast-v1_03.png" width="256" height="384" alt="林简 pulse-cast-v1 第三帧"><span>林简投影 · CAST V1</span></div>
+              <div class="trial-preview-boss" aria-hidden="true"><i></i><b>WARDEN · PHASE 2</b></div>
+              <div class="trial-preview-burst" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="trial-preview-log"><span>AUTHORITATIVE EVENT</span><strong>SYNC-12 → WARDEN HP 5 / 14</strong><small>单次接触 · 167ms startup · 250ms recovery</small></div>
+            </div>
+
+            <aside class="combat-trial-brief">
+              <span>COMPLEX SCENE PROOF / MODULE 02</span>
+              <h3>同步穹顶战斗试运行</h3>
+              <p>玩家用脉冲积累同步，闪避穿过危险窗口，再命令林简施法。三种普通敌人和 Boss 改变决策压力，但都遵守预警、生效、接触与恢复阶段。</p>
+              <ol>
+                <li><b>01</b><div><strong>混合巡逻</strong><small>追击哨兵 + 远程中继</small></div></li>
+                <li><b>02</b><div><strong>护盾单元</strong><small>普通脉冲积能，协同施法高效破盾</small></div></li>
+                <li><b>03</b><div><strong>信号守门者</strong><small>半血进入三重脉冲 Phase 2</small></div></li>
+              </ol>
+              <a class="button primary combat-trial-launch" href="../../demos/sprite-maker-combat-trial/?state=briefing">进入复杂战斗试运行 →</a>
+              <small>A / D 移动 · J 脉冲 · K 闪避 · L 协同 · E 开始</small>
+            </aside>
+          </div>
+
+          <div class="combat-trial-contract">
+            <article><span>REAL ASSET</span><strong>master · run-v2 · cast-v1</strong><p>角色像素、动作帧和版本来自多动作实验。</p></article>
+            <article><span>COMBAT RUNTIME</span><strong>3 encounters · 4 archetypes · 2 phases</strong><p>敌人 AI、伤害、护盾、闪避、同步与胜负属于游戏代码。</p></article>
+            <article><span>REVIEW SURFACE</span><strong>8 fixtures · snapshot · event log</strong><p>关键波次、Boss、失败和完成态可以直接复核。</p></article>
+            <article><span>VERDICT</span><strong>CONDITIONAL / SCENE-READY</strong><p>批准复杂状态接入，不批准生产级人体 locomotion。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section application-lab-section" id="application-lab" data-section="application-lab" aria-labelledby="application-lab-title">
+        <div class="section-label"><span>04C</span><p>APPLICATION LAB</p></div>
+        <div class="section-body">
+          <div class="section-heading">
+            <div><p class="kicker">ONE ASSET / FIVE PRODUCTS</p><h2 id="application-lab-title">把同一组动作资产放进五种上层业务，而不把动画误说成业务。</h2></div>
+            <p>这是独立的应用场景实验室：桌面伙伴、互动故事/数字展厅、教学演示、营销动态人物和低成本游戏原型都能实际切换状态，并共享同一组真实 master / run-v2 / cast-v1。</p>
+          </div>
+
+          <div class="application-lab-hero">
+            <div class="application-lab-preview" aria-label="同一角色动作资产进入五种业务场景的预览">
+              <div class="application-preview-hud"><span>SHARED ASSET / LIN JIAN</span><strong>5 UPPER-LAYER PRODUCTS</strong></div>
+              <div class="application-preview-grid" aria-hidden="true"></div>
+              <article class="application-node node-companion"><b>01</b><strong>桌面伙伴</strong><small>专注 · 提醒</small></article>
+              <article class="application-node node-story"><b>02</b><strong>互动展厅</strong><small>分支 · 解读</small></article>
+              <article class="application-node node-teaching"><b>03</b><strong>教学演示</strong><small>步骤 · 答案</small></article>
+              <article class="application-node node-marketing"><b>04</b><strong>营销人物</strong><small>引导 · CTA</small></article>
+              <article class="application-node node-prototype"><b>05</b><strong>游戏原型</strong><small>规则 · 命中</small></article>
+              <figure class="application-preview-actor"><i aria-hidden="true"></i><img src="../../assets/project-009-game/lin-jian-motion-master-v1.png" width="256" height="384" alt="Project 009 多动作实验的林简 motion-ready master"><figcaption>MASTER · RUN V2 · CAST V1</figcaption></figure>
+              <div class="application-preview-flow"><span>SPRITE ASSET</span><i>→</i><strong>STATE ADAPTER</strong><i>→</i><span>BUSINESS LOGIC</span></div>
+            </div>
+
+            <aside class="application-lab-brief">
+              <span>REUSE PROOF / MODULE 03</span>
+              <h3>应用场景实验室</h3>
+              <p>每个方向都提供一个最小但可观察的业务循环。角色会切换动作，结果则由对应上层状态机结算。</p>
+              <ol>
+                <li><b>01</b><div><strong>虚拟人 / 桌面伙伴</strong><small>开始专注、提醒、完成反馈</small></div></li>
+                <li><b>02</b><div><strong>互动故事 / 数字展厅</strong><small>选择分支、移动与展品解读</small></div></li>
+                <li><b>03</b><div><strong>教学演示</strong><small>分步讲解、作答与正确反馈</small></div></li>
+                <li><b>04</b><div><strong>营销动态人物</strong><small>产品展开、CTA 与本地事件</small></div></li>
+                <li><b>05</b><div><strong>低成本游戏原型</strong><small>开始遭遇、两次命中与规则验证</small></div></li>
+              </ol>
+              <a class="button primary application-lab-launch" href="../../demos/sprite-maker-application-lab/?scene=companion">进入五场景实验室 →</a>
+              <small>← / → 切换场景 · 每个场景均可操作 · 支持手机</small>
+            </aside>
+          </div>
+
+          <div class="application-lab-contract">
+            <article><span>REAL ASSET</span><strong>master · run-v2 · cast-v1</strong><p>角色身份、透明帧、动作顺序和版本来自真实实验输出。</p></article>
+            <article><span>STATE ADAPTER</span><strong>业务状态 → 动作状态</strong><p>提醒完成映射 cast；移动到展品映射 run。</p></article>
+            <article><span>UPPER LAYER</span><strong>提醒、分支、课程、CTA、规则</strong><p>这些逻辑必须根据具体产品需要单独构造。</p></article>
+            <article><span>VERDICT</span><strong>REUSABLE / NOT A RUNTIME</strong><p>证明动作资产可跨产品复用，不把库描述成完整业务引擎。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section lab-section" id="lab" data-section="lab" aria-labelledby="lab-title">
+        <div class="section-label"><span>05</span><p>CAPABILITY LAB</p></div>
+        <div class="section-body">
+          <div class="section-heading">
+            <div>
+              <p class="kicker">Project 009 研究模拟</p>
+              <h2 id="lab-title">选择一个任务，看清谁在工作、会留下什么。</h2>
+            </div>
+            <p>实验台不调用模型，也不生成图片；它根据固定源码路径解释四类任务的执行边界与交付物。</p>
+          </div>
+
+          <div class="lab-shell">
+            <div class="lab-controls">
+              <fieldset>
+                <legend>01 / 选择任务</legend>
+                <div class="workflow-tabs" role="tablist" aria-label="资产工作流">
+                  <button type="button" role="tab" id="workflow-sprite" aria-controls="workflow-panel" aria-selected="false" tabindex="-1" data-workflow="sprite"><span>/sprite</span><strong>静态资产</strong></button>
+                  <button type="button" role="tab" id="workflow-animate" aria-controls="workflow-panel" aria-selected="true" data-workflow="animate"><span>/animate</span><strong>已有资产动画</strong></button>
+                  <button type="button" role="tab" id="workflow-pack" aria-controls="workflow-panel" aria-selected="false" tabindex="-1" data-workflow="pack"><span>/pack</span><strong>协调资产包</strong></button>
+                  <button type="button" role="tab" id="workflow-terrain" aria-controls="workflow-panel" aria-selected="false" tabindex="-1" data-workflow="terrain"><span>terrain</span><strong>完整图集</strong></button>
+                </div>
+              </fieldset>
+
+              <fieldset id="finishModeFieldset">
+                <legend>02 / 动画完成模式</legend>
+                <div class="mode-tabs" role="tablist" aria-label="动画完成模式">
+                  <button type="button" role="tab" aria-selected="true" data-mode="rig"><strong>Rig-only</strong><span>确定性最高</span></button>
+                  <button type="button" role="tab" aria-selected="false" tabindex="-1" data-mode="polish"><strong>AI Polish</strong><span>推荐混合模式</span></button>
+                  <button type="button" role="tab" aria-selected="false" tabindex="-1" data-mode="redraw"><strong>Full Redraw</strong><span>实验性</span></button>
+                </div>
+              </fieldset>
+
+              <div class="legend" aria-label="执行层图例">
+                <span class="lane-ai">AI / PROVIDER</span>
+                <span class="lane-local">LOCAL ENGINE</span>
+                <span class="lane-files">FILES / STATE</span>
+              </div>
+            </div>
+
+            <div class="workflow-panel" id="workflow-panel" role="tabpanel" aria-labelledby="workflow-animate" aria-live="polite">
+              <div class="workflow-summary">
+                <div>
+                  <span id="workflowCode">ANIMATE_EXISTING</span>
+                  <h3 id="workflowTitle">把已确认角色变成可重复的动作循环</h3>
+                </div>
+                <strong id="workflowVerdict">最能体现本库差异</strong>
+              </div>
+
+              <ol class="pipeline" id="pipelineList">
+                <li class="lane-files"><span>01</span><div><small>FILES / STATE</small><strong>锁定源资产与聊天参考</strong><p>选择准确的 PNG、尺寸、FPS、风格和动画意图。</p></div></li>
+                <li class="lane-ai"><span>02</span><div><small>AI / PROVIDER</small><strong>观察形态并建议 Rig</strong><p>返回关节点、胶囊骨骼、层级、关键姿势和接触点。</p></div></li>
+                <li class="lane-local"><span>03</span><div><small>LOCAL ENGINE</small><strong>分配像素、求解 IK、渲染帧</strong><p>使用权重网格和父子变换生成确定性 Rig-only 帧。</p></div></li>
+                <li class="lane-local"><span>04</span><div><small>LOCAL ENGINE</small><strong>运行尺寸、Alpha、连续性与循环检查</strong><p>失败修复写入新版本，不覆盖源资产。</p></div></li>
+                <li class="lane-files"><span>05</span><div><small>FILES / STATE</small><strong>保存动画并导出 Sheet + JSON</strong><p>帧、时间线、pivot、质量报告和 Manifest 留在工作区。</p></div></li>
+              </ol>
+
+              <div class="result-grid">
+                <article>
+                  <span>REQUIRES</span>
+                  <ul id="requiresList"><li>一个已认证 Agent CLI</li><li>一张动作友好的透明源图</li><li>人工检查骨骼与循环</li></ul>
+                </article>
+                <article>
+                  <span>DELIVERS</span>
+                  <ul id="deliverList"><li>Rig 与关键姿势</li><li>PNG 动画帧</li><li>Sprite Sheet + JSON</li></ul>
+                </article>
+                <article>
+                  <span>MAIN RISK</span>
+                  <p id="riskText">平面像素变形可能在大角度关节处拉伸；复杂新视角仍需重绘。</p>
+                </article>
+              </div>
+
+              <div class="lab-actions">
+                <button class="button primary" type="button" id="copyWorkflow">复制当前工作流</button>
+                <p id="labStatus" role="status" aria-live="polite">当前为 Rig-only：动作帧不需要逐帧调用图像模型。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="mechanism" data-section="mechanism" aria-labelledby="mechanism-title">
+        <div class="section-label"><span>06</span><p>HOW IT WORKS</p></div>
+        <div class="section-body">
+          <div class="section-heading">
+            <div><p class="kicker">实现原理</p><h2 id="mechanism-title">让模型承担不确定创造，让代码承担可重复生产。</h2></div>
+            <p>这条分工线比“用了哪个模型”更重要：它决定资产能否复现、修复、回退和进入游戏。</p>
+          </div>
+
+          <div class="mechanism-stack">
+            <article class="lane-ai"><span>01 · ORCHESTRATE</span><h3>Agent + Harness 编译需求</h3><p>对话、参考图和设置被编译成角色、怪物、道具、VFX、Pack 或 Terrain 合同。路由同时使用命令、关键词和当前资产上下文。</p><small>不确定：理解、构图、源图与可选润色</small></article>
+            <i aria-hidden="true">↓</i>
+            <article class="lane-local"><span>02 · PLAN</span><h3>规则模板分配动作阶段</h3><p>walk、run、attack、cast、death 等关键词进入预定义阶段；自动模式可让 Agent 看图后推荐帧数。</p><small>混合：规则骨架 + 视觉建议</small></article>
+            <i aria-hidden="true">↓</i>
+            <article class="lane-local"><span>03 · RIG</span><h3>胶囊骨骼覆盖每个非透明像素</h3><p>最近骨骼兜底保证完整轮廓；最多四骨骼权重、父子仿射变换和解析式双骨 IK 生成帧。</p><small>确定性：相同输入得到相同渲染</small></article>
+            <i aria-hidden="true">↓</i>
+            <article class="lane-local"><span>04 · VERIFY</span><h3>像素指标发现结构问题</h3><p>尺寸、Alpha、边缘、质心、感知哈希、调色板、帧差和循环首尾差异构成诊断报告。</p><small>边界：不能替代身份、肢体和审美判断</small></article>
+            <i aria-hidden="true">↓</i>
+            <article class="lane-files"><span>05 · OWN</span><h3>普通文件 + SQLite 保存长期状态</h3><p>PNG、Sheet 和 JSON 留在项目目录；对话、版本、时间线、任务与报告进入 SQLite，并支持备份恢复。</p><small>Local-first：拥有资产，不代表云端生成完全离线</small></article>
+          </div>
+
+          <div class="code-evidence-grid">
+            <article><span>22</span><strong>Rust source files</strong><p>原生核心不是单文件脚本。</p></article>
+            <article><span>84</span><strong>Tauri commands</strong><p>覆盖项目、对话、资产、Rig、QA、导出与恢复。</p></article>
+            <article><span>37</span><strong>Svelte components</strong><p>包括时间线、Rig、浏览器、Pack、Terrain 与 Playground。</p></article>
+            <article><span>03</span><strong>execution lanes</strong><p>AI 创造、本地计算、文件所有权。</p></article>
+          </div>
+
+          <aside class="version-note">
+            <span>VERSION NOTE</span>
+            <p><strong>README 与当前代码存在叙述差异。</strong> README 仍描述顺序生成 AI 帧并在状态段写 0.3.0；当前包版本是 0.3.2，生成 Harness 明确 Rig 帧是姿势权威，AI Polish / Full Redraw 是可选完成模式。研究结论以固定提交的当前代码为准。</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="scenarios" data-section="scenarios" aria-labelledby="scenarios-title">
+        <div class="section-label"><span>07</span><p>SCENARIOS</p></div>
+        <div class="section-body">
+          <div class="section-heading">
+            <div><p class="kicker">使用场景</p><h2 id="scenarios-title">越接近“小团队持续生产 2D 游戏资产”，匹配度越高。</h2></div>
+            <p>它的优势来自工作流完整性，而不是单张图的绝对上限。只做一次性图片时，直接使用图像工具更简单。</p>
+          </div>
+
+          <div class="scenario-columns">
+            <article class="fit-high">
+              <header><span>HIGH FIT</span><strong>建议优先试用</strong></header>
+              <ul>
+                <li><b>独立游戏 / Game Jam</b><span>快速建立角色、怪物、道具与 VFX 基线</span></li>
+                <li><b>已有角色做动作</b><span>idle、walk、run、attack、death 循环</span></li>
+                <li><b>协调资产包</b><span>同一 art direction 下的独立 PNG 与 Manifest</span></li>
+                <li><b>Canvas / Phaser / Godot</b><span>需要 Sheet、pivot、FPS 和 JSON</span></li>
+                <li><b>长期本地资产</b><span>版本、备份、非破坏修复和生成上下文</span></li>
+              </ul>
+            </article>
+            <article class="fit-medium">
+              <header><span>CONDITIONAL</span><strong>需要人工与补充工具</strong></header>
+              <ul>
+                <li><b>非像素 2D</b><span>可以生成，但 Rig 仍是平面像素变形</span></li>
+                <li><b>严格角色一致性</b><span>Rig 锁像素，重绘却可能重新漂移</span></li>
+                <li><b>商业正式资产</b><span>仍需版权、构图和人工艺术验收</span></li>
+                <li><b>Terrain 生产</b><span>图集之后仍需切片、碰撞和引擎接入</span></li>
+                <li><b>批量自动化</b><span>桌面优先，缺少稳定 headless SDK</span></li>
+              </ul>
+            </article>
+            <article class="fit-low">
+              <header><span>LOW FIT</span><strong>换专用方案</strong></header>
+              <ul>
+                <li><b>单张头像或插画</b><span>工作台成本超过任务价值</span></li>
+                <li><b>Spine / Live2D</b><span>它主要导出烘焙 PNG 帧</span></li>
+                <li><b>AAA 复杂动画</b><span>面部、布料和多角色表演不足</span></li>
+                <li><b>3D 与移动端原生编辑</b><span>不属于当前产品目标</span></li>
+                <li><b>完全离线生图</b><span>仓库没有附带本地模型权重</span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section value-section" id="value" data-section="value" aria-labelledby="value-title">
+        <div class="section-label"><span>08</span><p>VALUE TO US</p></div>
+        <div class="section-body">
+          <div class="section-heading">
+            <div><p class="kicker">对我们的意义</p><h2 id="value-title">它连接了我们已经验证的“可玩游戏”和“长期资产治理”。</h2></div>
+            <p>不必照搬整个应用；真正值得迁移的是 Harness、确定性后处理、Artifact + Manifest 与人机验收闭环。</p>
+          </div>
+
+          <div class="project-bridge" aria-label="与现有研究项目的关系">
+            <article>
+              <span>PROJECT 001</span>
+              <h3>OUTRUN THE LEVEL</h3>
+              <p>已有完整 Canvas 玩法、种子化关卡和测试接口；缺少可持续角色、障碍和 VFX 资产生产层。</p>
+              <a href="../outrun-the-level/">查看项目 →</a>
+            </article>
+            <i aria-hidden="true">+</i>
+            <article class="is-focus">
+              <span>PROJECT 009</span>
+              <h3>SPRITE STUDIO</h3>
+              <p>提供 Sprite、Rig、动画、QA、版本和游戏导出；不替代玩法或角色身份治理。</p>
+              <strong>补齐“可动画工作台”</strong>
+            </article>
+            <i aria-hidden="true">+</i>
+            <article>
+              <span>PROJECT 003</span>
+              <h3>PERSONAL IP SYSTEM</h3>
+              <p>已有身份锁、风格锁、三轴版本、lineage 与文件级 QA；缺少动作时间线和游戏资产导出。</p>
+              <a href="../personal-ip-image-pack-study/">查看项目 →</a>
+            </article>
+          </div>
+
+          <blockquote class="value-formula">
+            <span>OUR OPPORTUNITY</span>
+            <strong>身份与风格治理 × 可重复动画 × 游戏交付合同 = 长期 Character Asset Workbench</strong>
+          </blockquote>
+
+          <div class="reuse-grid">
+            <article><span>01</span><h3>Harness 编译层</h3><p>把普通需求转换为分类、规格、帧数、质量门禁和交付合同。</p></article>
+            <article><span>02</span><h3>确定性后处理</h3><p>模型负责创造，代码负责可以重跑、比较、修复和回退的部分。</p></article>
+            <article><span>03</span><h3>Artifact + Manifest</h3><p>生成结果不是聊天附件，而是有身份、路径、版本和来源的项目资产。</p></article>
+            <article><span>04</span><h3>人机验收闭环</h3><p>自动指标负责发现异常，人负责确认身份、动作可读性和最终艺术质量。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="extensions" data-section="extensions" aria-labelledby="extensions-title">
+        <div class="section-label"><span>09</span><p>EXTENSIONS</p></div>
+        <div class="section-body">
+          <div class="section-heading">
+            <div><p class="kicker">可扩展方向</p><h2 id="extensions-title">先稳定协议，再接游戏，再提升一致性。</h2></div>
+            <p>最有价值的扩展不是继续增加按钮，而是让生产结果更可验证、更容易进入真实游戏。</p>
+          </div>
+
+          <div class="extension-list">
+            <article><b>P0</b><div><span>PLATFORM CONTRACT</span><h3>版本化 Provider、Harness、Rig 与 Manifest</h3><p>提供 schema migration、能力探测、兼容性测试和清晰的失败合同，降低早期版本快速变化带来的维护成本。</p></div></article>
+            <article><b>P0</b><div><span>HEADLESS DELIVERY</span><h3>CLI / SDK / CI 批处理</h3><p>让固定资产清单能够在不打开桌面 UI 的情况下生成、检查、导出和回归；补齐 Windows Python 命令探测。</p></div></article>
+            <article><b>P1</b><div><span>GAME RUNTIME</span><h3>Canvas、Phaser、Three.js、Godot、Unity 适配器</h3><p>附带 hitbox、hurtbox、攻击事件、脚步、root motion、状态机和示例播放器，而不只交付通用 Sheet。</p></div></article>
+            <article><b>P1</b><div><span>CHARACTER SYSTEM</span><h3>方向动作、装备层、换色与跨动作身份锁</h3><p>把角色卡、武器、服装、调色板、4/8 方向动作和动作版本组织成可复用角色资产图。</p></div></article>
+            <article><b>P1</b><div><span>SEMANTIC QA</span><h3>身份、肢体、OCR、透明边缘与 Provider 回归</h3><p>在像素指标之外，建立固定角色和动作基准，测首次通过率、返工率、耗时、成本和下游可用率。</p></div></article>
+            <article><b>P2</b><div><span>ASSET PLATFORM</span><h3>多人审核、成本、来源与发布治理</h3><p>加入评论、客户确认、失败帧重做、Provider provenance、许可证记录、缓存、队列和正式发布审批。</p></div></article>
+          </div>
+
+          <aside class="adoption-card">
+            <div>
+              <span>RECOMMENDED NEXT STEP</span>
+              <h3>做一个四资产小试，而不是立即 Fork。</h3>
+              <p>同一已锁定角色：`idle + run + death + 1 VFX`。记录首次通过率、人物漂移、手工修正时间、循环质量、Provider 成本和 Canvas 接入成本。</p>
+            </div>
+            <ol>
+              <li><b>1</b><span>独立安装或从源码运行上游</span></li>
+              <li><b>2</b><span>固定角色、风格、尺寸与动作清单</span></li>
+              <li><b>3</b><span>与直接 ImageGen + Project 003 协议做 A/B</span></li>
+              <li><b>4</b><span>只有持续扩展成本下降后再决定 Fork / SDK</span></li>
+            </ol>
+          </aside>
+        </div>
+      </section>
+
+      <section class="closing" aria-label="最终判断">
+        <p>FINAL VERDICT</p>
+        <h2>值得作为架构样本和游戏资产小试工具；<br>暂不作为稳定 SDK 直接嵌入。</h2>
+        <div><span>架构参考</span><strong>HIGH</strong><span>独立工具试用</span><strong>MEDIUM–HIGH</strong><span>直接代码依赖</span><strong>LOW</strong></div>
+      </section>
+    </main>
+
+    <footer>
+      <div><span>PROJECT 009</span><strong>SPRITE PRODUCTION, LOCAL FIRST</strong></div>
+      <p>研究固定到上游 <code>v0.3.2 / 336c711</code>。官方媒体来自上游；能力实验台不调用模型；自有样例用 1 次视觉规划、0 次 ImageGen，帧由本地 Rust 渲染。</p>
+      <div class="footer-links"><a href="https://github.com/yydshly/0828_codex_project/tree/main/projects/sprite-maker-study">研究档案</a><a href="https://github.com/JohnKinyanjui/sprite-maker">上游仓库</a><a href="#page-top">返回顶部 ↑</a></div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

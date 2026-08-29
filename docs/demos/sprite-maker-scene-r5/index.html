@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Project 009 Capability Run：用 Sprite Studio 真实四帧、QA 与导出合同构造的横向可玩能力关卡。">
+    <meta name="theme-color" content="#050b08">
+    <title>CAPABILITY RUN · Sprite Studio Game Demo</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#gameCanvas">跳到游戏</a>
+
+    <header class="topbar">
+      <a class="brand" href="../../projects/sprite-maker-study/#game-demo"><span>PROJECT 009</span><strong>CAPABILITY RUN</strong></a>
+      <div class="asset-source"><span>VERIFIED NPC ASSET</span><strong>4 FRAME · RIG-ONLY · LOCAL</strong></div>
+      <a class="back-link" href="../../projects/sprite-maker-study/#game-demo">研究说明 ↗</a>
+    </header>
+
+    <main class="game-shell">
+      <section class="game-stage" id="game-stage" aria-labelledby="game-title">
+        <div class="stage-heading">
+          <div><p>PLAYABLE CAPABILITY PROOF / REVISION 05</p><h1 id="game-title">旧站能力试运行</h1></div>
+          <p>穿越三段旧站，处理巡逻故障体，依次恢复 <b>Rig、QA、Export</b> 三个能力终端，最后启动信标。</p>
+        </div>
+
+        <div class="canvas-shell" id="canvasShell">
+          <canvas id="gameCanvas" width="960" height="540" tabindex="0" aria-label="旧站能力试运行横向关卡。左右移动，跳跃，发射脉冲，靠近角色或终端后交互。">
+            当前浏览器不支持 Canvas。你仍可阅读下方 Rig、QA 与 Export 能力说明。
+          </canvas>
+
+          <div class="hud hud-mission" aria-label="当前任务">
+            <span id="questCode">BRIEFING</span>
+            <strong id="questTitle">先与林简建立连接</strong>
+          </div>
+
+          <div class="hud hud-map" aria-label="横向关卡位置">
+            <div class="map-line"><i class="map-node is-npc" style="left:9%"></i><i class="map-node is-rig" style="left:27%"></i><i class="map-node is-qa" style="left:54%"></i><i class="map-node is-export" style="left:79%"></i><i class="map-node is-beacon" style="left:95%"></i><b id="mapPlayer"></b></div>
+            <span>LIN ─ RIG ─ QA ─ EXPORT ─ BEACON</span>
+          </div>
+
+          <div class="hud hud-vitals" aria-label="玩家状态">
+            <div><span>INTEGRITY</span><strong id="healthPips">● ● ● ●</strong></div>
+            <div><span>MODULES</span><strong><b id="moduleCount">0</b> / 3</strong></div>
+            <div><span>FAULTS</span><strong id="enemyCount">5</strong></div>
+          </div>
+
+          <div class="asset-proof" aria-label="NPC 动画来源">
+            <span>LIN JIAN / IDLE r1</span>
+            <strong>Sprite Studio native render</strong>
+          </div>
+
+          <div class="interaction-prompt" id="interactionPrompt" hidden><kbd>E</kbd><span>交互</span></div>
+
+          <div class="dialogue-panel" id="dialoguePanel" role="status" aria-live="polite">
+            <span id="speaker">SYSTEM</span>
+            <p id="dialogueText">沿站台向右，找到林简。W / ↑ 跳跃，J / F 发射脉冲。</p>
+          </div>
+
+          <section class="module-panel" id="modulePanel" role="dialog" aria-modal="true" aria-labelledby="moduleTitle" aria-describedby="moduleDescription" hidden>
+            <button type="button" class="module-close" id="moduleClose" aria-label="关闭能力面板">×</button>
+            <header><span id="moduleEyebrow">CAPABILITY MODULE</span><strong id="moduleTitle">能力终端</strong><p id="moduleDescription">真实证据说明。</p></header>
+
+            <div class="module-view rig-view" data-module-view="rig" hidden>
+              <div class="frame-strip" aria-label="林简四张真实 Rig-only 动画帧">
+                <figure><img src="../../assets/project-009-game/lin-jian-idle-01.png" width="640" height="896" alt="林简 idle 第 1 帧"><figcaption>01</figcaption></figure>
+                <figure><img src="../../assets/project-009-game/lin-jian-idle-02.png" width="640" height="896" alt="林简 idle 第 2 帧"><figcaption>02</figcaption></figure>
+                <figure><img src="../../assets/project-009-game/lin-jian-idle-03.png" width="640" height="896" alt="林简 idle 第 3 帧"><figcaption>03</figcaption></figure>
+                <figure><img src="../../assets/project-009-game/lin-jian-idle-04.png" width="640" height="896" alt="林简 idle 第 4 帧"><figcaption>04</figcaption></figure>
+              </div>
+              <dl><div><dt>MASTER</dt><dd>同一身份源图</dd></div><div><dt>METHOD</dt><dd>Rust Rig-only</dd></div><div><dt>PLAYBACK</dt><dd>4 frames / 6 FPS</dd></div><div><dt>RERENDER</dt><dd>4 hashes identical</dd></div></dl>
+            </div>
+
+            <div class="module-view qa-view" data-module-view="qa" hidden>
+              <div class="qa-score"><span>NATIVE-V1</span><strong>94</strong><small>/ 100</small></div>
+              <div class="qa-bars">
+                <div><span>IDENTITY PIXELS</span><i><b style="width:100%"></b></i><strong>100</strong></div>
+                <div><span>MOTION CONTINUITY</span><i><b style="width:76%"></b></i><strong>76</strong></div>
+                <div><span>LOOP QUALITY</span><i><b style="width:95.12%"></b></i><strong>95.12</strong></div>
+                <div><span>TRANSPARENCY</span><i><b style="width:100%"></b></i><strong>100</strong></div>
+              </div>
+              <p class="module-boundary"><b>边界：</b>这些是像素诊断，用于发现漂移、断帧和透明问题；它们不是审美模型，也不能单独批准 walk / run。</p>
+            </div>
+
+            <div class="module-view export-view" data-module-view="export" hidden>
+              <div class="manifest-card"><span>ANIMATION MANIFEST</span><pre>{
+  "asset": "lin-jian-idle-r1",
+  "frames": 4,
+  "fps": 6,
+  "loop": true,
+  "finish": "rig-only",
+  "qa": "conditional"
+}</pre></div>
+              <div class="delivery-stack"><article><span>FILES</span><strong>4 × transparent PNG</strong><p>游戏运行时直接加载。</p></article><article><span>CONTRACT</span><strong>FPS · loop · pivot · version</strong><p>不再只是一张聊天图片。</p></article><article><span>PROVENANCE</span><strong>master → rig → render → QA</strong><p>失败与复渲染均可追溯。</p></article></div>
+            </div>
+
+            <footer><span>ESC 关闭 · 关闭后返回游戏焦点</span><button type="button" data-action="close-module">继续任务 →</button></footer>
+          </section>
+
+          <div class="completion-card" id="completionCard" role="status" hidden>
+            <span>CAPABILITY RUN COMPLETE</span>
+            <strong>旧站资产链已经上线</strong>
+            <p>Sprite Studio 提供可复现的角色帧、QA 与导出合同；镜头、物理、战斗、敌人和任务状态由游戏运行时负责。</p>
+            <div><b>RIG ONLINE</b><b>QA ONLINE</b><b>EXPORT ONLINE</b></div>
+            <button type="button" data-action="reset">重新运行</button>
+          </div>
+
+          <div class="failure-card" id="failureCard" role="status" hidden>
+            <span>CONNECTION LOST</span><strong>探索器完整度归零</strong><p>能力终端进度已保留，从最近检查点恢复。</p><button type="button" data-action="retry">从检查点恢复</button>
+          </div>
+
+          <div class="canvas-fallback" id="canvasFallback" hidden>
+            <span>CANVAS UNAVAILABLE</span><strong>场景无法渲染，能力证据仍可阅读。</strong>
+            <div><article><b>RIG</b><p>四张真实本地帧，6 FPS，确定性复渲染。</p></article><article><b>QA</b><p>overall 94、motion 76、loop 95.12；像素诊断不是审美批准。</p></article><article><b>EXPORT</b><p>透明 PNG、FPS、循环、版本与 provenance 组成游戏交付合同。</p></article></div>
+          </div>
+        </div>
+
+        <nav class="touch-controls" aria-label="游戏触控">
+          <button type="button" data-control="left" aria-label="向左移动"><span>←</span><small>LEFT</small></button>
+          <button type="button" data-control="right" aria-label="向右移动"><span>→</span><small>RIGHT</small></button>
+          <button type="button" data-action="jump" aria-label="跳跃"><span>↑</span><small>JUMP</small></button>
+          <button type="button" data-action="fire" class="fire" aria-label="发射脉冲"><span>J</span><small>PULSE</small></button>
+          <button type="button" data-action="interact" class="interact" aria-label="交互"><span>E</span><small>ACT</small></button>
+          <button type="button" data-action="reset" aria-label="重置关卡"><span>R</span><small>RESET</small></button>
+        </nav>
+
+        <div class="game-meta">
+          <div><span>KEYBOARD</span><strong>A / D 移动 · W 跳跃 · J 脉冲 · E 交互 · R 重置</strong></div>
+          <div><span>WORLD</span><strong>2,800px 横向关卡 · camera follow · fixed 60 Hz</strong></div>
+          <div><span>LIBRARY OUTPUT</span><strong>4 PNG frames · Rig · QA · export contract</strong></div>
+          <div><span>GAME LAYER</span><strong>物理 · 战斗 · 敌人 · 镜头 · 粒子 · 状态机</strong></div>
+        </div>
+
+        <p class="sr-status" id="gameStatus" role="status" aria-live="polite">游戏已开始。向右移动寻找林简。</p>
+      </section>
+
+      <section class="capability-ledger" aria-labelledby="ledger-title">
+        <div><span>WHAT THE LIBRARY CONTRIBUTES</span><h2 id="ledger-title">三个终端不是装饰，而是三种可交付能力。</h2></div>
+        <article><b>01</b><span>RIG / MOTION</span><strong>同一 master 变成可重复帧</strong><p>视觉建议骨架，本地 Rust 分配像素、求解变换并渲染；当前批准轻微 idle。</p></article>
+        <article><b>02</b><span>QA / GATE</span><strong>失败有原因，结果有边界</strong><p>三次真实门禁才通过；94 分诊断像素，不把它说成审美或动作语义保证。</p></article>
+        <article><b>03</b><span>EXPORT / RUNTIME</span><strong>图片升级为运行时合同</strong><p>帧、FPS、循环、pivot、版本和来源一起进入游戏，而不是复制一张不可追踪图片。</p></article>
+      </section>
+    </main>
+
+    <footer>
+      <p><b>真实库产物：</b>林简四帧、QA 数值和导出元数据。<b>程序化游戏层：</b>探索器、敌人、地形、物理、战斗、镜头、粒子和任务。</p>
+      <a href="../../projects/sprite-maker-study/#own-test">查看原始实测 →</a>
+    </footer>
+
+    <script src="./game.js"></script>
+  </body>
+</html>

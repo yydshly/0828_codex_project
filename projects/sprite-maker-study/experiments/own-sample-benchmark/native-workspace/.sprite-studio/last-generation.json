@@ -1,0 +1,13 @@
+{
+  "kind": "sprite",
+  "name": "project003-anchor-idle-revised3",
+  "category": "characters",
+  "fps": 6.0,
+  "files": [
+    "assets\\characters\\project003-anchor-idle-revised3_01.png",
+    "assets\\characters\\project003-anchor-idle-revised3_02.png",
+    "assets\\characters\\project003-anchor-idle-revised3_03.png",
+    "assets\\characters\\project003-anchor-idle-revised3_04.png"
+  ],
+  "generatedAt": "2026-08-28T17:49:30.522865300+00:00"
+}

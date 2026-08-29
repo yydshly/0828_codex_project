@@ -1,0 +1,40 @@
+{
+  "id": "2678ff97-fc4e-434d-ba3d-26497981c214",
+  "animationId": "100b453e-2d68-4701-abfa-40275294a09a",
+  "status": "completed",
+  "overallScore": 94,
+  "characterConsistencyScore": 100,
+  "motionContinuityScore": 76,
+  "frameAlignmentScore": 100,
+  "weaponConsistencyScore": 100,
+  "loopQualityScore": 95.12430477945402,
+  "transparencyScore": 100,
+  "frameCount": 4,
+  "analyzerVersion": "native-v1",
+  "checks": [
+    {
+      "checkType": "duplicate",
+      "frameIndex": 2,
+      "comparisonFrameIndex": 1,
+      "severity": "warning",
+      "score": 45,
+      "message": "Frames 2 and 3 appear nearly identical.",
+      "metricValue": 2.402133118872549,
+      "metricUnit": "% pixel difference",
+      "repairAction": "remove_duplicate"
+    },
+    {
+      "checkType": "duplicate",
+      "frameIndex": 3,
+      "comparisonFrameIndex": 2,
+      "severity": "warning",
+      "score": 45,
+      "message": "Frames 3 and 4 appear nearly identical.",
+      "metricValue": 2.7940355829831933,
+      "metricUnit": "% pixel difference",
+      "repairAction": "remove_duplicate"
+    }
+  ],
+  "capturedAt": "2026-08-29T01:53:00+08:00",
+  "boundary": "Native pixel metrics only; the scores do not prove semantic identity, anatomical correctness, or artistic quality."
+}

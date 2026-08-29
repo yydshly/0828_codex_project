@@ -1,0 +1,260 @@
+{
+  "rigVersion": 1,
+  "name": "lin-jian-motion-run-v2",
+  "category": "characters",
+  "source": "assets/characters/lin-jian-motion-master-v1.png",
+  "fps": 10,
+  "looping": true,
+  "palette": {},
+  "parts": [
+    {
+      "name": "left_arm",
+      "mask": {
+        "polygon": [
+          [
+            82,
+            77
+          ],
+          [
+            105,
+            91
+          ],
+          [
+            93,
+            126
+          ],
+          [
+            74,
+            166
+          ],
+          [
+            57,
+            206
+          ],
+          [
+            41,
+            198
+          ],
+          [
+            59,
+            150
+          ],
+          [
+            72,
+            105
+          ]
+        ]
+      },
+      "pivot": [
+        88.0,
+        91.0
+      ],
+      "z": 2
+    },
+    {
+      "name": "right_arm",
+      "mask": {
+        "polygon": [
+          [
+            151,
+            91
+          ],
+          [
+            174,
+            77
+          ],
+          [
+            184,
+            105
+          ],
+          [
+            197,
+            150
+          ],
+          [
+            215,
+            198
+          ],
+          [
+            199,
+            206
+          ],
+          [
+            181,
+            166
+          ],
+          [
+            162,
+            126
+          ]
+        ]
+      },
+      "pivot": [
+        168.0,
+        91.0
+      ],
+      "z": 3
+    },
+    {
+      "name": "left_leg",
+      "mask": {
+        "polygon": [
+          [
+            96,
+            145
+          ],
+          [
+            128,
+            145
+          ],
+          [
+            128,
+            373
+          ],
+          [
+            64,
+            373
+          ],
+          [
+            75,
+            311
+          ],
+          [
+            82,
+            205
+          ],
+          [
+            90,
+            170
+          ]
+        ]
+      },
+      "pivot": [
+        109.0,
+        157.0
+      ],
+      "z": 1
+    },
+    {
+      "name": "right_leg",
+      "mask": {
+        "polygon": [
+          [
+            128,
+            145
+          ],
+          [
+            160,
+            145
+          ],
+          [
+            166,
+            170
+          ],
+          [
+            174,
+            205
+          ],
+          [
+            181,
+            311
+          ],
+          [
+            192,
+            373
+          ],
+          [
+            128,
+            373
+          ]
+        ]
+      },
+      "pivot": [
+        147.0,
+        157.0
+      ],
+      "z": 1
+    }
+  ],
+  "frames": [
+    {
+      "transforms": {
+        "base": {
+          "dy": 0
+        },
+        "left_arm": {
+          "rotate": 14
+        },
+        "right_arm": {
+          "rotate": -14
+        },
+        "left_leg": {
+          "rotate": -7
+        },
+        "right_leg": {
+          "rotate": 7
+        }
+      }
+    },
+    {
+      "transforms": {
+        "base": {
+          "dy": -4
+        },
+        "left_arm": {
+          "rotate": 4
+        },
+        "right_arm": {
+          "rotate": -4
+        },
+        "left_leg": {
+          "rotate": -2
+        },
+        "right_leg": {
+          "rotate": 2
+        }
+      }
+    },
+    {
+      "transforms": {
+        "base": {
+          "dy": 0
+        },
+        "left_arm": {
+          "rotate": -14
+        },
+        "right_arm": {
+          "rotate": 14
+        },
+        "left_leg": {
+          "rotate": 7
+        },
+        "right_leg": {
+          "rotate": -7
+        }
+      }
+    },
+    {
+      "transforms": {
+        "base": {
+          "dy": -4
+        },
+        "left_arm": {
+          "rotate": -4
+        },
+        "right_arm": {
+          "rotate": 4
+        },
+        "left_leg": {
+          "rotate": 2
+        },
+        "right_leg": {
+          "rotate": -2
+        }
+      }
+    }
+  ],
+  "baseZ": 0,
+  "planningMode": "ai-rig-deterministic-render",
+  "masterHash": "17e42a876c90448c16ada180bee190a1ee852d90bb1ac5f896003578aca1219c"
+}

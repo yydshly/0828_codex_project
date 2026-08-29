@@ -15,6 +15,8 @@ const nightDiaryStudyRoot = join(repositoryRoot, "projects", "night-diary-image-
 const nightDiaryAssetsRoot = join(assetsRoot, "night-diary-image-skill-study");
 const sceneGenStudyRoot = join(repositoryRoot, "projects", "scenegen-capability-study");
 const sceneGenStudyOutputRoot = join(outputRoot, "projects", "scenegen-capability-study");
+const spriteMakerStudyRoot = join(repositoryRoot, "projects", "sprite-maker-study");
+const spriteMakerStudyOutputRoot = join(outputRoot, "projects", "sprite-maker-study");
 
 if (!outputRoot.startsWith(repositoryRoot)) {
   throw new Error("Refusing to build outside the repository.");
@@ -70,6 +72,16 @@ await cp(
 await copyFile(
   join(nightDiaryStudyRoot, "experiments", "structure-qa-report-v2.json"),
   join(nightDiaryAssetsRoot, "structure-qa-report-v2.json")
+);
+
+await copyFile(
+  join(spriteMakerStudyRoot, "experiments", "upstream-audit.json"),
+  join(spriteMakerStudyOutputRoot, "upstream-audit.json")
+);
+
+await copyFile(
+  join(spriteMakerStudyRoot, "experiments", "own-sample-benchmark", "benchmark-result.json"),
+  join(spriteMakerStudyOutputRoot, "own-sample-benchmark.json")
 );
 
 await copyFile(

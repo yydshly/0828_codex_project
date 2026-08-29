@@ -1,0 +1,26 @@
+{
+  "name": "lin-jian-motion-run-v2",
+  "category": "characters",
+  "fps": 10,
+  "files": [
+    "assets\\characters\\lin-jian-motion-run-v2_01.png",
+    "assets\\characters\\lin-jian-motion-run-v2_02.png",
+    "assets\\characters\\lin-jian-motion-run-v2_03.png",
+    "assets\\characters\\lin-jian-motion-run-v2_04.png"
+  ],
+  "rig": ".sprite-studio\\rigs\\lin-jian-motion-run-v2.json",
+  "masterHash": "17e42a876c90448c16ada180bee190a1ee852d90bb1ac5f896003578aca1219c",
+  "rigHash": "3055ce1a06eadf0e38c9f70e4a3bd85a514db42447e80b48dc88f6a5791a387d",
+  "rigVersion": 1,
+  "quality": {
+    "uniqueRenderedFrames": 4,
+    "renderedFrameHashes": [
+      "e2b6970fd4613684ac1236ee5eda136d5919b339526f9f2c919d469651713093",
+      "b0b89587377b11e980b3768ae1a6622e905f63a382a121f9480002f6fe5ae712",
+      "e32f6baa448b3d866c960a6a687401d2c69eff99b5978489fceb171ead0b0cce",
+      "eac88bb0abffe83419ad923679e4652ff78643ec70deea767840aadc03c5a3cb"
+    ]
+  },
+  "planningMode": "ai-rig-deterministic-render",
+  "generatedAt": "2026-08-29T03:20:05.445067+00:00"
+}

@@ -1,0 +1,35 @@
+{
+  "morphology": "biped",
+  "points": [
+    {"id": "p1", "name": "head_top", "kind": "anchor", "x": 79, "y": 14, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p2", "name": "neck", "kind": "joint", "x": 79, "y": 37, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p3", "name": "shoulder_l", "kind": "joint", "x": 78, "y": 56, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p4", "name": "shoulder_r", "kind": "joint", "x": 85, "y": 57, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p5", "name": "elbow_l", "kind": "joint", "x": 74, "y": 90, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p6", "name": "elbow_r", "kind": "joint", "x": 89, "y": 83, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p7", "name": "hand_l", "kind": "anchor", "x": 73, "y": 110, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p8", "name": "hand_r", "kind": "anchor", "x": 90, "y": 111, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p9", "name": "hip", "kind": "joint", "x": 81, "y": 109, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p10", "name": "hip_l", "kind": "joint", "x": 75, "y": 113, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p11", "name": "hip_r", "kind": "joint", "x": 84, "y": 113, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p12", "name": "knee_l", "kind": "joint", "x": 71, "y": 160, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p13", "name": "knee_r", "kind": "joint", "x": 92, "y": 155, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p14", "name": "foot_l", "kind": "contact", "x": 70, "y": 204, "confidence": 0.97, "source": "auto", "note": null},
+    {"id": "p15", "name": "foot_r", "kind": "contact", "x": 93, "y": 205, "confidence": 0.95, "source": "auto", "note": null}
+  ],
+  "bones": [
+    {"id": "b1", "name": "torso", "startPoint": "neck", "endPoint": "hip", "radius": 22.9, "parent": null, "z": 5},
+    {"id": "b2", "name": "head", "startPoint": "neck", "endPoint": "head_top", "radius": 20.8, "parent": "torso", "z": 7},
+    {"id": "b3", "name": "upper_arm_l", "startPoint": "shoulder_l", "endPoint": "elbow_l", "radius": 8.6, "parent": "torso", "z": 2},
+    {"id": "b4", "name": "lower_arm_l", "startPoint": "elbow_l", "endPoint": "hand_l", "radius": 13.2, "parent": "upper_arm_l", "z": 2},
+    {"id": "b5", "name": "upper_arm_r", "startPoint": "shoulder_r", "endPoint": "elbow_r", "radius": 14.0, "parent": "torso", "z": 9},
+    {"id": "b6", "name": "lower_arm_r", "startPoint": "elbow_r", "endPoint": "hand_r", "radius": 9.6, "parent": "upper_arm_r", "z": 9},
+    {"id": "b7", "name": "thigh_l", "startPoint": "hip_l", "endPoint": "knee_l", "radius": 5.6, "parent": "torso", "z": 2},
+    {"id": "b8", "name": "shin_l", "startPoint": "knee_l", "endPoint": "foot_l", "radius": 6.0, "parent": "thigh_l", "z": 2},
+    {"id": "b9", "name": "thigh_r", "startPoint": "hip_r", "endPoint": "knee_r", "radius": 6.4, "parent": "torso", "z": 9},
+    {"id": "b10", "name": "shin_r", "startPoint": "knee_r", "endPoint": "foot_r", "radius": 6.0, "parent": "thigh_r", "z": 9}
+  ],
+  "frames": [],
+  "reasoning": "Placed 15 points and 10 bones from the biped anatomy template, snapped onto the medial axis of the 160×224 silhouette.",
+  "source": "auto"
+}

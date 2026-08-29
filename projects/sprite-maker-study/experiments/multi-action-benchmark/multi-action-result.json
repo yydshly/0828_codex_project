@@ -1,0 +1,104 @@
+{
+  "schema": "project009-multi-action-result-v1",
+  "verdict": "CONDITIONAL",
+  "master": {
+    "file": "workspace\\assets\\characters\\lin-jian-motion-master-v1.png",
+    "sha256": "17e42a876c90448c16ada180bee190a1ee852d90bb1ac5f896003578aca1219c",
+    "size": [
+      256,
+      384
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ]
+  },
+  "actions": {
+    "run-v2": {
+      "fps": 10,
+      "looping": true,
+      "files": [
+        "workspace\\assets\\characters\\lin-jian-motion-run-v2_01.png",
+        "workspace\\assets\\characters\\lin-jian-motion-run-v2_02.png",
+        "workspace\\assets\\characters\\lin-jian-motion-run-v2_03.png",
+        "workspace\\assets\\characters\\lin-jian-motion-run-v2_04.png"
+      ],
+      "sha256": [
+        "529bb1fab87f95a62448bb2d240c23275039e9da68a2e8f054e63285e277953c",
+        "c922767a779dbe4ff432b02498e639322fca601d8fea07cc4caff15006cbcdb5",
+        "d76d8fce01114f75fdd31baf5fcb317b745fe7fea5e797f181002283a93db873",
+        "47875d46711a99253dce0f04553c4bbea05052333384617fbbe69edd9807efcf"
+      ],
+      "decodedHashes": [
+        "e2b6970fd4613684ac1236ee5eda136d5919b339526f9f2c919d469651713093",
+        "b0b89587377b11e980b3768ae1a6622e905f63a382a121f9480002f6fe5ae712",
+        "e32f6baa448b3d866c960a6a687401d2c69eff99b5978489fceb171ead0b0cce",
+        "eac88bb0abffe83419ad923679e4652ff78643ec70deea767840aadc03c5a3cb"
+      ],
+      "adjacentDifferencePercent": [
+        33.126,
+        38.645,
+        35.118,
+        36.139
+      ]
+    },
+    "pulse-cast-v1": {
+      "fps": 12,
+      "looping": false,
+      "files": [
+        "workspace\\assets\\characters\\lin-jian-motion-cast-v1_01.png",
+        "workspace\\assets\\characters\\lin-jian-motion-cast-v1_02.png",
+        "workspace\\assets\\characters\\lin-jian-motion-cast-v1_03.png",
+        "workspace\\assets\\characters\\lin-jian-motion-cast-v1_04.png",
+        "workspace\\assets\\characters\\lin-jian-motion-cast-v1_05.png"
+      ],
+      "sha256": [
+        "b12913b325390dc3f9293898cb150ac040d92f6e7e362151000ad3816db6e005",
+        "f8d51d5fc3d7264edf9b09f0023ab4d003026fee1398a4c030bd8f135a774671",
+        "870389f00cdcfba7c2f4fd16c232c7bf0e5f3beac05a37845023d07c0e9f440f",
+        "d2fc8b43de8b9eea59c6279977638c42ea48b2203b12bdfaa3550863a7b4c852",
+        "8a0639c04ffc6786f07083ea447210e74e7c47a7174f329812ae52da2632d02b"
+      ],
+      "decodedHashes": [
+        "d8adf8dba3302ebf1798fa66cb1e1e989947965ecfdf3de86591643ac0d795df",
+        "6f8fbf85f3fb237eeb0d86bcba4b659a042be5d10ac68552a2af88f49ce858c3",
+        "358465eb9f6223f097e951a4c778f38a518b697fc86fa0b8858e56a5f6373e89",
+        "f7e4175b47f0b4bdd8032b70d9d2b2052637100a161ad154107df01e91c6b546",
+        "b21b6e466a7c121f0094897f38f531e602c2d83228737494642c64db1f483061"
+      ],
+      "adjacentDifferencePercent": [
+        30.71,
+        31.011,
+        32.139,
+        34.49
+      ]
+    }
+  },
+  "checks": {
+    "allFramesRGBA": true,
+    "allFrames256x384": true,
+    "allFramesUniqueByFileHash": true,
+    "minimumExactSourceRgbaPercent": 93.962,
+    "edgeResamplingIsBounded": true,
+    "runLoopHasFourUniqueFrames": true,
+    "castHasFiveUniqueFrames": true
+  },
+  "manualReview": {
+    "approvedFor": [
+      "small-scale companion preview",
+      "in-game capability demonstration",
+      "pulse-cast state switching"
+    ],
+    "notApprovedFor": [
+      "production locomotion",
+      "anatomically correct knee articulation",
+      "identity-critical close-up animation"
+    ],
+    "reason": "The generated master separates limbs and removes the original occlusion blocker, but the repository helper is a rigVersion 1 region renderer; the run cycle still rotates broad trouser regions rather than a verified hip-knee-ankle chain. Rotated antialiased edges also introduce a bounded set of blended RGBA values, so this experiment does not claim 100% palette identity."
+  },
+  "provenance": {
+    "inputPreparation": "built-in image edit followed by deterministic alpha cleanup and contain resize",
+    "frameRenderer": "Sprite Studio bundled sprite_rig.py, copied unchanged except two Windows read-only fsync guards in this experiment workspace",
+    "gameRuntime": "Project 009 Canvas code loads the exported PNG sequences and selects states; it does not generate frame pixels"
+  }
+}

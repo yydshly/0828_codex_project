@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Project 009 应用场景实验室：用同一组真实 idle、run、cast 动作资产演示桌面伙伴、互动故事、教学、营销和低成本游戏原型。">
+    <meta name="theme-color" content="#07100d">
+    <title>APPLICATION LAB · One Sprite, Five Products</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body data-scene="companion" data-scene-state="default">
+    <header class="topbar">
+      <a class="brand" href="../../projects/sprite-maker-study/#application-lab">
+        <span>PROJECT 009 / MODULE 03</span>
+        <strong>APPLICATION LAB</strong>
+      </a>
+      <div class="asset-source">
+        <span>SHARED ACTION ASSET</span>
+        <strong>MASTER · RUN V2 · CAST V1</strong>
+      </div>
+      <nav aria-label="应用实验室导航">
+        <a href="../sprite-maker-combat-trial/?state=briefing">复杂战斗</a>
+        <a href="../../projects/sprite-maker-study/#application-lab">研究说明 ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="lab-title">
+        <div>
+          <p>ONE SPRITE / FIVE UPPER-LAYER PRODUCTS</p>
+          <h1 id="lab-title">同一角色动作，进入五种业务。</h1>
+        </div>
+        <p>Sprite Studio 交付可复用动作资产；提醒、分支、课程、转化和玩法规则由上层按需构造。切换场景并完成一次操作，观察资产状态怎样被业务状态调用。</p>
+      </section>
+
+      <section class="application-shell" aria-label="五类应用场景试运行">
+        <header class="status-bar">
+          <article><span>SCENE</span><strong id="sceneCode">01 / DESKTOP COMPANION</strong></article>
+          <article><span>BUSINESS STATE</span><strong id="businessState">READY</strong></article>
+          <article><span>ACTOR MODE</span><strong id="actorMode">MASTER / IDLE</strong></article>
+          <article><span>SESSION EVENTS</span><strong id="actionCount">00</strong></article>
+        </header>
+
+        <div class="workspace">
+          <nav class="scene-rail" role="tablist" aria-label="应用场景">
+            <button id="scene-tab-companion" type="button" role="tab" aria-selected="true" aria-controls="scene-panel-companion" tabindex="0" data-scene-tab="companion"><b>01</b><span>桌面伙伴</span><small>提醒与陪伴</small></button>
+            <button id="scene-tab-story" type="button" role="tab" aria-selected="false" aria-controls="scene-panel-story" tabindex="-1" data-scene-tab="story"><b>02</b><span>互动故事</span><small>分支与展陈</small></button>
+            <button id="scene-tab-teaching" type="button" role="tab" aria-selected="false" aria-controls="scene-panel-teaching" tabindex="-1" data-scene-tab="teaching"><b>03</b><span>教学演示</span><small>讲解与反馈</small></button>
+            <button id="scene-tab-marketing" type="button" role="tab" aria-selected="false" aria-controls="scene-panel-marketing" tabindex="-1" data-scene-tab="marketing"><b>04</b><span>营销人物</span><small>引导与转化</small></button>
+            <button id="scene-tab-prototype" type="button" role="tab" aria-selected="false" aria-controls="scene-panel-prototype" tabindex="-1" data-scene-tab="prototype"><b>05</b><span>游戏原型</span><small>规则与手感</small></button>
+          </nav>
+
+          <div class="stage-column">
+            <div class="scene-stage" id="sceneStage" aria-live="polite">
+              <div class="stage-grid" aria-hidden="true"></div>
+              <div class="stage-glow" aria-hidden="true"></div>
+
+              <section class="scene-panel is-active" id="scene-panel-companion" role="tabpanel" aria-labelledby="scene-tab-companion" data-scene-panel="companion">
+                <div class="desktop-window">
+                  <header><i></i><i></i><i></i><span>FOCUS DESK / LOCAL</span></header>
+                  <div class="desktop-content">
+                    <div class="focus-card"><span>CURRENT BLOCK</span><strong id="companionTimer">25:00</strong><small id="companionTask">整理角色动作清单</small></div>
+                    <ol><li class="is-done">输入资产审计</li><li>动作状态映射</li><li>发布边界确认</li></ol>
+                  </div>
+                </div>
+                <div class="scene-caption"><span>VIRTUAL HUMAN / DESKTOP COMPANION</span><strong id="companionSignal">等待你的工作节奏</strong></div>
+              </section>
+
+              <section class="scene-panel" id="scene-panel-story" role="tabpanel" aria-labelledby="scene-tab-story" data-scene-panel="story" hidden>
+                <div class="gallery-hall">
+                  <div class="gallery-card gallery-a"><span>ARCHIVE 01</span><strong>失落的动作母版</strong><i></i></div>
+                  <div class="gallery-path"><b id="storyBeacon">?</b><span id="storyPath">等待观众选择路线</span></div>
+                  <div class="gallery-card gallery-b"><span>ARCHIVE 02</span><strong>确定性骨骼档案</strong><i></i></div>
+                </div>
+                <div class="scene-caption"><span>INTERACTIVE STORY / DIGITAL EXHIBIT</span><strong id="storySignal">序章：两个展柜，一次选择</strong></div>
+              </section>
+
+              <section class="scene-panel" id="scene-panel-teaching" role="tabpanel" aria-labelledby="scene-tab-teaching" data-scene-panel="teaching" hidden>
+                <div class="lesson-board">
+                  <header><span>LESSON 03</span><strong>谁决定角色什么时候施法？</strong><i><b id="lessonProgress"></b></i></header>
+                  <div class="lesson-diagram"><article><small>ASSET</small><b>CAST V1</b></article><i>→</i><article><small>RUNTIME</small><b>STATE SWITCH</b></article><i>→</i><article><small>FEEDBACK</small><b id="lessonResult">等待作答</b></article></div>
+                  <p id="lessonHint">先查看动作帧，再判断谁拥有业务时机。</p>
+                </div>
+                <div class="scene-caption"><span>TEACHING DEMO</span><strong id="teachingSignal">步骤 1 / 观察动作资产</strong></div>
+              </section>
+
+              <section class="scene-panel" id="scene-panel-marketing" role="tabpanel" aria-labelledby="scene-tab-marketing" data-scene-panel="marketing" hidden>
+                <div class="campaign-stage">
+                  <div class="campaign-copy"><span>LOCAL MOTION / EARLY ACCESS</span><strong>让一个角色，讲清一个产品动作。</strong><p id="campaignMessage">动态人物负责引导注意，产品信息仍然可读、可点击。</p></div>
+                  <div class="campaign-metric"><span>CTA STATE</span><strong id="campaignMetric">READY</strong><small id="campaignProof">0 次本地模拟事件</small></div>
+                </div>
+                <div class="scene-caption"><span>MARKETING CHARACTER</span><strong id="marketingSignal">等待访客查看系列</strong></div>
+              </section>
+
+              <section class="scene-panel" id="scene-panel-prototype" role="tabpanel" aria-labelledby="scene-tab-prototype" data-scene-panel="prototype" hidden>
+                <div class="prototype-arena">
+                  <div class="prototype-platform"></div>
+                  <div class="prototype-player"><i></i></div>
+                  <div class="prototype-enemy" id="prototypeEnemy"><i></i><b><span id="prototypeHp"></span></b></div>
+                  <div class="prototype-pulse" id="prototypePulse"></div>
+                  <div class="prototype-goal">RULE<br>GATE</div>
+                </div>
+                <div class="scene-caption"><span>LOW-COST GAME PROTOTYPE</span><strong id="prototypeSignal">验证假设：一次脉冲是否足够可读？</strong></div>
+              </section>
+
+              <figure class="shared-actor" id="sharedActor">
+                <div class="actor-aura" aria-hidden="true"></div>
+                <img id="actorSprite" src="../../assets/project-009-game/lin-jian-motion-master-v1.png" width="256" height="384" alt="Project 009 多动作实验中的林简角色投影">
+                <figcaption id="actorTag">SHARED ASSET / MASTER</figcaption>
+              </figure>
+
+              <div class="actor-speech" id="actorSpeech">我会根据业务状态切换动作，但不会替业务做决定。</div>
+
+              <button class="inspector-toggle" id="inspectorToggle" type="button" aria-controls="inspector" aria-expanded="false">查看职责边界</button>
+            </div>
+
+            <div class="action-dock">
+              <div><span>SCENE FEEDBACK</span><strong id="sceneFeedback">桌面伙伴已待命。</strong></div>
+              <div class="action-buttons">
+                <button class="action-primary" id="primaryAction" type="button">开始专注</button>
+                <button class="action-secondary" id="secondaryAction" type="button">提醒喝水</button>
+                <button class="action-reset" id="resetAction" type="button" aria-label="重置当前场景">↺</button>
+              </div>
+            </div>
+          </div>
+
+          <button class="inspector-backdrop" id="inspectorBackdrop" type="button" aria-label="关闭职责说明" hidden></button>
+          <aside class="inspector" id="inspector" aria-labelledby="inspectorTitle">
+            <header><div><span>RESPONSIBILITY INSPECTOR</span><strong id="inspectorTitle">桌面伙伴</strong></div><button id="inspectorClose" type="button" aria-label="关闭职责说明">×</button></header>
+            <p id="inspectorSummary">动作资产提供陪伴角色的视觉状态；计时、提醒和用户偏好属于桌面应用。</p>
+            <div class="responsibility-card asset-card"><span>SPRITE STUDIO OUTPUT</span><strong id="assetResponsibility">master / idle / cast-v1</strong><p>透明角色帧、动作顺序、版本与来源。</p></div>
+            <div class="responsibility-card business-card"><span>UPPER-LAYER BUSINESS</span><strong id="businessResponsibility">专注计时、提醒策略、用户状态</strong><p>何时切动作、展示什么反馈以及完成条件。</p></div>
+            <div class="event-card"><span>LAST AUTHORITATIVE EVENT</span><strong id="eventFeed">SCENE-01 / READY</strong><p>视觉动作只呈现已经发生的业务状态。</p></div>
+            <footer><span>ADOPTION</span><strong id="adoptionState">HIGH MATCH / SMALL-SCALE</strong></footer>
+          </aside>
+        </div>
+      </section>
+
+      <section class="proof-section" aria-labelledby="proof-title">
+        <header><div><p>THE REUSE PATTERN</p><h2 id="proof-title">复用的是动作资产，不是同一套业务。</h2></div><p>五个场景共享角色身份、透明帧和动作版本；每个产品仍需构造自己的状态、数据、权限、反馈和成功条件。</p></header>
+        <div class="proof-grid">
+          <article><span>ASSET LAYER</span><strong>一次制作，多处装载</strong><p>master、run、cast 通过统一路径和版本进入不同产品。</p></article>
+          <article><span>STATE ADAPTER</span><strong>把业务状态映射到动作</strong><p>例如“提醒完成”映射 cast，“移动到展品”映射 run。</p></article>
+          <article><span>BUSINESS LAYER</span><strong>每个场景独立拥有规则</strong><p>课程进度不会被动画决定，营销事件也不会由 Rig 自动提交。</p></article>
+          <article class="boundary"><span>BOUNDARY</span><strong>无模型 · 无外部提交</strong><p>实验室只读取现有 PNG；所有业务结果均为本地确定性模拟。</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer"><span>PROJECT 009 · APPLICATION LAB</span><p>← / → 切换场景 · Enter 触发按钮 · Escape 关闭说明</p><a href="../../projects/sprite-maker-study/#application-lab">返回研究说明 ↑</a></footer>
+
+    <noscript>
+      <section class="noscript-note">
+        <strong>JavaScript 已关闭：五个方向仍可阅读。</strong>
+        <ul><li>桌面伙伴：提醒、专注与用户偏好属于桌面应用。</li><li>互动故事/数字展厅：分支、展品数据和进度属于内容系统。</li><li>教学演示：课程、答案和学习记录属于教学系统。</li><li>营销人物：CTA、分析和提交属于营销系统。</li><li>低成本游戏原型：输入、碰撞、伤害和胜负属于游戏运行时。</li></ul>
+        <p>Sprite Studio 只提供这里复用的 master、run-v2 与 cast-v1 动作资产。</p>
+      </section>
+    </noscript>
+    <script src="./app.js"></script>
+  </body>
+</html>

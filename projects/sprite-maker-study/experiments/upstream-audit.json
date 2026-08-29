@@ -1,0 +1,115 @@
+{
+  "project": "sprite-maker-study",
+  "projectNumber": "009",
+  "auditedAt": "2026-08-29T00:00:00+08:00",
+  "upstream": {
+    "repository": "https://github.com/JohnKinyanjui/sprite-maker",
+    "tag": "v0.3.2",
+    "commit": "336c7114f0fce7336ec17f6e9beb93980ed03b1d",
+    "commitDate": "2026-08-19T13:27:09+03:00",
+    "license": "MIT",
+    "commitCountAtAudit": 21,
+    "trackedFileCount": 171
+  },
+  "implementation": {
+    "productType": "local-first desktop game-asset workbench",
+    "isModel": false,
+    "bundlesModelWeights": false,
+    "requiresProviderForAiGeneration": true,
+    "stack": ["Tauri 2", "Svelte 5", "Rust", "SQLite", "ordinary workspace files"],
+    "supportedDesktopPlatforms": ["macOS", "Windows", "Linux"],
+    "mobileTarget": false,
+    "rustSourceFiles": 22,
+    "svelteComponents": 37,
+    "tauriCommands": 84,
+    "rustTestMarkers": 139
+  },
+  "providers": {
+    "agentCli": ["Codex CLI", "Claude Code", "Gemini CLI", "Grok CLI"],
+    "image": ["OpenAI ImageGen through Codex", "Grok Imagine", "OpenAI-compatible image API"],
+    "localModelPath": "not bundled; a compatible local endpoint is only a possible adapter target"
+  },
+  "capabilityGroups": [
+    "chat and reference-driven static sprite creation",
+    "character, creature, prop, environment, UI and VFX worktrees",
+    "rig suggestions and deterministic Rust rendering",
+    "animation timeline, onion skinning, retiming and playback",
+    "coordinated asset packs and complete terrain atlases",
+    "quality diagnostics, non-destructive repairs and content-hashed versions",
+    "sprite-sheet and JSON metadata export",
+    "Godot 4 terrain TileSet export",
+    "project backup, restore and import"
+  ],
+  "officialMedia": [
+    {"file": "workspace-tour.gif", "evidence": "upstream UI tour"},
+    {"file": "rabbit-hop.gif", "evidence": "8-frame, 8 FPS upstream release export"},
+    {"file": "dragon-flight.gif", "evidence": "12-frame, 8 FPS upstream release export"},
+    {"file": "centipede-crawl.gif", "evidence": "12-frame, 12 FPS upstream release export"},
+    {"file": "grasslands-pack.gif", "evidence": "8-asset coordinated pack upstream release export"},
+    {"file": "grasslands-terrain.png", "evidence": "complete terrain atlas upstream release export"}
+  ],
+  "codeFindings": [
+    "motion classification uses keyword routing and predefined phase templates before frame allocation",
+    "rig ownership assigns opaque pixels to capsule bones and retains nearest-bone fallback coverage",
+    "the native renderer uses hierarchical affine transforms, weighted deformation and analytic two-bone IK",
+    "quality diagnostics use dimensions, alpha, edges, centroid, perceptual hash, palette and frame-difference heuristics",
+    "current generation harness treats rig frames as pose authority; AI polish and full redraw are optional finishing modes",
+    "README still contains an older sequential-AI-frame narrative and a 0.3.0 status line while package metadata is 0.3.2"
+  ],
+  "localValidation": {
+    "projectStaticChecks": {"passed": 47, "failed": 0},
+    "projectBrowserChecks": {"passed": 52, "failed": 0, "viewports": [1440, 820, 390]},
+    "pagesBuild": "passed",
+    "upstreamRustFullRun": {
+      "total": 133,
+      "passed": 107,
+      "failed": 26,
+      "failureBoundary": "all 26 bundled rig renderer and MCP integration tests stop because the Windows host has no python3 executable on PATH"
+    },
+    "upstreamRustNonPythonRun": {"passed": 107, "failed": 0, "filteredOut": 26},
+    "repositorySuite": "passed for Projects 001-010 registered in npm test:all"
+  },
+  "ownSampleBenchmark": {
+    "date": "2026-08-29",
+    "source": "Project 003 transparent full-body identity anchor",
+    "verdict": "CONDITIONAL",
+    "providerCalls": 1,
+    "imageGenerationCalls": 0,
+    "nativeApp": "Sprite Studio v0.3.2 Tauri dev build on Windows",
+    "nativeCommands": [
+      "create_workspace",
+      "import_asset",
+      "suggest_rig_points",
+      "validate_rig_spec",
+      "save_rig",
+      "render_rig_animation",
+      "queue_quality_analysis",
+      "get_quality_report"
+    ],
+    "renderAttempts": [
+      "FAIL imperceptible_rig_motion",
+      "FAIL missing_body_motion",
+      "PASS four-frame native render"
+    ],
+    "deterministicRerender": true,
+    "frameCount": 4,
+    "fps": 6,
+    "nativeQuality": {
+      "overall": 94,
+      "characterConsistency": 100,
+      "motionContinuity": 76,
+      "frameAlignment": 100,
+      "loopQuality": 95.12430477945402,
+      "transparency": 100
+    },
+    "adoption": "approve subtle idle and UI presentation only; require a separated-limb motion-ready master before walk or run"
+  },
+  "researchBoundaries": [
+    "Project 009 used one Codex vision-planning call and zero image-generation calls; the rendered frames came from the local Rust rig path",
+    "official GIF and PNG files are upstream evidence, not Project 009 outputs",
+    "the own-sample four-frame idle is a Project 009 native output and is reported separately from official media",
+    "pixel diagnostics do not prove semantic identity or artistic quality",
+    "local-first storage does not mean prompts and references stay offline when a cloud provider is selected",
+    "the repository is a desktop application rather than a published reusable SDK"
+  ]
+}
