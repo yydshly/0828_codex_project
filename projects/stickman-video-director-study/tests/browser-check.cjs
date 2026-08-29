@@ -172,6 +172,19 @@ async function run() {
     await page.waitForTimeout(300);
     await page.screenshot({ path: join(evidenceRoot, "project-008-style-adapters.png"), fullPage: false });
 
+    await page.locator("#summary").evaluate((element) => window.scrollTo({
+      top: window.scrollY + element.getBoundingClientRect().top - 86,
+      behavior: "instant"
+    }));
+    await page.waitForTimeout(250);
+    const summaryText = await page.locator("#summary").innerText();
+    record("必要总结收束七项核心判断", await page.locator(".summary-grid li").count() === 7 && summaryText.includes("本质") && summaryText.includes("已经证明") && summaryText.includes("尚未证明") && summaryText.includes("当前结论"));
+    record("必要总结给出三阶段采用路线", await page.locator(".summary-action-track article").count() === 3 && summaryText.includes("作为导演 benchmark") && summaryText.includes("四种形象做同题 A/B") && summaryText.includes("数据证明后再自动化"));
+    record("必要总结采用判断明确", (await page.locator(".summary-verdict").innerText()).includes("采用导演协议，不直接照搬火柴人"));
+    record("总结导航同步当前章节", await page.locator('[data-section-link="summary"]').getAttribute("aria-current") === "true");
+    record("仓库短版总结入口存在", (await page.locator('.summary-links a[href*="SUMMARY.md"]').getAttribute("href")).includes("github.com/yydshly"));
+    await page.screenshot({ path: join(evidenceRoot, "project-008-summary.png"), fullPage: false });
+
     await page.locator("#ratioSelect").selectOption("16:9");
     record("全局画幅变化同时重置两级批准", (await page.locator("#promptOutput").textContent()).startsWith("LOCKED") && (await page.locator("#adapterOutput").textContent()).startsWith("WAITING FOR DIRECTOR APPROVAL") && (await page.locator("#styleRevisionBadge").textContent()).includes("WAITING"));
 
@@ -206,6 +219,9 @@ async function run() {
     record("手机风格审批主流程可完成", await page.getByRole("button", { name: "批准当前风格合同", exact: true }).isVisible());
     await page.getByRole("button", { name: "批准当前风格合同", exact: true }).click();
     record("手机可形成视觉批准合同", (await page.locator("#adapterOutput").textContent()).startsWith("APPROVED STYLE ADAPTER CONTRACT"));
+    await page.locator("#summary").scrollIntoViewIfNeeded();
+    record("手机必要总结与三阶段路线可见", await page.locator(".summary-grid li").count() === 7 && await page.locator(".summary-verdict").isVisible() && await page.locator(".summary-action-track").isVisible());
+    await page.locator("#adapters").scrollIntoViewIfNeeded();
     await page.screenshot({ path: join(evidenceRoot, "project-008-mobile.png"), fullPage: false });
 
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });

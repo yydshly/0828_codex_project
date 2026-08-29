@@ -1,8 +1,8 @@
 # DIRECTOR AS COMPILER
 
-> Project 008：固定研究 `kaomei/stickman-video-director`，通过两条上游视频、一条覆盖前两幕的用户实测视频、三个代表性叙事案例和可操作的审批/Prompt 编译台，判断它如何把想法组织成火柴人视频生产包，以及这套方法如何迁移到我们的自有风格和执行链。
+> Project 008：固定研究 `kaomei/stickman-video-director`，通过两条上游视频、一条覆盖前两幕的用户实测视频、八种静态替代形象、三个代表性叙事案例和可操作的审批/Prompt 编译台，判断它如何把想法组织成视频生产包，以及这套方法如何迁移到我们的自有风格和执行链。
 
-[在线研究演示](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/) · [查看我们的 20 秒实测](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/#user-sample) · [返回研究总库](https://yydshly.github.io/0828_codex_project/) · [原始仓库](https://github.com/kaomei/stickman-video-director)
+[必要总结](./SUMMARY.md) · [在线必要总结](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/#summary) · [八种替代形象](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/#character-styles) · [20 秒实测](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/#user-sample) · [返回研究总库](https://yydshly.github.io/0828_codex_project/) · [原始仓库](https://github.com/kaomei/stickman-video-director)
 
 ## 基本信息
 
@@ -14,7 +14,7 @@
 | 审计提交 | `main@6d7f8c83a16c594c23bb73da832c8864ccd2aeb5` |
 | 审计日期 | 2026-08-29 |
 | 上游许可证 | MIT |
-| 研究方法 | 完整阅读 `SKILL.md`、导演预案合同、生产 Prompt 合同、完整示例、测试场景与 rubric；运行上游 README 合同；核对两条官方 MP4；审计一条用户外部生成的 20 秒 MP4；建立三案例导演模拟、三风格适配原型、3×3 A/B 协议与真实浏览器验证 |
+| 研究方法 | 完整阅读 `SKILL.md`、导演预案合同、生产 Prompt 合同、完整示例、测试场景与 rubric；运行上游 README 合同；核对两条官方 MP4；审计一条用户外部生成的 20 秒 MP4；生成并归档八种静态替代形象；建立三案例导演模拟、三风格适配原型、3×3 A/B 协议与真实浏览器验证 |
 | 当前判断 | 架构参考价值高；直接成片价值中等；底层视频模型能力新增为零 |
 
 ## 一句话结论
@@ -362,13 +362,14 @@ Project 008 已把“保留导演内核、替换火柴人风格”进一步落�
 ## 远端发布
 
 - [GitHub Pages 专题页](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/)
+- [项目必要总结](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/#summary)
+- [八种静态替代形象](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/#character-styles)
 - [我们的 20 秒实测](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/#user-sample)
 - [机器可读实测审计](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/user-generated-sample.json)
+- [机器可读形象清单](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/character-style-gallery.json)
 - [GitHub 项目目录](https://github.com/yydshly/0828_codex_project/tree/main/projects/stickman-video-director-study)
-- 内容提交：[`96442f2`](https://github.com/yydshly/0828_codex_project/commit/96442f2e22f144dbdd69f223c5100b0e1be4a523)
-- 首次部署：[GitHub Actions run 33196723476](https://github.com/yydshly/0828_codex_project/actions/runs/33196723476)，已成功完成。
 
-公开页面、20 秒 MP4 和审计 JSON 均已验证 HTTP 200；远端 Chromium 完整主路径检查为 54/54。
+Revision 5 本地验证：静态检查 56/56、真实 Chromium 65/65、Pages 构建成功；远端必要总结部署证据将在对应发布完成后写回设计记录。
 
 ## 本地复现
 

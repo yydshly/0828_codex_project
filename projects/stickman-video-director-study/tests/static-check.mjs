@@ -22,6 +22,7 @@ const [
   styleGalleryRaw,
   siteStyleGalleryRaw,
   projectReadme,
+  projectSummary,
   designContract,
   rootReadme,
   packageRaw,
@@ -41,6 +42,7 @@ const [
   readFile(join(projectRoot, "experiments", "character-style-gallery.json"), "utf8"),
   readFile(join(pageRoot, "character-style-gallery.json"), "utf8"),
   readFile(join(projectRoot, "README.md"), "utf8"),
+  readFile(join(projectRoot, "SUMMARY.md"), "utf8"),
   readFile(join(projectRoot, "DESIGN-CONTRACT.md"), "utf8"),
   readFile(join(repositoryRoot, "README.md"), "utf8"),
   readFile(join(repositoryRoot, "package.json"), "utf8"),
@@ -58,6 +60,7 @@ const userSample = JSON.parse(userSampleRaw);
 const styleGallery = JSON.parse(styleGalleryRaw);
 const packageJson = JSON.parse(packageRaw);
 const pageProject = projects.find((project) => project.id === "stickman-video-director-study");
+const summaryCardsBlock = html.match(/<ol class="summary-grid">([\s\S]*?)<\/ol>/)?.[1] || "";
 const expectedCommit = "6d7f8c83a16c594c23bb73da832c8864ccd2aeb5";
 const actualCommit = execFileSync("git", ["-C", sourceRoot, "rev-parse", "HEAD"], { encoding: "utf8" }).trim();
 
@@ -124,7 +127,11 @@ const checks = [
   ["八张形象图片已接入且非空", styleGalleryAssets.length === 8 && styleGalleryAssets.every((asset) => asset.length > 10000) && (html.match(/class="character-style-card(?: is-priority)?"/g) || []).length === 8],
   ["形象实验明确静态证据边界", html.includes('id="character-styles"') && html.includes("GENERATED IMAGE EXPLORATION") && html.includes("不能证明视频动作") && projectReadme.includes("本轮没有生成新视频")],
   ["形象清单在研究与站点保持一致", styleGalleryRaw.trim() === siteStyleGalleryRaw.trim() && html.includes('href="./character-style-gallery.json"')],
-  ["外部 README 关联形象、实测与审计", rootReadme.includes("查看 8 种火柴人替代形象") && rootReadme.includes("character-style-gallery.json") && rootReadme.includes("user-generated-sample.json") && projectReadme.includes("#user-sample")],
+  ["独立必要总结回答核心决策", projectSummary.includes("## 最终判断") && projectSummary.includes("## 当前证据") && projectSummary.includes("## 当前采用结论") && projectSummary.includes("### 现在") && projectSummary.includes("### 下一步") && projectSummary.includes("### 以后")],
+  ["页面必要总结覆盖七项结论", html.includes('id="summary"') && (summaryCardsBlock.match(/<li(?: class="[^"]+")?>/g) || []).length === 7 && ["本质", "核心产出", "已经证明", "尚未证明", "最适合", "对我们的意义", "当前结论"].every((label) => summaryCardsBlock.includes(label))],
+  ["页面必要总结包含三阶段行动", (html.match(/<article><span>(?:NOW|NEXT|LATER)<\/span>/g) || []).length === 3 && html.includes("采用导演协议，不直接照搬火柴人")],
+  ["项目 README 关联短版与在线总结", projectReadme.includes("[必要总结](./SUMMARY.md)") && projectReadme.includes("#summary")],
+  ["外部 README 关联总结、形象与实测证据", rootReadme.includes("阅读项目必要总结") && rootReadme.includes("stickman-video-director-study/SUMMARY.md") && rootReadme.includes("character-style-gallery.json") && rootReadme.includes("user-generated-sample.json")],
   ["三类案例存在", cases.cases.length === 3 && ["motivational", "educational", "commercial"].every((pattern) => cases.cases.some((item) => item.pattern === pattern))],
   ["三个案例均满足旁白与六幕合同", caseContractPasses],
   ["模拟证据边界明确", cases.generated_by.includes("Project 008") && html.includes("DETERMINISTIC RESEARCH SIMULATION") && html.includes("不调用 LLM 或视频模型")],
@@ -155,7 +162,7 @@ const checks = [
   ["页面不依赖外部运行素材", !/(src|href)=["']https?:\/\/[^"']+\.(js|css|png|jpg|jpeg|webp|svg|mp4)/i.test(html)],
   ["Pages checkout 初始化 submodule", workflow.includes("submodules: recursive")],
   ["Project 008 测试命令已登记", packageJson.scripts["test:project-008"]?.includes("static-check.mjs") && packageJson.scripts["test:all"]?.includes("test:project-008")],
-  ["设计契约包含 Revision 4 形象扩展与部署边界", designContract.includes("Request revision: 4") && designContract.includes("Observable completion criteria") && designContract.includes("八种静态替代形象") && designContract.includes("远端部署")],
+  ["设计契约包含 Revision 5 必要总结与部署边界", designContract.includes("Request revision: 5") && designContract.includes("Observable completion criteria") && designContract.includes("独立 `SUMMARY.md`") && designContract.includes("必要总结") && designContract.includes("远端部署")],
   ["不存在模板占位符", !/[<［\[]待填写[>］\]]|TODO|Lorem ipsum/i.test(`${html}\n${projectReadme}\n${designContract}`)]
 ];
 
