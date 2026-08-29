@@ -1,6 +1,6 @@
 # 0828 Codex Project
 
-一个用于持续开发、验证和公开展示独立研究子项目的仓库。当前收录七个项目：一个完整可玩的程序化跑酷游戏，以及面向产品模式、个人 IP 资产、古籍资料源、PDF 结构恢复、idea-to-video 导演协议和单图 3D 场景生成的六项研究。
+一个用于持续开发、验证和公开展示独立研究子项目的仓库。当前收录八个项目：一个完整可玩的程序化跑酷游戏，以及面向产品模式、个人 IP 资产、古籍资料源、写真视觉 Skill、PDF 结构恢复、idea-to-video 导演协议和单图 3D 场景生成的七项研究。
 
 [在线研究总库](https://yydshly.github.io/0828_codex_project/) · [项目在线演示](#当前研究项目) · [参与方式](CONTRIBUTING.md)
 
@@ -14,6 +14,7 @@
 | [**002 · FROM SKILL TO STUDIO**](projects/gear-zero-platform-study/) | [Gear Zero 产品参照、Skill 编排与用户驱动数字产品平台](projects/gear-zero-platform-study/README.md) | [▶ 在线查看](https://yydshly.github.io/0828_codex_project/projects/gear-zero-platform-study/) | [仓库档案](projects/gear-zero-platform-study/README.md) · [页面源码](docs/projects/gear-zero-platform-study/) | 已验证 · 研究结论已发布 |
 | [**003 · PERSONAL IP ASSET SYSTEM**](projects/personal-ip-image-pack-study/) | [人物锚点、能力路由、版本语义与生成式资产治理](projects/personal-ip-image-pack-study/README.md) | [▶ 操作六风格矩阵](https://yydshly.github.io/0828_codex_project/projects/personal-ip-image-pack-study/#style-matrix) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/personal-ip-image-pack-study/) · [仓库档案](projects/personal-ip-image-pack-study/README.md) · [页面源码](docs/projects/personal-ip-image-pack-study/) | 已验证 · 六风格真实回归完成 |
 | [**004 · DAIZHIGE CAPABILITY ATLAS**](projects/daizhige-capability-atlas/) | [古籍候选资料源、十大门类、代表书目与按需启用边界](projects/daizhige-capability-atlas/README.md) | [▶ 阅读归档总结](https://yydshly.github.io/0828_codex_project/projects/daizhige-capability-atlas/) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/daizhige-capability-atlas/) · [仓库档案](projects/daizhige-capability-atlas/README.md) · [页面源码](docs/projects/daizhige-capability-atlas/) | 已归档 · 相关产品触发时启用 |
+| [**005 · PROMPT AS PRODUCTION SYSTEM**](projects/nuyoah-xiezhen-prompt-study/) | [把摄影师可语言化的主题、参考、机位、光照与 QA 控制封装成 Agent 可执行的写真 Prompt 生产系统](projects/nuyoah-xiezhen-prompt-study/README.md#必要理解先读这部分) | [▶ 查看 6 张真实生成样例](https://yydshly.github.io/0828_codex_project/projects/nuyoah-xiezhen-prompt-study/#samples) | [必要理解](projects/nuyoah-xiezhen-prompt-study/README.md#必要理解先读这部分) · [完整研究](projects/nuyoah-xiezhen-prompt-study/README.md) · [样例清单](projects/nuyoah-xiezhen-prompt-study/experiments/sample-library/sample-manifest-v1.json) · [页面源码](docs/projects/nuyoah-xiezhen-prompt-study/) | 已验证 · 六图实测与交互研究完成 |
 | [**006 · NATIVE PDF, STRUCTURED**](projects/nativepdf-structurer-analysis/) | [nativePDF-structurer 的能力、本质、适用边界、扩展方向与同类产品](projects/nativepdf-structurer-analysis/README.md) | [▶ 阅读最终判断](https://yydshly.github.io/0828_codex_project/projects/nativepdf-structurer-analysis/) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/nativepdf-structurer-analysis/) · [仓库档案](projects/nativepdf-structurer-analysis/README.md) · [页面源码](docs/projects/nativepdf-structurer-analysis/) | 已验证 · 进入观察清单 |
 | [**008 · DIRECTOR AS COMPILER**](projects/stickman-video-director-study/) | [Idea-to-video 导演协议、六幕分镜、批准门、首条 20 秒外部实测与自有风格迁移](projects/stickman-video-director-study/README.md) | [▶ 观看我们的 CLIP 01–02 实测](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/#user-sample) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/) · [必要理解](projects/stickman-video-director-study/README.md#必要理解) · [实测审计](projects/stickman-video-director-study/experiments/user-generated-sample.json) · [上游子模块](projects/stickman-video-director-study/source/) | 已验证 · 官方/实测/模拟三层证据 |
 | [**010 · SCENE, GENERATED.**](projects/scenegen-capability-study/) | [SceneGen 的官方效果、联合资产与布局生成、工程边界和触发式采用路线](projects/scenegen-capability-study/README.md) | [▶ 查看官方 3D 证据](https://yydshly.github.io/0828_codex_project/projects/scenegen-capability-study/#effect) | [在线研究总结](https://yydshly.github.io/0828_codex_project/projects/scenegen-capability-study/) · [仓库档案](projects/scenegen-capability-study/README.md) · [页面源码](docs/projects/scenegen-capability-study/) | 已验证 · 按真实 3D 任务触发 |
@@ -28,6 +29,7 @@
 - `projects/gear-zero-platform-study/` 是 Project 002 的研究档案、设计契约与验收记录。
 - `projects/personal-ip-image-pack-study/` 是 Project 003 的个人 IP 资产系统研究、权利边界和验收记录。
 - `projects/daizhige-capability-atlas/` 是 Project 004 的古籍候选资料源、代表书目、来源边界与按需启用条件档案。
+- `projects/nuyoah-xiezhen-prompt-study/` 是 Project 005 的写真摄影控制封装、六张真实生成样例、Prompt/QA 证据、交互编译台与采用建议档案。
 - `projects/nativepdf-structurer-analysis/` 是 Project 006 的 PDF 结构恢复、RAG 预处理边界、同类产品与采用判断档案。
 - `projects/stickman-video-director-study/` 是 Project 008 的视频导演 Skill、用户 20 秒外部生成实测、代表性案例、自有风格迁移与后期生产路线档案。
 - `projects/scenegen-capability-study/` 是 Project 010 的单图 3D 场景生成效果、原理、GLB 证据、工程边界、复用手册与采用判断档案。
@@ -44,6 +46,7 @@ npm run test:project-001
 npm run test:project-002
 npm run test:project-003
 npm run test:project-004
+npm run test:project-005
 node projects/nativepdf-structurer-analysis/tests/static-check.mjs
 npm run test:project-008
 npm run test:project-010
@@ -58,6 +61,7 @@ npm run preview:pages
 - 产品模式研究：`http://127.0.0.1:4173/projects/gear-zero-platform-study/`
 - 个人 IP 资产实验台：`http://127.0.0.1:4173/projects/personal-ip-image-pack-study/`
 - 古籍语料能力图谱：`http://127.0.0.1:4173/projects/daizhige-capability-atlas/`
+- 写真 Prompt 系统研究：`http://127.0.0.1:4173/projects/nuyoah-xiezhen-prompt-study/`
 - nativePDF 结构恢复研究：`http://127.0.0.1:4173/projects/nativepdf-structurer-analysis/`
 - 视频导演工作流研究：`http://127.0.0.1:4173/projects/stickman-video-director-study/`
 - SceneGen 能力研究：`http://127.0.0.1:4173/projects/scenegen-capability-study/`
@@ -93,6 +97,7 @@ npm run preview:pages
 │  ├─ gear-zero-platform-study/      # Project 002 产品模式研究
 │  ├─ personal-ip-image-pack-study/  # Project 003 个人 IP 资产系统研究
 │  ├─ daizhige-capability-atlas/      # Project 004 古籍语料能力图谱
+│  ├─ nuyoah-xiezhen-prompt-study/   # Project 005 视觉 Skill 工程研究
 │  ├─ nativepdf-structurer-analysis/ # Project 006 PDF 结构恢复研究
 │  ├─ stickman-video-director-study/ # Project 008 视频导演工作流研究
 │  ├─ scenegen-capability-study/     # Project 010 单图 3D 场景生成研究
@@ -113,6 +118,8 @@ npm run preview:pages
 - Project 003 验证：静态检查 36/36、浏览器检查 41/41、控制台与页面错误 0
 - Project 004：殆知阁原生能力、十大门类、61 个代表路径、使用边界与条件价值已完成整理并归档
 - Project 004 验证：静态检查 23/23、浏览器检查 25/25、控制台与页面错误 0
+- Project 005：已确认其本质是“摄影师可语言化控制的 Agent 封装”，完成三套摄影 DNA、六张真实生成样例、完整 Prompt/哈希/人工 QA、摄影方案复拍、质量门禁和扩展路线研究
+- Project 005 验证：静态检查 33/33、真实浏览器检查 32/32、桌面/平板/390px 无横向溢出、控制台与页面错误 0
 - Project 006：nativePDF-structurer 的能力、本质、适用场景、同类方案与扩展方向已完成研究，当前作为专用能力和 A/B 基线进入观察清单
 - Project 006 验证：静态检查 22/22、桌面/平板/390px 浏览器检查通过、控制台与页面错误 0
 - Project 008：已固定上游仓库，完成两条官方视频、用户 CLIP 01–02 二十秒实测、三类六幕导演案例、两级批准门、画幅/主题重构和采用路线研究

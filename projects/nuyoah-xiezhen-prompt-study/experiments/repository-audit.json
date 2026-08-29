@@ -1,0 +1,39 @@
+{
+  "project": "nuyoah-xiezhen-prompt-study",
+  "audited_at": "2026-08-28",
+  "source": "https://github.com/nuyoah-ai-works/nuyoah-xiezhen-prompt",
+  "public_version": "1.1.0",
+  "public_commit": "7482a14",
+  "manifest_source_commit": "fea27d7f2deaeda2bc99a5a032bc1e16d4869c9d",
+  "license": "MIT",
+  "public_commits_observed": 2,
+  "runtime_model_included": false,
+  "generation_engine_included": false,
+  "core_files": {
+    "entrypoint": "SKILL.md",
+    "prompt_logic": "references/prompt-logic.md",
+    "production_reshoot": "references/production-reshoot.md",
+    "contract_test": "tests/run_contract_tests.py"
+  },
+  "capability_modes": [
+    "detailed_prompt",
+    "series_master",
+    "series_variants",
+    "draw_card_keywords",
+    "reference_deconstruction",
+    "production_reshoot"
+  ],
+  "evaluation_counts": {
+    "production_reshoot_cases": 21,
+    "skin_reflection_cases": 3,
+    "trigger_should": 8,
+    "trigger_should_not": 5,
+    "trigger_near_neighbor": 5
+  },
+  "local_contract_test": {
+    "command": "python tests/run_contract_tests.py",
+    "result": "passed",
+    "scope": "structural and behavioral contract markers; not real image generation"
+  },
+  "research_boundary": "The interactive compiler in Project 005 is a deterministic study artifact and is not upstream code or an image-quality benchmark."
+}

@@ -45,6 +45,18 @@
     "image": "./assets/daizhige-capability-atlas-cover.svg"
   },
   {
+    "id": "nuyoah-xiezhen-prompt-study",
+    "number": "005",
+    "name": "PROMPT AS PRODUCTION SYSTEM",
+    "status": "六张真实样例与交互研究已完成",
+    "category": "视觉 Skill 工程",
+    "summary": "把摄影师可语言化的主题、参考职责、机位、光照、成像与 QA 控制封装成 Agent 可执行的写真 Prompt 生产系统；底层像素能力仍来自外部图片模型。",
+    "url": "./projects/nuyoah-xiezhen-prompt-study/",
+    "demoUrl": "./projects/nuyoah-xiezhen-prompt-study/#samples",
+    "demoLabel": "查看 6 张真实生成样例 →",
+    "image": "./assets/nuyoah-xiezhen-prompt-study-cover.svg"
+  },
+  {
     "id": "nativepdf-structurer-analysis",
     "number": "006",
     "name": "NATIVE PDF, STRUCTURED",

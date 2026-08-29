@@ -10,8 +10,9 @@
     "test:project-002": "node --check docs/projects/gear-zero-platform-study/app.js && node projects/gear-zero-platform-study/tests/static-check.mjs",
     "test:project-003": "node --check docs/projects/personal-ip-image-pack-study/app.js && node projects/personal-ip-image-pack-study/tests/static-check.mjs",
     "test:project-004": "node --check docs/projects/daizhige-capability-atlas/app.js && node projects/daizhige-capability-atlas/tests/static-check.mjs",
+    "test:project-005": "node --check docs/projects/nuyoah-xiezhen-prompt-study/app.js && node projects/nuyoah-xiezhen-prompt-study/tests/static-check.mjs",
     "test:project-008": "node --check docs/projects/stickman-video-director-study/app.js && node projects/stickman-video-director-study/tests/static-check.mjs",
     "test:project-010": "node --check docs/projects/scenegen-capability-study/app.js && node projects/scenegen-capability-study/tests/static-check.mjs",
-    "test:all": "npm run test:project-001 && npm run test:project-002 && npm run test:project-003 && npm run test:project-004 && npm run test:project-008 && npm run test:project-010"
+    "test:all": "npm run test:project-001 && npm run test:project-002 && npm run test:project-003 && npm run test:project-004 && npm run test:project-005 && npm run test:project-008 && npm run test:project-010"
   }
 }

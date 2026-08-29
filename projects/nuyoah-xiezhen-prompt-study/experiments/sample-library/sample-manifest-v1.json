@@ -1,0 +1,123 @@
+{
+  "manifest_version": "1.0.0",
+  "project": "Project 005 · nuyoah-xiezhen-prompt-study",
+  "created_on": "2026-08-29",
+  "timezone": "Asia/Shanghai",
+  "generation": {
+    "tool": "OpenAI built-in imagegen",
+    "model_version": "not exposed by the built-in tool",
+    "runtime_dependency": false,
+    "source": "Project 005 benchmark prompts derived from the audited repository's photography-control concepts"
+  },
+  "evidence_boundary": {
+    "upstream_official_output": false,
+    "performance_metric": false,
+    "identity_reference_used": false,
+    "subjects": "original fictional adults",
+    "statement": "These are Project 005 test outputs. They demonstrate six observed outcomes from one generation tool and do not prove cross-model stability or a universal success rate."
+  },
+  "samples": [
+    {
+      "id": "rain-eye-level",
+      "style": "rain",
+      "title": "雨亭欠曝 · 平视",
+      "file": "assets/samples/rain-pavilion-eye-level.png",
+      "site_file": "docs/assets/project-005-samples/rain-pavilion-eye-level.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "07a6ac8bab5f591413c4f8fbe62078309fbb44b573ecafdd1d3a41c8f9b96579",
+      "capabilities": ["环境负补光", "低细节背景", "人物事件", "欠曝控制"],
+      "prompt": "Create a 4:5 vertical photorealistic natural editorial photograph for a capability benchmark contact sheet. An original fictional adult East Asian woman, fully clothed, no resemblance to a real person. She stands under an old wooden pavilion during steady rain, wearing a short charcoal jacket over a plain gray skirt. Eye-level medium close portrait, candid half-turn rather than a hero pose; one hand rests near the wet railing as a raindrop lands on her fingers. Pavilion columns and dark eaves create dominant graphic blocks; background is soft gray-green foliage and rain haze with very low detail. Lighting topology: only diffuse overcast daylight entering from the open side of the pavilion, top eaves act as negative fill, face side near the opening is slightly brighter while the interior falls into intentional underexposure. Cold-neutral white balance, low saturation, compressed blacks, softly clipped wet highlights, slight handheld softness, subtle old-digital compression, face not tack-sharp, natural semi-matte skin texture. The image should feel observational, imperfect, quiet, and weather-bound. Avoid warm rim light, front beauty fill, glossy commercial retouching, plastic skin, dramatic cinematic teal-orange, exaggerated bokeh, glamour pose, readable signs. No text, logo, caption, border, or watermark.",
+      "qa": {
+        "status": "pass",
+        "observed": "Opening-side face is slightly brighter; eaves, wood and clothes remain underexposed; background resolves as low-detail gray-green blocks.",
+        "limitation": "A single output does not establish repeatability."
+      }
+    },
+    {
+      "id": "cream-eye-level",
+      "style": "cream",
+      "title": "奶油柔雾 · 平视",
+      "file": "assets/samples/cream-studio-eye-level.png",
+      "site_file": "docs/assets/project-005-samples/cream-studio-eye-level.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "2425c28b452ca7df26f62cd6545645ff417e3963038546ef63b0854e1a9d2d5c",
+      "capabilities": ["大面积柔光", "高光滚降", "白色材质分离", "高调低对比"],
+      "prompt": "Create a 4:5 vertical photorealistic high-key studio fashion portrait for a capability benchmark contact sheet. An original fictional adult East Asian woman, fully clothed, no resemblance to a real person. She wears an ivory tailored blouse and cream wide-leg trousers with a small piece of translucent gauze drifting beside one shoulder. Three-quarter standing composition at eye level, relaxed posture, eyes slightly away from camera, one subtle gesture adjusting a cuff. Minimal warm-white cyclorama studio with no visible seam and almost no props. Lighting topology: very large soft source from camera-left-front through heavy diffusion, broad gentle shadow rolloff, white bounce from below kept restrained, slightly brighter background, no hard rim. Airy cream palette, clean whites with retained fabric detail, low contrast, faint Pro-Mist bloom around highlights, delicate 35mm grain, natural pores and flyaway hair, editorial restraint rather than bridal glamour. Avoid blown facial highlights, porcelain skin, excessive beige uniformity, glossy beauty advertising, hard spotlight, dramatic pose, text or branding. No text, logo, caption, border, or watermark.",
+      "qa": {
+        "status": "pass",
+        "observed": "High-key treatment retains blouse, trouser and gauze detail; the broad source creates a soft directional rolloff without a hard rim.",
+        "limitation": "The image cannot validate prompt portability to other models."
+      }
+    },
+    {
+      "id": "y2k-close",
+      "style": "y2k",
+      "title": "Y2K CCD · 近景",
+      "file": "assets/samples/y2k-flash-close.png",
+      "site_file": "docs/assets/project-005-samples/y2k-flash-close.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "e1a3cb639affe9abd39d55a602c8489ebfbe05a2fc9b07a0a37a34b3f5ae3fbb",
+      "capabilities": ["机顶直闪", "混合白平衡", "CCD 缺陷", "近景抓拍"],
+      "prompt": "Create a 4:5 vertical photorealistic Y2K compact-digital direct-flash fashion snapshot for a capability benchmark contact sheet. An original fictional adult East Asian woman, fully clothed, no resemblance to a real person. She wears a cobalt track jacket over a silver-gray tank and dark jeans inside a late-night convenience store aisle. Tight chest-up candid composition, slightly tilted compact-camera framing, caught mid-reach toward a refrigerator door rather than posing; cool product rows become colorful abstract blocks with no readable labels. Direct on-camera flash creates a crisp frontal pop, small hard shadow behind her, reflective sparkle on nylon and glass, while ambient fluorescent light remains cool and slightly green in the background. Visible compact CCD character: modest noise, slight chromatic fringing at edges, imperfect white balance, small blown specular highlights, sharp center with soft corners. Energetic but believable early-2000s snapshot, natural skin texture and mild red-eye tendency without distortion. Avoid modern luxury campaign polish, cinematic rim lighting, perfect symmetry, hyper-clean studio retouching, fake film border, readable packaging or signs. No text, logo, caption, border, or watermark.",
+      "qa": {
+        "status": "pass",
+        "observed": "Direct flash, reflective glass, cool-green ambient, mild red eye and soft corners read as one compact-digital imaging system.",
+        "limitation": "The pose reads more like an intentional reach than a fully accidental frame."
+      }
+    },
+    {
+      "id": "rain-low-angle",
+      "style": "rain",
+      "title": "雨亭欠曝 · 低机位",
+      "file": "assets/samples/rain-pavilion-low-angle.png",
+      "site_file": "docs/assets/project-005-samples/rain-pavilion-low-angle.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "58c93711d44bbc3db8004f5b55b67a25ca84f4355ce73a24ebd8494c335c6301",
+      "capabilities": ["世界空间光照", "低机位变体", "前景失焦", "动作差异"],
+      "prompt": "Create a 4:5 vertical photorealistic natural editorial photograph as the second variation in a rainy-pavilion capability benchmark. An original fictional adult East Asian woman, fully clothed, no resemblance to a real person. She wears a charcoal cropped jacket and plain slate skirt inside an old wooden pavilion during steady rain. Low camera position near the wet railing, wider three-quarter composition looking slightly upward beneath the eaves; she is not posing, but steps back from a gust of rain while gathering one wet strand of hair. Foreground railing is close and slightly soft, pavilion posts recede diagonally, gray-green trees and rain haze stay low-detail. Preserve the same world-space lighting logic as an eye-level version: diffuse overcast daylight comes only from the open exterior side, the heavy eaves block top light, the outward-facing side of her face and hands is faintly brighter, the pavilion interior remains intentionally underexposed. Cold-neutral white balance, desaturated gray-green palette, compressed blacks, wet highlights near clipping, modest handheld blur and old-digital compression, natural semi-matte skin, imperfect focus prioritizing the rain-slick railing over facial sharpness. Quiet observational realism. Avoid heroic low-angle glamour, warm rim light, front fill, cinematic teal-orange, glossy retouching, plastic skin, excessive bokeh, readable signs. No text, logo, caption, border, or watermark.",
+      "qa": {
+        "status": "pass",
+        "observed": "Camera topology changes while exterior diffuse light and eave occlusion remain consistent; the wet railing becomes the foreground anchor without a hero-light upgrade.",
+        "limitation": "Subject identity is intentionally not held constant across the pair."
+      }
+    },
+    {
+      "id": "cream-overhead",
+      "style": "cream",
+      "title": "奶油柔雾 · 俯拍",
+      "file": "assets/samples/cream-studio-overhead.png",
+      "site_file": "docs/assets/project-005-samples/cream-studio-overhead.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "c04b2a7cee750acfcb511488357c7941231b9041be919f0536e7f1dac8f65b65",
+      "capabilities": ["俯拍拓扑", "薄纱透明度", "材质层级", "系列一致性"],
+      "prompt": "Create a 4:5 vertical photorealistic high-key studio fashion photograph as the second variation in a cream editorial capability benchmark. An original fictional adult East Asian woman, fully clothed, no resemblance to a real person. She wears an ivory tailored blouse and cream wide-leg trousers and sits loosely on a low white cube, seen from a gentle overhead camera angle. One knee turns away, one hand loosely holds a sheet of translucent gauze that crosses a corner of the frame, gaze down and off-camera, unforced in-between movement rather than a pose. Minimal warm-white cyclorama, no visible seam, no decorative props. Preserve the same lighting system as the standing portrait: very large soft source from camera-left-front through heavy diffusion, broad shadow rolloff, restrained white bounce, slightly brighter background, no hard rim. High-key cream palette with fabric weave retained, low contrast, faint Pro-Mist highlight bloom, fine 35mm grain, natural pores and flyaway hair. The overhead topology should remain believable rather than flattening the face. Avoid blown skin highlights, wedding aesthetic, excessive beige uniformity, luxury beauty gloss, hard spotlight, perfect symmetry, text or branding. No text, logo, caption, border, or watermark.",
+      "qa": {
+        "status": "pass",
+        "observed": "Overhead composition changes body and platform proportions while preserving directional softness, cream palette, fabric separation and translucent gauze.",
+        "limitation": "The generated cube reads as an abstract white platform rather than a clearly bounded prop."
+      }
+    },
+    {
+      "id": "y2k-wide",
+      "style": "y2k",
+      "title": "Y2K CCD · 广角全身",
+      "file": "assets/samples/y2k-flash-wide.png",
+      "site_file": "docs/assets/project-005-samples/y2k-flash-wide.png",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "4ab983fd358925031e8d2c0e506f4ca5f19f33d09ceabd985ee49c802c0e0530",
+      "capabilities": ["低机位广角", "直闪一致性", "动作抓拍", "旧数码缺陷"],
+      "prompt": "Create a 4:5 vertical photorealistic Y2K compact-digital direct-flash fashion snapshot as the second variation in a capability benchmark. An original fictional adult East Asian woman, fully clothed, no resemblance to a real person. She wears a cobalt track jacket, silver-gray tank, dark relaxed jeans and simple sneakers at a late-night convenience-store drink refrigerator. Wider nearly full-body composition from a slightly low compact-camera position, casual crooked horizon; she has just turned from opening a refrigerator door, one foot mid-step, an unplanned laugh caught between movements rather than a fashion pose. Reflective glass, cool fluorescent ceiling tubes and product colors form abstract background blocks with no readable labels. Preserve the direct-flash system: small on-camera frontal burst, crisp shadow behind her, bright reflections on nylon and glass, cool-green ambient still visible in the distance. Compact CCD imperfections: moderate sensor noise, slight chromatic fringing, imperfect mixed white balance, blown tiny specular highlights, center sharpness with soft corners and mild barrel distortion. Believable 2000s snapshot energy. Avoid polished modern campaign lighting, cinematic rim light, perfect symmetry, studio retouching, exaggerated fisheye, fake date stamp, readable packaging or signs. No text, logo, caption, border, or watermark.",
+      "qa": {
+        "status": "pass",
+        "observed": "Wider low-angle framing keeps the direct-flash and mixed fluorescent system while changing action, scale, horizon and background geometry.",
+        "limitation": "Some product-like bottle shapes remain visually recognizable although no text is readable."
+      }
+    }
+  ]
+}

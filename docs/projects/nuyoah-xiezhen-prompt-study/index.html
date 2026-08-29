@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project 005：研究 nuyoah-xiezhen-prompt 如何把写真提示词变成可路由、可执行、可检查、可重做的 Agent 工作流。">
+    <title>PROMPT AS PRODUCTION SYSTEM · Project 005</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../project-detail.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="../../project-detail.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body id="page-top" class="project-page prompt-study-page">
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+    <header class="site-header">
+      <a class="brand" href="../../" aria-label="返回研究总库">0828 / PROJECT 005</a>
+      <nav class="detail-nav" aria-label="项目导航">
+        <a href="../../">总库首页</a>
+        <a href="https://github.com/nuyoah-ai-works/nuyoah-xiezhen-prompt">原始仓库 ↗</a>
+      </nav>
+    </header>
+
+    <nav class="section-nav" aria-label="研究章节">
+      <div class="section-nav__inner">
+        <span class="section-nav__label">PROMPT SYSTEM MAP</span>
+        <div class="section-nav__links">
+          <a href="#judgment" data-section-link="judgment">判断</a>
+          <a href="#samples" data-section-link="samples">样例</a>
+          <a href="#lab" data-section-link="lab">演示</a>
+          <a href="#capabilities" data-section-link="capabilities">能力</a>
+          <a href="#mechanism" data-section-link="mechanism">原理</a>
+          <a href="#scenarios" data-section-link="scenarios">场景</a>
+          <a href="#extensions" data-section-link="extensions">扩展</a>
+          <a href="#meaning" data-section-link="meaning">意义</a>
+          <a href="#boundaries" data-section-link="boundaries">边界</a>
+        </div>
+        <a class="section-nav__play" href="#samples">SEE SAMPLES <span aria-hidden="true">↓</span></a>
+      </div>
+      <i id="readingProgress" class="reading-progress" aria-hidden="true"></i>
+    </nav>
+
+    <main id="main-content" class="detail-main">
+      <section class="detail-hero prompt-hero" aria-labelledby="project-title">
+        <div class="detail-hero-copy">
+          <p class="eyebrow">PROJECT 005 · AGENT SKILL · RESEARCH BUILD</p>
+          <h1 id="project-title">PROMPT<br>AS SYSTEM</h1>
+          <p class="detail-lede">它没有发明新的图片模型。本质仍是提示词生成图片；真正增加的是一层可路由、可检查、可重做的摄影生产控制系统。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#samples">直接看 6 张实测</a>
+            <a class="button secondary" href="#lab">操作能力工作台</a>
+            <a class="button secondary" href="#judgment">先看研究结论</a>
+          </div>
+          <ul class="hero-evidence" aria-label="研究摘要">
+            <li><strong>STILL PROMPT</strong><span>不改变底层生图原理</span></li>
+            <li><strong>6 ROUTES</strong><span>六种写真任务模式</span></li>
+            <li><strong>0 MODEL</strong><span>公开包不含图像模型</span></li>
+          </ul>
+        </div>
+
+        <aside class="system-board" aria-label="从意图到图片模型的系统示意">
+          <div class="system-board__header">
+            <span>AGENT CONTEXT / v1.1.0</span>
+            <b>7482a14</b>
+          </div>
+          <div class="system-board__flow">
+            <article class="system-node is-input">
+              <span>01 / INPUT</span>
+              <strong>主题 + 参考图</strong>
+              <small>用户意图、身份职责、目标数量</small>
+            </article>
+            <i aria-hidden="true">↓</i>
+            <article class="system-node is-skill">
+              <span>02 / SKILL</span>
+              <strong>摄影规则编译</strong>
+              <small>路由、拆解、拓扑、门禁</small>
+            </article>
+            <i aria-hidden="true">↓</i>
+            <article class="system-node is-prompt">
+              <span>03 / OUTPUT</span>
+              <strong>结构化 Prompt</strong>
+              <small>仍需外部图片模型执行</small>
+            </article>
+          </div>
+          <div class="system-board__boundary">
+            <span>能力边界</span>
+            <strong>Skill ≠ Image Model</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section class="fact-strip" aria-label="仓库审计事实">
+        <div><span>PUBLIC RELEASE</span><strong>v1.1.0</strong></div>
+        <div><span>CORE REFERENCES</span><strong>2 份</strong></div>
+        <div><span>RESHOOT EVALS</span><strong>21 例</strong></div>
+        <div><span>PROJECT 005 SAMPLES</span><strong>6 张实测</strong></div>
+      </section>
+
+      <section id="judgment" class="detail-section" data-section aria-labelledby="judgment-title">
+        <p class="section-index">01 / JUDGMENT</p>
+        <div class="section-copy">
+          <p class="kicker">研究判断</p>
+          <h2 id="judgment-title">不是新的生图能力，<br>是现有能力的工程化用法。</h2>
+          <p class="statement">上游把摄影师、视觉导演和后期人员可语言化的隐性控制变成一套 Agent 可执行的“软程序”：判断主题与任务、分配参考职责、重建机位和光照、编译 Prompt、调用现有图片工具，再按摄影方案检查结果。</p>
+          <div class="judgment-grid">
+            <article>
+              <span>它真正增加</span>
+              <h3>生产控制层</h3>
+              <p>从“写几个漂亮词”升级为任务路由、输入合同、摄影知识、失败处理、质量门禁与追溯记录。</p>
+            </article>
+            <article class="is-boundary">
+              <span>它没有增加</span>
+              <h3>模型底层能力</h3>
+              <p>没有训练权重、LoRA、Face ID、ControlNet、换脸、视觉评分模型或独立图片生成服务。</p>
+            </article>
+          </div>
+          <div class="formula" aria-label="本质流程">
+            <span>用户意图 / 参考图</span><i>→</i><strong>摄影 Prompt 控制层</strong><i>→</i><span>现有图片模型</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="samples" class="sample-section" data-section aria-labelledby="samples-title">
+        <div class="sample-heading">
+          <div>
+            <p class="section-index">02 / REAL SAMPLE LIBRARY</p>
+            <p class="kicker">直接看提示词能控制什么</p>
+            <h2 id="samples-title">三套摄影 DNA，<br>六张真实生成结果。</h2>
+          </div>
+          <div class="sample-disclaimer">
+            <b>PROJECT 005 TEST</b>
+            <span>使用内置 imagegen 生成；不是上游官方样片，不代表所有图片模型都会得到相同结果。</span>
+          </div>
+        </div>
+
+        <div class="sample-toolbar">
+          <div id="sampleFilters" class="sample-filters" role="group" aria-label="筛选真实生成样例">
+            <button type="button" data-sample-filter="all" aria-pressed="true">全部 / 6</button>
+            <button type="button" data-sample-filter="rain" aria-pressed="false">雨亭 / 2</button>
+            <button type="button" data-sample-filter="cream" aria-pressed="false">奶油棚拍 / 2</button>
+            <button type="button" data-sample-filter="y2k" aria-pressed="false">Y2K 直闪 / 2</button>
+          </div>
+          <p id="sampleVisibleCount" role="status">正在显示 6 / 6 张实测样例</p>
+        </div>
+
+        <div class="sample-grid" aria-label="Project 005 真实生成接触表">
+          <article class="sample-card" data-sample-card data-sample-style="rain">
+            <a class="sample-visual" href="../../assets/project-005-samples/rain-pavilion-eye-level.png" aria-label="查看雨亭欠曝平视样例原图">
+              <img src="../../assets/project-005-samples/rain-pavilion-eye-level.png" width="1122" height="1402" alt="成年原创女性站在雨中的木亭里，冷灰绿欠曝平视写真" loading="eager" decoding="async">
+              <span>01A / RAIN PAVILION</span>
+            </a>
+            <div class="sample-card__body">
+              <div class="sample-title"><div><span>基准机位</span><h3>雨亭欠曝 · 平视</h3></div><b>PASS</b></div>
+              <div class="sample-tags"><span>环境负补光</span><span>低细节背景</span><span>偶发事件</span></div>
+              <p>验证屋檐遮挡、亭外散射光和人物欠曝能同时成立；结果没有被自动“商业提亮”。</p>
+              <ul class="sample-observations">
+                <li>开口侧脸部微亮，亭内木构与服装自然压暗</li>
+                <li>湿栏杆和落雨是事件线索，不抢人物层级</li>
+                <li>背景被压成灰绿低反差大形</li>
+              </ul>
+              <details class="sample-prompt">
+                <summary>查看完整生成 Prompt</summary>
+                <button class="sample-copy" type="button" data-copy-sample>复制 Prompt</button>
+                <pre data-sample-prompt>Create a 4:5 vertical photorealistic natural editorial photograph for a capability benchmark contact sheet. An original fictional adult East Asian woman, fully clothed, no resemblance to a real person. She stands under an old wooden pavilion during steady rain, wearing a short charcoal jacket over a plain gray skirt. Eye-level medium close portrait, candid half-turn rather than a hero pose; one hand rests near the wet railing as a raindrop lands on her fingers. Pavilion columns and dark eaves create dominant graphic blocks; background is soft gray-green foliage and rain haze with very low detail. Lighting topology: only diffuse overcast daylight entering from the open side of the pavilion, top eaves act as negative fill, face side near the opening is slightly brighter while the interior falls into intentional underexposure. Cold-neutral white balance, low saturation, compressed blacks, softly clipped wet highlights, slight handheld softness, subtle old-digital compression, face not tack-sharp, natural semi-matte skin texture. The image should feel observational, imperfect, quiet, and weather-bound. Avoid warm rim light, front beauty fill, glossy commercial retouching, plastic skin, dramatic cinematic teal-orange, exaggerated bokeh, glamour pose, readable signs. No text, logo, caption, border, or watermark.</pre>
+              </details>
+              <p class="sample-meta"><span>built-in imagegen · 1122 × 1402</span><span>SHA 07a6ac8b</span></p>
+            </div>
+          </article>
+
+          <article class="sample-card" data-sample-card data-sample-style="cream">
+            <a class="sample-visual" href="../../assets/project-005-samples/cream-studio-eye-level.png" aria-label="查看奶油柔雾棚拍平视样例原图">
+              <img src="../../assets/project-005-samples/cream-studio-eye-level.png" width="1122" height="1402" alt="成年原创女性身着象牙白套装站在高调奶油色影棚中" loading="eager" decoding="async">
+              <span>02A / CREAM STUDIO</span>
+            </a>
+            <div class="sample-card__body">
+              <div class="sample-title"><div><span>基准机位</span><h3>奶油柔雾 · 平视</h3></div><b>PASS</b></div>
+              <div class="sample-tags"><span>大面积柔光</span><span>高光滚降</span><span>材质保留</span></div>
+              <p>验证高调并不等于过曝：白衣、薄纱和背景仍有层次，皮肤保留自然纹理。</p>
+              <ul class="sample-observations">
+                <li>左前大柔光形成宽缓阴影，不靠硬轮廓光塑形</li>
+                <li>白色服装与背景分离，纤维和褶皱没有被抹平</li>
+                <li>薄纱成为轻事件，而不是婚纱式叙事</li>
+              </ul>
+              <details class="sample-prompt">
+                <summary>查看完整生成 Prompt</summary>
+                <button class="sample-copy" type="button" data-copy-sample>复制 Prompt</button>
+                <pre data-sample-prompt>Create a 4:5 vertical photorealistic high-key studio fashion portrait for a capability benchmark contact sheet. An original fictional adult East Asian woman, fully clothed, no resemblance to a real person. She wears an ivory tailored blouse and cream wide-leg trousers with a small piece of translucent gauze drifting beside one shoulder. Three-quarter standing composition at eye level, relaxed posture, eyes slightly away from camera, one subtle gesture adjusting a cuff. Minimal warm-white cyclorama studio with no visible seam and almost no props. Lighting topology: very large soft source from camera-left-front through heavy diffusion, broad gentle shadow rolloff, white bounce from below kept restrained, slightly brighter background, no hard rim. Airy cream palette, clean whites with retained fabric detail, low contrast, faint Pro-Mist bloom around highlights, delicate 35mm grain, natural pores and flyaway hair, editorial restraint rather than bridal glamour. Avoid blown facial highlights, porcelain skin, excessive beige uniformity, glossy beauty advertising, hard spotlight, dramatic pose, text or branding. No text, logo, caption, border, or watermark.</pre>
+              </details>
+              <p class="sample-meta"><span>built-in imagegen · 1122 × 1402</span><span>SHA 2425c28b</span></p>
+            </div>
+          </article>
+
+          <article class="sample-card" data-sample-card data-sample-style="y2k">
+            <a class="sample-visual" href="../../assets/project-005-samples/y2k-flash-close.png" aria-label="查看 Y2K CCD 直闪近景样例原图">
+              <img src="../../assets/project-005-samples/y2k-flash-close.png" width="1122" height="1402" alt="成年原创女性在夜间便利店冰柜前被小型数码相机直闪捕捉" loading="eager" decoding="async">
+              <span>03A / Y2K CCD FLASH</span>
+            </a>
+            <div class="sample-card__body">
+              <div class="sample-title"><div><span>基准机位</span><h3>Y2K CCD · 近景</h3></div><b>PASS</b></div>
+              <div class="sample-tags"><span>机顶直闪</span><span>混合白平衡</span><span>CCD 缺陷</span></div>
+              <p>验证直闪、荧光环境和旧数码缺陷能共存，结果保持快照感而非现代商业大片。</p>
+              <ul class="sample-observations">
+                <li>近轴闪光形成正面亮点和玻璃反射</li>
+                <li>背景保留偏绿荧光，不被统一校成中性</li>
+                <li>红眼、边缘软化和轻微色散成为成像机制</li>
+              </ul>
+              <details class="sample-prompt">
+                <summary>查看完整生成 Prompt</summary>
+                <button class="sample-copy" type="button" data-copy-sample>复制 Prompt</button>
+                <pre data-sample-prompt>Create a 4:5 vertical photorealistic Y2K compact-digital direct-flash fashion snapshot for a capability benchmark contact sheet. An original fictional adult East Asian woman, fully clothed, no resemblance to a real person. She wears a cobalt track jacket over a silver-gray tank and dark jeans inside a late-night convenience store aisle. Tight chest-up candid composition, slightly tilted compact-camera framing, caught mid-reach toward a refrigerator door rather than posing; cool product rows become colorful abstract blocks with no readable labels. Direct on-camera flash creates a crisp frontal pop, small hard shadow behind her, reflective sparkle on nylon and glass, while ambient fluorescent light remains cool and slightly green in the background. Visible compact CCD character: modest noise, slight chromatic fringing at edges, imperfect white balance, small blown specular highlights, sharp center with soft corners. Energetic but believable early-2000s snapshot, natural skin texture and mild red-eye tendency without distortion. Avoid modern luxury campaign polish, cinematic rim lighting, perfect symmetry, hyper-clean studio retouching, fake film border, readable packaging or signs. No text, logo, caption, border, or watermark.</pre>
+              </details>
+              <p class="sample-meta"><span>built-in imagegen · 1122 × 1402</span><span>SHA e1a3cb63</span></p>
+            </div>
+          </article>
+
+          <article class="sample-card" data-sample-card data-sample-style="rain">
+            <a class="sample-visual" href="../../assets/project-005-samples/rain-pavilion-low-angle.png" aria-label="查看雨亭欠曝低机位变体原图">
+              <img src="../../assets/project-005-samples/rain-pavilion-low-angle.png" width="1122" height="1402" alt="成年原创女性在雨亭中整理湿发，低机位近栏杆构图" loading="lazy" decoding="async">
+              <span>01B / RAIN VARIANT</span>
+            </a>
+            <div class="sample-card__body">
+              <div class="sample-title"><div><span>机位变体</span><h3>雨亭欠曝 · 低机位</h3></div><b>PASS</b></div>
+              <div class="sample-tags"><span>世界空间光源</span><span>前景失焦</span><span>非英雄低角度</span></div>
+              <p>机位降低后，光没有跟着相机旋转；屋檐仍遮挡上方，人物仍由亭外开口微弱提亮。</p>
+              <ul class="sample-observations">
+                <li>低机位没有自动升级成暖边光英雄照</li>
+                <li>湿栏杆成为前景大形，人物保持有限清晰</li>
+                <li>整理湿发提供新的动作与视线事件</li>
+              </ul>
+              <details class="sample-prompt">
+                <summary>查看完整生成 Prompt</summary>
+                <button class="sample-copy" type="button" data-copy-sample>复制 Prompt</button>
+                <pre data-sample-prompt>Create a 4:5 vertical photorealistic natural editorial photograph as the second variation in a rainy-pavilion capability benchmark. An original fictional adult East Asian woman, fully clothed, no resemblance to a real person. She wears a charcoal cropped jacket and plain slate skirt inside an old wooden pavilion during steady rain. Low camera position near the wet railing, wider three-quarter composition looking slightly upward beneath the eaves; she is not posing, but steps back from a gust of rain while gathering one wet strand of hair. Foreground railing is close and slightly soft, pavilion posts recede diagonally, gray-green trees and rain haze stay low-detail. Preserve the same world-space lighting logic as an eye-level version: diffuse overcast daylight comes only from the open exterior side, the heavy eaves block top light, the outward-facing side of her face and hands is faintly brighter, the pavilion interior remains intentionally underexposed. Cold-neutral white balance, desaturated gray-green palette, compressed blacks, wet highlights near clipping, modest handheld blur and old-digital compression, natural semi-matte skin, imperfect focus prioritizing the rain-slick railing over facial sharpness. Quiet observational realism. Avoid heroic low-angle glamour, warm rim light, front fill, cinematic teal-orange, glossy retouching, plastic skin, excessive bokeh, readable signs. No text, logo, caption, border, or watermark.</pre>
+              </details>
+              <p class="sample-meta"><span>built-in imagegen · 1122 × 1402</span><span>SHA 58c93711</span></p>
+            </div>
+          </article>
+
+          <article class="sample-card" data-sample-card data-sample-style="cream">
+            <a class="sample-visual" href="../../assets/project-005-samples/cream-studio-overhead.png" aria-label="查看奶油柔雾棚拍俯拍变体原图">
+              <img src="../../assets/project-005-samples/cream-studio-overhead.png" width="1122" height="1402" alt="成年原创女性坐在白色地台上，手持薄纱，从温和俯拍机位拍摄" loading="lazy" decoding="async">
+              <span>02B / CREAM VARIANT</span>
+            </a>
+            <div class="sample-card__body">
+              <div class="sample-title"><div><span>机位变体</span><h3>奶油柔雾 · 俯拍</h3></div><b>PASS</b></div>
+              <div class="sample-tags"><span>俯拍拓扑</span><span>薄纱层次</span><span>低对比</span></div>
+              <p>俯拍改变身体与地台比例，但大柔光的方向、阴影滚降和面料细节仍与基准图一致。</p>
+              <ul class="sample-observations">
+                <li>俯拍没有把脸部压成无方向的平光</li>
+                <li>薄纱穿过前景，仍保留半透明层次</li>
+                <li>暖白调统一，但肤色、衣料和背景可区分</li>
+              </ul>
+              <details class="sample-prompt">
+                <summary>查看完整生成 Prompt</summary>
+                <button class="sample-copy" type="button" data-copy-sample>复制 Prompt</button>
+                <pre data-sample-prompt>Create a 4:5 vertical photorealistic high-key studio fashion photograph as the second variation in a cream editorial capability benchmark. An original fictional adult East Asian woman, fully clothed, no resemblance to a real person. She wears an ivory tailored blouse and cream wide-leg trousers and sits loosely on a low white cube, seen from a gentle overhead camera angle. One knee turns away, one hand loosely holds a sheet of translucent gauze that crosses a corner of the frame, gaze down and off-camera, unforced in-between movement rather than a pose. Minimal warm-white cyclorama, no visible seam, no decorative props. Preserve the same lighting system as the standing portrait: very large soft source from camera-left-front through heavy diffusion, broad shadow rolloff, restrained white bounce, slightly brighter background, no hard rim. High-key cream palette with fabric weave retained, low contrast, faint Pro-Mist highlight bloom, fine 35mm grain, natural pores and flyaway hair. The overhead topology should remain believable rather than flattening the face. Avoid blown skin highlights, wedding aesthetic, excessive beige uniformity, luxury beauty gloss, hard spotlight, perfect symmetry, text or branding. No text, logo, caption, border, or watermark.</pre>
+              </details>
+              <p class="sample-meta"><span>built-in imagegen · 1122 × 1402</span><span>SHA c04b2a7c</span></p>
+            </div>
+          </article>
+
+          <article class="sample-card" data-sample-card data-sample-style="y2k">
+            <a class="sample-visual" href="../../assets/project-005-samples/y2k-flash-wide.png" aria-label="查看 Y2K CCD 直闪广角变体原图">
+              <img src="../../assets/project-005-samples/y2k-flash-wide.png" width="1122" height="1402" alt="成年原创女性在便利店冰柜前大笑行走，使用倾斜广角直闪拍摄" loading="lazy" decoding="async">
+              <span>03B / Y2K VARIANT</span>
+            </a>
+            <div class="sample-card__body">
+              <div class="sample-title"><div><span>机位变体</span><h3>Y2K CCD · 广角全身</h3></div><b>PASS</b></div>
+              <div class="sample-tags"><span>低机位广角</span><span>动作抓拍</span><span>直闪不变</span></div>
+              <p>景别从近景改为近全身后，直闪关系和便利店混合光仍成立，人物事件也与基准图不同。</p>
+              <ul class="sample-observations">
+                <li>直闪亮点与身后硬阴影延续同一机制</li>
+                <li>倾斜地平线、软角与轻桶形变强化快照感</li>
+                <li>开门、迈步和笑意构成完整偶发事件</li>
+              </ul>
+              <details class="sample-prompt">
+                <summary>查看完整生成 Prompt</summary>
+                <button class="sample-copy" type="button" data-copy-sample>复制 Prompt</button>
+                <pre data-sample-prompt>Create a 4:5 vertical photorealistic Y2K compact-digital direct-flash fashion snapshot as the second variation in a capability benchmark. An original fictional adult East Asian woman, fully clothed, no resemblance to a real person. She wears a cobalt track jacket, silver-gray tank, dark relaxed jeans and simple sneakers at a late-night convenience-store drink refrigerator. Wider nearly full-body composition from a slightly low compact-camera position, casual crooked horizon; she has just turned from opening a refrigerator door, one foot mid-step, an unplanned laugh caught between movements rather than a fashion pose. Reflective glass, cool fluorescent ceiling tubes and product colors form abstract background blocks with no readable labels. Preserve the direct-flash system: small on-camera frontal burst, crisp shadow behind her, bright reflections on nylon and glass, cool-green ambient still visible in the distance. Compact CCD imperfections: moderate sensor noise, slight chromatic fringing, imperfect mixed white balance, blown tiny specular highlights, center sharpness with soft corners and mild barrel distortion. Believable 2000s snapshot energy. Avoid polished modern campaign lighting, cinematic rim light, perfect symmetry, studio retouching, exaggerated fisheye, fake date stamp, readable packaging or signs. No text, logo, caption, border, or watermark.</pre>
+              </details>
+              <p class="sample-meta"><span>built-in imagegen · 1122 × 1402</span><span>SHA 4ab983fd</span></p>
+            </div>
+          </article>
+        </div>
+
+        <div class="sample-conclusion">
+          <span>这六张能证明什么？</span>
+          <strong>Prompt 能稳定组织风格、光照、构图、事件与成像缺陷；但人物身份一致性、跨模型稳定性和高成功率仍不能由六张样例证明。</strong>
+          <a href="#lab">到编译台拆解这些控制变量 ↓</a>
+        </div>
+      </section>
+
+      <section id="lab" class="lab-section" data-section aria-labelledby="lab-title">
+        <div class="lab-heading">
+          <div>
+            <p class="section-index">03 / CAPABILITY LAB</p>
+            <p class="kicker">确定性概念演示</p>
+            <h2 id="lab-title">摄影 Prompt 编译台</h2>
+          </div>
+          <div class="lab-disclaimer"><b>NO MODEL CALL</b><span>这里不调用 LLM 或生图 API；用于演示规则如何改变输出。</span></div>
+        </div>
+
+        <noscript><p class="noscript-note">当前浏览器未启用 JavaScript。研究正文仍可阅读，但交互编译台需要 JavaScript 才能切换样例。</p></noscript>
+
+        <div class="compiler-shell">
+          <form id="compilerForm" class="compiler-controls">
+            <div class="control-group">
+              <span class="control-label">A / 选择任务模式</span>
+              <div id="modeTabs" class="mode-tabs" role="group" aria-label="任务模式">
+                <button type="button" data-mode="detailed" aria-pressed="true">详细提示词</button>
+                <button type="button" data-mode="variant" aria-pressed="false">系列变体</button>
+                <button type="button" data-mode="reshoot" aria-pressed="false">摄影方案复拍</button>
+              </div>
+            </div>
+
+            <label class="control-group" for="themeInput">
+              <span class="control-label">B / 写真主题</span>
+              <textarea id="themeInput" rows="3">为一位成年原创女性设计雨亭中的抓拍写真</textarea>
+            </label>
+
+            <label class="control-group" for="referenceSelect">
+              <span class="control-label">C / 摄影参考 DNA</span>
+              <select id="referenceSelect">
+                <option value="rain">雨亭欠曝抓拍</option>
+                <option value="cream">奶油柔雾棚拍</option>
+                <option value="y2k">Y2K CCD 直闪</option>
+              </select>
+            </label>
+
+            <div class="control-pair">
+              <label class="control-group" for="viewpointSelect">
+                <span class="control-label">D / 新机位</span>
+                <select id="viewpointSelect">
+                  <option value="original">平视 / 原关系</option>
+                  <option value="overhead">俯拍 / 相机升高</option>
+                  <option value="low">低机位 / 屋檐下</option>
+                </select>
+              </label>
+
+              <label class="identity-toggle" for="identityToggle">
+                <span><b>人物身份图</b><small>只负责“她是谁”</small></span>
+                <input id="identityToggle" type="checkbox">
+              </label>
+            </div>
+
+            <div class="compiler-actions">
+              <button id="compileButton" class="button primary" type="submit">重新编译</button>
+              <button id="resetCompiler" class="button secondary" type="button">恢复默认</button>
+            </div>
+          </form>
+
+          <div class="compiler-output" aria-live="polite">
+            <div class="output-meta">
+              <span id="routeBadge">ROUTE / DETAILED</span>
+              <span id="compileStatus">READY · 确定性规则演示</span>
+            </div>
+
+            <ol id="pipelineSteps" class="pipeline-steps" aria-label="编译过程"></ol>
+
+            <div class="responsibility-card">
+              <span>REFERENCE RESPONSIBILITY</span>
+              <p id="referenceRole"></p>
+            </div>
+
+            <div class="prompt-output">
+              <div class="prompt-output__header">
+                <div><span>COMPILED PROMPT</span><small id="promptStats"></small></div>
+                <button id="copyCompiledPrompt" type="button">复制结果</button>
+              </div>
+              <pre id="compiledPrompt" tabindex="0"></pre>
+              <p id="copyFeedback" class="copy-feedback" role="status">尚未调用图片模型</p>
+            </div>
+
+            <div class="quality-panel">
+              <div><span>QUALITY GATES</span><b>生成后才可验收</b></div>
+              <ul id="qualityGates"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="capabilities" class="detail-section" data-section aria-labelledby="capabilities-title">
+        <p class="section-index">04 / CAPABILITY MAP</p>
+        <div class="section-copy">
+          <p class="kicker">上游直接提供</p>
+          <h2 id="capabilities-title">六条能力路线，<br>一个共同摄影骨架。</h2>
+          <div class="capability-grid">
+            <article><span>01</span><h3>详细 Prompt</h3><p>按比例、人物、妆造、服装、场景、道具、机位、构图、动作、光线与负面约束完整编译。</p></article>
+            <article><span>02</span><h3>系列母版</h3><p>锁定共同视觉 DNA，再为多张图片分配动作、表情、镜头、主道具和光线落点。</p></article>
+            <article><span>03</span><h3>系列变体</h3><p>固定整体风格与成像机制词链，重新设计构图、动作、视线、道具和人物事件。</p></article>
+            <article><span>04</span><h3>抽卡关键词</h3><p>用 6–8 行保留成立点和变量池，扩大生成分布，适合网页端大量探索。</p></article>
+            <article><span>05</span><h3>参考图拆解</h3><p>区分可见事实、可生成语言、固定锚点、随机变量与单张偶发元素。</p></article>
+            <article><span>06</span><h3>摄影方案复拍</h3><p>更换人物但保留摄影企划，重建布光、曝光、分镜、背景层级和成像系统。</p></article>
+          </div>
+          <div class="guardrail"><strong>关键边界</strong><p>只有用户明确要求生图且环境提供图片工具时才执行生成。普通请求默认只交付 Prompt；没有图片工具时必须停在方案层，不能伪造结果。</p></div>
+        </div>
+      </section>
+
+      <section id="mechanism" class="detail-section" data-section aria-labelledby="mechanism-title">
+        <p class="section-index">05 / MECHANISM</p>
+        <div class="section-copy">
+          <p class="kicker">上下文编程</p>
+          <h2 id="mechanism-title">四层软程序，<br>七步生产闭环。</h2>
+          <div class="architecture-layers">
+            <article><span>ROUTER</span><strong>SKILL.md</strong><p>识别用户意图，选择详细、母版、变体、抽卡、拆解或复拍。</p></article>
+            <article><span>KNOWLEDGE</span><strong>prompt-logic.md</strong><p>把审美词翻译成可观察的妆造、构图、光线、材质与成像机制。</p></article>
+            <article><span>EXECUTION</span><strong>production-reshoot.md</strong><p>规定参考职责、分镜、拓扑预测、生成次数、失败和验收。</p></article>
+            <article><span>REGRESSION</span><strong>evals + tests</strong><p>保护触发、边界、署名、重做、便携性与输出合同不随版本漂移。</p></article>
+          </div>
+          <div class="production-flow" aria-label="七步生产闭环">
+            <div><b>01</b><strong>意图路由</strong><span>选择正确输出模式</span></div><i>→</i>
+            <div><b>02</b><strong>事实拆解</strong><span>只承认可见证据</span></div><i>→</i>
+            <div><b>03</b><strong>职责分离</strong><span>身份与摄影参考分开</span></div><i>→</i>
+            <div><b>04</b><strong>方案分镜</strong><span>共同套餐与差异矩阵</span></div><i>→</i>
+            <div><b>05</b><strong>Prompt 编译</strong><span>高信号连续指令</span></div><i>→</i>
+            <div><b>06</b><strong>工具生成</strong><span>依赖外部图片模型</span></div><i>→</i>
+            <div><b>07</b><strong>质量门禁</strong><span>原作对照与追溯</span></div>
+          </div>
+          <div class="mechanism-notes">
+            <article><span>LIGHT TOPOLOGY</span><h3>机位变化，光源不能跟着旋转</h3><p>先把光源、遮挡和环境反射放回世界空间，再预测新视角下眼神光、面部亮暗、肩臂与背景曝光。</p></article>
+            <article><span>RESET CONTRACT</span><h3>重做从原始输入重新编译</h3><p>上一轮生成图只用于判断失败，不自动成为下一轮输入，从而减少以错修错和风格漂移。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="scenarios" class="detail-section" data-section aria-labelledby="scenarios-title">
+        <p class="section-index">06 / SCENARIOS</p>
+        <div class="section-copy">
+          <p class="kicker">使用边界</p>
+          <h2 id="scenarios-title">适合做控制，<br>不适合冒充能力突破。</h2>
+          <div class="scenario-columns">
+            <article class="fit-high">
+              <span>HIGH FIT</span><h3>直接适合</h3>
+              <ul><li>完整中文写真 Prompt</li><li>组图视觉 DNA 拆解</li><li>同系列多分镜规划</li><li>更换人物复拍摄影企划</li><li>团队 Prompt 与 QA SOP</li></ul>
+            </article>
+            <article class="fit-conditional">
+              <span>CONDITIONAL</span><h3>需要补系统</h3>
+              <ul><li>跨图片模型稳定复用</li><li>大规模批量生产</li><li>跨图角色一致性</li><li>商业摄影前期协作</li><li>自动资产归档与版本</li></ul>
+            </article>
+            <article class="fit-low">
+              <span>NOT A FIT</span><h3>不能直接承担</h3>
+              <ul><li>像素级换脸与原片编辑</li><li>人物一致性技术保证</li><li>反推真实器材与灯位</li><li>无人验收自动生产线</li><li>版权与肖像授权决策</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="extensions" class="detail-section" data-section aria-labelledby="extensions-title">
+        <p class="section-index">07 / EXTENSIONS</p>
+        <div class="section-copy">
+          <p class="kicker">从 Skill 到生产系统</p>
+          <h2 id="extensions-title">扩展重点不是加词，<br>而是增加可验证的系统层。</h2>
+          <div class="extension-roadmap">
+            <article><span>P0</span><div><h3>结构化摄影中间层</h3><p>用 JSON Schema 固定身份职责、共同套餐、布光子方案、分镜、拓扑预测、成像系统和质量门禁。</p></div><b>FOUNDATION</b></article>
+            <article><span>P1</span><div><h3>多模型 Prompt 编译器</h3><p>把同一摄影方案编译成 Codex Image、Midjourney、Flux、即梦等目标格式，明确每个模型的能力边界。</p></div><b>ADAPTER</b></article>
+            <article><span>P2</span><div><h3>真实视觉回归</h3><p>用授权参考组和人工评分测量企划一致性、身份、光照、构图、背景层级和用户采用率。</p></div><b>EVIDENCE</b></article>
+            <article><span>P3</span><div><h3>资产与反馈闭环</h3><p>保存输入职责、模型版本、Prompt、参数、结果、失败原因、修改记录和最终采用状态。</p></div><b>LINEAGE</b></article>
+            <article><span>P4</span><div><h3>题材与权利治理</h3><p>扩展人物类型与非人物摄影，同时记录肖像授权、参考来源、输出用途和保留期限。</p></div><b>GOVERNANCE</b></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="meaning" class="detail-section" data-section aria-labelledby="meaning-title">
+        <p class="section-index">08 / MEANING</p>
+        <div class="section-copy">
+          <p class="kicker">对我们的意义</p>
+          <h2 id="meaning-title">借鉴它的工程结构，<br>不要高估它的模型能力。</h2>
+          <div class="meaning-grid">
+            <article><span>01 / BORROW</span><h3>把视觉经验产品化</h3><p>触发规则、输入职责、领域知识、输出合同、工具授权、失败重做、质量门禁、eval 和版本发行，这条链路可以迁移到我们的各种视觉 Skill。</p></article>
+            <article><span>02 / KEEP</span><h3>保留自己的风格配方</h3><p>上游偏年轻成年女性写真，不应成为全部视觉任务的默认审美。借框架，不复制领域偏好。</p></article>
+            <article><span>03 / VERIFY</span><h3>用真实采用率说话</h3><p>选择三组授权参考，比较自由 Prompt、现有 Skill 与结构化摄影方案，测量保真、失败率、重做次数和最终采用率。</p></article>
+          </div>
+          <div class="decision-card">
+            <span>OUR DECISION</span>
+            <strong>架构参考价值高，直接产品能力中等，底层技术新增为零。</strong>
+            <p>建议把它纳入视觉 Skill 的工程 benchmark；只有真实回归证明采用率或重做成本改善，才继续建设多模型编译和资产闭环。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="boundaries" class="detail-section" data-section aria-labelledby="boundaries-title">
+        <p class="section-index">09 / EVIDENCE &amp; LIMITS</p>
+        <div class="section-copy">
+          <p class="kicker">成熟度与证据</p>
+          <h2 id="boundaries-title">规则设计成熟，<br>公开视觉验证仍早。</h2>
+          <div class="boundary-list">
+            <article><span>PUBLIC AGE</span><p>公开版 1.1.0 于 2026-08-26 发布，公开提交历史很短，外部使用记录仍需时间积累。</p></article>
+            <article><span>TEST SCOPE</span><p>合同测试已通过，但主要验证文件、关键规则和 eval 条目存在；结构测试不等于真实生图回归。</p></article>
+            <article><span>MODEL SUPPORT</span><p>第一版只正式支持 Codex Image 完整闭环；跨模型只能复用思路，不能宣称效果一致。</p></article>
+            <article><span>PUBLIC SOURCE</span><p>公开仓库是从私有真源生成的发行面；它适合安装、审计和 fork，但不是公开协作的唯一真源。</p></article>
+          </div>
+          <div class="source-links" aria-label="研究来源">
+            <a href="https://github.com/nuyoah-ai-works/nuyoah-xiezhen-prompt/blob/main/SKILL.md">SKILL.md ↗</a>
+            <a href="https://github.com/nuyoah-ai-works/nuyoah-xiezhen-prompt/blob/main/references/prompt-logic.md">Prompt Logic ↗</a>
+            <a href="https://github.com/nuyoah-ai-works/nuyoah-xiezhen-prompt/blob/main/references/production-reshoot.md">Reshoot Workflow ↗</a>
+            <a href="https://github.com/nuyoah-ai-works/nuyoah-xiezhen-prompt/blob/main/tests/run_contract_tests.py">Contract Tests ↗</a>
+            <a href="https://github.com/nuyoah-ai-works/nuyoah-xiezhen-prompt/blob/main/LICENSE">MIT License ↗</a>
+          </div>
+          <p class="evidence-note">本页六张图片是 Project 005 使用内置 imagegen 的真实生成实测；交互工作台是确定性规则演示。两者都不属于上游代码，也不代表上游官方效果或跨模型效果承诺。完整提示词、文件哈希与 QA 记录保存在样例清单中。</p>
+        </div>
+      </section>
+
+      <section class="closing-cta" aria-labelledby="closing-title">
+        <p class="eyebrow">PROJECT 005 · RESEARCH POSITION</p>
+        <h2 id="closing-title">把提示词当成生产系统研究，<br>但始终记住它仍然是提示词。</h2>
+        <div class="hero-actions">
+          <a class="button primary" href="#samples">返回真实样例库</a>
+          <a class="button secondary" href="#lab">返回能力工作台</a>
+          <a class="button secondary" href="https://github.com/nuyoah-ai-works/nuyoah-xiezhen-prompt">查看原始仓库</a>
+        </div>
+      </section>
+    </main>
+
+    <a class="back-to-top" href="#page-top" aria-label="返回页面顶部">TOP ↑</a>
+  </body>
+</html>
