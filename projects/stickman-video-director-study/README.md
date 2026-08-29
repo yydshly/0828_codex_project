@@ -369,7 +369,7 @@ Project 008 已把“保留导演内核、替换火柴人风格”进一步落�
 - [机器可读形象清单](https://yydshly.github.io/0828_codex_project/projects/stickman-video-director-study/character-style-gallery.json)
 - [GitHub 项目目录](https://github.com/yydshly/0828_codex_project/tree/main/projects/stickman-video-director-study)
 
-Revision 5 本地验证：静态检查 56/56、真实 Chromium 65/65、Pages 构建成功；远端必要总结部署证据将在对应发布完成后写回设计记录。
+Revision 5 已完成本地与远端验证：静态检查 56/56、Pages 构建成功、本地及 GitHub Pages 真实 Chromium 均为 65/65；必要总结页与仓库 `SUMMARY.md` 均返回 HTTP 200。功能提交 [`0c53da8`](https://github.com/yydshly/0828_codex_project/commit/0c53da803e107bf8145de5da7356cc937b0082c6) 已进入 `origin/main`，对应 [Pages workflow `33229977433`](https://github.com/yydshly/0828_codex_project/actions/runs/33229977433) 成功。
 
 ## 本地复现
 
